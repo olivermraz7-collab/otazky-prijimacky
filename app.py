@@ -84,6 +84,14 @@ if len(pool) > 0:
     st.subheader(f"Otázka č. {q['id']}")
     st.write(q['text'])
 
+    # --- ZOBRAZENIE OBRÁZKA (VZORCOV) ---
+    if 'image' in q and q['image']:
+        try:
+            # GitHub/Streamlit hľadá v priečinku images/
+            st.image(q['image'], use_container_width=True)
+        except Exception:
+            st.error(f"Obrázok k otázke {q['id']} sa nepodarilo načítať.")
+
     user_choices = []
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         for opt in q['options']:

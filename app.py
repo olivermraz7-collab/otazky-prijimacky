@@ -172,9 +172,9 @@ if len(pool) > 0:
         correct_str = "".join(sorted(q['answer']))
         
         if user_str == correct_str:
-            st.success(f"✅ SPRÁVNE! Odpoveď: **{q['answer']}**")
+            st.success(f"✅ SPRÁVNE! Odpoveď: 'answer'")
         else:
-            st.error(f"❌ NESPRÁVNE! Správna odpoveď: **{q['answer']}**")
+            st.error(f"❌ NESPRÁVNE! Správna odpoveď: 'answer'")
             st.info(f"Tvoja odpoveď: {user_str if user_str else 'žiadna'}")
 
     # ŠTATISTIKY V SIDEBARE

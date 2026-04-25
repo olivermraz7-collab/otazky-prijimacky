@@ -110,7 +110,7 @@
       "A. p = m + v",
       "B. p = m/v",
       "C. p = m·v",
-      "D. p = v/m"
+      "D. p = v/mZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "C"
@@ -149,14 +149,14 @@
       "A. v1 > v2",
       "B. v1 = v2",
       "C. v1 < v2",
-      "D. v1 / v2 =1"
+      "D. v1 / v2 ="
     ],
     "answer": [
       "C"
     ]
   },
   {
-    "id": 13,
+    "id": 113,
     "text": "Vratkú rovnovážnu polohu má teleso:",
     "options": [
       "A. ktoré sa po vychýlení z tejto polohy opäť vracia do rovnakej polohy",
@@ -201,20 +201,20 @@
       "A. M = F·r",
       "B. M = F/r",
       "C. M = F + r",
-      "D. M = ( F·r )/2"
+      "D. M = ( F·r )/"
     ],
     "answer": [
       "A"
     ]
   },
   {
-    "id": 17,
+    "id": 217,
     "text": "Rovnica spojitosti (kontinuity) je vyjadrením zákona zachovania hmotnosti pre ustálené prúdeniekvapaliny a vyjadruje že:",
     "options": [
       "A. súčet rýchlosti prúdiacej kvapaliny a prierezu trubice je veličina konštantná",
       "B. pri ustálenom prúdení je hmotnostný tok tekutiny so stálou hustotou ρ v každom prierezeprúdovej trubice rovnaký",
       "C. podiel rýchlosti prúdiacej kvapaliny a prierezu trubice je veličina konštantná",
-      "D. logaritmus súčtu rýchlosti prúdiacej kvapaliny a priemeru trubice je veličina konštantná"
+      "D. logaritmus súčtu rýchlosti prúdiacej kvapaliny a priemeru trubice je veličina konštantnáZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": []
   },
@@ -316,7 +316,7 @@
       "A. pevná látka",
       "B. kvapalná látka",
       "C. plynná látka",
-      "D. plazma"
+      "D. plazmaZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "A"
@@ -355,14 +355,14 @@
       "A. W = Q/U",
       "B. W =Q·U",
       "C. W = U/Q",
-      "D. W = (O·U)-1"
+      "D. W = (O·U)-"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 29,
+    "id": 129,
     "text": "Kapacita C vodiča  elektrického prúdu je vlastnosť vodiča definovaná vzťahom ... ,  kde Q jenáboj, U je napätie:",
     "options": [
       "A. C = Q·U,",
@@ -394,25 +394,25 @@
       "A. C = C1 · C2",
       "B. C = C1 / C2",
       "C. C = C1 + C2",
-      "D. C = C1 - C2"
+      "D. C = C1"
     ],
     "answer": [
       "C"
     ]
   },
   {
-    "id": 32,
+    "id": 232,
     "text": "Pri sériovom zapojení dvoch kondenzátorov o kapacite C1 a C2 je výsledná kapacita C danávzťahom:",
     "options": [
       "A. C = C1 + C2",
       "B. C = C1 · C2",
       "C. C = 1/ C1 + 1/ C2",
-      "D. 1/C = 1/ C1 + 1/ C2"
+      "D. 1/C = 1/ C1 + 1/"
     ],
     "answer": []
   },
   {
-    "id": 33,
+    "id": 233,
     "text": "Žiarovky A a B majú rôzny odpor vlákna a platí, že odpor RA > R",
     "options": [
       "B. Žiarovky pripojíme ku zdrojukonštantného elektrického napätia paralelne a zistíme, že:",
@@ -713,10 +713,8 @@
     ]
   },
   {
-    "id": 56,
-    "text": " Priamy vodič dĺžky 400 mm je umiestnený v homogénnom magnetickom poli o magnetickej
-indukcii 8.10⁻² T. Vodičom prechádza prúd 2 A. Magnetická sila pôsobiaca na vodič kolmý k smeru
-indukčných čiar je:",
+    "id": 8,
+    "text": "10-2 T. Vodičom prechádza prúd 2",
     "options": [
       "A. Magnetická sila pôsobiaca na vodič kolmý k smeruindukčných čiar je:",
       "A. 0,064 N",
@@ -760,12 +758,19 @@ indukčných čiar je:",
     "options": [
       "A. 220/√2 V",
       "B. 220·√2 V",
-      "C. 220·0,707 V"
-      "D. 220 V"
+      "C. 220·"
     ],
     "answer": [
       "B"
     ]
+  },
+  {
+    "id": 0,
+    "text": "707 V",
+    "options": [
+      "D. 220 V"
+    ],
+    "answer": []
   },
   {
     "id": 60,
@@ -773,7 +778,7 @@ indukčných čiar je:",
     "options": [
       "A. prúd predbieha napätie o π/2",
       "B. napätie predbieha prúd o π/2",
-      "C. napätie predbieha prúd o π"
+      "C. napätie predbieha prúd o πZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "B"
@@ -781,33 +786,32 @@ indukčných čiar je:",
   },
   {
     "id": 61,
-    "text": "Kapacitancia kondenzátora v obvode striedavého prúdu pri frekvencii f1 je X1 a pri frekvencii f2 je kapacitancia X2 . Ak platí f1 > f2, potom pre kapacitancie platí:",
+    "text": "Kapacitancia kondenzátora v obvode striedavého prúdu pri frekvencii f1 je X1 a pri frekvencii f2 jekapacitancia X2 . Ak platí f1 > f2, potom pre kapacitancie platí:",
     "options": [
       "A. X1 > X2",
       "B. X1 < X2",
       "C. X1 = X2",
-      "D. X1 = 1/X1"
+      "D. X1 = 1/X"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 62,
-    "text": " Induktancia cievky v obvode striedavého prúdu pri frekvencii f1
- je X1 a pri frekvencii f2 je X2. Ak je f1 > f2, potom pre induktancie platí:",
+    "id": 2,
+    "text": "Akje f1 > f2, potom pre induktancie platí:",
     "options": [
       "A. X1 > X2",
       "B. X1 < X2",
       "C. X1 = X2",
-      "D. X1 = 1/X2"
+      "D. X1 = 1/X"
     ],
     "answer": [
       "C"
     ]
   },
   {
-    "id": 63,
+    "id": 263,
     "text": "Induktancia cievky s vlastnou indukčnosťou L = 100 mH, ktorá je zapojená v obvode striedavéhoprúdu s frekvenciou f = 100 Hz je:",
     "options": [
       "A. 10 Ω",
@@ -824,14 +828,14 @@ indukčných čiar je:",
       "A. pripojíme paralelne k voltmetru odpor o veľkosti R",
       "B. predradíme do série odpor o veľkosti R",
       "C. pripojíme paralelne k voltmetru odpor o veľkosti 2·R",
-      "D. pripojíme paralelne k voltmetru odpor o veľkosti R/2"
+      "D. pripojíme paralelne k voltmetru odpor o veľkosti R/"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 65,
+    "id": 265,
     "text": "Ak chceme zväčšiť rozsah ampérmetra musíme pripojiť k prístroju:",
     "options": [
       "A. odpor do série",
@@ -848,30 +852,30 @@ indukčných čiar je:",
       "A. P = U·I",
       "B. P = U·I· cosφ",
       "C. P = U·I /cosφ",
-      "D. P = (U·I cosφ )²"
+      "D. P = (U·I cosφ )"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 67,
+    "id": 267,
     "text": "Transformátor striedavého prúdu mení striedavé napätie na iné napätie s tou istou frekvenciou.Pre pomer počtu závitov N1 v primárnej cievky a sekundárnej cievke N2 a pomer indukovanéhonapätia v cievkach  U1 a  U2  platí vzťah:",
     "options": [
       "A. U1: U2 = N1 : N2",
       "B. U1: U2 = (N1 : N2 )2",
       "C. U1: U2 = N2 : N1",
-      "D. U1: U2 = (N1 : N2 )-2"
+      "D. U1: U2 = (N1 : N2 )-"
     ],
     "answer": []
   },
   {
-    "id": 68,
+    "id": 268,
     "text": "Index lomu n, ak  rýchlosť svetla vo vákuu je c a je rýchlosť svetla v danom prostredí je v, jedefinovaný vzťahom:",
     "options": [
       "A. n = c·v",
       "B. n = c/v",
-      "C. n = v/c"
+      "C. n = v/cZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": []
   },
@@ -983,7 +987,7 @@ indukčných čiar je:",
     "options": [
       "A. E = h·c",
       "B. E = h/c",
-      "C. E = h·f"
+      "C. E = h·fZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "C"
@@ -1126,14 +1130,14 @@ indukčných čiar je:",
       "A. 6",
       "B. 8",
       "C. 14",
-      "D. 20"
+      "D. "
     ],
     "answer": [
       "C"
     ]
   },
   {
-    "id": 89,
+    "id": 2089,
     "text": "Okamžitá rýchlosť a priemerná rýchlosť sa vždy zhoduje pri:",
     "options": [
       "A. rovnomernom pohybe",
@@ -1176,14 +1180,14 @@ indukčných čiar je:",
       "A. D·f = 1",
       "B. že je kladná pre rozptylky",
       "C. že je záporná pre spojky",
-      "D. jednotkou optickej mohutnosti je cm⁻¹"
+      "D. jednotkou optickej mohutnosti je cm-"
     ],
     "answer": [
       "A"
     ]
   },
   {
-    "id": 93,
+    "id": 193,
     "text": "Žiarenie gama sa v magnetickom poli:",
     "options": [
       "A. nevychyľuje",
@@ -1264,17 +1268,17 @@ indukčných čiar je:",
     "id": 99,
     "text": "Jednotkou mernej tepelnej kapacity je:",
     "options": [
-      "A. J·kg⁻¹·K",
-      "B. J·K⁻¹",
-      "C. J·kg⁻¹·K⁻¹",
-      "D. J·kg-⁻¹"
+      "A. J·kg-1·K",
+      "B. J·K-1",
+      "C. J·kg-1·K-1",
+      "D. J·kg-"
     ],
     "answer": [
       "C"
     ]
   },
   {
-    "id": 100,
+    "id": 1100,
     "text": "Lux je jednotkou:",
     "options": [
       "A. svietivosti",
@@ -1342,15 +1346,15 @@ indukčných čiar je:",
     "options": [
       "A. 1:50",
       "B. 1:500",
-      "C. 1:1050",
-      "D. 1:10⁵"
+      "C. 1:10⁵⁰",
+      "D. 1:"
     ],
     "answer": [
       "D"
     ]
   },
   {
-    "id": 106,
+    "id": 105106,
     "text": "Teplo nie je ideálnym plynom prijímané ani odovzdávané pri deji:",
     "options": [
       "A. izotermickom",
@@ -1444,8 +1448,8 @@ indukčných čiar je:",
     "options": [
       "A. J",
       "B. J·K·kg",
-      "C. J·K⁻¹",
-      "D. J·K"
+      "C. J·K-1",
+      "D. J·KZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "C"
@@ -1458,7 +1462,7 @@ indukčných čiar je:",
       "A. joule",
       "B. wattsekunda (W·s)",
       "C. watthodina (W·h)",
-      "D. W·s⁻¹"
+      "D. W·s-1"
     ],
     "answer": [
       "D"
@@ -1508,9 +1512,9 @@ indukčných čiar je:",
     "text": "Jednotkou permitivity dielektrika je:",
     "options": [
       "A. F·m",
-      "B. F·m⁻¹",
+      "B. F·m-1",
       "C. C·m",
-      "D. C·m⁻¹"
+      "D. C·m-1"
     ],
     "answer": [
       "B"
@@ -1562,7 +1566,7 @@ indukčných čiar je:",
       "A. U= R/I",
       "B. V= Ω·A",
       "C. V= Ω/A",
-      "D. U= R·I"
+      "D. U= R·I Zoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "D"
@@ -1573,16 +1577,16 @@ indukčných čiar je:",
     "text": "Jednotkou merného elektrického odporu látky je:",
     "options": [
       "A. Ω·m",
-      "B. Ω·m⁻¹",
-      "C. Ω·m²",
-      "D. Ω·m⁻²"
+      "B. Ω·m-1",
+      "C. Ω·m2",
+      "D. Ω·m-"
     ],
     "answer": [
       "A"
     ]
   },
   {
-    "id": 124,
+    "id": 2124,
     "text": "Dva rezistory, každý s elektrickým odporom 15 kΩ sú zapojené sériovo (za sebou). Ich výslednýodpor je:",
     "options": [
       "A. 7,5 kΩ",
@@ -1609,10 +1613,10 @@ indukčných čiar je:",
     "id": 126,
     "text": "Jednotkou intenzity magnetického poľa je:",
     "options": [
-      "A. A·m⁻¹",
+      "A. A·m-1",
       "B. A·m",
-      "C. A·m²",
-      "D. A⁻¹·m"
+      "C. A·m2",
+      "D. A-1·m"
     ],
     "answer": [
       "A"
@@ -1650,11 +1654,20 @@ indukčných čiar je:",
     "options": [
       "A. 331,5 m/s",
       "B. 0 m/s",
-      "C. 3,108m/s"
-      "D. 16/s"
+      "C. "
     ],
     "answer": [
       "B"
+    ]
+  },
+  {
+    "id": 3,
+    "text": "108 m/s",
+    "options": [
+      "D. 16 km/s"
+    ],
+    "answer": [
+      "A"
     ]
   },
   {
@@ -1687,44 +1700,44 @@ indukčných čiar je:",
     "id": 132,
     "text": "Fyzikálna jednotkou zrýchlenia v sústave SI je:",
     "options": [
-      "A. m·s⁻¹",
+      "A. m·s-1",
       "B. m·s",
-      "C. m·s⁻²",
-      "D. m·s²"
+      "C. m·s-2",
+      "D. m·s"
     ],
     "answer": [
       "C"
     ]
   },
   {
-    "id": 133,
+    "id": 2133,
     "text": "Dráhu voľného pádu s v závislosti na čase t, kde g je tiažové zrýchlenie vyjadríme ako:",
     "options": [
       "A. s=v·t",
       "B. s=g·t",
-      "C. s=g·t²",
-      "D. s=g·t²/2"
+      "C. s=g·t2",
+      "D. s=g·t2/"
     ],
     "answer": []
   },
   {
-    "id": 134,
+    "id": 2134,
     "text": "Jednotkou uhlovej rýchlosti pri rovnomernom pohybe hmotného bodu po kružnici je v sústaveSI:",
     "options": [
-      "A. rad·s⁻¹",
-      "B. stupeň·s⁻¹",
-      "C. m·s⁻¹",
-      "D. s·r·m⁻¹"
+      "A. rad·s-1",
+      "B. stupeň·s-1",
+      "C. m·s-1",
+      "D. s·r·m-"
     ],
     "answer": []
   },
   {
-    "id": 135,
+    "id": 1135,
     "text": "Vzťah pre vyjadrenie potenciálnej energie EP telesa vo výške h nad Zemou, kde g je zrýchlenieje:",
     "options": [
       "A. EP=m·g·h/2",
-      "B. EP=m·g²h",
-      "C. EP=m·g²·h/2",
+      "B. EP=m·g2h",
+      "C. EP=m·g2·h/2",
       "D. EP=m·g·h"
     ],
     "answer": []
@@ -1736,7 +1749,7 @@ indukčných čiar je:",
       "A. p=h·ρ·g",
       "B. p=h·g/ρ",
       "C. p=h·ρ/g",
-      "D. p=h·ρ·g²"
+      "D. p=h·ρ·g"
     ],
     "answer": [
       "A"
@@ -1747,9 +1760,9 @@ indukčných čiar je:",
     "text": "Veľkosť gravitačnej sily Fg pôsobiacej medzi dvomi hmotnými bodmi je daná vzťahom (κ jegravitačná konštanta):",
     "options": [
       "A. Fg=κ m1 ·m2/r",
-      "B. Fg=κ ·m1 ·m2/r²",
+      "B. Fg=κ ·m1 ·m2/r2",
       "C. Fg=κ·m1·m2·r",
-      "D. Fg=κ·m1 ·m2 ·r²"
+      "D. Fg=κ·m1 ·m2 ·r"
     ],
     "answer": []
   },
@@ -1760,12 +1773,12 @@ indukčných čiar je:",
       "A. K=Fg·m",
       "B. K=m/Fg",
       "C. K=Fg/m",
-      "D. K=Fg/m²"
+      "D. K=Fg/m"
     ],
     "answer": []
   },
   {
-    "id": 139,
+    "id": 2139,
     "text": "Nájdite veličinu, ktorá má fyzikálny rozmer (jednotku) W·s:",
     "options": [
       "A. výkon",
@@ -1779,16 +1792,16 @@ indukčných čiar je:",
     "id": 140,
     "text": "Fyzikálna jednotka  (fyzikálny rozmer) odstredivého zrýchlenia je:",
     "options": [
-      "A. m·s⁻¹",
-      "B. m·s⁻²",
-      "C. m·s"
+      "A. m·s-1",
+      "B. m·s-2",
+      "C. m·sZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 141,
+    "id": 2141,
     "text": "Coulomb je fyzikálna jednotka:",
     "options": [
       "A. elektrického prúdu",
@@ -1881,9 +1894,9 @@ indukčných čiar je:",
     "text": "Fyzikálnou jednotkou hybnosti je:",
     "options": [
       "A. kg·m·s",
-      "B. kg·m·s⁻¹",
-      "C. kg·m·s⁻²",
-      "D. kg·m⁻¹·s⁻¹"
+      "B. kg·m·s-1",
+      "C. kg·m·s-2",
+      "D. kg·m-1·s-1Zoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "B"
@@ -1932,10 +1945,10 @@ indukčných čiar je:",
     "id": 152,
     "text": "Veľkosť dostredivej sily, ktorá pôsobí na hmotný bod pri rovnomernom pohybe po kružnici kdeje ω uhlová rýchlosť, r je pomer kružnice, m je hmotnosť hmotného bodu, je:",
     "options": [
-      "A. m·ω·r²",
+      "A. m·ω·r2",
       "B. (m·v)/r",
       "C. (m·r)/r",
-      "D. m·ω²·r"
+      "D. m·ω2·r"
     ],
     "answer": [
       "D"
@@ -1945,10 +1958,10 @@ indukčných čiar je:",
     "id": 153,
     "text": "Veľkosť dostredivého zrýchlenia, ktoré pôsobí na hmotný bod pri rovnomernom pohybe pokružnici, kde ω uhlová rýchlosť, r je pomer kružnice je:",
     "options": [
-      "A. ω·r²",
+      "A. ω·r2",
       "B. ω·r",
       "C. ω2 /r",
-      "D. ω²·r"
+      "D. ω2·r"
     ],
     "answer": [
       "D"
@@ -2000,7 +2013,7 @@ indukčných čiar je:",
       "A. sily a rýchlosti",
       "B. hmotnosti a zrýchlenia",
       "C. hmotnosti a rýchlosti",
-      "D. času a sily"
+      "D. času a silyZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "D"
@@ -2024,8 +2037,8 @@ indukčných čiar je:",
     "text": "Kinetická energia Ek pri otáčavom pohybe kde je uhľová rýchlosť a J je moment zotrvačnosti je:",
     "options": [
       "A. Ek = 0,5·J ·ω",
-      "B. Ek = J· ω²",
-      "C. Ek = 0,5·J· ω²",
+      "B. Ek = J· ω2",
+      "C. Ek = 0,5·J· ω2",
       "D. Ek = J· ω"
     ],
     "answer": [
@@ -2039,14 +2052,14 @@ indukčných čiar je:",
       "A. 5: 6",
       "B. 6: 5",
       "C. 36: 25",
-      "D. 25: 36"
+      "D. 25:"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 161,
+    "id": 36161,
     "text": "Sila, ktorou je teleso v kvapaline nadľahčované, nezávisí na:",
     "options": [
       "A. objeme ponoreného telesa",
@@ -2063,15 +2076,15 @@ indukčných čiar je:",
       "A. 1:4",
       "B. 1:2",
       "C. 2:1",
-      "D. 4:2"
+      "D. 4:"
     ],
     "answer": [
       "D"
     ]
   },
   {
-    "id": 163,
-    "text": " V stene suda naplneného vodou je v hĺbke 2m pod hladinou otvor veľkosti 5 cm2. Na zátku votvore pôsobí tlaková sila ( ak g=10m·s-2, ρ=1000 kg·m-3) :",
+    "id": 2,
+    "text": "Na zátku votvore pôsobí tlaková sila ( ak g=10m·s-2, ρ=1000 kg·m-3) :",
     "options": [
       "A. 5N",
       "B. 10N",
@@ -2110,10 +2123,10 @@ indukčných čiar je:",
   },
   {
     "id": 166,
-    "text": "Watt na meter štvorcový (W·m⁻²) je fyzikálna jednotka:",
+    "text": "Watt na meter štvorcový (W·m-2) je fyzikálna jednotka:",
     "options": [
       "A. hladiny intenzity zvuku",
-      "B. intenzity zvuku"
+      "B. intenzity zvukuZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "B"
@@ -2124,16 +2137,16 @@ indukčných čiar je:",
     "text": "Fyzikálny rozmer Avogadrovej konštanty je:",
     "options": [
       "A. kg",
-      "B. mol⁻¹",
+      "B. mol-1",
       "C. mol/kg",
-      "D. J·K⁻¹"
+      "D. J·K-"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 168,
+    "id": 1168,
     "text": "Stavová rovnica ideálneho plynu, kde p je tlak plynu, V je objem plynu, N je celkový početčastíc, k je Bolzmannova konštanta, T je teplota plynu je:",
     "options": [
       "A. p·V = k·T",
@@ -2226,16 +2239,14 @@ indukčných čiar je:",
     "text": "Relatívne predĺženie ε kde l1 je pôvodná dĺžka, l2 dĺžka po predĺžení, Δl = l2 – l1) je :",
     "options": [
       "A. ε = l2 - l1",
-      "B. ε = Δl/l1",
-      "C. ε = l2/Δl",
-      "D. ε = l2/l1"
+      "B. ε = Δl/l1Zoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 176,
+    "id": 1176,
     "text": "Hookov zákon, kde σn je mechanické napätie v ťahu, ε je pomerná deformácia materiálu, E jemodul pružnosti v ťahuzapisujeme v tvare:",
     "options": [
       "A. σn = E·ε",
@@ -2363,9 +2374,8 @@ indukčných čiar je:",
     ]
   },
   {
-    "id": 186,
-    "text": " Obvod pozostáva zo zdroja jednosmerného napätia o veľkosti 12 V a dvoch odporov R1
- a R2.Naodpore R2 sa nameralo napätie 8 V, na odpore R1 je napätie:",
+    "id": 2,
+    "text": "Naodpore R2 sa nameralo napätie 8 V, na odpore R1 je napätie:",
     "options": [
       "A. rovnaké",
       "B. 12 V",
@@ -2423,14 +2433,14 @@ indukčných čiar je:",
       "A. zvýši dvojnásobne",
       "B. zníži na 1/2",
       "C. zníži dvojnásobne",
-      "D. zníži na 1/4"
+      "D. zníži na 1/"
     ],
     "answer": [
       "D"
     ]
   },
   {
-    "id": 191,
+    "id": 4191,
     "text": "Ak priblížime dosky kondenzátora k sebe na polovičnú vzájomnú vzdialenosť, jeho kapacita:",
     "options": [
       "A. poklesne na polovinu",
@@ -2484,16 +2494,16 @@ indukčných čiar je:",
     "text": "Faradayova konštanta má rozmer:",
     "options": [
       "A. C",
-      "B. C⁻¹",
+      "B. C-1",
       "C. C·mol",
-      "D. C·mol⁻¹"
+      "D. C·mol-"
     ],
     "answer": [
       "D"
     ]
   },
   {
-    "id": 196,
+    "id": 1196,
     "text": "Faradayova konštanta je:",
     "options": [
       "A. elektrický náboj jedného mólu elektrónov",
@@ -2575,14 +2585,14 @@ indukčných čiar je:",
       "A. (2·k) λ/2, kde k je celé číslo",
       "B. λ/3",
       "C. λ",
-      "D. λ/4"
+      "D. λ/"
     ],
     "answer": [
       "A"
     ]
   },
   {
-    "id": 203,
+    "id": 4203,
     "text": "Pri interferencii dvoch vĺn s vlnovou dĺžkou λ nastane maximálne zoslabenie, ak ich dráhovýrozdiel bude:",
     "options": [
       "A. λ",
@@ -2649,16 +2659,14 @@ indukčných čiar je:",
     "text": "Koľko elektrónov v atómovom obale má neutrálny atóm 5628Ni?",
     "options": [
       "A. 58",
-      "B. 28", 
-      "C. 30", 
-      "D. 86"
+      "B. 28Zoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 209,
+    "id": 86209,
     "text": "Žiarenie α je tvorené:",
     "options": [
       "A. jadrami deutéria",

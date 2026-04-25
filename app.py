@@ -3,10 +3,10 @@ import json
 import random
 from streamlit_javascript import st_javascript
 
-# --- KONFIGURÁCIA STRÁNKY ---
+# 1. ZÁKLADNÉ NASTAVENIE
 st.set_page_config(page_title="Prijímacie skúšky", page_icon="🩺", layout="centered")
 
-# --- POMOCNÉ FUNKCIE PRE LOCALSTORAGE ---
+# 2. FUNKCIE PRE PRÁCU S PREHLIADAČOM
 def set_local_storage(key, value):
     js_code = f"localStorage.setItem('{key}', JSON.stringify({json.dumps(value)}));"
     st_javascript(js_code)
@@ -29,36 +29,40 @@ def load_questions(file_path):
     except FileNotFoundError:
         return []
 
-# --- DEFINÍCIA ODBOROV ---
-FIELDS = {
-    "Všeobecné lekárstvo": {
-        "Biológia": "biologia.json",
-        "Chémia": "chemia.json"
-    },
-    "Urgentná medicína": {
-        "Náuka o spoločnosti": "nos.json",
-        "Fyzika": "fyzika.json",
-        "Biológia": "biologia-urgent.json"
-    }
-}
+# --- 3. TÁTO ČASŤ JE KĽÚČOVÁ PRE REFRESH (HORNÁ ČASŤ) ---
 
-# --- INICIALIZÁCIA PAMÄTE ---
+# Pokúsime sa vytiahnuť dáta z prehliadača
+stored_data = get_local_storage("med_prep_v_final")
+stored_settings = get_local_storage("med_settings_v_final")
+
+# POISTKA: Ak sa stránka práve zapla/obnovila, st_javascript vráti None.
+# Musíme na sekundu počkať a refreshnúť to, aby mal JS čas tie dáta získať.
+if stored_data is None and 'init_check' not in st.session_state:
+    st.session_state.init_check = True
+    st.info("Pripravujem tvoj progres...")
+    st.rerun()
+
+# Ak už máme dáta (alebo vieme, že je to nový používateľ), naplníme session_state
 if 'subjects_data' not in st.session_state:
-    stored_data = get_local_storage("med_prep_v5")
     st.session_state.subjects_data = stored_data if stored_data else {}
 
 if 'last_settings' not in st.session_state:
-    stored_settings = get_local_storage("med_settings_v5")
     st.session_state.last_settings = stored_settings if stored_settings else {"field_idx": 0, "subj_name": None}
 
 def sync_all():
-    set_local_storage("med_prep_v5", st.session_state.subjects_data)
-    set_local_storage("med_settings_v5", {
+    """Túto funkciu voláme po každej odpovedi, aby sa dáta uložili do prehliadača."""
+    set_local_storage("med_prep_v_final", st.session_state.subjects_data)
+    set_local_storage("med_settings_v_final", {
         "field_idx": st.session_state.selected_field_index,
         "subj_name": st.session_state.selected_subject_name
     })
 
-# --- SIDEBAR ---
+# --- 4. SIDEBAR A LOGIKA VÝBERU ---
+FIELDS = {
+    "Všeobecné lekárstvo": {"Biológia": "biologia.json", "Chémia": "chemia.json"},
+    "Urgentná medicína": {"Náuka o spoločnosti": "nos.json", "Fyzika": "fyzika.json", "Biológia": "biologia-urgent.json"}
+}
+
 field_list = list(FIELDS.keys())
 selected_field_name = st.sidebar.selectbox("Odbor", field_list, index=st.session_state.last_settings.get("field_idx", 0))
 st.session_state.selected_field_index = field_list.index(selected_field_name)
@@ -71,6 +75,7 @@ if default_subj not in subj_list: default_subj = subj_list[0]
 st.session_state.selected_subject_name = st.sidebar.selectbox("Predmet", subj_list, index=subj_list.index(default_subj))
 selected_file = available_subjects[st.session_state.selected_subject_name]
 
+# Ak predmet ešte nie je v pamäti, načítame ho zo súboru
 if selected_file not in st.session_state.subjects_data:
     data = load_questions(selected_file)
     if data:
@@ -80,7 +85,7 @@ if selected_file not in st.session_state.subjects_data:
 
 current_data = st.session_state.subjects_data[selected_file]
 
-# --- HLAVNÁ ČASŤ TESTU ---
+# --- 5. HLAVNÁ ČASŤ (OTÁZKA) ---
 st.title(f"Príprava: {st.session_state.selected_subject_name}")
 pool = current_data["pool"]
 
@@ -92,25 +97,19 @@ if len(pool) > 0:
     st.write(q['text'])
 
     user_choices = []
-
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         for opt in q['options']:
-            opt_letter = opt[0]
-            is_checked = st.checkbox(opt, key=f"cb_{selected_file}_{q['id']}_{opt}", disabled=st.session_state.answered)
-            
-            if is_checked:
-                user_choices.append(opt_letter)
+            cb = st.checkbox(opt, key=f"cb_{selected_file}_{q['id']}_{opt}", disabled=st.session_state.answered)
+            if cb: user_choices.append(opt[0])
 
         label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
         submit_clicked = st.form_submit_button(label)
 
     if submit_clicked:
         if not st.session_state.answered:
-            # Kliknuté na Skontrolovať
             st.session_state.answered = True
             st.rerun()
         else:
-            # Kliknuté na Pokračovať
             user_str = "".join(sorted(user_choices))
             correct_str = "".join(sorted(q['answer']))
             
@@ -130,13 +129,10 @@ if len(pool) > 0:
             sync_all()
             st.rerun()
 
-    # --- ZOBRAZENIE TEXTOVEJ ODPOVEDE ---
     if st.session_state.answered:
         correct_display = ", ".join(q['answer'])
         user_str = "".join(sorted(user_choices))
-        correct_str = "".join(sorted(q['answer']))
-
-        if user_str == correct_str:
+        if user_str == "".join(sorted(q['answer'])):
             st.success(f"Správne! Odpoveď: {correct_display}")
         else:
             st.error(f"Nesprávne! Správna odpoveď: {correct_display}")
@@ -147,8 +143,9 @@ if len(pool) > 0:
 
 else:
     st.balloons()
-    st.success("Hotovo! Všetky otázky z tohto predmetu si prešiel.")
+    st.success("Všetko hotové!")
     if st.sidebar.button("Reštartovať predmet"):
         del st.session_state.subjects_data[selected_file]
         sync_all()
         st.rerun()
+        

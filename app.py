@@ -1,7 +1,6 @@
 import streamlit as st
 import json
 import random
-import os
 
 st.set_page_config(page_title="Prijímacie skúšky", page_icon="🩺", layout="centered")
 
@@ -29,52 +28,91 @@ FIELDS = {
     }
 }
 
+# --- INICIALIZÁCIA SESSION STATE ---
+# Tu ukladáme progres pre VŠETKY predmety: { "meno_suboru.json": {"pool": [...], "score": 0, "total": 0} }
+if 'subjects_data' not in st.session_state:
+    st.session_state.subjects_data = {}
+
+if 'selected_field_index' not in st.session_state:
+    st.session_state.selected_field_index = 0
+
+if 'selected_subject_name' not in st.session_state:
+    st.session_state.selected_subject_name = None
+
 # --- SIDEBAR VÝBER ---
 st.sidebar.header("Nastavenia štúdia")
-selected_field = st.sidebar.selectbox("Vyber si odbor", list(FIELDS.keys()))
 
-# Dynamický výber predmetu na základe odboru
-available_subjects = FIELDS[selected_field]
-subject_display_name = st.sidebar.selectbox("Vyber si predmet", list(available_subjects.keys()))
+selected_field_name = st.sidebar.selectbox(
+    "Vyber si odbor", 
+    list(FIELDS.keys()), 
+    index=st.session_state.selected_field_index, 
+    key="field_selector"
+)
+st.session_state.selected_field_index = list(FIELDS.keys()).index(selected_field_name)
+
+available_subjects = FIELDS[selected_field_name]
+
+if st.session_state.selected_subject_name not in available_subjects:
+    st.session_state.selected_subject_name = list(available_subjects.keys())[0]
+
+subject_display_name = st.sidebar.selectbox(
+    "Vyber si predmet", 
+    list(available_subjects.keys()), 
+    index=list(available_subjects.keys()).index(st.session_state.selected_subject_name),
+    key="subject_selector"
+)
+st.session_state.selected_subject_name = subject_display_name
 selected_file = available_subjects[subject_display_name]
 
+# --- LOGIKA UKLADANIA A NAČÍTANIA PROGRESU ---
+# Ak tento súbor ešte nemáme v pamäti, načítame ho prvýkrát
+if selected_file not in st.session_state.subjects_data:
+    data = load_questions(selected_file)
+    if data:
+        random.shuffle(data)
+        st.session_state.subjects_data[selected_file] = {
+            "pool": data,
+            "score": 0,
+            "total_count": len(data)
+        }
+    else:
+        st.session_state.subjects_data[selected_file] = {
+            "pool": [],
+            "score": 0,
+            "total_count": 0
+        }
+
+# Skratka pre aktuálne dáta (referencia), aby sme nemuseli stále písať celý dlhý kľúč
+current_data = st.session_state.subjects_data[selected_file]
+
+# Tlačidlo na reset konkrétneho predmetu
+if st.sidebar.button("Reštartovať aktuálny predmet"):
+    del st.session_state.subjects_data[selected_file]
+    st.rerun()
+
 # --- DYNAMICKÝ NADPIS ---
-if selected_field == "Všeobecné lekárstvo":
+if selected_field_name == "Všeobecné lekárstvo":
     st.title("🩺 Príprava na prijímačky LF")
 else:
     st.title("🚑 Príprava na Urgentnú medicínu")
 
-# --- LOGIKA RELÁCIE (SESSION STATE) ---
-if 'current_file' not in st.session_state or st.session_state.current_file != selected_file:
-    data = load_questions(selected_file)
-    if data:
-        st.session_state.pool = data
-        random.shuffle(st.session_state.pool)
-        st.session_state.score = 0
-        st.session_state.total_count = len(st.session_state.pool)
-        st.session_state.current_file = selected_file
-    else:
-        st.session_state.pool = []
-
-if st.sidebar.button("Reštartovať predmet"):
-    st.session_state.current_file = None
-    st.rerun()
-
 # --- HLAVNÝ TEST ---
-if len(st.session_state.pool) > 0:
-    q = st.session_state.pool[0]
+pool = current_data["pool"]
+
+if len(pool) > 0:
+    q = pool[0]
     
     if q.get('repetition_mode'):
-        st.info("🔄 OPAKOVANIE CHYBY (Zameraj sa na správnosť)")
+        st.info("🔄 OPAKOVANIE CHYBY")
 
     st.subheader(f"Otázka č. {q['id']}")
     st.write(q['text'])
 
     user_choices = []
-    # Kľúč formulára musí byť unikátny pre každú otázku a predmet
+    # Formulár musí mať unikátny kľúč, aby Streamlit vedel, že ide o iný formulár pri prepnutí predmetu
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         for opt in q['options']:
-            if st.checkbox(opt, key=f"cb_{q['id']}_{opt}"):
+            if st.checkbox(opt, key=f"cb_{selected_file}_{q['id']}_{opt}"):
                 user_choices.append(opt[0])
 
         submit_button = st.form_submit_button(label='Overiť odpoveď')
@@ -87,38 +125,33 @@ if len(st.session_state.pool) > 0:
             st.success(f"✅ SPRÁVNE! (Odpoveď: {q['answer']})")
             
             if q.get('repetition_mode'):
-                # Posun o 10 miest pri opakovanej otázke
-                q_to_move = st.session_state.pool.pop(0)
-                new_index = min(9, len(st.session_state.pool))
-                st.session_state.pool.insert(new_index, q_to_move)
-                st.info(f"Výborne! Táto otázka sa znova objaví o {new_index} miest.")
+                q_to_move = pool.pop(0)
+                new_index = min(9, len(pool)) 
+                pool.insert(new_index, q_to_move)
+                st.info(f"Výborne! Táto otázka sa znova objaví o {new_index+1} miest.")
             else:
-                # Definitívne vyradenie pri správnej odpovedi na prvýkrát
-                st.session_state.pool.pop(0)
-                st.session_state.score += 1
+                pool.pop(0)
+                current_data["score"] += 1
         else:
-            st.error(f"❌ NESPRÁVNE! Správna odpoveď bola: {q['answer']}")
-            
-            # Pri chybe posun o 5 miest a aktivácia repetition_mode
-            wrong_q = st.session_state.pool.pop(0)
+            st.error(f"❌ NESPRÁVNE! Správna odpoveď: {q['answer']}")
+            wrong_q = pool.pop(0)
             wrong_q['repetition_mode'] = True
-            
-            new_index = min(4, len(st.session_state.pool))
-            st.session_state.pool.insert(new_index, wrong_q)
-            st.warning(f"Chyba. Otázku sme posunuli o {new_index} miest nižšie.")
+            new_index = min(4, len(pool))
+            pool.insert(new_index, wrong_q)
+            st.warning(f"Chyba. Posunuté o {new_index+1} miest.")
 
         if st.button("Pokračovať"):
             st.rerun()
     
-    # Štatistiky v bočnom paneli
+    # Štatistiky
     st.sidebar.divider()
-    st.sidebar.write(f"🎓 Odbor: **{selected_field}**")
-    st.sidebar.write(f"📊 Vyradené (na 1. pokus): **{st.session_state.score}** / {st.session_state.total_count}")
-    st.sidebar.write(f"📝 Aktuálne v obehu: {len(st.session_state.pool)}")
+    st.sidebar.write(f"🎓 Odbor: **{selected_field_name}**")
+    st.sidebar.write(f"📊 Správne (na 1. pokus): **{current_data['score']}**")
+    st.sidebar.write(f"⏳ Zostáva v obehu: **{len(pool)}** / {current_data['total_count']}")
     
 else:
-    if not load_questions(selected_file):
-        st.warning(f"Súbor `{selected_file}` nebol nájdený. Skontroluj, či je nahraný na GitHub/v priečinku.")
+    if current_data["total_count"] == 0:
+        st.warning(f"Súbor `{selected_file}` je prázdny alebo neexistuje.")
     else:
         st.balloons()
-        st.success(f"Gratulujem! Úspešne si prešiel všetky otázky z predmetu {subject_display_name}!")
+        st.success(f"Hotovo! Prešiel si všetky otázky z predmetu {subject_display_name}!")

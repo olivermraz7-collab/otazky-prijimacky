@@ -791,8 +791,7 @@
   },
   {
     "id": 62,
-    "text": " Induktancia cievky v obvode striedavého prúdu pri frekvencii f1
- je X1 a pri frekvencii f2 je X2. Ak je f1 > f2, potom pre induktancie platí:",
+    "text": " Induktancia cievky v obvode striedavého prúdu pri frekvencii f1 je X1 a pri frekvencii f2 je X2. Ak je f1 > f2, potom pre induktancie platí:",
     "options": [
       "A. X1 > X2",
       "B. X1 < X2",

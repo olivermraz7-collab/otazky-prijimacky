@@ -1,13 +1,13 @@
 import streamlit as st
 import json
 import random
-from cookies_manager import EncryptedCookieManager
+from streamlit_cookies_manager import EncryptedCookieManager
 
 # --- 1. KONFIGURÁCIA COOKIES ---
 # 'prefix' môže byť hocičo, 'password' je potrebný pre šifrovanie (zvoľ si vlastné heslo)
 cookies = EncryptedCookieManager(
     prefix="med_prep_v1/",
-    password="moje_tajne_heslo_123"
+    password="Heslo1234"
 )
 
 if not cookies.ready():

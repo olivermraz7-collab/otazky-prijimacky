@@ -5,10 +5,11 @@ import extra_streamlit_components as stx
 
 st.set_page_config(page_title="Prijímacie skúšky", page_icon="🩺", layout="centered")
 
-# --- INICIALIZÁCIA COOKIE MANAGERA ---
+# --- OPRAVA: INICIALIZÁCIA COOKIE MANAGERA ---
+# Používame kľúč, aby sme zabránili DuplicateElementKey chybe
 @st.cache_resource
 def get_cookie_manager():
-    return stx.CookieManager()
+    return stx.CookieManager(key="unique_cookie_manager")
 
 cookie_manager = get_cookie_manager()
 
@@ -35,8 +36,8 @@ FIELDS = {
     }
 }
 
-# --- NAČÍTANIE PROGRESU Z COOKIES ---
-# Cookies sa načítavajú asynchrónne, preto musíme chvíľu počkať alebo overiť ich existenciu
+# --- NAČÍTANIE PROGRESU ---
+# Pri prvom načítaní cookies niekedy vracajú None, kým sa "nezobudia"
 saved_progress = cookie_manager.get("med_progress")
 saved_settings = cookie_manager.get("med_settings")
 
@@ -50,10 +51,12 @@ if 'last_settings' not in st.session_state:
     if saved_settings:
         st.session_state.last_settings = json.loads(saved_settings)
     else:
-        st.session_state.last_settings = {"field_idx": 0, "subj_name": None}
+        # Predvolené nastavenia, ak cookies neexistujú
+        st.session_state.last_settings = {"field_idx": 0, "subj_name": list(FIELDS["Všeobecné lekárstvo"].keys())[0]}
 
 def auto_save():
-    """Uloží aktuálny stav do cookies s platnosťou na 30 dní."""
+    """Uloží aktuálny stav do cookies (platnosť 30 dní)."""
+    # Používame cookies len na trvalé ukladanie, nie na riadenie UI v reálnom čase
     cookie_manager.set("med_progress", json.dumps(st.session_state.subjects_data), max_age=2592000)
     cookie_manager.set("med_settings", json.dumps({
         "field_idx": st.session_state.selected_field_index,
@@ -63,20 +66,18 @@ def auto_save():
 # --- SIDEBAR ---
 st.sidebar.header("Nastavenia štúdia")
 
-# Výber odboru (berie z uložených nastavení)
 field_list = list(FIELDS.keys())
 selected_field_name = st.sidebar.selectbox(
     "Vyber si odbor", 
     field_list, 
-    index=st.session_state.last_settings["field_idx"]
+    index=st.session_state.last_settings.get("field_idx", 0)
 )
 st.session_state.selected_field_index = field_list.index(selected_field_name)
 
 available_subjects = FIELDS[selected_field_name]
 subj_list = list(available_subjects.keys())
 
-# Výber predmetu (berie z uložených nastavení)
-default_subj = st.session_state.last_settings["subj_name"]
+default_subj = st.session_state.last_settings.get("subj_name")
 if default_subj not in subj_list:
     default_subj = subj_list[0]
 
@@ -88,7 +89,7 @@ st.session_state.selected_subject_name = st.sidebar.selectbox(
 
 selected_file = available_subjects[st.session_state.selected_subject_name]
 
-# Inicializácia otázok
+# --- LOGIKA OTÁZOK ---
 if selected_file not in st.session_state.subjects_data:
     data = load_questions(selected_file)
     if data:
@@ -100,13 +101,12 @@ if selected_file not in st.session_state.subjects_data:
 
 current_data = st.session_state.subjects_data[selected_file]
 
-# Reset tlačidlo
 if st.sidebar.button("Reštartovať predmet"):
     del st.session_state.subjects_data[selected_file]
     auto_save()
     st.rerun()
 
-# --- HLAVNÝ TEST ---
+# --- HLAVNÉ ROZHRANIE ---
 st.title(f"Príprava: {st.session_state.selected_subject_name}")
 pool = current_data["pool"]
 
@@ -115,6 +115,7 @@ if len(pool) > 0:
     st.subheader(f"Otázka č. {q['id']}")
     st.write(q['text'])
 
+    # Unikátny kľúč pre formulár zabraňuje konfliktom pri prepínaní predmetov
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         user_choices = []
         for opt in q['options']:
@@ -126,7 +127,7 @@ if len(pool) > 0:
             correct_str = "".join(sorted(q['answer']))
 
             if user_str == correct_str:
-                st.success("Správne!")
+                st.success(f"✅ Správne! ({q['answer']})")
                 if q.get('repetition_mode'):
                     q_to_move = pool.pop(0)
                     pool.insert(min(9, len(pool)), q_to_move)
@@ -134,16 +135,18 @@ if len(pool) > 0:
                     pool.pop(0)
                     current_data["score"] += 1
             else:
-                st.error(f"Nesprávne! Správne: {q['answer']}")
+                st.error(f"❌ Nesprávne! Správna odpoveď: {q['answer']}")
                 wrong_q = pool.pop(0)
                 wrong_q['repetition_mode'] = True
                 pool.insert(min(4, len(pool)), wrong_q)
 
-            auto_save() # Automatické uloženie progresu
-            st.button("Pokračovať")
+            auto_save()
+            st.rerun() # Rerun namiesto tlačidla "Pokračovať" pre plynulejší zážitok
 
     st.sidebar.divider()
     st.sidebar.write(f"📊 Správne: **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva: **{len(pool)}** / {current_data['total_count']}")
 else:
-    st.success("Hotovo! Všetky otázky z tohto predmetu si prešiel.")
+    st.balloons()
+    st.success("Hotovo! Všetky otázky si úspešne prešiel.")
+    

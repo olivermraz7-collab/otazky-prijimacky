@@ -24,25 +24,21 @@ def load_questions(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
             for q in data:
-                if 'repetition_mode' not in q: q['repetition_mode'] = False
+                # rep_count: 0 = nová, 1 = po chybe (čaká na 5. miesto), 2 = po 1. oprave (čaká na 15. miesto)
+                if 'rep_count' not in q: q['rep_count'] = 0
             return data
     except FileNotFoundError:
         return []
 
-# --- 3. TÁTO ČASŤ JE KĽÚČOVÁ PRE REFRESH (HORNÁ ČASŤ) ---
+# --- 3. INICIALIZÁCIA A REFRESH POISTKA ---
+stored_data = get_local_storage("med_prep_v_final_v2")
+stored_settings = get_local_storage("med_settings_v_final_v2")
 
-# Pokúsime sa vytiahnuť dáta z prehliadača
-stored_data = get_local_storage("med_prep_v_final")
-stored_settings = get_local_storage("med_settings_v_final")
-
-# POISTKA: Ak sa stránka práve zapla/obnovila, st_javascript vráti None.
-# Musíme na sekundu počkať a refreshnúť to, aby mal JS čas tie dáta získať.
 if stored_data is None and 'init_check' not in st.session_state:
     st.session_state.init_check = True
     st.info("Pripravujem tvoj progres...")
     st.rerun()
 
-# Ak už máme dáta (alebo vieme, že je to nový používateľ), naplníme session_state
 if 'subjects_data' not in st.session_state:
     st.session_state.subjects_data = stored_data if stored_data else {}
 
@@ -50,14 +46,13 @@ if 'last_settings' not in st.session_state:
     st.session_state.last_settings = stored_settings if stored_settings else {"field_idx": 0, "subj_name": None}
 
 def sync_all():
-    """Túto funkciu voláme po každej odpovedi, aby sa dáta uložili do prehliadača."""
-    set_local_storage("med_prep_v_final", st.session_state.subjects_data)
-    set_local_storage("med_settings_v_final", {
+    set_local_storage("med_prep_v_final_v2", st.session_state.subjects_data)
+    set_local_storage("med_settings_v_final_v2", {
         "field_idx": st.session_state.selected_field_index,
         "subj_name": st.session_state.selected_subject_name
     })
 
-# --- 4. SIDEBAR A LOGIKA VÝBERU ---
+# --- 4. SIDEBAR ---
 FIELDS = {
     "Všeobecné lekárstvo": {"Biológia": "biologia.json", "Chémia": "chemia.json"},
     "Urgentná medicína": {"Náuka o spoločnosti": "nos.json", "Fyzika": "fyzika.json", "Biológia": "biologia-urgent.json"}
@@ -75,7 +70,6 @@ if default_subj not in subj_list: default_subj = subj_list[0]
 st.session_state.selected_subject_name = st.sidebar.selectbox("Predmet", subj_list, index=subj_list.index(default_subj))
 selected_file = available_subjects[st.session_state.selected_subject_name]
 
-# Ak predmet ešte nie je v pamäti, načítame ho zo súboru
 if selected_file not in st.session_state.subjects_data:
     data = load_questions(selected_file)
     if data:
@@ -85,7 +79,7 @@ if selected_file not in st.session_state.subjects_data:
 
 current_data = st.session_state.subjects_data[selected_file]
 
-# --- 5. HLAVNÁ ČASŤ (OTÁZKA) ---
+# --- 5. HLAVNÁ ČASŤ (TEST) ---
 st.title(f"Príprava: {st.session_state.selected_subject_name}")
 pool = current_data["pool"]
 
@@ -114,15 +108,22 @@ if len(pool) > 0:
             correct_str = "".join(sorted(q['answer']))
             
             if user_str == correct_str:
-                if q.get('repetition_mode'):
-                    q_to_move = pool.pop(0)
-                    pool.insert(min(9, len(pool)), q_to_move)
-                else:
+                if q.get('rep_count', 0) == 0:
+                    # Správne na 1. pokus - vymazať z poolu
                     pool.pop(0)
                     current_data["score"] += 1
+                elif q.get('rep_count') == 1:
+                    # Správne po chybe - posunúť na 15. miesto pre finálne overenie
+                    q_to_move = pool.pop(0)
+                    q_to_move['rep_count'] = 2
+                    pool.insert(min(14, len(pool)), q_to_move)
+                else:
+                    # Správne v 2. kole opakovania - vymazať definitívne
+                    pool.pop(0)
             else:
+                # Nesprávne - posunúť na 5. miesto (aktivuje sa 1. kolo opakovania)
                 wrong_q = pool.pop(0)
-                wrong_q['repetition_mode'] = True
+                wrong_q['rep_count'] = 1
                 pool.insert(min(4, len(pool)), wrong_q)
             
             st.session_state.answered = False
@@ -138,14 +139,14 @@ if len(pool) > 0:
             st.error(f"Nesprávne! Správna odpoveď: {correct_display}")
 
     st.sidebar.divider()
-    st.sidebar.write(f"📊 Správne (1. pokus): **{current_data['score']}**")
-    st.sidebar.write(f"⏳ Zostáva: **{len(pool)}** / {current_data['total_count']}")
+    st.sidebar.write(f"📊 Body (na 1. pokus): **{current_data['score']}**")
+    st.sidebar.write(f"⏳ Zostáva v obehu: **{len(pool)}**")
+    st.sidebar.info("Otázka zmizne, až keď ju po chybe opravíš 2x.")
 
 else:
     st.balloons()
-    st.success("Všetko hotové!")
+    st.success("Všetko hotové! Si pripravený na skúšky.")
     if st.sidebar.button("Reštartovať predmet"):
         del st.session_state.subjects_data[selected_file]
         sync_all()
         st.rerun()
-        

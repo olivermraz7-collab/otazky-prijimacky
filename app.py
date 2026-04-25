@@ -3,7 +3,7 @@ import json
 import random
 import os
 
-st.set_page_config(page_title="LF & UM Test", page_icon="🩺", layout="centered")
+st.set_page_config(page_title="Prijímacie skúšky", page_icon="🩺", layout="centered")
 
 def load_questions(file_path):
     try:

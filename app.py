@@ -141,7 +141,6 @@ if len(pool) > 0:
     st.sidebar.divider()
     st.sidebar.write(f"📊 Body (na 1. pokus): **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva v obehu: **{len(pool)}**")
-    st.sidebar.info("Otázka zmizne, až keď ju po chybe opravíš 2x.")
 
 else:
     st.balloons()

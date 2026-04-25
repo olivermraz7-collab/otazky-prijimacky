@@ -1,0 +1,2491 @@
+[
+  {
+    "id": 1,
+    "text": "Filozofická disciplína, ktorá sa zaoberá skúmaním morálky sa nazýva:",
+    "options": [
+      "A. rigorizmus",
+      "B. etika",
+      "C. etiketa",
+      "D. humanizmus"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 2,
+    "text": "Morálna zásada, ktorá od človeka vyžaduje potlačiť vlastný egoizmus a obetovať svoje záujmy vprospech záujmov iných ľudí sa nazýva:",
+    "options": [
+      "A. cynizmus",
+      "B. pesimizmus",
+      "C. altruizmus",
+      "D. fanatizmus"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 3,
+    "text": "Vzájomná pomoc a podpora, ktorá sa opiera o jednotu názorov, záujmov a spoločných cieľov sanazýva:",
+    "options": [
+      "A. mizantropia",
+      "B. solidarita",
+      "C. cynizmus",
+      "D. tolerancia"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 4,
+    "text": "Presvedčenie, že vo svojom živote nemôžem nič ovplyvniť vlastnou vôľou, že všetko je osudovopredurčené, sa nazýva:",
+    "options": [
+      "A. asketizmus",
+      "B. egoizmus",
+      "C. hedonizmus",
+      "D. fatalizmus"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 5,
+    "text": "Etika sa chápe ako:",
+    "options": [
+      "A. praktická filozofia",
+      "B. praktická pedagogika",
+      "C. praktická psychológia",
+      "D. praktická filológia"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 6,
+    "text": "Systém špecifických požiadaviek morálky, ktoré zohľadňujú osobitosti povolaní sa nazýva:",
+    "options": [
+      "A. profesijná etika",
+      "B. deontológia",
+      "C. eutanázia",
+      "D. relativizmus"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 7,
+    "text": "Súhrn pravidiel, ktoré sa vzťahujú na vonkajšie požiadavky na správanie, sa nazýva:",
+    "options": [
+      "A. reputácia",
+      "B. tolerancia",
+      "C. etiketa",
+      "D. norma"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 8,
+    "text": "Etický názor, ktorý tvrdí, že šťastie je jediná hodnota, o ktorú má zmysel sa usilovať, sa nazýva:",
+    "options": [
+      "A. relativizmus",
+      "B. nihilizmus",
+      "C. humanizmus",
+      "D. eudaimonizmus"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 9,
+    "text": "Vyhlásenie nemravnosti za ideál správania, odmietanie všeľudských morálnych hodnôt, sa nazýva:",
+    "options": [
+      "A. fatalizmus",
+      "B. amoralizmusZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 10,
+    "text": "Vnútorný hlas človeka, jeho vnútorná autorita sa nazýva:",
+    "options": [
+      "A. sebavedomie",
+      "B. étos",
+      "C. svedomie",
+      "D. kritérium"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 11,
+    "text": "Schopnosť vcítiť sa do situácie iného človeka sa nazýva:",
+    "options": [
+      "A. etiketa",
+      "B. tolerancia",
+      "C. solidarita",
+      "D. empatia"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 12,
+    "text": "Morálny postoj uprednostňujúci vlastné záujmy a nerešpektujúci záujmy iných ľudí anispoločnosti sa nazýva:",
+    "options": [
+      "A. egoizmus",
+      "B. altruizmus",
+      "C. fatalizmus",
+      "D. nihilizmus"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 13,
+    "text": "Súhrn etických požiadaviek na vykonávanie určitých povolaní sa nazýva:",
+    "options": [
+      "A. zákonník práce",
+      "B. morálny kódex profesie",
+      "C. norma",
+      "D. étos povolania"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 14,
+    "text": "Medzi nebezpečné krajnosti morálneho vzťahu k práci patrí:",
+    "options": [
+      "A. nezamestnanosť",
+      "B. čestnosť",
+      "C. workholizmus",
+      "D. zodpovednosť"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 15,
+    "text": "Environmentálna etika je:",
+    "options": [
+      "A. etika zdravotníkov",
+      "B. humanistická etika",
+      "C. utilitaristická etika",
+      "D. etika životného prostredia"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 16,
+    "text": "Hnutia „ pro life“ a „ pro choice“ sa aktivizujú najmä v súvislosti s problémom:",
+    "options": [
+      "A. interrupcie",
+      "B. eutanázie",
+      "C. antikoncepcie",
+      "D. transplantácie"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 17,
+    "text": "Praktické ukončenie života, ktorý je charakterizovaný neprijateľným utrpením sa nazýva:",
+    "options": [
+      "A. eutanázia",
+      "B. fatalizmus",
+      "C. cynizmus",
+      "D. eudaimonizmus"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 18,
+    "text": "Názor, podľa ktorého vo svete prevláda zlo, človek je odsúdený na utrpenie a ani v budúcnostinemôže nič dobré čakať, sa nazýva:",
+    "options": [
+      "A. optimizmus",
+      "B. hedonizmusZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 19,
+    "text": "Vyjadrenie morálnej požiadavky formou príkazu alebo zákazu sa nazýva:",
+    "options": [
+      "A. sankcia",
+      "B. imperatív",
+      "C. norma",
+      "D. kritérium"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 20,
+    "text": "Postoj, ktorý vychádza z viery v ľudské schopnosti, zo zdôrazňovania dôstojnosti človeka apožiadavky slobody sa nazýva:",
+    "options": [
+      "A. pesimizmus",
+      "B. nihilizmus",
+      "C. humanizmus",
+      "D. hedonizmus"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 21,
+    "text": "Označte nesprávne vyjadrenie:",
+    "options": [
+      "A. umelecká krása vzniká cieľavedomým tvorivým úsilím umelca",
+      "B. krása človeka vyplýva iba z vonkajšieho vzhľadu človeka",
+      "C. každý človek môže byť krásny",
+      "D. krása prírody vzniká zväčša bez zásahu človeka"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 22,
+    "text": "Predmety, ktoré uspokojujú duchovné potreby človeka sa nazývajú:",
+    "options": [
+      "A. úžitkové predmety",
+      "B. kultúrne predmety",
+      "C. ľudské predmety",
+      "D. praktické predmety"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 23,
+    "text": "Medzi kultúrne hodnoty sa nezaraďujú:",
+    "options": [
+      "A. umelecké hodnoty",
+      "B. morálne hodnoty",
+      "C. materiálne hodnoty",
+      "D. vedecké hodnoty"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 24,
+    "text": "Vyberte z nasledovných formulácii nesprávnu:",
+    "options": [
+      "A. každý umelecký druh pracuje s množstvom vyjadrovacích prostriedkov",
+      "B. každý umelecký druh odzrkadľuje človeka a jeho život rovnakým spôsobom",
+      "C. každý umelecký druh má mnoho cieľov",
+      "D. každý umelecký druh možno členiť na žánre"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 25,
+    "text": "Veľmi hlboký estetický zážitok, ktorý sa v človeku rodí pri prežívaní vrcholných umeleckých dielsa nazýva:",
+    "options": [
+      "A. katarzia",
+      "B. kontroverzia",
+      "C. komunikácia",
+      "D. konvencia"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 26,
+    "text": "Charakteristickým znakom masovej kultúry je :",
+    "options": [
+      "A. náročnosť formálnych a obsahových prvkov",
+      "B. nepravidelnosť",
+      "C. prienik do citovej a myšlienkovej hĺbky",
+      "D. štandardizácia vedomia spoločnosti, manipulácia s vedomím ľudí"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 27,
+    "text": "Hlavným princípom gýča je, že :",
+    "options": [
+      "A. vydáva sa za špičkovú estetickú hodnotu , ktorou nie je",
+      "B. berie do úvahy kultúrnu vyspelosťZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 28,
+    "text": "Móda je charakteristická tým, že:",
+    "options": [
+      "A. nesúvisí s estetickými normami",
+      "B. vyjadruje sociálne a kultúrne zaradenie človeka",
+      "C. nie je vyjadrením slobody osobnosti",
+      "D. vždy protirečí praktickosti, účelnosti"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 29,
+    "text": "Starostlivosť o životné prostredie zahŕňa aj vzťah k smetiam, ktorý by mal byť:",
+    "options": [
+      "A. inštrumentálny a estetický",
+      "B. inštrumentálny",
+      "C. estetický",
+      "D. indiferentný"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 30,
+    "text": "Vyberte z nasledovných formulácií nesprávnu:",
+    "options": [
+      "A. slušnosťou človek vyjadruje svoje kladné city",
+      "B. slušnosťou človek vyjadruje toleranciu, ohľaduplnosť, úctu k človeku",
+      "C. slušnosť neprispieva k dobrým medziľudským vzťahom",
+      "D. slušnosť sa môže rovnať bezcharakternosti a nemorálnosti, ak sa ňou zakrýva pokrytectvo aak sa využíva na manipulovanie iným človekom"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 31,
+    "text": "Komunikácia medzi ľuďmi zahŕňa :",
+    "options": [
+      "A. reč, gestá, mimiku, písmo",
+      "B. iba mimiku a písmo",
+      "C. iba písmo a reč",
+      "D. iba reč"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 32,
+    "text": "Vyberte nesprávny výrok:",
+    "options": [
+      "A. štýl formuje pocity, predstavy, myšlienky a postoje človeka",
+      "B. človek získava počas života svoj vlastný osobitný štýl",
+      "C. každý má svoj vlastný štýl, čo do ľudskej komunikácie neprináša žiadne nedorozumenia",
+      "D. vlastný osobitný štýl sa týka reči, gestikulácie, obliekania, spôsobu práce a života človeka"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 33,
+    "text": "Hodnota vecí je:",
+    "options": [
+      "A. totožná iba s vlastnosťami vecí",
+      "B. identická iba s fungovaním vecí v živote človeka",
+      "C. nezávislá od spôsobov, akými ju človek vníma",
+      "D. úžitková aj estetická"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 34,
+    "text": "Usporiadanie hodnôt podľa dôležitosti sa nazýva:",
+    "options": [
+      "A. hierarchia hodnôt",
+      "B. kultúrna hodnota",
+      "C. etický kódex",
+      "D. deontológia"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 35,
+    "text": "Literatúra ako umelecký druh sa člení na:",
+    "options": [
+      "A. etiku, lyriku a drámu",
+      "B. epiku, lyriku a drámu",
+      "C. epiku a lyriku",
+      "D. lyriku a drámu"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 36,
+    "text": "Pre výtvarné umenia neplatí, že:",
+    "options": [
+      "A. sú rozložené v priestore",
+      "B. ich vnímame zrakom",
+      "C. sú iba dvojrozmernéZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 37,
+    "text": "Každý umelecký druh možno ďalej členiť na :",
+    "options": [
+      "A. umelecké diela",
+      "B. umelecké prostriedky",
+      "C. umelecké druhy",
+      "D. umelecké žánre"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 38,
+    "text": "Medzi audiovizuálne umenia patrí:",
+    "options": [
+      "A. grafika",
+      "B. film a televízia",
+      "C. balet",
+      "D. lyrika a epika"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 39,
+    "text": "Divadelné umenie vnímame:",
+    "options": [
+      "A. iba zrakom",
+      "B. zrakom a sluchom",
+      "C. zrakom a čuchom",
+      "D. sluchom a hmatom"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 40,
+    "text": "Pre architektúru neplatí, že:",
+    "options": [
+      "A. nepatrí medzi umelecké druhy",
+      "B. je to typické kolektívne umenie",
+      "C. nachádza sa už na rozhraní umenia a inžinierskej tvorby",
+      "D. jej výtvory sa orientujú najmä na stvárňovanie prostredia"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 41,
+    "text": "Ontológia je:",
+    "options": [
+      "A. náuka o hodnotách",
+      "B. náuka o poznaní",
+      "C. náuka o bytí",
+      "D. náuka o mravnom konaní"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 42,
+    "text": "Gnozeológia je:",
+    "options": [
+      "A. náuka o krásne",
+      "B. náuka o poznaní",
+      "C. náuka o človeku",
+      "D. náuka o bytí"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 43,
+    "text": "Náuka o krásne a o jeho osvojovaní sa nazýva:",
+    "options": [
+      "A. filozofická antropológia",
+      "B. axiológia",
+      "C. estetika",
+      "D. etika"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 44,
+    "text": "Filozofie vychádzajúce z prvotnosti hmoty sa nazývajú:",
+    "options": [
+      "A. materialistické",
+      "B. idealistické",
+      "C. pluralistické",
+      "D. materialisticko- idealistické"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 45,
+    "text": "Filozofie, ktoré prijímajú dve podstaty alebo dva princípy ( hmotnú i duchovnú) sa zaraďujú pod:",
+    "options": [
+      "A. pluralizmus",
+      "B. dualizmus",
+      "C. monizmus",
+      "D. determinizmusZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 46,
+    "text": "Výrok : „Viem, že nič neviem“ vyslovil:",
+    "options": [
+      "A. Platón",
+      "B. Aristoteles",
+      "C. Sokrates",
+      "D. Epikuros"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 47,
+    "text": "Východiskom Platónovho prístupu k človeku a svetu je:",
+    "options": [
+      "A. učenie o ideách",
+      "B. učenie o duši",
+      "C. učenie o štáte",
+      "D. učenie o cnostiach"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 48,
+    "text": "Vyberte nesprávne vyjadrenie:",
+    "options": [
+      "A. Aristoteles zaujíma v antickej filozofii výnimočné postavenie",
+      "B. Aristoteles rozdelil filozofiu na teoretickú a praktickú",
+      "C. Aristoteles nevenoval pozornosť logike",
+      "D. Aristotelova filozofia zahŕňa a systematizuje celú oblasť vtedajšieho vedenia"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 49,
+    "text": "Medzi zakladateľov novovekej filozofie patria:",
+    "options": [
+      "A. Sokrates, Bacon, Descartes",
+      "B. Bacon, Descartes, Hobbes",
+      "C. Hobbes, Platón, Aristoteles",
+      "D. Sokrates, Platón, Aristoteles"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 19,
+    "text": "storočia nepatrí:",
+    "options": [
+      "A. pozitivizmus",
+      "B. novokantovstvo",
+      "C. marxistická filozofia",
+      "D. scholastika"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 51,
+    "text": "Rozdelenie na neformálne a formálne skupiny sa uskutočňuje podľa:",
+    "options": [
+      "A. normality skupiny",
+      "B. typu väzby medzi členmi skupiny",
+      "C. prístupu k moci",
+      "D. vekovej štruktúry"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 52,
+    "text": "Rodina je:",
+    "options": [
+      "A. skupina ľudí, ktorí sú spojení neinštitucionálnymi zväzkami, ale uspokojujúcimi spoločnéciele",
+      "B. sociálna skupina zložená z dvoch alebo viacerých osôb žijúcich spolu v jednej domácnosti,ktoré sú spojené manželskými, pokrvnými alebo adoptívnymi zväzkami",
+      "C. skupina zložená z dvoch alebo viacerých osôb žijúcich spolu v jednej domácnosti, ktoré súspojené manželskými, pokrvnými alebo adoptívnymi zväzkami, ale rozhodne nie sociálna",
+      "D. skupina zložená z dvoch alebo viacerých osôb žijúcich spolu v jednej domácnosti"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 53,
+    "text": "Sociológia skúma:",
+    "options": [
+      "A. výsledky štatistického sčítavania domov a bytov",
+      "B. skupinové procesy",
+      "C. individuálne prežitky",
+      "D. spôsob rozdeľovania národného majetku"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 54,
+    "text": "Manželstvo a rodinný život sú sociálnymi inštitúciami, ktoré zabezpečujú plnenie funkcie:",
+    "options": [
+      "A. organizačnej",
+      "B. resocializačnej",
+      "C. ekonomickej, v ktorej sa uskutočňuje hospodárska spolupráca, deľba práce atď.",
+      "D. preferenčnejZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 55,
+    "text": "Manželstvo a rodinný život sú sociálnymi inštitúciami, ktoré nezabezpečujú plnenie funkcie:",
+    "options": [
+      "A. socializačnej,",
+      "B. resocializačnej",
+      "C. ekonomickej, v ktorej sa uskutočňuje hospodárska spolupráca, deľba práce atď.",
+      "D. reprodukčnej"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 56,
+    "text": "Sociálnu  skupinu necharakterizujú:",
+    "options": [
+      "A. sociálne interakcie v skupinách",
+      "B. vodcovstvo a mocenská nerovnosť v skupinách",
+      "C. veková štruktúra",
+      "D. normy"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 57,
+    "text": "Ohodnoťte toto tvrdenie: „Rodinu ako sociálnu skupinu, inštitúciu manželstva, rodinný život, hociv rozmanitých podobách pozná každá spoločnosť.“",
+    "options": [
+      "A. určite je to pravda",
+      "B. určite to nie je pravda",
+      "C. asi to nie je pravda",
+      "D. asi to je pravda"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 58,
+    "text": "Komunita označuje:",
+    "options": [
+      "A. skupinu, založenú najmä na neosobných, formálnych vzťahoch",
+      "B. spoločenstvo ľudí, žijúcich a spolupracujúcich na ohraničenom území, ktoré tvorí základ, kdemôžu uskutočňovať svoje každodenné životné činnosti a kde sa odohráva najväčšia časť ichživota",
+      "C. skupinu inštitucionálne spojených jednotlivcov",
+      "D. skupinu s formálne stanovenými pravidlami a predpismi"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 59,
+    "text": "Medzi charakteristiky tradičnej spoločnosti nepatrí:",
+    "options": [
+      "A. prevažne agrárny charakter doplnený remeselnou výrobou",
+      "B. demokracia, otvorený systém stratifikácie",
+      "C. existencia sebestačných rodov, kmeňov a iných sociálnych útvarov",
+      "D. rozhodujúca úloha zvykov a tradícií v živote spoločnosti atď."
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 60,
+    "text": "Medzi charakteristiky modernej spoločnosti nepatrí:",
+    "options": [
+      "A. prehĺbenie deľby práce a špecializácia sociálnych rolí",
+      "B. sústreďovanie obyvateľstva do miest",
+      "C. vznik štátnych organizácií, ktoré prevzali úlohy niekdajších spoločenstiev",
+      "D. existencia sebestačných rodov, kmeňov a iných sociálnych útvarov"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 61,
+    "text": "Moc a autorita:",
+    "options": [
+      "A. sú pojmy nedefinovateľné",
+      "B. patria medzi základné sociologické pojmy. Moc preniká všetkými oblasťami životaspoločnosti, v každej z nich cítiť vplyv alebo prítomnosť mocenských vzťahov.",
+      "C. sú pojmy veľmi ťažko definovateľné",
+      "D. nemajú so sociológiou nič spoločné. Sú to pojmy výlučne psychologické"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 62,
+    "text": "Pri definovaní moci neplatí charakteristika:",
+    "options": [
+      "A. moc je schopnosť jednotlivcov alebo skupín presadiť svoju vôľu pri riešení rôznychspoločenských záležitostí",
+      "B. moc je schopnosť uskutočňovať sociálne činnosti a ovplyvňovať sociálne procesy vo svojprospech",
+      "C. moc je prejavom demokracie",
+      "D. moc umožňuje rozdelenie ľudí na vládnucich a ovládaných"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 63,
+    "text": "Prestíž možno definovať ako:",
+    "options": [
+      "A. nepriaznivý dojem jednej osoby v očiach druhejZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 64,
+    "text": "Sociálny status je:",
+    "options": [
+      "A. sieť vzájomne prepojených normatívne riadených sociálnych vzťahov v spoločnosti",
+      "B. pravidelnosť v správaní ľudí",
+      "C. sústava noriem, hodnôt, činností okolo plnenia potrieb",
+      "D. miesto, pozícia v spoločnosti"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 65,
+    "text": "Status a prestíž sú:",
+    "options": [
+      "A. rôzne pojmy, vyjadrujúce to isté",
+      "B. dva pojmy s minimálnym rozdielom",
+      "C. dva úplne rozdielne pojmy",
+      "D. pojmy pochádzajúce z rôznych vied"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 66,
+    "text": "Referenčné skupiny sú:",
+    "options": [
+      "A. vzťažné skupiny, podľa ktorých sa hodnotíme",
+      "B. všetky skupiny, v ktorých sú intímne vzťahy",
+      "C. skupiny face to face",
+      "D. skupiny, v ktorých nie je definovaný cieľ činnosti"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 67,
+    "text": "Označte nesprávnu charakteristiku.„Rodina“ je skupina:",
+    "options": [
+      "A. face to face",
+      "B. primárna",
+      "C. sekundárna",
+      "D. malá"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 68,
+    "text": "Výskum vplyvu prostredia a spôsobu života na zdravie ľudí a vplyv výchovy k zdraviu:",
+    "options": [
+      "A. vyžaduje iba znalosť sociologickej teórie, sociologického prístupu",
+      "B. vyžaduje znalosť a aplikáciu sociologických metód výskumu",
+      "C. nevyužíva sociologické metódy výskumu, ani sociologickú teóriu",
+      "D. vyžaduje znalosť sociologickej teórie a sociologického výskumu ako podmienky pri analýzesociálnej skutočnosti"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 69,
+    "text": "Verejné zdravotníctvo je charakterizované (označte nesprávnu charakteristiku):",
+    "options": [
+      "A. interdisciplinárnym prístupom , ktorý je orientovaný na telesné, duševné a environmentálneaspekty zdravia komunít a populácie",
+      "B. zameraním hlavne na prevenciu chorôb a úrazov v populácii za účelom zlepšenia kvalityživota cieľovej populácie",
+      "C. hodnotením zdravotníckych služieb a ich kvality",
+      "D. hodnotením zdravotných rizík a na ich kontrolu a prevenciu"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 70,
+    "text": "Deviácia je také správanie jednotlivcov, ktoré:",
+    "options": [
+      "A. spoločnosť alebo sociálna skupina pokladá za porušenie spoločenských alebo skupinovýchnoriem, ktoré vyvoláva reakcie jednotlivcov, sociálnych skupín alebo spoločnosti zameranéna izoláciu, liečenie, prevýchovu, nápravu, na potrestanie porušovateľov noriem",
+      "B. spoločnosť alebo sociálna skupina nepokladá za porušenie spoločenských alebo skupinovýchnoriem",
+      "C. nevyvoláva reakcie jednotlivcov, sociálnych skupín alebo spoločnosti zamerané na izoláciuliečenie, prevýchovu, nápravu",
+      "D. nevyvoláva reakcie jednotlivcov, sociálnych skupín alebo spoločnosti zamerané napotrestanie porušovateľov noriemZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 71,
+    "text": "Ak sa osoba správa určitým deviantným spôsobom, porušuje normy čiže pravidlá a vzorysprávania, ktoré spoločnosť uplatňuje pri posudzovaní určitého správania, je podmienkou účasť inýchosôb alebo sociálnych skupín, či organizácií reprezentujúcich spoločnosť, ktoré istým spôsobomreagujú na toto správanie?",
+    "options": [
+      "A. áno určite",
+      "B. neviem",
+      "C. asi nie",
+      "D. určite nie"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 72,
+    "text": "Deviácia je:",
+    "options": [
+      "A. relatívna poslušnosť, prispôsobenie sa sociálnym normám",
+      "B. poslušnosť, prispôsobenie sa sociálnym normám",
+      "C. neposlušnosť, neprispôsobenie sa sociálnym normám",
+      "D. čiastočná poslušnosť, čiastočné prispôsobenie sa sociálnym normám"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 73,
+    "text": "Nonkonformita je:",
+    "options": [
+      "A. medzistupeň medzi deviáciou a konformitou (napr. výstredné obliekanie)",
+      "B. opak poslušnosti",
+      "C. vyšší stupeň prispôsobenia",
+      "D. stupeň prispôsobenia vyššej úrovni"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 74,
+    "text": "Zvoľte z uvedených možností charakteristiku, ktorú sociálna kontrola neobsahuje:",
+    "options": [
+      "A. spoločenské mechanizmy, ktorých úlohou je zabezpečiť poriadok a stabilitu spoločnosti",
+      "B. proces, ktorým si skupiny alebo spoločnosť vynucujú konformitu, prispôsobovanie sa svojichčlenov skupinovým či spoločenským očakávaniam a požiadavkám, resp. uznávanie adodržiavanie spoločenských noriem",
+      "C. sociálna kontrola má podobu reakcií osôb, skupín a spoločnosti, ktorými deviantné správanieodsudzujú, potláčajú a nútia deviantov, aby svoje správanie zmenili na konformné",
+      "D. sociálna kontrola má podobu trestania osôb, skupín a spoločností, ktoré patria do inejspoločnosti"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 75,
+    "text": "Sankcie sú:",
+    "options": [
+      "A. tresty",
+      "B. tresty a odmietnutie vstupu do spoločenskej skupiny",
+      "C. odmeny, pochvaly, tresty",
+      "D. odmeny"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 76,
+    "text": "Neformálna sociálna kontrola je:",
+    "options": [
+      "A. pôsobenie neformálnej skupiny",
+      "B. neformálny vzor správania",
+      "C. odmena za neformálne správanie",
+      "D. neoficiálny sociálny nátlak, ktorý núti jednotlivcov rešpektovať sociálne normy"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 77,
+    "text": "Medzi spôsoby uskutočňovania neformálnej sociálnej kontroly nepatrí:",
+    "options": [
+      "A. sociálne odmeny (ocenenia, pochvaly)",
+      "B. tresty (zahanbenie, pokarhanie, výsmech)",
+      "C. verejná mienka",
+      "D. väzenie"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 78,
+    "text": "Formálna sociálna kontrola:",
+    "options": [
+      "A. je oficiálny, formálny tlak, ktorého cieľom je vynútiť si konformitu",
+      "B. sú sociálne odmeny (ocenenia, pochvaly)",
+      "C. sú prejavy verejnej mienky",
+      "D. je neoficiálny sociálny nátlak, ktorý núti jednotlivcov rešpektovať sociálne normyZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 79,
+    "text": "Konformitu občanov – dodržiavanie zákonov spoločnosti sledujú a vynucujú najmä štátne orgány.Označte nesprávne uvedenú inštitúciu:",
+    "options": [
+      "A. polícia",
+      "B. škola",
+      "C. prokuratúra",
+      "D. súdy"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 80,
+    "text": "Pre charakteristiku sociálnej štruktúry neplatí:",
+    "options": [
+      "A. sociálna štruktúra označuje relatívne stabilný, podľa určitých vzorov a pravidiel prebiehajúcisúbor sociálnych interakcií a systém sociálnych vzťahov v skupinách i celej spoločnosti, ktorévytvárajú",
+      "B. sociálnu štruktúru utvára suma jednotlivcov",
+      "C. sociálnu štruktúru utvára sociálne správanie, interakcie a činnosti jednotlivcov",
+      "D. sociálna štruktúra ovplyvňuje ich správanie, interakcie a činnosti"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 81,
+    "text": "Medzi základné znaky štátu nepatrí :",
+    "options": [
+      "A. právny systém",
+      "B. štátny znak",
+      "C. obyvateľstvo štátu",
+      "D. ekonomický a finančný systém"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 82,
+    "text": "Medzi základné znaky štátnej moci patrí :",
+    "options": [
+      "A. legitimita",
+      "B. nezávislosť",
+      "C. výlučnosť",
+      "D. rovnoprávne postavenie štátu na medzinárodnej úrovni"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 83,
+    "text": "Štátne územie tvorí :",
+    "options": [
+      "A. suchozemský povrch",
+      "B. suchozemský povrch, vnútorné vody, priestor nad suchozemským povrchom",
+      "C. suchozemský priestor, teritoriálne vody",
+      "D. suchozemský povrch, priestor pod suchozemským povrchom, priestor nad suchozemskýmpovrchom"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 84,
+    "text": "Obyvateľstvo štátu tvoria :",
+    "options": [
+      "A. občania štátu, apoliti, cudzinci",
+      "B. občania štátu",
+      "C. občania štátu a cudzinci",
+      "D. občania štátu a apoliti"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 85,
+    "text": "Medzi funkcie ústavy patrí :",
+    "options": [
+      "A. zastrešujúca funkcia",
+      "B. politická funkcia",
+      "C. právna funkcia",
+      "D. ekonomická funkcia"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 86,
+    "text": "Všeobecný postulát slobody znamená :",
+    "options": [
+      "A. každý môže robiť, čo nie je zákonom zakázané",
+      "B. každý môže robiť, čo nie je zákonom zakázané a nikto nesmie byť nútený robiť to, čo muzákon neukladá",
+      "C. každý môže robiť len to čo mu zákon prikazuje",
+      "D. nikto nesmie porušiť zákon"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 87,
+    "text": "Základné ľudské práva a slobody sa zaručujú :",
+    "options": [
+      "A. iba občanom štátu",
+      "B. iba majetným ľuďomZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 88,
+    "text": "Individuálna sloboda občana znamená, že :",
+    "options": [
+      "A. štát do nej môže zasiahnuť len na základe zákona, v jeho medziach, v rozsahu a spôsobom,ktorý stanoví zákon",
+      "B. štát nesmie do nej vôbec zasahovať",
+      "C. štát ju môže len obmedziť",
+      "D. štát do nej môže zasiahnuť len na základe rozhodnutia súdu alebo iného orgánu"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 89,
+    "text": "Medzi základné znaky ľudských práv patrí :",
+    "options": [
+      "A. viazanosť len na občanov štátu",
+      "B. neodňateľnosť",
+      "C. zrušiteľnosť",
+      "D. premlčateľnosť"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 90,
+    "text": "Ústava SR garantuje ľudské práva :",
+    "options": [
+      "A. v plnom rozsahu",
+      "B. len pre občanov Slovenskej republiky",
+      "C. negarantuje ľudské práva",
+      "D. len pre plnoletých"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 91,
+    "text": "Medzi znaky unitárneho štátu patrí :",
+    "options": [
+      "A. dvojitá sústava štátnych orgánov",
+      "B. dvojkomorový najvyšší orgán štátnej moci",
+      "C. neexistencia samosprávy",
+      "D. jedno štátne občianstvo"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 92,
+    "text": "Medzi typy zloženého štátu patrí :",
+    "options": [
+      "A. konfederácia",
+      "B. centralizovaný unitárny štát",
+      "C. federácia",
+      "D. personálna únia"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 93,
+    "text": "Medzi znaky demokracie patrí :",
+    "options": [
+      "A. princíp obmedzenej väčšiny",
+      "B. princíp neobmedzenej väčšiny",
+      "C. nadradenosť štátneho vlastníctva",
+      "D. neexistencia slobodných volieb"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 94,
+    "text": "Veková hranica na pasívne volebné právo ( právo byť volený ) v Slovenskej republike je :",
+    "options": [
+      "A. 18 rokov",
+      "B. 21 rokov",
+      "C. 20 rokov",
+      "D. 22 rokov"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 95,
+    "text": "Demokratický štátny režim sa vyznačuje formou vlády :",
+    "options": [
+      "A. štátna moc sa neuskutočňuje iba na základe a v medziach práva",
+      "B. štátna moc negarantuje základné ľudské práva a slobody",
+      "C. trojdelenie mocí",
+      "D. neexistencia slobodnej trhovej ekonomiky"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 96,
+    "text": "Zákonnosť ako jeden z princípov právneho štátu znamená :",
+    "options": [
+      "A. požiadavku aby všetci občania dodržiavali zákony a ostatné právne predpisy",
+      "B. požiadavku aby všetky subjekty práva bez rozdielu rešpektovali zákony a ostatné právnepredpisy",
+      "C. že štátne orgány v odôvodnených prípadoch nemusia rešpektovať právoZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 97,
+    "text": "Deľba moci ako jeden z princípov právneho štátu znamená :",
+    "options": [
+      "A. rozdelenie moci medzi prezidenta republiky, predsedu vlády a predsedu parlamentu",
+      "B. rozdelenie moci medzi ministerstvá, miestnu štátnu správu a samosprávu",
+      "C. rozdelenie moci medzi zákonodarnú a výkonnú moc",
+      "D. rozdelenie moci medzi zákonodarnú, výkonnú a súdnu moc"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 98,
+    "text": "Zákonodarnú moc v štáte vykonáva :",
+    "options": [
+      "A. vláda",
+      "B. parlament",
+      "C. prezident",
+      "D. ministri"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 99,
+    "text": "Zákonodarnú moc v Slovenskej republike reprezentuje :",
+    "options": [
+      "A. Národná rada SR",
+      "B. vláda SR",
+      "C. Ústavný súd SR",
+      "D. prezident SR"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 100,
+    "text": "Vrcholným orgánom výkonnej moci v Slovenskej republike je :",
+    "options": [
+      "A. predseda vlády",
+      "B. prezident SR",
+      "C. vláda SR",
+      "D. predseda parlamentu"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 101,
+    "text": "Súdna moc v štáte :",
+    "options": [
+      "A. aplikuje zákony a je brzdou zákonodarnej a výkonnej moci",
+      "B. môže nahradiť v odôvodnených prípadoch činnosť parlamentu",
+      "C. v odôvodnených prípadoch môže rozhodovať aj v rozpore s právom",
+      "D. môže odvolať predsedu vlády"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 102,
+    "text": "Súdnu moc v Slovenskej republike reprezentujú :",
+    "options": [
+      "A. súdy a prokuratúra",
+      "B. súdy, prokuratúra a polícia",
+      "C. súdy a orgány štátnej správy",
+      "D. súdy"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 103,
+    "text": "Ústavodarný a zákonodarný orgán sa vyznačuje najmä :",
+    "options": [
+      "A. zastupovaním štátu navonok",
+      "B. prijímaním zákonov a ústavy",
+      "C. vrchným vojenským velením",
+      "D. kreáciou štátnych funkcionárov"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 104,
+    "text": "Orgánmi výkonnej moci sú :",
+    "options": [
+      "A. hlava štátu a vláda",
+      "B. predseda parlamentu a hlava štátu",
+      "C. predseda najvyššieho súdu",
+      "D. predseda parlamentu a predseda vlády"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 105,
+    "text": "Vládu tvorí :",
+    "options": [
+      "A. predseda vlády, predseda parlamentu a hlava štátu",
+      "B. predseda vlády a hlava štátu",
+      "C. predseda vlády, podpredsedovia vlády a ministri",
+      "D. predseda vlády, ministri a hlava štátuZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 106,
+    "text": "Vláda prijíma :",
+    "options": [
+      "A. nariadenia vlády a uznesenia vlády",
+      "B. zákony",
+      "C. vo výnimočných prípadoch ústavu",
+      "D. demisiu hlavy štátu"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 107,
+    "text": "Predsedu vlády v Slovenskej republike vymenúva a odvoláva :",
+    "options": [
+      "A. predseda parlamentu",
+      "B. predseda Ústavného súdu",
+      "C. prezident SR",
+      "D. Národná rada SR"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 108,
+    "text": "Medzi orgány samosprávy v Slovenskej republike patria :",
+    "options": [
+      "A. ministerstvá",
+      "B. obce a VÚC",
+      "C. krajské úrady",
+      "D. obvodné úrady"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 109,
+    "text": "Súdy v Slovenskej republike :",
+    "options": [
+      "A. rozhodujú o právach a povinnostiach právnických a fyzických osôb",
+      "B. rozhodujú o odvolaní prezidenta",
+      "C. vo výnimočných prípadoch môžu rozhodnúť o rozpustení Národnej rady SR",
+      "D. preskúmavajú medzinárodné zmluvy, ktoré uzavrela Slovenská republika"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 110,
+    "text": "Subjektami medzinárodného práva verejného sú :",
+    "options": [
+      "A. samostatné suverénne štáty",
+      "B. fyzické osoby",
+      "C. právnické osoby",
+      "D. kolónie"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 111,
+    "text": "Právnym predpisom s najväčšou právnou silou v Slovenskej republike je :",
+    "options": [
+      "A. zákon",
+      "B. všeobecne záväzné nariadenie obce",
+      "C. nariadenie vlády",
+      "D. Ústava SR"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 112,
+    "text": "Na prijatie Ústavy SR je potrebný súhlas :",
+    "options": [
+      "A. nadpolovičnej väčšiny všetkých poslancov – 76 hlasov",
+      "B. nadpolovičnej väčšiny prítomných poslancov",
+      "C. všetkých poslancov – 150 hlasov",
+      "D. trojpätinovej väčšiny všetkých poslancov – 90 hlasov"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 113,
+    "text": "Prijaté zákony v Slovenskej republike podpisuje :",
+    "options": [
+      "A. predseda vlády",
+      "B. predseda parlamentu, predseda ústavného súdu a prezident SR",
+      "C. predseda parlamentu, predseda vlády a prezident SR",
+      "D. prezident SR"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 18,
+    "text": "roku",
+    "options": [
+      "B. od narodenia",
+      "C. od"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 115,
+    "text": "Spôsobilosť na právne úkony vzniká :",
+    "options": [
+      "A. od narodenia",
+      "B. od"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 117,
+    "text": "Ombudsman je :",
+    "options": [
+      "A. sudca",
+      "B. prokurátor",
+      "C. právnik",
+      "D. verejný ochranca práv"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 118,
+    "text": "Volebné obdobie prezidenta Slovenskej republiky je :",
+    "options": [
+      "A. 5 rokov",
+      "B. 4 roky",
+      "C. 2 roky",
+      "D. 7 rokov"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 119,
+    "text": "Volebné obdobie Národnej rady SR je :",
+    "options": [
+      "A. 5 rokov",
+      "B. 8 rokov",
+      "C. 4 roky",
+      "D. 3 roky"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 120,
+    "text": "Národná rada SR má :",
+    "options": [
+      "A. 76 poslancov",
+      "B. 120 poslancov",
+      "C. 180 poslancov",
+      "D. 150 poslancov"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 121,
+    "text": "Ústavný súd SR rozhoduje :",
+    "options": [
+      "A. o súdnych sporoch medzi fyzickými a právnickými osobami",
+      "B. o sporoch medzi Európskou úniou a Slovenskou republikou",
+      "C. o odvolaní predsedu vlády",
+      "D. o nesúlade medzi Ústavou SR a zákonmi"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 122,
+    "text": "Veková hranica na zvolenie za prezidenta Slovenskej republiky je :",
+    "options": [
+      "A. 18 rokov",
+      "B. 21 rokov",
+      "C. 35 rokov",
+      "D. 40 rokov"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 123,
+    "text": "Prezident Slovenskej republiky je volený :",
+    "options": [
+      "A. Národnou radou SR",
+      "B. občanmi v priamych voľbách, tajným hlasovaním",
+      "C. Ústavným súdom SR",
+      "D. Národnou radou SR a Ústavným súdom SRZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 124,
+    "text": "Slovenská republika sa stala členským štátom Európskej únie :",
+    "options": [
+      "A. v roku 1990",
+      "B. v roku 2000",
+      "C. v roku 1998",
+      "D. v roku"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 2004125,
+    "text": "Medzi členské štáty Európskej únie nepatrí :",
+    "options": [
+      "A. Poľsko",
+      "B. Nemecko",
+      "C. Švajčiarsko",
+      "D. Francúzsko"
+    ],
+    "answer": []
+  },
+  {
+    "id": 126,
+    "text": "Európsky súd pre ľudské práva má sídlo:",
+    "options": [
+      "A. v Štrasburgu",
+      "B. v Ríme",
+      "C. v Bruseli",
+      "D. v Paríži"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 127,
+    "text": "Ústava Slovenskej republiky bola prijatá v roku :",
+    "options": [
+      "A. 1991",
+      "B. 1992",
+      "C. 1989",
+      "D. "
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 1993128,
+    "text": "Slovenská republika je členom Rady Európy od roku:",
+    "options": [
+      "A. 1993",
+      "B. 1995",
+      "C. 1989",
+      "D. "
+    ],
+    "answer": []
+  },
+  {
+    "id": 1994129,
+    "text": "Skratka WHO označuje :",
+    "options": [
+      "A. Detský fond OSN",
+      "B. Organizáciu pre atómovú energiu",
+      "C. Svetovú zdravotnícku organizáciu",
+      "D. Organizáciu pre obchod a rozvoj"
+    ],
+    "answer": []
+  },
+  {
+    "id": 130,
+    "text": "Slovenská republika je členom OSN od roku:",
+    "options": [
+      "A. 1989",
+      "B. 1993",
+      "C. 1945",
+      "D. "
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 1992131,
+    "text": "Členmi OSN sú :",
+    "options": [
+      "A. medzinárodné organizácie",
+      "B. fyzické osoby",
+      "C. právnické osoby",
+      "D. suverénne štáty"
+    ],
+    "answer": []
+  },
+  {
+    "id": 132,
+    "text": "OSN bola založená zakladajúcim dokumentom:",
+    "options": [
+      "A. Chartou OSN",
+      "B. Zmluvou o OSN",
+      "C. Deklaráciou o založení OSN",
+      "D. Paktom OSNZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 133,
+    "text": "Oficiálnym sídlom OSN je mesto:",
+    "options": [
+      "A. Berlín",
+      "B. New York",
+      "C. Brusel",
+      "D. Ženeva"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 134,
+    "text": "Medzinárodný súdny dvor OSN sídli :",
+    "options": [
+      "A. v Bruseli",
+      "B. v New Yorku",
+      "C. v Haagu",
+      "D. v Londýne"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 135,
+    "text": "Maastrichtskú zmluvu o Európskej únii podpísali v roku :",
+    "options": [
+      "A. 1985",
+      "B. 1993",
+      "C. 1989",
+      "D. "
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 1992136,
+    "text": "Chartu OSN podpísali pôvodní zakladajúci členovia v roku :",
+    "options": [
+      "A. 1946",
+      "B. 1948",
+      "C. 1945",
+      "D. "
+    ],
+    "answer": []
+  },
+  {
+    "id": 1950137,
+    "text": "Psychológia je veda o:",
+    "options": [
+      "A. výchove",
+      "B. interakcii medzi ľuďmi",
+      "C. psychickej regulácii správania",
+      "D. podpore snáh človeka"
+    ],
+    "answer": []
+  },
+  {
+    "id": 138,
+    "text": "Predmetom záujmu psychológie je:",
+    "options": [
+      "A. výchova a vzdelávanie",
+      "B. prežívanie a správanie sa živých bytostí v interakcii s prostredím",
+      "C. správanie sa živých bytostí vo vzťahu k sebe",
+      "D. interakcia medzi ľuďmi"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 139,
+    "text": "Prežívanie je dimenzia psychiky, ktorá je:",
+    "options": [
+      "A. priamo pozorovateľná",
+      "B. nie je priamo pozorovateľná",
+      "C. sprístupnená oneskorene",
+      "D. prekrytá správaním"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 140,
+    "text": "Deprivácia je:",
+    "options": [
+      "A. nepochopenie duševného stavu",
+      "B. stav pri neuspokojovaní potrieb",
+      "C. zodpovednosť za uspokojenie potrieb",
+      "D. uspokojovanie duchovných potrieb"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 141,
+    "text": "Autotelické hodnoty sú orientované na:",
+    "options": [
+      "A. druhých",
+      "B. seba",
+      "C. osobný cieľ",
+      "D. vnímanie inýchZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 142,
+    "text": "Schopnosti sú:",
+    "options": [
+      "A. možnosti vyjadriť sa k činnosti",
+      "B. osobné dispozície na vykonávanie určitých činností",
+      "C. prístupy ku skutočnosti",
+      "D. snahy o zabudnutie"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 143,
+    "text": "Ľahší stupeň mentálnej retardácie sa označuje ako:",
+    "options": [
+      "A. imbecilita",
+      "B. debilita",
+      "C. idiocia",
+      "D. mentálna subnorma"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 144,
+    "text": "Hraničné pásmo inteligencie medzi mentálnou retardáciou a normou sa označuje ako:",
+    "options": [
+      "A. retardácia",
+      "B. mentálna subnorma",
+      "C. imbecilita",
+      "D. idiocia"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 145,
+    "text": "Vedomie seba, ktorého obsahom je súbor noriem v danej kultúre, sa nazýva:",
+    "options": [
+      "A. sebauvedomenie",
+      "B. svedomie",
+      "C. sebakoncepcia",
+      "D. uznanie"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 146,
+    "text": "Štruktúrovaný základ prejavov osobnosti ako upevnená sústava zovšeobecnených motívov sanazýva:",
+    "options": [
+      "A. temperament",
+      "B. sebarealizácia",
+      "C. charakter",
+      "D. presvedčenie"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 147,
+    "text": "Psychický stav, v ktorom sa vedomie sústreďuje a zameriava na niektoré objekty, sa nazýva:",
+    "options": [
+      "A. vôľa",
+      "B. pozornosť",
+      "C. talent",
+      "D. pocit"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 148,
+    "text": "Medzi citové reakcie nepatrí:",
+    "options": [
+      "A. hnev",
+      "B. strach",
+      "C. depresia",
+      "D. obdiv"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 149,
+    "text": "Najvyšším stupňom poznávacieho procesu je:",
+    "options": [
+      "A. pozornosť",
+      "B. myslenie",
+      "C. vnímanie",
+      "D. predstavy"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 150,
+    "text": "Základná forma myslenia je:",
+    "options": [
+      "A. abstrakcia",
+      "B. pojem",
+      "C. vnímanie",
+      "D. predstavyZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 151,
+    "text": "Nástrojom myslenia a dorozumenia je:",
+    "options": [
+      "A. myslenie",
+      "B. reč",
+      "C. pamäť",
+      "D. učenie"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 152,
+    "text": "Pre zrenie platí:",
+    "options": [
+      "A. je to celoživotný proces",
+      "B. ukončuje sa v dospelosti",
+      "C. ukončuje sa v starobe",
+      "D. ukončuje sa v detstve"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 153,
+    "text": "Keď vývin zaostáva, označujeme ho ako vývin:",
+    "options": [
+      "A. priamočiary",
+      "B. retardovaný",
+      "C. zvrátený",
+      "D. patologický"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 154,
+    "text": "Keď je vývin zrýchlený, označujeme ho ako vývin:",
+    "options": [
+      "A. zvrátený",
+      "B. akcelerovaný",
+      "C. úspešný",
+      "D. patologický"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 155,
+    "text": "Psychoanalytická teória má tri vrstvy, ku ktorým nepatrí:",
+    "options": [
+      "A. Id",
+      "B. Ego",
+      "C. Inter ego",
+      "D. Super ego"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 156,
+    "text": "Neuspokojovanie potrieb sa nazýva:",
+    "options": [
+      "A. dekompenzácia",
+      "B. destabilita",
+      "C. deprivácia",
+      "D. agravácia"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 157,
+    "text": "Ustálený spôsob, ktorým človek mobilizuje a moduluje svoju energiu nazývame:",
+    "options": [
+      "A. charakter",
+      "B. temperament",
+      "C. vnímanie",
+      "D. potreby"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 158,
+    "text": "Myšlienkové rozčlenenie na časti, vyčleňovanie jednotlivých stránok, vlastností jednotlivýchpredmetov a javov sa nazýva:",
+    "options": [
+      "A. syntéza",
+      "B. generalizácia",
+      "C. analýza",
+      "D. prognóza"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 159,
+    "text": "Myšlienkové zjednocovanie, spájanie vlastností alebo častí sa nazýva:",
+    "options": [
+      "A. analýza",
+      "B. syntéza",
+      "C. prognóza",
+      "D. afilianciaZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 160,
+    "text": "Odraz minulej skúsenosti vo vedomí človeka sa nazýva:",
+    "options": [
+      "A. postoj",
+      "B. pamäť",
+      "C. charakter",
+      "D. temperament"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 161,
+    "text": "Nápad, myšlienka, ako daný problém riešiť, sa nazýva:",
+    "options": [
+      "A. inkubácia",
+      "B. ašpirácia",
+      "C. inšpirácia",
+      "D. vôľa"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 162,
+    "text": "Imbecilita označuje mentálnu retardáciu:",
+    "options": [
+      "A. ľahkého stupňa",
+      "B. stredného stupňa",
+      "C. ťažkého stupňa",
+      "D. veľmi ťažkého stupňa"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 163,
+    "text": "Schopnosť adekvátne sa zachovať v novej situácii sa nazýva:",
+    "options": [
+      "A. pretvárka",
+      "B. inteligencia",
+      "C. prestíž",
+      "D. fluencia"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 164,
+    "text": "Polarita citov predstavuje ich:",
+    "options": [
+      "A. zmiešanosť",
+      "B. protikladnosť",
+      "C. neopakovateľnosť",
+      "D. nákazlivosť"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 165,
+    "text": "Základnou zložkou interakcie medzi ľuďmi je:",
+    "options": [
+      "A. výchova",
+      "B. komunikácia",
+      "C. vývin",
+      "D. adaptácia"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 166,
+    "text": "Prenatálne obdobie vo vývine človeka je obdobie:",
+    "options": [
+      "A. od narodenia do"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 28,
+    "text": "dňa života",
+    "options": [
+      "B. od počatia po pôrod",
+      "C. do jedného roku života",
+      "D. do jedného mesiaca"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 167,
+    "text": "Ekonómia je:",
+    "options": [
+      "A. úseková veda o štatistike",
+      "B. teoretická vedná disciplína",
+      "C. prierezová vedná disciplína",
+      "D. veda o vývoji ľudstva"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 168,
+    "text": "Centrálna banka:",
+    "options": [
+      "A. zodpovedá za vývoj a stabilitu meny",
+      "B. prijíma vklady a poskytuje úvery podnikom",
+      "C. poskytuje úverové zdroje klientom",
+      "D. vykonáva poisťovaciu činnosťZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 169,
+    "text": "Peňažná burza:",
+    "options": [
+      "A. obchoduje s tovarom",
+      "B. obchoduje s valutami, devízami, cennými papiermi",
+      "C. obchoduje s tabakom",
+      "D. obchoduje so službami"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 170,
+    "text": "Podnikanie je:",
+    "options": [
+      "A. zabezpečenie zdravotníckych služieb",
+      "B. zabezpečenie dopravných služieb",
+      "C. aktivita podnikateľa s cieľom dosiahnutia zisku",
+      "D. zabezpečenie sociálneho zabezpečenia"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 171,
+    "text": "Spoločnosť s ručením obmedzeným (s.r.o.) ručí v prípade straty:",
+    "options": [
+      "A. majetkom spoločnosti",
+      "B. iba do výšky vkladu",
+      "C. s akciami s. r. o.",
+      "D. iba s pohľadávkami"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 172,
+    "text": "HDP (hrubý domáci produkt) sa tvorí:",
+    "options": [
+      "A. výrobkami podniku",
+      "B. objemom výrobkov a služieb vyprodukovanými v krajine za dané časové obdobie (jeden rok)",
+      "C. výrobou rezortu zdravotníctva za rok",
+      "D. poisťovacími službami za celý rok"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 173,
+    "text": "Najvyšším orgánom spoločnosti s ručením obmedzeným (s.r.o.) je:",
+    "options": [
+      "A. predstavenstvo",
+      "B. valné zhromaždenie",
+      "C. dozorná rada",
+      "D. výbor s. r. o."
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 174,
+    "text": "Najvyšším orgánom akciovej spoločnosti je:",
+    "options": [
+      "A. dozorná rada",
+      "B. predstavenstvo",
+      "C. valné zhromaždenie",
+      "D. výbor družstva"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 175,
+    "text": "Bezúhonný človek je ten, kto :",
+    "options": [
+      "A. bol právoplatne odsúdený",
+      "B. bol podmienečne odsúdený",
+      "C. nebol právoplatne odsúdený",
+      "D. dostal peňažný trest"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 176,
+    "text": "Pre ochrannú známku výrobku platí, že:",
+    "options": [
+      "A. môže ju používať každý pri výrobe",
+      "B. je to označenie, ktoré je schopné označiť výrobky, na ktoré výrobca požiadal o vydanieochrannej známky",
+      "C. môže ju používať a kopírovať každý, kto predáva",
+      "D. môže ju predávať každý, ktorý túto známku kopíruje"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 177,
+    "text": "Pod lízingom rozumieme:",
+    "options": [
+      "A. predaj hnuteľných vecí",
+      "B. nákup nehnuteľností",
+      "C. kúpu a predaj cenných papierov",
+      "D. prenájom hnuteľných zariaďovacích predmetov dlhodobej spotreby a iných predmetovZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 178,
+    "text": "Rozdiel medzi výnosmi a nákladmi podniku za určité obdobie sa nazýva:",
+    "options": [
+      "A. bilančná hodnota",
+      "B. súvaha",
+      "C. platobný styk",
+      "D. hospodársky výsledok"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 179,
+    "text": "Veľkoobchod  znamená:",
+    "options": [
+      "A. objednanie tovaru",
+      "B. vrátenie reklamovaného tovaru",
+      "C. predaj tovaru alebo služieb na ďalšie spracovanie alebo predaj",
+      "D. predaj tovaru v malých množstvách"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 180,
+    "text": "Zahraničný  obchod predstavuje:",
+    "options": [
+      "A. obchodovanie v rámci krajín",
+      "B. obeh tovaru a služieb prekračujúci hranice a ekonomiku danej krajiny",
+      "C. obchodovanie medzi okresmi",
+      "D. podomový predaj"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 181,
+    "text": "Pojem zmluva znamená:",
+    "options": [
+      "A. odovzdanie tovaru druhej strane",
+      "B. prebratie tovaru druhou stranou",
+      "C. dohodu najmenej dvoch strán, z ktorej vyplýva záväzok",
+      "D. reklamáciu tovaru"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 182,
+    "text": "Daň predstavuje:",
+    "options": [
+      "A. poplatok, ktorý platí podnik za určité obdobie",
+      "B. poistenie podniku za určité obdobie",
+      "C. platby, ktoré vykonávajú fyzické a právnické osoby podľa daňových zákonov",
+      "D. náklady vynaložené na štátny aparát"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 183,
+    "text": "Štátny rozpočet je:",
+    "options": [
+      "A. fond peňažných prostriedkov, s ktorým disponuje obec",
+      "B. centralizovaný fond peňažných prostriedkov štátu",
+      "C. fond vyšších územných celkov",
+      "D. rezervný fond"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 184,
+    "text": "Formy platobného styku poznáme:",
+    "options": [
+      "A. prevzatie tovaru od dodávateľa",
+      "B. neprevzatie tovaru od dodávateľa",
+      "C. tuzemský a medzinárodný styk",
+      "D. hotovostný a bezhotovostný"
+    ],
+    "answer": [
+      "D"
+    ]
+  },
+  {
+    "id": 185,
+    "text": "Zmenkou označujeme:",
+    "options": [
+      "A. potvrdenie od obchodníka",
+      "B. obchodovateľný cenný papier",
+      "C. reklamačný doklad",
+      "D. doklad zo zmenárne"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 186,
+    "text": "Centrálna banka Slovenska sa volá:",
+    "options": [
+      "A. Všeobecná úverová banka",
+      "B. štátna banka",
+      "C. Národná banka Slovenska",
+      "D. Tatra bankaZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 187,
+    "text": "Základné prvky trhového mechanizmu sú:",
+    "options": [
+      "A. predaj, ponuka, dopyt",
+      "B. dopyt, ponuka, cena a konkurencia",
+      "C. tvorba cien tovarov a služieb",
+      "D. obchod a konkurencia"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 188,
+    "text": "Bankový úver je:",
+    "options": [
+      "A. požičanie peňazí klientovi za úrok",
+      "B. požičanie tovaru klientovi",
+      "C. poskytnutie preddavkov klientovi",
+      "D. požičanie cenných papierov za účelom predaja"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 189,
+    "text": "Poistenie znamená:",
+    "options": [
+      "A. dodanie akcie do zálohy",
+      "B. zabezpečenie tovaru cennými papiermi",
+      "C. právny vzťah medzi stranami, z ktorých jedna poisťuje, druhá platí poistné",
+      "D. vytvorenie záložného práva na určitú vec"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 190,
+    "text": "Pod pojmom finančný trh rozumieme:",
+    "options": [
+      "A. ponuku tovaru a dopyt po ňom",
+      "B. ponuku finančných prostriedkov a dopyt po nich",
+      "C. ponuku služieb a dopyt po nich",
+      "D. ponuku nehnuteľností a ich predaj na trhu"
+    ],
+    "answer": [
+      "B"
+    ]
+  },
+  {
+    "id": 191,
+    "text": "Pod pojmom cenný papier rozumieme:",
+    "options": [
+      "A. dokument, ktorý potvrdzuje, že investor investoval určitú sumu peňazí, z ktorých vyplývajúurčité práva",
+      "B. dohodu medzi daňovými subjektami o určitých peniazoch v hotovosti",
+      "C. obligáciu vydanú na pôdu",
+      "D. potvrdenie z katastra o vlastníctve"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 192,
+    "text": "Nedokonalá konkurencia predstavuje:",
+    "options": [
+      "A. veľké množstvo výrobcov, ktorí ovplyvňujú cenu výrobkov",
+      "B. ideálny model firmy v trhovej ekonomike",
+      "C. obmedzený počet výrobcov, ktorí môžu ovplyvňovať cenu",
+      "D. veľké množstvo obchodníkov, ktorí majú rovnaké podmienky v trhovej ekonomike"
+    ],
+    "answer": [
+      "C"
+    ]
+  },
+  {
+    "id": 193,
+    "text": "Právna subjektivita podniku je:",
+    "options": [
+      "A. právo podniku konať vo vlastnom mene, na vlastný účet a je zapísaný v podnikovom registri",
+      "B. právo fyzickej osoby konať vo vlastnom mene a na vlastný účet",
+      "C. právo nadnárodnej spoločnosti konať vo vnútroštátnych veciach",
+      "D. právo nášho občana prijímať záväzky"
+    ],
+    "answer": [
+      "A"
+    ]
+  },
+  {
+    "id": 194,
+    "text": "Pojem „taktika v ekonomike“ znamená:",
+    "options": [
+      "A. vojenskú operáciu na porazenie nepriateľa",
+      "B. výber spôsobu a postupu na dosiahnutie plánovaných cieľov",
+      "C. plnenie strednodobého plánu",
+      "D. výmenu názorov medzi obchodníkmi"
+    ],
+    "answer": [
+      "B"
+    ]
+  }
+]

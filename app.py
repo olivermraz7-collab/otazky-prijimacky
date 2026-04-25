@@ -41,7 +41,7 @@ FIELDS = {
     "Urgentná medicína": {
         "Náuka o spoločnosti": "nos.json",
         "Fyzika": "fyzika.json",
-        "Biológia (Urgent)": "biologia-urgent.json"
+        "Biológia": "biologia-urgent.json"
     }
 }
 
@@ -135,7 +135,7 @@ if len(pool) > 0:
                 user_choices.append(opt[0])
         
         # DYNAMICKÉ TLAČIDLO (Menia sa nápis aj funkcia)
-        label = "Pokračovať ➡️" if st.session_state.answered else "Skontrolovať 🔍"
+        label = "Pokračovať " if st.session_state.answered else "Skontrolovať "
         submit_clicked = st.form_submit_button(label)
 
     # 2. LOGIKA TLAČIDLA

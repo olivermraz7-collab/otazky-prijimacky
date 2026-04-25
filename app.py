@@ -1,18 +1,27 @@
 import streamlit as st
 import json
 import random
-import extra_streamlit_components as stx
+from streamlit_javascript import st_javascript
 
 st.set_page_config(page_title="Prijímacie skúšky", page_icon="🩺", layout="centered")
 
-# --- OPRAVA: INICIALIZÁCIA COOKIE MANAGERA ---
-# Používame kľúč, aby sme zabránili DuplicateElementKey chybe
-@st.cache_resource
-def get_cookie_manager():
-    return stx.CookieManager(key="unique_cookie_manager")
+# --- POMOCNÉ FUNKCIE PRE LOCALSTORAGE ---
+def set_local_storage(key, value):
+    """Uloží dáta do prehliadača pomocou JavaScriptu."""
+    # Musíme stringify dáta, aby boli v JS správne sformátované
+    js_code = f"localStorage.setItem('{key}', JSON.stringify({json.dumps(value)}));"
+    st_javascript(js_code)
 
-cookie_manager = get_cookie_manager()
+def get_local_storage(key):
+    """Načíta dáta z prehliadača."""
+    js_code = f"localStorage.getItem('{key}');"
+    result = st_javascript(js_code)
+    try:
+        return json.loads(result) if result else None
+    except:
+        return None
 
+# --- NAČÍTANIE OTÁZOK ---
 def load_questions(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -36,32 +45,23 @@ FIELDS = {
     }
 }
 
-# --- NAČÍTANIE PROGRESU ---
-# Pri prvom načítaní cookies niekedy vracajú None, kým sa "nezobudia"
-saved_progress = cookie_manager.get("med_progress")
-saved_settings = cookie_manager.get("med_settings")
-
+# --- LOGIKA PAMÄTE (AUTO-LOAD) ---
+# Načítame uložené dáta z prehliadača hneď pri štarte
 if 'subjects_data' not in st.session_state:
-    if saved_progress:
-        st.session_state.subjects_data = json.loads(saved_progress)
-    else:
-        st.session_state.subjects_data = {}
+    stored_data = get_local_storage("med_prep_v1")
+    st.session_state.subjects_data = stored_data if stored_data else {}
 
 if 'last_settings' not in st.session_state:
-    if saved_settings:
-        st.session_state.last_settings = json.loads(saved_settings)
-    else:
-        # Predvolené nastavenia, ak cookies neexistujú
-        st.session_state.last_settings = {"field_idx": 0, "subj_name": list(FIELDS["Všeobecné lekárstvo"].keys())[0]}
+    stored_settings = get_local_storage("med_settings_v1")
+    st.session_state.last_settings = stored_settings if stored_settings else {"field_idx": 0, "subj_name": None}
 
-def auto_save():
-    """Uloží aktuálny stav do cookies (platnosť 30 dní)."""
-    # Používame cookies len na trvalé ukladanie, nie na riadenie UI v reálnom čase
-    cookie_manager.set("med_progress", json.dumps(st.session_state.subjects_data), max_age=2592000)
-    cookie_manager.set("med_settings", json.dumps({
+def sync_all():
+    """Uloží všetko dôležité do prehliadača."""
+    set_local_storage("med_prep_v1", st.session_state.subjects_data)
+    set_local_storage("med_settings_v1", {
         "field_idx": st.session_state.selected_field_index,
         "subj_name": st.session_state.selected_subject_name
-    }), max_age=2592000)
+    })
 
 # --- SIDEBAR ---
 st.sidebar.header("Nastavenia štúdia")
@@ -89,13 +89,13 @@ st.session_state.selected_subject_name = st.sidebar.selectbox(
 
 selected_file = available_subjects[st.session_state.selected_subject_name]
 
-# --- LOGIKA OTÁZOK ---
+# Inicializácia predmetu v pamäti
 if selected_file not in st.session_state.subjects_data:
     data = load_questions(selected_file)
     if data:
         random.shuffle(data)
         st.session_state.subjects_data[selected_file] = {"pool": data, "score": 0, "total_count": len(data)}
-        auto_save()
+        sync_all()
     else:
         st.session_state.subjects_data[selected_file] = {"pool": [], "score": 0, "total_count": 0}
 
@@ -103,10 +103,10 @@ current_data = st.session_state.subjects_data[selected_file]
 
 if st.sidebar.button("Reštartovať predmet"):
     del st.session_state.subjects_data[selected_file]
-    auto_save()
+    sync_all()
     st.rerun()
 
-# --- HLAVNÉ ROZHRANIE ---
+# --- HLAVNÁ ČASŤ TESTU ---
 st.title(f"Príprava: {st.session_state.selected_subject_name}")
 pool = current_data["pool"]
 
@@ -115,7 +115,6 @@ if len(pool) > 0:
     st.subheader(f"Otázka č. {q['id']}")
     st.write(q['text'])
 
-    # Unikátny kľúč pre formulár zabraňuje konfliktom pri prepínaní predmetov
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         user_choices = []
         for opt in q['options']:
@@ -140,13 +139,11 @@ if len(pool) > 0:
                 wrong_q['repetition_mode'] = True
                 pool.insert(min(4, len(pool)), wrong_q)
 
-            auto_save()
-            st.rerun() # Rerun namiesto tlačidla "Pokračovať" pre plynulejší zážitok
+            sync_all() # Automaticky uložíme do prehliadača
+            st.button("Pokračovať")
 
     st.sidebar.divider()
     st.sidebar.write(f"📊 Správne: **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva: **{len(pool)}** / {current_data['total_count']}")
 else:
-    st.balloons()
-    st.success("Hotovo! Všetky otázky si úspešne prešiel.")
-    
+    st.success("Všetky otázky si prešiel!")

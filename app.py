@@ -3,6 +3,10 @@ import json
 import random
 from streamlit_cookies_manager import EncryptedCookieManager
 
+st.set_page_config(
+    page_title="Test", 
+    layout="centered")
+
 # --- 1. KONFIGURÁCIA COOKIES ---
 # 'prefix' môže byť hocičo, 'password' je potrebný pre šifrovanie (zvoľ si vlastné heslo)
 cookies = EncryptedCookieManager(

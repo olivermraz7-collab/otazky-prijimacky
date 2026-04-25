@@ -1,3 +1,2 @@
 streamlit
-streamlit-javascript
-
+streamlit-cookies-manager

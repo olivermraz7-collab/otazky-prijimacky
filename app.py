@@ -1,32 +1,24 @@
 import streamlit as st
 import json
 import random
-import time
 from streamlit_javascript import st_javascript
 
 # 1. ZÁKLADNÉ NASTAVENIE
 st.set_page_config(page_title="Prijímacie skúšky", page_icon="🩺", layout="centered")
 
-# Kľúč pre LocalStorage - zmeň ho na úplne nový (v3), aby sme začali načisto
-DB_KEY = "med_final_v3"
-SETTINGS_KEY = "med_settings_v3"
+# Kľúče (v4 pre čistý štart)
+DB_KEY = "med_final_v4"
+SETTINGS_KEY = "med_settings_v4"
 
-# 2. FUNKCIE PRE PRÁCU S PREHLIADAČOM
+# 2. FUNKCIE
 def set_local_storage(key, value):
-    # Uložíme len ak máme čo ukladať a ak už prebehlo úvodné načítanie
     if value:
         js_code = f"localStorage.setItem('{key}', JSON.stringify({json.dumps(value)}));"
         st_javascript(js_code)
 
 def get_local_storage(key):
     js_code = f"localStorage.getItem('{key}');"
-    result = st_javascript(js_code)
-    if result:
-        try:
-            return json.loads(result)
-        except:
-            return None
-    return None
+    return st_javascript(js_code)
 
 def load_questions(file_path):
     try:
@@ -35,48 +27,47 @@ def load_questions(file_path):
             for q in data:
                 if 'rep_count' not in q: q['rep_count'] = 0
             return data
-    except FileNotFoundError:
+    except Exception:
         return []
 
-# --- 3. MOZOG APLIKÁCIE: NAČÍTANIE A POISTKA ---
+# --- 3. LOGIKA NAČÍTANIA ---
+# Skúsime načítať dáta z JS
+js_data = get_local_storage(DB_KEY)
+js_settings = get_local_storage(SETTINGS_KEY)
 
-# Skúsime získať dáta
-raw_data = get_local_storage(DB_KEY)
-raw_settings = get_local_storage(SETTINGS_KEY)
-
-# Ak je v session_state 'data_loaded', vieme, že sme už úspešne naštartovali
-if "data_loaded" not in st.session_state:
-    if raw_data is None:
-        # Ak JS ešte nič nevrátil, vypíšeme info a čakáme
-        st.info("Pripravujem tvoj progres... Prosím chvíľu počkaj.")
-        # Ak po 2 sekundách nič nepríde, možno je to nový používateľ
-        time.sleep(0.5) 
-        if raw_data is not None or raw_settings is not None:
-             st.session_state.data_loaded = True
-             st.rerun()
-        # Ak používateľ klikne na "Začať ako nový", uvoľníme to
-        if st.button("Ak načítavanie trvá dlho, klikni sem"):
-            st.session_state.data_loaded = True
-            st.rerun()
-        st.stop() # Tu sa kód zastaví, kým JS nevráti výsledok
+# Ak už máme dáta v session_state, nič neriešime. 
+# Ak nie, skúsime ich tam dostať z JS.
+if "subjects_data" not in st.session_state:
+    if js_data is not None:
+        try:
+            # Ak JS vrátil text, skúsime ho dekódovať
+            st.session_state.subjects_data = json.loads(js_data)
+        except:
+            st.session_state.subjects_data = {}
     else:
-        st.session_state.data_loaded = True
+        # Ak JS ešte nič nevrátil, zatiaľ neinicializujeme (aby sme neprepísali nulu)
+        st.info("Pripravujem tvoj progres... Ak toto trvá viac ako 3 sekundy, začni vybratím predmetu vľavo.")
+        # Ak chceme povoliť okamžitý štart, ak je to nový používateľ:
+        if st.button("Začať nanovo / Preskočiť načítavanie"):
+            st.session_state.subjects_data = {}
+            st.rerun()
+        st.stop()
 
-# Inicializácia session_state až po potvrdení načítania
-if 'subjects_data' not in st.session_state:
-    st.session_state.subjects_data = raw_data if raw_data else {}
-
-if 'last_settings' not in st.session_state:
-    st.session_state.last_settings = raw_settings if raw_settings else {"field_idx": 0, "subj_name": None}
+if "last_settings" not in st.session_state:
+    if js_settings is not None:
+        try:
+            st.session_state.last_settings = json.loads(js_settings)
+        except:
+            st.session_state.last_settings = {"field_idx": 0, "subj_name": None}
+    else:
+        st.session_state.last_settings = {"field_idx": 0, "subj_name": None}
 
 def sync_all():
-    """Uloží všetko, ale len ak sú dáta pripravené."""
-    if st.session_state.get("data_loaded"):
-        set_local_storage(DB_KEY, st.session_state.subjects_data)
-        set_local_storage(SETTINGS_KEY, {
-            "field_idx": st.session_state.selected_field_index,
-            "subj_name": st.session_state.selected_subject_name
-        })
+    set_local_storage(DB_KEY, st.session_state.subjects_data)
+    set_local_storage(SETTINGS_KEY, {
+        "field_idx": st.session_state.selected_field_index,
+        "subj_name": st.session_state.selected_subject_name
+    })
 
 # --- 4. SIDEBAR ---
 FIELDS = {
@@ -85,18 +76,19 @@ FIELDS = {
 }
 
 field_list = list(FIELDS.keys())
-selected_field_name = st.sidebar.selectbox("Odbor", field_list, index=st.session_state.last_settings.get("field_idx", 0))
+f_idx = st.session_state.last_settings.get("field_idx", 0)
+selected_field_name = st.sidebar.selectbox("Odbor", field_list, index=f_idx if f_idx < len(field_list) else 0)
 st.session_state.selected_field_index = field_list.index(selected_field_name)
 
 available_subjects = FIELDS[selected_field_name]
 subj_list = list(available_subjects.keys())
 default_subj = st.session_state.last_settings.get("subj_name")
-if default_subj not in subj_list: default_subj = subj_list[0]
+s_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
 
-st.session_state.selected_subject_name = st.sidebar.selectbox("Predmet", subj_list, index=subj_list.index(default_subj))
+st.session_state.selected_subject_name = st.sidebar.selectbox("Predmet", subj_list, index=s_idx)
 selected_file = available_subjects[st.session_state.selected_subject_name]
 
-# Inicializácia predmetu (iba ak neexistuje v načítaných dátach)
+# Inicializácia poolu
 if selected_file not in st.session_state.subjects_data:
     data = load_questions(selected_file)
     if data:
@@ -106,7 +98,7 @@ if selected_file not in st.session_state.subjects_data:
 
 current_data = st.session_state.subjects_data[selected_file]
 
-# --- 5. HLAVNÁ ČASŤ (TEST) ---
+# --- 5. TEST ---
 st.title(f"Príprava: {st.session_state.selected_subject_name}")
 pool = current_data["pool"]
 
@@ -129,10 +121,10 @@ if len(pool) > 0:
             st.session_state.answered = True
             st.rerun()
         else:
-            user_str = "".join(sorted(user_choices))
+            user_choices_str = "".join(sorted(user_choices))
             correct_str = "".join(sorted(q['answer']))
             
-            if user_str == correct_str:
+            if user_choices_str == correct_str:
                 if q.get('rep_count', 0) == 0:
                     pool.pop(0)
                     current_data["score"] += 1
@@ -160,10 +152,10 @@ if len(pool) > 0:
 
     st.sidebar.divider()
     st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
-    st.sidebar.write(f"⏳ Zostáva v obehu: **{len(pool)}**")
+    st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
 else:
     st.balloons()
-    st.success("Všetko hotové!")
+    st.success("Hotovo!")
     if st.sidebar.button("Reštartovať predmet"):
         del st.session_state.subjects_data[selected_file]
         sync_all()

@@ -9,14 +9,13 @@ st.set_page_config(
     layout="centered")
 
 # --- 1. KONFIGURÁCIA COOKIES ---
-# 'prefix' môže byť hocičo, 'password' je potrebný pre šifrovanie (zvoľ si vlastné heslo)
 cookies = EncryptedCookieManager(
     prefix="med_prep_v1/",
     password="Heslo1234"
 )
 
 if not cookies.ready():
-    st.stop()  # Počkáme, kým sa cookies načítajú z prehliadača
+    st.stop()
 
 # --- 2. ZÁKLADNÉ FUNKCIE ---
 def load_questions(file_path):
@@ -30,7 +29,6 @@ def load_questions(file_path):
         return []
 
 def save_progress():
-    """Uloží celý progres do cookies ako JSON string."""
     cookies['subjects_data'] = json.dumps(st.session_state.subjects_data)
     cookies['last_settings'] = json.dumps({
         "field_idx": st.session_state.selected_field_index,
@@ -68,7 +66,6 @@ s_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
 st.session_state.selected_subject_name = st.sidebar.selectbox("Predmet", subj_list, index=s_idx)
 selected_file = available_subjects[st.session_state.selected_subject_name]
 
-# Načítanie nového predmetu, ak ešte nie je v pamäti
 if selected_file not in st.session_state.subjects_data:
     data = load_questions(selected_file)
     if data:
@@ -87,12 +84,28 @@ if len(pool) > 0:
     if 'answered' not in st.session_state: st.session_state.answered = False
 
     st.subheader(f"Otázka č. {q['id']}")
-    st.write(q['text'])
+    
+    # --- NOVÁ LOGIKA PRE ZOBRAZENIE TEXTU A OBRÁZKOV ---
+    # Rozdelíme text podľa názvov obrázkov (napr. image_112.png)
+    segments = re.split(r'(\S+\.png|\S+\.jpg)', q['text'])
+    
+    for segment in segments:
+        clean_segment = segment.strip()
+        if clean_segment.endswith(('.png', '.jpg')):
+            # Ak je to obrázok, zobrazíme ho
+            try:
+                # Ak máš obrázky v pod priečinku, pridaj cestu, napr: f"images/{clean_segment}"
+                st.image(clean_segment, width=250) 
+            except Exception:
+                st.error(f"Obrázok {clean_segment} sa nenašiel.")
+        else:
+            # Ak je to text, vypíšeme ho (len ak nie je prázdny)
+            if clean_segment:
+                st.write(clean_segment)
 
-    # --- ZOBRAZENIE OBRÁZKA (VZORCOV) ---
-    if 'image' in q and q['image']:
+    # --- ZOBRAZENIE SAMOSTATNÉHO OBRÁZKA (iba ak nie je spomenutý v texte) ---
+    if 'image' in q and q['image'] and q['image'] not in q['text']:
         try:
-            # GitHub/Streamlit hľadá v priečinku images/
             st.image(q['image'], use_container_width=True)
         except Exception:
             st.error(f"Obrázok k otázke {q['id']} sa nepodarilo načítať.")
@@ -111,7 +124,6 @@ if len(pool) > 0:
             st.session_state.answered = True
             st.rerun()
         else:
-            # Logika vyhodnotenia
             user_str = "".join(sorted(user_choices))
             correct_str = "".join(sorted(q['answer']))
             
@@ -141,7 +153,6 @@ if len(pool) > 0:
         else:
             st.error(f"Nesprávne! Správna odpoveď: {correct_display}")
 
-    # Štatistiky v sidebare
     st.sidebar.divider()
     st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")

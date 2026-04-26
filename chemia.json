@@ -1,4 +1,5 @@
-  {
+[
+{
     "id": 366,
     "text": "Vyberte správne dvojice:",
     "options": [
@@ -11,4 +12,6 @@
       "C",
       "D"
     ]
-  },
+  }
+    ]
+

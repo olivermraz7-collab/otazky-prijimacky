@@ -5,13 +5,13 @@ import random
 from streamlit_cookies_manager import EncryptedCookieManager
 
 st.set_page_config(
-    page_title="Test", 
+    page_title="Medicína Príprava", 
     layout="centered")
 
 # --- 1. KONFIGURÁCIA COOKIES ---
 cookies = EncryptedCookieManager(
     prefix="med_prep_v1/",
-    password="Heslo1234"
+    password="Heslo1234" # V produkcii by malo byť komplexnejšie
 )
 
 if not cookies.ready():
@@ -36,7 +36,7 @@ def save_progress():
     })
     cookies.save()
 
-# --- 3. INICIALIZÁCIA DÁT (Z COOKIES) ---
+# --- 3. INICIALIZÁCIA DÁT ---
 if 'subjects_data' not in st.session_state:
     stored_data = cookies.get('subjects_data')
     st.session_state.subjects_data = json.loads(stored_data) if stored_data else {}
@@ -45,7 +45,7 @@ if 'last_settings' not in st.session_state:
     stored_settings = cookies.get('last_settings')
     st.session_state.last_settings = json.loads(stored_settings) if stored_settings else {"field_idx": 0, "subj_name": None}
 
-# --- 4. SIDEBAR A VÝBER ---
+# --- 4. SIDEBAR A VÝBER PREDMETU ---
 st.sidebar.header("Nastavenia")
 
 FIELDS = {
@@ -85,49 +85,48 @@ if len(pool) > 0:
 
     st.subheader(f"Otázka č. {q['id']}")
     
-    # Zobrazenie textu otázky (podporuje aj obrázky v texte)
+    # Zobrazenie textu otázky (podporuje obrázky v texte)
     segments = re.split(r'(\S+\.png|\S+\.jpg)', q['text'])
     for segment in segments:
         clean_segment = segment.strip()
         if clean_segment.lower().endswith(('.png', '.jpg')):
             try:
-                st.image(clean_segment, width=250) 
+                st.image(f"images/{clean_segment}", width=300) 
             except Exception:
-                st.error(f"Obrázok {clean_segment} sa nenašiel.")
+                st.error(f"Obrázok {clean_segment} sa nenašiel v priečinku images.")
         else:
             if clean_segment:
                 st.write(clean_segment)
 
     user_choices = []
     
-    # --- FORMULÁR S MOŽNOSŤAMI ---
+    # FORMULÁR S MOŽNOSŤAMI
     with st.form(key=f"form_{selected_file}_{q['id']}"):
-        
-        # --- UPRAVENÁ ČASŤ PRE OBRÁZKY V MOŽNOSTIACH ---
         for opt in q['options']:
-            # Kontrola, či reťazec obsahuje názov obrázka (napr. "A. image_123.png")
+            # Kontrola, či je v možnosti obrázok
             if re.search(r'\.(png|jpg|jpeg|gif)', opt, re.IGNORECASE):
-                # Vytvoríme checkbox s označením (napr. "A")
+                # Vytvoríme checkbox (napr. "Možnosť A.")
                 cb = st.checkbox(f"Možnosť {opt[:2]}", key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
                 
-                # Odstránime "A. " zo začiatku, aby sme dostali čistý názov súboru pre st.image
+                # Získame čistý názov súboru (odstránime napr. "A. ")
                 img_filename = re.sub(r'^[A-H]\.\s*', '', opt).strip()
+                
                 try:
-                    st.image(img_filename, width=200)
+                    # Načítanie z priečinka images/
+                    st.image(f"images/{img_filename}", width=250)
                 except:
-                    st.warning(f"Obrázok {img_filename} chýba.")
+                    st.warning(f"Obrázok {img_filename} chýba v priečinku 'images'.")
             else:
                 # Klasický textový checkbox
                 cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
             
             if cb: 
                 user_choices.append(opt[0])
-        # --- KONIEC UPRAVENEJ ČASTI ---
 
         btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
         submit = st.form_submit_button(btn_label)
 
-    # Logika po odoslaní formulára
+    # Vyhodnotenie po stlačení tlačidla
     if submit:
         if not st.session_state.answered:
             st.session_state.answered = True
@@ -155,16 +154,22 @@ if len(pool) > 0:
             save_progress()
             st.rerun()
 
+    # Zobrazenie výsledku po kontrole
     if st.session_state.answered:
         correct_display = ", ".join(q['answer'])
-        if "".join(sorted(user_choices)) == "".join(sorted(q['answer'])):
-            st.success(f"Správne! Odpoveď: {correct_display}")
+        user_str = "".join(sorted(user_choices))
+        correct_str = "".join(sorted(q['answer']))
+        
+        if user_str == correct_str:
+            st.success(f"✅ Správne! Odpoveď: {correct_display}")
         else:
-            st.error(f"Nesprávne! Správna odpoveď: {correct_display}")
+            st.error(f"❌ Nesprávne! Správna odpoveď: {correct_display}")
 
+    # Sidebar štatistiky
     st.sidebar.divider()
     st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
+
 else:
     st.balloons()
     st.success("Hotovo! Všetky otázky si úspešne zvládol.")

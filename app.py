@@ -85,7 +85,7 @@ if len(pool) > 0:
 
     st.subheader(f"Otázka č. {q['id']}")
     
-    # Zobrazenie textu otázky (vytiahne názov obrázka z textu, ak tam je)
+    # Zobrazenie textu otázky (vytiahne obrázok z textu, ak tam je)
     segments = re.split(r'(\S+\.png|\S+\.jpg)', q['text'])
     for segment in segments:
         clean_segment = segment.strip()
@@ -103,23 +103,24 @@ if len(pool) > 0:
     # FORMULÁR S MOŽNOSŤAMI
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         for opt in q['options']:
-            # Hľadáme, či v texte možnosti existuje niečo ako 'image_XYZ.png'
+            # 1. Hľadáme názov súboru (napr. image_123.png)
             match = re.search(r'(\S+\.png|\S+\.jpg)', opt, re.IGNORECASE)
             
             if match:
-                # Ak sme našli názov obrázka, priradíme ho do premennej
                 img_filename = match.group(1)
+                # 2. Vymažeme názov súboru z textu možnosti, aby zostal len popis
+                clean_label = opt.replace(img_filename, "").strip()
                 
-                # Checkbox zobrazí celý váš text (aj s popisom)
-                cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
-                
+                # Ak by po vymazaní názvu zostalo len "A. ", zobrazíme aspoň to
+                if len(clean_label) < 4: clean_label = opt[:3] 
+
+                cb = st.checkbox(clean_label, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
                 try:
-                    # Ale načíta len ten nájdený súbor z priečinka images/
                     st.image(f"images/{img_filename}", width=250)
                 except:
-                    st.warning(f"Súbor {img_filename} chýba v priečinku 'images'.")
+                    st.warning(f"Súbor {img_filename} chýba.")
             else:
-                # Klasický text bez obrázka
+                # Klasický textový checkbox
                 cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
             
             if cb: 

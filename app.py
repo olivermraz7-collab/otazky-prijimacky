@@ -85,40 +85,49 @@ if len(pool) > 0:
 
     st.subheader(f"Otázka č. {q['id']}")
     
-    # --- NOVÁ LOGIKA PRE ZOBRAZENIE TEXTU A OBRÁZKOV ---
-    # Rozdelíme text podľa názvov obrázkov (napr. image_112.png)
+    # Zobrazenie textu otázky (podporuje aj obrázky v texte)
     segments = re.split(r'(\S+\.png|\S+\.jpg)', q['text'])
-    
     for segment in segments:
         clean_segment = segment.strip()
-        if clean_segment.endswith(('.png', '.jpg')):
-            # Ak je to obrázok, zobrazíme ho
+        if clean_segment.lower().endswith(('.png', '.jpg')):
             try:
-                # Ak máš obrázky v pod priečinku, pridaj cestu, napr: f"images/{clean_segment}"
                 st.image(clean_segment, width=250) 
             except Exception:
                 st.error(f"Obrázok {clean_segment} sa nenašiel.")
         else:
-            # Ak je to text, vypíšeme ho (len ak nie je prázdny)
             if clean_segment:
                 st.write(clean_segment)
 
-    # --- ZOBRAZENIE SAMOSTATNÉHO OBRÁZKA (iba ak nie je spomenutý v texte) ---
-    if 'image' in q and q['image'] and q['image'] not in q['text']:
-        try:
-            st.image(q['image'], use_container_width=True)
-        except Exception:
-            st.error(f"Obrázok k otázke {q['id']} sa nepodarilo načítať.")
-
     user_choices = []
+    
+    # --- FORMULÁR S MOŽNOSŤAMI ---
     with st.form(key=f"form_{selected_file}_{q['id']}"):
-        for opt in q['options']:
-            cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
-            if cb: user_choices.append(opt[0])
         
+        # --- UPRAVENÁ ČASŤ PRE OBRÁZKY V MOŽNOSTIACH ---
+        for opt in q['options']:
+            # Kontrola, či reťazec obsahuje názov obrázka (napr. "A. image_123.png")
+            if re.search(r'\.(png|jpg|jpeg|gif)', opt, re.IGNORECASE):
+                # Vytvoríme checkbox s označením (napr. "A")
+                cb = st.checkbox(f"Možnosť {opt[:2]}", key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
+                
+                # Odstránime "A. " zo začiatku, aby sme dostali čistý názov súboru pre st.image
+                img_filename = re.sub(r'^[A-H]\.\s*', '', opt).strip()
+                try:
+                    st.image(img_filename, width=200)
+                except:
+                    st.warning(f"Obrázok {img_filename} chýba.")
+            else:
+                # Klasický textový checkbox
+                cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
+            
+            if cb: 
+                user_choices.append(opt[0])
+        # --- KONIEC UPRAVENEJ ČASTI ---
+
         btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
         submit = st.form_submit_button(btn_label)
 
+    # Logika po odoslaní formulára
     if submit:
         if not st.session_state.answered:
             st.session_state.answered = True

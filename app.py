@@ -11,7 +11,7 @@ st.set_page_config(
 # --- 1. KONFIGURÁCIA COOKIES ---
 cookies = EncryptedCookieManager(
     prefix="med_prep_v1/",
-    password="Heslo1234" # V produkcii by malo byť komplexnejšie
+    password="Heslo1234"
 )
 
 if not cookies.ready():
@@ -85,7 +85,7 @@ if len(pool) > 0:
 
     st.subheader(f"Otázka č. {q['id']}")
     
-    # Zobrazenie textu otázky (podporuje obrázky v texte)
+    # Zobrazenie textu otázky (vytiahne názov obrázka z textu, ak tam je)
     segments = re.split(r'(\S+\.png|\S+\.jpg)', q['text'])
     for segment in segments:
         clean_segment = segment.strip()
@@ -93,7 +93,7 @@ if len(pool) > 0:
             try:
                 st.image(f"images/{clean_segment}", width=300) 
             except Exception:
-                st.error(f"Obrázok {clean_segment} sa nenašiel v priečinku images.")
+                st.error(f"Obrázok {clean_segment} chýba.")
         else:
             if clean_segment:
                 st.write(clean_segment)
@@ -103,21 +103,23 @@ if len(pool) > 0:
     # FORMULÁR S MOŽNOSŤAMI
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         for opt in q['options']:
-            # Kontrola, či je v možnosti obrázok
-            if re.search(r'\.(png|jpg|jpeg|gif)', opt, re.IGNORECASE):
-                # Vytvoríme checkbox (napr. "Možnosť A.")
-                cb = st.checkbox(f"Možnosť {opt[:2]}", key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
+            # Hľadáme, či v texte možnosti existuje niečo ako 'image_XYZ.png'
+            match = re.search(r'(\S+\.png|\S+\.jpg)', opt, re.IGNORECASE)
+            
+            if match:
+                # Ak sme našli názov obrázka, priradíme ho do premennej
+                img_filename = match.group(1)
                 
-                # Získame čistý názov súboru (odstránime napr. "A. ")
-                img_filename = re.sub(r'^[A-H]\.\s*', '', opt).strip()
+                # Checkbox zobrazí celý váš text (aj s popisom)
+                cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
                 
                 try:
-                    # Načítanie z priečinka images/
+                    # Ale načíta len ten nájdený súbor z priečinka images/
                     st.image(f"images/{img_filename}", width=250)
                 except:
-                    st.warning(f"Obrázok {img_filename} chýba v priečinku 'images'.")
+                    st.warning(f"Súbor {img_filename} chýba v priečinku 'images'.")
             else:
-                # Klasický textový checkbox
+                # Klasický text bez obrázka
                 cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
             
             if cb: 
@@ -126,7 +128,7 @@ if len(pool) > 0:
         btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
         submit = st.form_submit_button(btn_label)
 
-    # Vyhodnotenie po stlačení tlačidla
+    # Vyhodnotenie
     if submit:
         if not st.session_state.answered:
             st.session_state.answered = True
@@ -154,26 +156,23 @@ if len(pool) > 0:
             save_progress()
             st.rerun()
 
-    # Zobrazenie výsledku po kontrole
     if st.session_state.answered:
         correct_display = ", ".join(q['answer'])
         user_str = "".join(sorted(user_choices))
         correct_str = "".join(sorted(q['answer']))
-        
         if user_str == correct_str:
             st.success(f"✅ Správne! Odpoveď: {correct_display}")
         else:
             st.error(f"❌ Nesprávne! Správna odpoveď: {correct_display}")
 
-    # Sidebar štatistiky
     st.sidebar.divider()
     st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
 
 else:
     st.balloons()
-    st.success("Hotovo! Všetky otázky si úspešne zvládol.")
-    if st.sidebar.button("Reštartovať tento predmet"):
+    st.success("Hotovo!")
+    if st.sidebar.button("Reštartovať predmet"):
         del st.session_state.subjects_data[selected_file]
         save_progress()
         st.rerun()

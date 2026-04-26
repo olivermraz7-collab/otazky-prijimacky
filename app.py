@@ -85,7 +85,7 @@ if len(pool) > 0:
 
     st.subheader(f"Otázka č. {q['id']}")
     
-    # Zobrazenie textu otázky
+    # Zobrazenie textu otázky (podpora pre obrázky v texte)
     segments = re.split(r'(\S+\.png|\S+\.jpg)', q['text'])
     for segment in segments:
         clean_segment = segment.strip()
@@ -104,10 +104,12 @@ if len(pool) > 0:
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         for opt in q['options']:
             match = re.search(r'(\S+\.png|\S+\.jpg)', opt, re.IGNORECASE)
+            
             if match:
                 img_filename = match.group(1)
                 clean_label = opt.replace(img_filename, "").strip()
                 if len(clean_label) < 4: clean_label = opt[:3] 
+
                 cb = st.checkbox(clean_label, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
                 try:
                     st.image(f"images/{img_filename}", width=250)
@@ -116,7 +118,8 @@ if len(pool) > 0:
             else:
                 cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
             
-            if cb: user_choices.append(opt[0])
+            if cb: 
+                user_choices.append(opt[0])
 
         btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
         submit = st.form_submit_button(btn_label)
@@ -158,25 +161,25 @@ if len(pool) > 0:
         else:
             st.error(f"❌ Nesprávne! Správna odpoveď: {correct_display}")
 
-    # --- 6. SIDEBAR ŠTATISTIKY A REPORT CHÝB ---
+    # --- 6. SIDEBAR ŠTATISTIKY A REPORT TLAČIDLO ---
     st.sidebar.divider()
     st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
     
     st.sidebar.divider()
-    st.sidebar.subheader("🚩 Nahlásiť chybu")
     
-    # Lepší spôsob: Google Forms link s predvyplneným ID otázky
-    # Nahraď tento link tvojím Google Forms linkom (postup nižšie)
-    form_base_url = "https://docs.google.com/forms/d/e/1FAIpQLSfD_H6pG-kM8b_q9YqZ6-u6y3Y/viewform" 
+    # URL tvojho Google formulára s vopred vyplnenými entry poliami
+    form_url = (
+        f"https://docs.google.com/forms/d/e/1FAIpQLScVa1VK6mJYX6YRmgcms64AMxaTm5wSDmJF9vnl1M4QzzmCUw/viewform"
+        f"?usp=pp_url"
+        f"&entry.424182118={q['id']}"
+        f"&entry.1513577736={st.session_state.selected_subject_name}"
+    )
     
-    # Tlačidlo v sidebare
-    st.sidebar.info("Našiel si chybu? Klikni na tlačidlo nižšie.")
-    
-    # Odkaz, ktorý otvorí formulár v novom okne
-    report_btn = st.sidebar.link_button(
-        "Otvoriť formulár chýb", 
-        f"{form_base_url}?usp=pp_url&entry.123456789={q['id']}&entry.987654321={st.session_state.selected_subject_name}"
+    st.sidebar.link_button(
+        "Nahlásiť chybu", 
+        form_url, 
+        use_container_width=True
     )
 
 else:

@@ -74,10 +74,10 @@ if selected_file not in st.session_state.subjects_data:
         save_progress()
 
 current_data = st.session_state.subjects_data[selected_file]
+pool = current_data["pool"]
 
 # --- 5. TESTOVACIE ROZHRANIE ---
 st.title(f"Príprava: {st.session_state.selected_subject_name}")
-pool = current_data["pool"]
 
 if len(pool) > 0:
     q = pool[0]
@@ -85,7 +85,7 @@ if len(pool) > 0:
 
     st.subheader(f"Otázka č. {q['id']}")
     
-    # Zobrazenie textu otázky (vytiahne obrázok z textu, ak tam je)
+    # Zobrazenie textu otázky
     segments = re.split(r'(\S+\.png|\S+\.jpg)', q['text'])
     for segment in segments:
         clean_segment = segment.strip()
@@ -103,28 +103,20 @@ if len(pool) > 0:
     # FORMULÁR S MOŽNOSŤAMI
     with st.form(key=f"form_{selected_file}_{q['id']}"):
         for opt in q['options']:
-            # 1. Hľadáme názov súboru (napr. image_123.png)
             match = re.search(r'(\S+\.png|\S+\.jpg)', opt, re.IGNORECASE)
-            
             if match:
                 img_filename = match.group(1)
-                # 2. Vymažeme názov súboru z textu možnosti, aby zostal len popis
                 clean_label = opt.replace(img_filename, "").strip()
-                
-                # Ak by po vymazaní názvu zostalo len "A. ", zobrazíme aspoň to
                 if len(clean_label) < 4: clean_label = opt[:3] 
-
                 cb = st.checkbox(clean_label, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
                 try:
                     st.image(f"images/{img_filename}", width=250)
                 except:
                     st.warning(f"Súbor {img_filename} chýba.")
             else:
-                # Klasický textový checkbox
                 cb = st.checkbox(opt, key=f"cb_{q['id']}_{opt}", disabled=st.session_state.answered)
             
-            if cb: 
-                user_choices.append(opt[0])
+            if cb: user_choices.append(opt[0])
 
         btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
         submit = st.form_submit_button(btn_label)
@@ -166,9 +158,26 @@ if len(pool) > 0:
         else:
             st.error(f"❌ Nesprávne! Správna odpoveď: {correct_display}")
 
+    # --- 6. SIDEBAR ŠTATISTIKY A REPORT CHÝB ---
     st.sidebar.divider()
     st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
+    
+    st.sidebar.divider()
+    st.sidebar.subheader("🚩 Nahlásiť chybu")
+    
+    # Lepší spôsob: Google Forms link s predvyplneným ID otázky
+    # Nahraď tento link tvojím Google Forms linkom (postup nižšie)
+    form_base_url = "https://docs.google.com/forms/d/e/1FAIpQLSfD_H6pG-kM8b_q9YqZ6-u6y3Y/viewform" 
+    
+    # Tlačidlo v sidebare
+    st.sidebar.info("Našiel si chybu? Klikni na tlačidlo nižšie.")
+    
+    # Odkaz, ktorý otvorí formulár v novom okne
+    report_btn = st.sidebar.link_button(
+        "Otvoriť formulár chýb", 
+        f"{form_base_url}?usp=pp_url&entry.123456789={q['id']}&entry.987654321={st.session_state.selected_subject_name}"
+    )
 
 else:
     st.balloons()

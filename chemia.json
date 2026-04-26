@@ -5072,10 +5072,10 @@
     "id": 366,
     "text": "Vyberte správne dvojice:",
     "options": [
-      "A. nerozvetvený nasýtený uhľovodík",
-      "B. rozvetvený nasýtený uhľovodík",
-      "C. cyklický nenasýtený uhľovodík",
-      "D. aromatický uhľovodík"
+      "A. nerozvetvený nasýtený uhľovodík image_41_172.png",
+      "B. rozvetvený nasýtený uhľovodík image_41_173.png",
+      "C. cyklický nenasýtený uhľovodík image_41_174.png",
+      "D. aromatický uhľovodík image_42_181.png"
     ],
     "answer": [
       "C",
@@ -5704,9 +5704,9 @@
     "id": 411,
     "text": "Vyberte konštitučné izoméry :",
     "options": [
-      "A. ",
-      "B. ",
-      "C. ",
+      "A. image_47_202.png",
+      "B. image_47_203.png",
+      "C. image_47_204.png",
       "D. o-krezol a p-xylén"
     ],
     "answer": [
@@ -6006,10 +6006,10 @@
     "id": 433,
     "text": "Asymetrický uhlík sa nachádza v molekule:",
     "options": [
-      "A. ",
-      "B. ",
-      "C. ",
-      "D. "
+      "A. image_49_216.png",
+      "B. image_49_217.png",
+      "C. image_49_218.png",
+      "D. image_49_219.png"
     ],
     "answer": [
       "C"
@@ -6324,10 +6324,10 @@
     "id": 456,
     "text": "Vyberte reakcie, v ktorých prevažne vzniká daný produkt:",
     "options": [
-      "A. ",
-      "B. ",
-      "C. ",
-      "D. "
+      "A. image_52_232.png",
+      "B. image_52_233.png",
+      "C. image_52_234.png",
+      "D. image_52_235.png"
     ],
     "answer": [
       "C"
@@ -6337,10 +6337,10 @@
     "id": 457,
     "text": "Vyberte reakciu prípravy 1,2-dichlórbutánu:",
     "options": [
-      "A. ",
-      "B. ",
-      "C. ",
-      "D. "
+      "A. image_52_236.png",
+      "B. image_52_237.png",
+      "C. image_52_238.png",
+      "D. image_52_239.png"
     ],
     "answer": [
       "B"
@@ -6422,12 +6422,10 @@
     "id": 463,
     "text": "Alkíny reagujú podľa reakčnej schémy:",
     "options": [
-      "A. ",
-      "B. ",
-      "C. ",
-      "D. ",
-      "C. ",
-      "D. zaniká len homolyticky"
+      "A. image_53_244.png",
+      "B. image_53_245.png",
+      "C. image_53_246.png",
+      "D. image_53_247.png"
     ],
     "answer": [
       "C"
@@ -7004,10 +7002,10 @@
     "id": 505,
     "text": "Benzén reaguje podľa reakčnej schémy:",
     "options": [
-      "A. ",
-      "B. ",
-      "C. ",
-      "D. "
+      "A. image_58_269.png",
+      "B. image_58_270.png",
+      "C. image_58_271.png",
+      "D. image_58_272.png"
     ],
     "answer": [
       "A",
@@ -7114,13 +7112,10 @@
     "id": 513,
     "text": "Vyberte správne reakcie:",
     "options": [
-      "A. ",
-      "B. ",
-      "C. ",
-      "D. ",
-      "A. ",
-      "B. o-nitrofenol a p-nitrofenol",
-      "D. 3,5-dinitrofenol"
+      "A. image_59_277.png",
+      "B. image_59_278.png",
+      "C. image_59_279.png",
+      "D. image_59_280.png"
     ],
     "answer": [
       "A",
@@ -7270,10 +7265,10 @@
     "id": 524,
     "text": "Vyberte správne reakčné schémy:",
     "options": [
-      "A. ",
-      "B. ",
-      "C. ",
-      "D. "
+      "A. image_60_285.png",
+      "B. image_60_286.png",
+      "C. image_61_291.png",
+      "D. image_61_292.png"
     ],
     "answer": [
       "A",

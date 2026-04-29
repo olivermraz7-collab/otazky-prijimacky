@@ -108,7 +108,9 @@
     "text": "Vyhlásenie nemravnosti za ideál správania, odmietanie všeľudských morálnych hodnôt, sa nazýva:",
     "options": [
       "A. fatalizmus",
-      "B. amoralizmusZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "B. amoralizmusZoznam otázok z oblasti",
+      "C. altruizmus",
+      "D. fanatizmus"
     ],
     "answer": [
       "B"
@@ -223,7 +225,9 @@
     "text": "Názor, podľa ktorého vo svete prevláda zlo, človek je odsúdený na utrpenie a ani v budúcnostinemôže nič dobré čakať, sa nazýva:",
     "options": [
       "A. optimizmus",
-      "B. hedonizmusZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "B. hedonizmus",
+      "C. pesimizmus",
+      "D. nihilizmus"
     ],
     "answer": [
       "C"
@@ -338,7 +342,9 @@
     "text": "Hlavným princípom gýča je, že :",
     "options": [
       "A. vydáva sa za špičkovú estetickú hodnotu , ktorou nie je",
-      "B. berie do úvahy kultúrnu vyspelosťZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "B. berie do úvahy kultúrnu vyspelosť",
+      "C. rešpektuje spoločenské zaradenie človeka",
+"D. zohľadňuje psychiku, vek a náladu človeka"
     ],
     "answer": [
       "A"
@@ -454,7 +460,8 @@
     "options": [
       "A. sú rozložené v priestore",
       "B. ich vnímame zrakom",
-      "C. sú iba dvojrozmernéZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "C. sú iba dvojrozmerné",
+      "D. ozvláštňujú predovšetkým vizuálny svet"
     ],
     "answer": [
       "C"
@@ -571,7 +578,7 @@
       "A. pluralizmus",
       "B. dualizmus",
       "C. monizmus",
-      "D. determinizmusZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. determinizmus"
     ],
     "answer": [
       "B"
@@ -802,7 +809,10 @@
     "id": 63,
     "text": "Prestíž možno definovať ako:",
     "options": [
-      "A. nepriaznivý dojem jednej osoby v očiach druhejZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "A. nepriaznivý dojem jednej osoby v očiach druhej",
+      "B. spoločenský vzťah medzi osobami, z ktorých jedny vykonávajú reálne prevažujúci vplyv na činnosť druhých.",
+      "C. neschopnosť neformálneho vedúceho riadiť iných.",
+      "D. neobľúbenosť prisudzovanú sociálnym kolektívom"
     ],
     "answer": [
       "B"
@@ -1112,7 +1122,9 @@
     "text": "Základné ľudské práva a slobody sa zaručujú :",
     "options": [
       "A. iba občanom štátu",
-      "B. iba majetným ľuďomZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "B. iba majetným ľuďom",
+      "C. všetkým bez rozdielu",
+"D. až od plnoletosti"
     ],
     "answer": [
       "C"
@@ -1228,7 +1240,8 @@
     "options": [
       "A. požiadavku aby všetci občania dodržiavali zákony a ostatné právne predpisy",
       "B. požiadavku aby všetky subjekty práva bez rozdielu rešpektovali zákony a ostatné právnepredpisy",
-      "C. že štátne orgány v odôvodnených prípadoch nemusia rešpektovať právoZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "C. že štátne orgány v odôvodnených prípadoch nemusia rešpektovať právo",
+      "D. že cudzinci ju nemusia rešpektovať"
     ],
     "answer": [
       "B"
@@ -1471,7 +1484,9 @@
     "text": "Spôsobilosť na právne úkony vzniká :",
     "options": [
       "A. od narodenia",
-      "B. od"
+      "B. od 21. roku",
+      "C. od 18. roku",
+"D. od 14. roku"
     ],
     "answer": [
       "C"

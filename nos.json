@@ -1627,25 +1627,26 @@
       "A. 1991",
       "B. 1992",
       "C. 1989",
-      "D. "
+      "D. 1993 "
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 1993128,
+    "id": 128,
     "text": "Slovenská republika je členom Rady Európy od roku:",
     "options": [
       "A. 1993",
       "B. 1995",
       "C. 1989",
-      "D. "
+      "D. 1994"
     ],
-    "answer": []
+    "answer":
+    ["B"]
   },
   {
-    "id": 1994129,
+    "id": 129,
     "text": "Skratka WHO označuje :",
     "options": [
       "A. Detský fond OSN",
@@ -1662,14 +1663,14 @@
       "A. 1989",
       "B. 1993",
       "C. 1945",
-      "D. "
+      "D. 1992"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 1992131,
+    "id": 131,
     "text": "Členmi OSN sú :",
     "options": [
       "A. medzinárodné organizácie",
@@ -1677,7 +1678,7 @@
       "C. právnické osoby",
       "D. suverénne štáty"
     ],
-    "answer": []
+    "answer": ["D"]
   },
   {
     "id": 132,
@@ -1725,25 +1726,25 @@
       "A. 1985",
       "B. 1993",
       "C. 1989",
-      "D. "
+      "D. 1992"
     ],
     "answer": [
       "D"
     ]
   },
   {
-    "id": 1992136,
+    "id": 136,
     "text": "Chartu OSN podpísali pôvodní zakladajúci členovia v roku :",
     "options": [
       "A. 1946",
       "B. 1948",
       "C. 1945",
-      "D. "
+      "D. 1950 "
     ],
-    "answer": []
+    "answer": ["C"]
   },
   {
-    "id": 1950137,
+    "id": 137,
     "text": "Psychológia je veda o:",
     "options": [
       "A. výchove",
@@ -1751,7 +1752,7 @@
       "C. psychickej regulácii správania",
       "D. podpore snáh človeka"
     ],
-    "answer": []
+    "answer": ["C"]
   },
   {
     "id": 138,
@@ -2121,16 +2122,7 @@
     "id": 166,
     "text": "Prenatálne obdobie vo vývine človeka je obdobie:",
     "options": [
-      "A. od narodenia do"
-    ],
-    "answer": [
-      "B"
-    ]
-  },
-  {
-    "id": 28,
-    "text": "dňa života",
-    "options": [
+      "A. od narodenia do 28 dňa života",
       "B. od počatia po pôrod",
       "C. do jedného roku života",
       "D. do jedného mesiaca"

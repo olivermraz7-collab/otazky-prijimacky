@@ -2395,14 +2395,14 @@
             "A. 1",
             "B. 2",
             "C. môže ich byť niekoľko stovák",
-            "D. neprevyšuje"
+            "D. neprevyšuje 100"
         ],
         "answer":[
             "C"
         ]
     },
     {
-        "id":100178,
+        "id":178,
         "text":"Drsná forma endoplazmatického retikula má na membránach naviazané:",
         "options":[
             "A. nukleové kyseliny",
@@ -3060,14 +3060,14 @@
             "A. M",
             "B. G1",
             "C. S",
-            "D. G"
+            "D. G 2"
         ],
         "answer":[
             "C"
         ]
     },
     {
-        "id":2227,
+        "id":227,
         "text":"Gén predstavuje:",
         "options":[
             "A. úsek molekuly DNA, ktorá kóduje úplnú genetickú informáciu o znaku",
@@ -3437,40 +3437,40 @@
             "A. 2",
             "B. 3",
             "C. 4",
-            "D. "
+            "D.  5"
         ],
         "answer":[
             "B"
         ]
     },
     {
-        "id":5255,
+        "id":255,
         "text":"Koľko je STOP kodónov ?",
         "options":[
             "A. 1",
             "B. 2",
             "C. 3",
-            "D. "
+            "D.  4"
         ],
         "answer":[
             "C"
         ]
     },
     {
-        "id":4256,
+        "id":256,
         "text":"Koľko je iniciačných kodónov?",
         "options":[
             "A. 1",
             "B. 2",
             "C. 3",
-            "D. "
+            "D.  4"
         ],
         "answer":[
             "A"
         ]
     },
     {
-        "id":4257,
+        "id":257,
         "text":"Jediný univerzálny štartovací kodón pri expresii genetického kódu je:",
         "options":[
             "A. AUG",
@@ -4181,27 +4181,27 @@
             "A. 2:1",
             "B. 1:2:1",
             "C. 3:1",
-            "D. 1:"
+            "D. 1: 1"
         ],
         "answer":[
             "B"
         ]
     },
     {
-        "id":1311,
+        "id":311,
         "text":"Pri krížení homozygota s heterozygotom sa genotyp potomkov štiepi v pomere:",
         "options":[
             "A. 3:1",
             "B. 1:2:1",
             "C. 1:1",
-            "D. 1:"
+            "D. 1: 2"
         ],
         "answer":[
             "C"
         ]
     },
     {
-        "id":2312,
+        "id":312,
         "text":"Generácia potomkov bude uniformná vtedy, ak sú rodičia:",
         "options":[
             "A. obaja homozygoti recesívni",
@@ -5099,7 +5099,7 @@
             "A. p x p",
             "B. p2",
             "C. 2pq",
-            "D. q"
+            "D. q 2"
         ],
         "answer":[
             "A",
@@ -5107,20 +5107,20 @@
         ]
     },
     {
-        "id":2379,
+        "id":379,
         "text":"Aký je pravdepodobný počet recesívnych homozygotov v panmiktickej populácii?",
         "options":[
             "A. p x p",
             "B. p2",
             "C. 2pq",
-            "D. q"
+            "D. q 2"
         ],
         "answer":[
             "D"
         ]
     },
     {
-        "id":2380,
+        "id":380,
         "text":"Aký je pravdepodobný počet heterozygotov v panmiktickej populácii?",
         "options":[
             "A. p q2",
@@ -5290,14 +5290,14 @@
             "A. 0,5",
             "B. 5%",
             "C. 50%",
-            "D. 0,"
+            "D. 0, 75"
         ],
         "answer":[
             "AC"
         ]
     },
     {
-        "id":75393,
+        "id":393,
         "text":"25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia dominantnýchhomozygotov v tejto populácii?",
         "options":[
             "A. 25%",
@@ -5316,14 +5316,14 @@
             "A. 25%",
             "B. 0,25",
             "C. 50%",
-            "D. 0,75"
+            "D. 0,75 75"
         ],
         "answer":[
             "C"
         ]
     },
     {
-        "id":75395,
+        "id":395,
         "text":"25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia nositeľovdominantného znaku v tejto populácii?",
         "options":[
             "A. 75%",
@@ -7803,14 +7803,14 @@
             "A. 2",
             "B. 3",
             "C. 4",
-            "D. "
+            "D.  5"
         ],
         "answer":[
             "C"
         ]
     },
     {
-        "id":5578,
+        "id":578,
         "text":"Krvná skupina ľudí sa rozpoznáva podľa antigénov:",
         "options":[
             "A. na povrchu bielych krviniek",
@@ -8085,14 +8085,14 @@
             "A. 50",
             "B. 70",
             "C. 90",
-            "D. "
+            "D.  100"
         ],
         "answer":[
             "B"
         ]
     },
     {
-        "id":100599,
+        "id":599,
         "text":"Minútový objem srdca je:",
         "options":[
             "A. množstvo krvi prečerpané cez srdce za 1 minútu",
@@ -8384,14 +8384,14 @@
             "A. 100 -150 cm3",
             "B. 200 – 300 cm3",
             "C. 250 – 450 cm3",
-            "D. 500 – 600cm"
+            "D. 500 – 600cm 3"
         ],
         "answer":[
             "C"
         ]
     },
     {
-        "id":3621,
+        "id":621,
         "text":"Dialýza znamená:",
         "options":[
             "A. prečistenie krvi prostredníctvom prístroja",
@@ -8703,14 +8703,14 @@
             "A. 2",
             "B. 4",
             "C. 6",
-            "D. "
+            "D.  3"
         ],
         "answer":[
             "B"
         ]
     },
     {
-        "id":3645,
+        "id":645,
         "text":"Na miechový kanál nadväzuje mozgová komora:",
         "options":[
             "A. I.",
@@ -9408,14 +9408,14 @@
             "A. 5-10",
             "B. 20-50",
             "C. 50-150",
-            "D. 150-"
+            "D. 150- 300"
         ],
         "answer":[
             "C"
         ]
     },
     {
-        "id":300697,
+        "id":697,
         "text":"Kedy sa u žien začínajú tvoriť vajíčka?",
         "options":[
             "A. počas embryonálneho štádia vývinu",
@@ -9525,7 +9525,7 @@
             "A. 12-16",
             "B. 17-21",
             "C. 22-26",
-            "D. 27-31"
+            "D. 27- 31"
         ],
         "answer":[
             "A"

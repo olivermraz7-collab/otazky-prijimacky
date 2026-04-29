@@ -233,9 +233,8 @@
     "options": [
       "A. L.Pasteura",
       "B. R. Hooka",
-      "C. ",
-      "A. Leeuwenhoeka",
-      "D. J.E.PurkyněhoZoznam otázok z oblasti: FOZOŠ - Biológia /"
+      "C. Leeuwenhoeka",
+      "D. J.E.Purkyněho"
     ],
     "answer": [
       "A"
@@ -4579,7 +4578,8 @@
     "options": [
       "A. daltonizmus",
       "B. albinizmus",
-      "C. fenylketonúriaZoznam otázok z oblasti: FOZOŠ - Biológia /"
+      "C. fenylketonúria",
+    "D. galaktozémia"
     ],
     "answer": [
       "B",
@@ -4794,26 +4794,17 @@
     "id": 357,
     "text": "Downov syndróm je genetická choroba zapríčinená:",
     "options": [
-      "A. zvýšením počtu"
+      "A. zvýšením počtu 21. chromozómu z 2 na 3",
+"B. chýbaním jedného chromozómu 21",
+"C. chýbaním jedného chromozómu 18",
+"D. zvýšením počtu 18. chromozómu z 2 na 3"
     ],
     "answer": [
       "A"
     ]
   },
   {
-    "id": 21,
-    "text": "chromozómu z 2 na 3",
-    "options": [
-      "B. chýbaním jedného chromozómu 21",
-      "C. chýbaním jedného chromozómu 18",
-      "D. zvýšením počtu"
-    ],
-    "answer": [
-      "D"
-    ]
-  },
-  {
-    "id": 3358,
+    "id": 358,
     "text": "Genofond je:",
     "options": [
       "A. súbor génov jednotlivca",
@@ -5128,25 +5119,25 @@
       "A. p2+2pq + q2=1",
       "B. p + q =1",
       "C. p2+ q2=1",
-      "D. p2x q2="
+      "D. p2x q2=1"
     ],
     "answer": [
       "A"
     ]
   },
   {
-    "id": 1382,
+    "id": 382,
     "text": "Ak má gén iba dve alternatívne formy, zastúpenie alel v panmiktickej populácii vyjadrujevzorec:",
     "options": [
       "A. p2+2pq + q2=1",
       "B. p + q =1",
       "C. p2+ q2=1",
-      "D. p2 x q2="
+      "D. p2 x q2=1"
     ],
     "answer": []
   },
   {
-    "id": 1383,
+    "id": 383,
     "text": "Platnosť Hardy-Weinbergovho zákona môže narušiť:",
     "options": [
       "A. výrazný pokles počtu plodných jedincov",
@@ -5163,7 +5154,7 @@
       "A. 25%",
       "B. 50%",
       "C. 0,5",
-      "D. 0,"
+      "D. 0,25"
     ],
     "answer": [
       "A",
@@ -5171,27 +5162,29 @@
     ]
   },
   {
-    "id": 25385,
+    "id": 385,
     "text": "V sledovanej populácii je frekvencia dominantnej alely „A“ 50% a recesívnej alely „a“ tiež 50%.Aké bude zastúpenie homozygotov dominantných „AA“ v tejto populácii?",
     "options": [
       "A. 25%",
       "B. 0,25",
       "C. 50%",
-      "D. 0,"
+      "D. 0,5"
     ],
     "answer": []
   },
   {
-    "id": 5386,
+    "id": 386,
     "text": "V sledovanej populácii je frekvencia dominantnej alely „A“ 50% a recesívnej alely „a“ tiež 50%.Aké bude zastúpenie heterozygotov „Aa“ v tejto populácii?",
     "options": [
       "A. 25%",
-      "B. 0,25Zoznam otázok z oblasti: FOZOŠ - Biológia /"
+      "B. 0,25",
+    "C. 50%",
+"D. 0,5"
     ],
     "answer": []
   },
   {
-    "id": 5387,
+    "id": 387,
     "text": "Rh faktor je autozómovo dominantne dedičný znak. V našej populácii je frekvencia výskytuhomozygotov recesívnych (rh- rh-) 16%. Početnosť recesívnej alely (rh-) je:",
     "options": [
       "A. 0,4",
@@ -5250,7 +5243,7 @@
       "A. 0,5",
       "B. 5%",
       "C. 50%",
-      "D. 0,"
+      "D. 0,75"
     ],
     "answer": [
       "A",
@@ -5258,7 +5251,7 @@
     ]
   },
   {
-    "id": 75392,
+    "id": 392,
     "text": "25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia dominantných alel vtejto populácii?",
     "options": [
       "A. 0,5",
@@ -5275,15 +5268,18 @@
       "A. 25%",
       "B. 0,25",
       "C. 50%",
-      "D. 0,"
+      "D. 0,75"
     ],
     "answer": []
   },
   {
-    "id": 75394,
+    "id": 394,
     "text": "25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia heterozygotov v tejtopopulácii?",
     "options": [
-      "A. 25%Zoznam otázok z oblasti: FOZOŠ - Biológia /"
+      "A. 25%",
+      "B. 0,25",
+"C. 50%",
+"D. 0,75"
     ],
     "answer": []
   },
@@ -5294,12 +5290,12 @@
       "A. 75%",
       "B. 50%",
       "C. 0,75",
-      "D. 0,"
+      "D. 0,25"
     ],
     "answer": []
   },
   {
-    "id": 25396,
+    "id": 396,
     "text": "Polygénny systém tvoria:",
     "options": [
       "A. neutrálne a aktívne alely",
@@ -5769,7 +5765,7 @@
       "A. 2 kosti pomocou väziva",
       "B. 3 a viac kostí",
       "C. aspoň 4 kosti",
-      "D. kosti a šľachyZoznam otázok z oblasti: FOZOŠ - Biológia /"
+      "D. kosti a šľachy"
     ],
     "answer": [
       "B"
@@ -5824,14 +5820,14 @@
       "A. 103",
       "B. 206",
       "C. 312",
-      "D. "
+      "D. 316"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 316435,
+    "id": 435,
     "text": "Ktoré kosti tvoria mozgovú časť lebky?",
     "options": [
       "A. záhlavná, jarmová, spánková, temenná a čelová",
@@ -6105,14 +6101,14 @@
       "A. 300",
       "B. 400",
       "C. 600",
-      "D. "
+      "D. 800"
     ],
     "answer": [
       "C"
     ]
   },
   {
-    "id": 800456,
+    "id": 456,
     "text": "Koľko percent celkovej hmotnosti tela dosahuje hmotnosť svalov?",
     "options": [
       "A. 36% u mužov",
@@ -6415,14 +6411,14 @@
       "A. 32",
       "B. 20",
       "C. 14",
-      "D. "
+      "D. 24"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 24479,
+    "id": 479,
     "text": "Aké zuby sa nikdy nevyskytujú v mliečnom chrupe?",
     "options": [
       "A. očné",

@@ -286,8 +286,7 @@
       "A. J.E. Purkyně",
       "B. J.G. Mendel",
       "C. J. Jesenius",
-      "D. ",
-      "A. Vesalius"
+      "D. Vesalius"
     ],
     "answer": [
       "C"
@@ -314,8 +313,7 @@
       "A. I.P. Pavlov",
       "B. W. Harvey",
       "C. J.E. Purkyně",
-      "D. J.",
-      "B. Lamarck"
+      "D. J.B. Lamarck"
     ],
     "answer": [
       "A",
@@ -329,8 +327,7 @@
     "options": [
       "A. I.P.Pavlov",
       "B. Ch.R. Darwin",
-      "C. ",
-      "A. I. Oparin",
+      "C. I. Oparin",
       "D. J.G. Mendel"
     ],
     "answer": [
@@ -2848,14 +2845,14 @@
       "A. 2",
       "B. 4",
       "C. 6",
-      "D. "
+      "D. 8"
     ],
     "answer": [
       "B"
     ]
   },
   {
-    "id": 8211,
+    "id": 211,
     "text": "Ktorá bunková štruktúra zodpovedá za presné rozdelenie chromozómov do dcérskych buniek ?",
     "options": [
       "A. jadro",

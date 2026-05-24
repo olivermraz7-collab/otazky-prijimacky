@@ -2131,6 +2131,21 @@ def calculate_learning_percent(subject_state, questions):
     return round((total_score / len(questions)) * 100)
 
 
+
+def clean_topic_name(topic):
+    topic = str(topic or "Nezaradené").strip()
+
+    # Skryť technické rozsahy typu [0 - 99], [100 - 199] atď.
+    if re.fullmatch(r"\[\d+\s*-\s*\d+\]", topic):
+        return "Nezaradené"
+
+    if not topic:
+        return "Nezaradené"
+
+    return topic
+
+
+
 # ============================================================
 # 8B. EXAM PLAN + STUDY MODES
 # ============================================================
@@ -2577,25 +2592,24 @@ if not questions:
 
 # ============================================================
 # ============================================================
+# ============================================================
 # FILTERS: TOPIC + MODE
 # ============================================================
 
 topic_values = sorted(
     {
-        str(q.get("topic", "Nezaradené")).strip()
+        clean_topic_name(q.get("topic", "Nezaradené"))
         for q in questions
-        if isinstance(q, dict) and str(q.get("topic", "Nezaradené")).strip()
+        if isinstance(q, dict)
     }
 )
 
-# Nikdy nevytvárať technické rozsahy typu [0 - 99].
+# Ak sú v dátach iba technické rozsahy, nezobrazovať ich ako celky.
 topic_values = [
-    topic for topic in topic_values
-    if not re.fullmatch(r"\[\d+\s*-\s*\d+\]", topic)
+    topic
+    for topic in topic_values
+    if topic != "Nezaradené"
 ]
-
-if not topic_values:
-    topic_values = ["Nezaradené"]
 
 topic_options = ["Všetky celky"] + topic_values
 
@@ -2612,7 +2626,7 @@ if selected_topic_name == "Všetky celky":
 else:
     topic_filtered_questions = [
         q for q in questions
-        if str(q.get("topic", "Nezaradené")).strip() == selected_topic_name
+        if clean_topic_name(q.get("topic", "Nezaradené")) == selected_topic_name
     ]
 
 st.session_state.selected_topic_name = selected_topic_name

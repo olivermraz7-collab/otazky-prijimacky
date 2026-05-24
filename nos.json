@@ -10,11 +10,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 2,
-    "text": "Morálna zásada, ktorá od človeka vyžaduje potlačiť vlastný egoizmus a obetovať svoje záujmy vprospech záujmov iných ľudí sa nazýva:",
+    "text": "Morálna zásada, ktorá od človeka vyžaduje potlačiť vlastný egoizmus a obetovať svoje záujmy v prospech záujmov iných ľudí sa nazýva:",
     "options": [
       "A. cynizmus",
       "B. pesimizmus",
@@ -23,11 +24,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 3,
-    "text": "Vzájomná pomoc a podpora, ktorá sa opiera o jednotu názorov, záujmov a spoločných cieľov sanazýva:",
+    "text": "Vzájomná pomoc a podpora, ktorá sa opiera o jednotu názorov, záujmov a spoločných cieľov sa nazýva:",
     "options": [
       "A. mizantropia",
       "B. solidarita",
@@ -36,11 +38,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 4,
-    "text": "Presvedčenie, že vo svojom živote nemôžem nič ovplyvniť vlastnou vôľou, že všetko je osudovopredurčené, sa nazýva:",
+    "text": "Presvedčenie, že vo svojom živote nemôžem nič ovplyvniť vlastnou vôľou, že všetko je osudovo predurčené, sa nazýva:",
     "options": [
       "A. asketizmus",
       "B. egoizmus",
@@ -49,7 +52,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 6,
@@ -75,7 +80,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 7,
@@ -88,7 +94,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 8,
@@ -101,20 +108,22 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 9,
     "text": "Vyhlásenie nemravnosti za ideál správania, odmietanie všeľudských morálnych hodnôt, sa nazýva:",
     "options": [
       "A. fatalizmus",
-      "B. amoralizmusZoznam otázok z oblasti",
+      "B. amoralizmus",
       "C. altruizmus",
       "D. fanatizmus"
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 10,
@@ -127,7 +136,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 11,
@@ -140,7 +150,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 12,
@@ -153,7 +164,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 13,
@@ -166,7 +178,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 14,
@@ -179,7 +192,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 15,
@@ -192,7 +206,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 16,
@@ -205,7 +220,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 17,
@@ -218,7 +234,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 18,
@@ -231,7 +248,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 19,
@@ -244,7 +262,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 20,
@@ -257,7 +276,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 21,
@@ -270,7 +290,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 22,
@@ -283,7 +304,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 23,
@@ -296,7 +318,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 24,
@@ -309,7 +332,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 25,
@@ -322,11 +346,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 26,
-    "text": "Charakteristickým znakom masovej kultúry je :",
+    "text": "Charakteristickým znakom masovej kultúry je:",
     "options": [
       "A. náročnosť formálnych a obsahových prvkov",
       "B. nepravidelnosť",
@@ -335,20 +360,22 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 27,
-    "text": "Hlavným princípom gýča je, že :",
+    "text": "Hlavným princípom gýča je, že:",
     "options": [
-      "A. vydáva sa za špičkovú estetickú hodnotu , ktorou nie je",
+      "A. vydáva sa za špičkovú estetickú hodnotu, ktorou nie je",
       "B. berie do úvahy kultúrnu vyspelosť",
       "C. rešpektuje spoločenské zaradenie človeka",
-"D. zohľadňuje psychiku, vek a náladu človeka"
+      "D. zohľadňuje psychiku, vek a náladu človeka"
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 28,
@@ -361,7 +388,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 29,
@@ -374,7 +402,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 30,
@@ -387,11 +416,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 31,
-    "text": "Komunikácia medzi ľuďmi zahŕňa :",
+    "text": "Komunikácia medzi ľuďmi zahŕňa:",
     "options": [
       "A. reč, gestá, mimiku, písmo",
       "B. iba mimiku a písmo",
@@ -400,7 +430,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 32,
@@ -413,7 +444,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 33,
@@ -426,7 +458,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 34,
@@ -439,7 +472,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 35,
@@ -452,7 +486,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 36,
@@ -465,11 +500,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 37,
-    "text": "Každý umelecký druh možno ďalej členiť na :",
+    "text": "Každý umelecký druh možno ďalej členiť na:",
     "options": [
       "A. umelecké diela",
       "B. umelecké prostriedky",
@@ -478,7 +514,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 38,
@@ -491,7 +528,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 39,
@@ -504,7 +542,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 40,
@@ -517,7 +556,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 41,
@@ -530,7 +570,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 42,
@@ -543,7 +584,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 43,
@@ -556,7 +598,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 44,
@@ -569,7 +612,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Filozofia"
   },
   {
     "id": 45,
@@ -582,11 +626,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Filozofia"
   },
   {
     "id": 46,
-    "text": "Výrok : „Viem, že nič neviem“ vyslovil:",
+    "text": "Výrok: „Viem, že nič neviem“ vyslovil:",
     "options": [
       "A. Platón",
       "B. Aristoteles",
@@ -595,7 +640,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 47,
@@ -608,7 +654,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 48,
@@ -621,7 +668,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Filozofia"
   },
   {
     "id": 49,
@@ -634,7 +682,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Filozofia"
   },
   {
     "id": 19,
@@ -647,7 +696,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Filozofia"
   },
   {
     "id": 51,
@@ -660,7 +710,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 52,
@@ -673,7 +724,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 53,
@@ -686,7 +738,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 54,
@@ -695,11 +748,12 @@
       "A. organizačnej",
       "B. resocializačnej",
       "C. ekonomickej, v ktorej sa uskutočňuje hospodárska spolupráca, deľba práce atď.",
-      "D. preferenčnejZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. preferenčnej"
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 55,
@@ -712,11 +766,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 56,
-    "text": "Sociálnu  skupinu necharakterizujú:",
+    "text": "Sociálnu skupinu necharakterizujú:",
     "options": [
       "A. sociálne interakcie v skupinách",
       "B. vodcovstvo a mocenská nerovnosť v skupinách",
@@ -725,7 +780,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 57,
@@ -738,7 +794,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 58,
@@ -751,7 +808,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 59,
@@ -764,7 +822,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 60,
@@ -777,7 +836,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 61,
@@ -790,7 +850,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 62,
@@ -803,7 +864,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 63,
@@ -816,7 +878,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 64,
@@ -829,7 +892,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 65,
@@ -842,7 +906,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 66,
@@ -855,7 +920,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 67,
@@ -868,7 +934,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 68,
@@ -881,20 +948,22 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 69,
     "text": "Verejné zdravotníctvo je charakterizované (označte nesprávnu charakteristiku):",
     "options": [
-      "A. interdisciplinárnym prístupom , ktorý je orientovaný na telesné, duševné a environmentálneaspekty zdravia komunít a populácie",
+      "A. interdisciplinárnym prístupom, ktorý je orientovaný na telesné, duševné a environmentálneaspekty zdravia komunít a populácie",
       "B. zameraním hlavne na prevenciu chorôb a úrazov v populácii za účelom zlepšenia kvalityživota cieľovej populácie",
       "C. hodnotením zdravotníckych služieb a ich kvality",
       "D. hodnotením zdravotných rizík a na ich kontrolu a prevenciu"
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 70,
@@ -903,11 +972,12 @@
       "A. spoločnosť alebo sociálna skupina pokladá za porušenie spoločenských alebo skupinovýchnoriem, ktoré vyvoláva reakcie jednotlivcov, sociálnych skupín alebo spoločnosti zameranéna izoláciu, liečenie, prevýchovu, nápravu, na potrestanie porušovateľov noriem",
       "B. spoločnosť alebo sociálna skupina nepokladá za porušenie spoločenských alebo skupinovýchnoriem",
       "C. nevyvoláva reakcie jednotlivcov, sociálnych skupín alebo spoločnosti zamerané na izoláciuliečenie, prevýchovu, nápravu",
-      "D. nevyvoláva reakcie jednotlivcov, sociálnych skupín alebo spoločnosti zamerané napotrestanie porušovateľov noriemZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. nevyvoláva reakcie jednotlivcov, sociálnych skupín alebo spoločnosti zamerané napotrestanie porušovateľov noriem"
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 71,
@@ -920,7 +990,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 72,
@@ -933,7 +1004,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 73,
@@ -946,7 +1018,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 74,
@@ -959,7 +1032,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 75,
@@ -972,7 +1046,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 76,
@@ -985,7 +1060,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 77,
@@ -998,7 +1074,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 78,
@@ -1007,11 +1084,12 @@
       "A. je oficiálny, formálny tlak, ktorého cieľom je vynútiť si konformitu",
       "B. sú sociálne odmeny (ocenenia, pochvaly)",
       "C. sú prejavy verejnej mienky",
-      "D. je neoficiálny sociálny nátlak, ktorý núti jednotlivcov rešpektovať sociálne normyZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. je neoficiálny sociálny nátlak, ktorý núti jednotlivcov rešpektovať sociálne normy"
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 79,
@@ -1024,7 +1102,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 80,
@@ -1037,11 +1116,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 81,
-    "text": "Medzi základné znaky štátu nepatrí :",
+    "text": "Medzi základné znaky štátu nepatrí:",
     "options": [
       "A. právny systém",
       "B. štátny znak",
@@ -1050,11 +1130,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 82,
-    "text": "Medzi základné znaky štátnej moci patrí :",
+    "text": "Medzi základné znaky štátnej moci patrí:",
     "options": [
       "A. legitimita",
       "B. nezávislosť",
@@ -1063,11 +1144,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 83,
-    "text": "Štátne územie tvorí :",
+    "text": "Štátne územie tvorí:",
     "options": [
       "A. suchozemský povrch",
       "B. suchozemský povrch, vnútorné vody, priestor nad suchozemským povrchom",
@@ -1076,11 +1158,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 84,
-    "text": "Obyvateľstvo štátu tvoria :",
+    "text": "Obyvateľstvo štátu tvoria:",
     "options": [
       "A. občania štátu, apoliti, cudzinci",
       "B. občania štátu",
@@ -1089,11 +1172,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 85,
-    "text": "Medzi funkcie ústavy patrí :",
+    "text": "Medzi funkcie ústavy patrí:",
     "options": [
       "A. zastrešujúca funkcia",
       "B. politická funkcia",
@@ -1102,11 +1186,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia"
   },
   {
     "id": 86,
-    "text": "Všeobecný postulát slobody znamená :",
+    "text": "Všeobecný postulát slobody znamená:",
     "options": [
       "A. každý môže robiť, čo nie je zákonom zakázané",
       "B. každý môže robiť, čo nie je zákonom zakázané a nikto nesmie byť nútený robiť to, čo muzákon neukladá",
@@ -1115,24 +1200,26 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 87,
-    "text": "Základné ľudské práva a slobody sa zaručujú :",
+    "text": "Základné ľudské práva a slobody sa zaručujú:",
     "options": [
       "A. iba občanom štátu",
       "B. iba majetným ľuďom",
       "C. všetkým bez rozdielu",
-"D. až od plnoletosti"
+      "D. až od plnoletosti"
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 88,
-    "text": "Individuálna sloboda občana znamená, že :",
+    "text": "Individuálna sloboda občana znamená, že:",
     "options": [
       "A. štát do nej môže zasiahnuť len na základe zákona, v jeho medziach, v rozsahu a spôsobom,ktorý stanoví zákon",
       "B. štát nesmie do nej vôbec zasahovať",
@@ -1141,11 +1228,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 89,
-    "text": "Medzi základné znaky ľudských práv patrí :",
+    "text": "Medzi základné znaky ľudských práv patrí:",
     "options": [
       "A. viazanosť len na občanov štátu",
       "B. neodňateľnosť",
@@ -1154,11 +1242,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 90,
-    "text": "Ústava SR garantuje ľudské práva :",
+    "text": "Ústava SR garantuje ľudské práva:",
     "options": [
       "A. v plnom rozsahu",
       "B. len pre občanov Slovenskej republiky",
@@ -1167,11 +1256,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 91,
-    "text": "Medzi znaky unitárneho štátu patrí :",
+    "text": "Medzi znaky unitárneho štátu patrí:",
     "options": [
       "A. dvojitá sústava štátnych orgánov",
       "B. dvojkomorový najvyšší orgán štátnej moci",
@@ -1180,11 +1270,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 92,
-    "text": "Medzi typy zloženého štátu patrí :",
+    "text": "Medzi typy zloženého štátu patrí:",
     "options": [
       "A. konfederácia",
       "B. centralizovaný unitárny štát",
@@ -1193,11 +1284,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 93,
-    "text": "Medzi znaky demokracie patrí :",
+    "text": "Medzi znaky demokracie patrí:",
     "options": [
       "A. princíp obmedzenej väčšiny",
       "B. princíp neobmedzenej väčšiny",
@@ -1206,11 +1298,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 94,
-    "text": "Veková hranica na pasívne volebné právo ( právo byť volený ) v Slovenskej republike je :",
+    "text": "Veková hranica na pasívne volebné právo ( právo byť volený ) v Slovenskej republike je:",
     "options": [
       "A. 18 rokov",
       "B. 21 rokov",
@@ -1219,11 +1312,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 95,
-    "text": "Demokratický štátny režim sa vyznačuje formou vlády :",
+    "text": "Demokratický štátny režim sa vyznačuje formou vlády:",
     "options": [
       "A. štátna moc sa neuskutočňuje iba na základe a v medziach práva",
       "B. štátna moc negarantuje základné ľudské práva a slobody",
@@ -1232,11 +1326,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 96,
-    "text": "Zákonnosť ako jeden z princípov právneho štátu znamená :",
+    "text": "Zákonnosť ako jeden z princípov právneho štátu znamená:",
     "options": [
       "A. požiadavku aby všetci občania dodržiavali zákony a ostatné právne predpisy",
       "B. požiadavku aby všetky subjekty práva bez rozdielu rešpektovali zákony a ostatné právnepredpisy",
@@ -1245,11 +1340,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 97,
-    "text": "Deľba moci ako jeden z princípov právneho štátu znamená :",
+    "text": "Deľba moci ako jeden z princípov právneho štátu znamená:",
     "options": [
       "A. rozdelenie moci medzi prezidenta republiky, predsedu vlády a predsedu parlamentu",
       "B. rozdelenie moci medzi ministerstvá, miestnu štátnu správu a samosprávu",
@@ -1258,11 +1354,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 98,
-    "text": "Zákonodarnú moc v štáte vykonáva :",
+    "text": "Zákonodarnú moc v štáte vykonáva:",
     "options": [
       "A. vláda",
       "B. parlament",
@@ -1271,11 +1368,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 99,
-    "text": "Zákonodarnú moc v Slovenskej republike reprezentuje :",
+    "text": "Zákonodarnú moc v Slovenskej republike reprezentuje:",
     "options": [
       "A. Národná rada SR",
       "B. vláda SR",
@@ -1284,11 +1382,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 100,
-    "text": "Vrcholným orgánom výkonnej moci v Slovenskej republike je :",
+    "text": "Vrcholným orgánom výkonnej moci v Slovenskej republike je:",
     "options": [
       "A. predseda vlády",
       "B. prezident SR",
@@ -1297,11 +1396,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 101,
-    "text": "Súdna moc v štáte :",
+    "text": "Súdna moc v štáte:",
     "options": [
       "A. aplikuje zákony a je brzdou zákonodarnej a výkonnej moci",
       "B. môže nahradiť v odôvodnených prípadoch činnosť parlamentu",
@@ -1310,11 +1410,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 102,
-    "text": "Súdnu moc v Slovenskej republike reprezentujú :",
+    "text": "Súdnu moc v Slovenskej republike reprezentujú:",
     "options": [
       "A. súdy a prokuratúra",
       "B. súdy, prokuratúra a polícia",
@@ -1323,11 +1424,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 103,
-    "text": "Ústavodarný a zákonodarný orgán sa vyznačuje najmä :",
+    "text": "Ústavodarný a zákonodarný orgán sa vyznačuje najmä:",
     "options": [
       "A. zastupovaním štátu navonok",
       "B. prijímaním zákonov a ústavy",
@@ -1336,11 +1438,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 104,
-    "text": "Orgánmi výkonnej moci sú :",
+    "text": "Orgánmi výkonnej moci sú:",
     "options": [
       "A. hlava štátu a vláda",
       "B. predseda parlamentu a hlava štátu",
@@ -1349,24 +1452,26 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 105,
-    "text": "Vládu tvorí :",
+    "text": "Vládu tvorí:",
     "options": [
       "A. predseda vlády, predseda parlamentu a hlava štátu",
       "B. predseda vlády a hlava štátu",
       "C. predseda vlády, podpredsedovia vlády a ministri",
-      "D. predseda vlády, ministri a hlava štátuZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. predseda vlády, ministri a hlava štátu"
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 106,
-    "text": "Vláda prijíma :",
+    "text": "Vláda prijíma:",
     "options": [
       "A. nariadenia vlády a uznesenia vlády",
       "B. zákony",
@@ -1375,11 +1480,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 107,
-    "text": "Predsedu vlády v Slovenskej republike vymenúva a odvoláva :",
+    "text": "Predsedu vlády v Slovenskej republike vymenúva a odvoláva:",
     "options": [
       "A. predseda parlamentu",
       "B. predseda Ústavného súdu",
@@ -1388,11 +1494,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 108,
-    "text": "Medzi orgány samosprávy v Slovenskej republike patria :",
+    "text": "Medzi orgány samosprávy v Slovenskej republike patria:",
     "options": [
       "A. ministerstvá",
       "B. obce a VÚC",
@@ -1401,11 +1508,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 109,
-    "text": "Súdy v Slovenskej republike :",
+    "text": "Súdy v Slovenskej republike:",
     "options": [
       "A. rozhodujú o právach a povinnostiach právnických a fyzických osôb",
       "B. rozhodujú o odvolaní prezidenta",
@@ -1414,11 +1522,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 110,
-    "text": "Subjektami medzinárodného práva verejného sú :",
+    "text": "Subjektami medzinárodného práva verejného sú:",
     "options": [
       "A. samostatné suverénne štáty",
       "B. fyzické osoby",
@@ -1427,11 +1536,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 111,
-    "text": "Právnym predpisom s najväčšou právnou silou v Slovenskej republike je :",
+    "text": "Právnym predpisom s najväčšou právnou silou v Slovenskej republike je:",
     "options": [
       "A. zákon",
       "B. všeobecne záväzné nariadenie obce",
@@ -1440,11 +1550,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 112,
-    "text": "Na prijatie Ústavy SR je potrebný súhlas :",
+    "text": "Na prijatie Ústavy SR je potrebný súhlas:",
     "options": [
       "A. nadpolovičnej väčšiny všetkých poslancov – 76 hlasov",
       "B. nadpolovičnej väčšiny prítomných poslancov",
@@ -1453,11 +1564,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 113,
-    "text": "Prijaté zákony v Slovenskej republike podpisuje :",
+    "text": "Prijaté zákony v Slovenskej republike podpisuje:",
     "options": [
       "A. predseda vlády",
       "B. predseda parlamentu, predseda ústavného súdu a prezident SR",
@@ -1466,35 +1578,40 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
-    "id": 18,
-    "text": "roku",
+    "id": 114,
+    "text": "Spôsobilosť na práva a povinnosti ( právna subjektivita ) vzniká",
     "options": [
+      "A. od 18. roku",
       "B. od narodenia",
-      "C. od"
+      "C. od 21. roku",
+      "D. od 30. roku"
     ],
     "answer": [
-      "C"
-    ]
+      "B"
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 115,
-    "text": "Spôsobilosť na právne úkony vzniká :",
+    "text": "Spôsobilosť na právne úkony vzniká:",
     "options": [
       "A. od narodenia",
       "B. od 21. roku",
       "C. od 18. roku",
-"D. od 14. roku"
+      "D. od 14. roku"
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 117,
-    "text": "Ombudsman je :",
+    "text": "Ombudsman je:",
     "options": [
       "A. sudca",
       "B. prokurátor",
@@ -1503,11 +1620,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 118,
-    "text": "Volebné obdobie prezidenta Slovenskej republiky je :",
+    "text": "Volebné obdobie prezidenta Slovenskej republiky je:",
     "options": [
       "A. 5 rokov",
       "B. 4 roky",
@@ -1516,11 +1634,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 119,
-    "text": "Volebné obdobie Národnej rady SR je :",
+    "text": "Volebné obdobie Národnej rady SR je:",
     "options": [
       "A. 5 rokov",
       "B. 8 rokov",
@@ -1529,11 +1648,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 120,
-    "text": "Národná rada SR má :",
+    "text": "Národná rada SR má:",
     "options": [
       "A. 76 poslancov",
       "B. 120 poslancov",
@@ -1542,11 +1662,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 121,
-    "text": "Ústavný súd SR rozhoduje :",
+    "text": "Ústavný súd SR rozhoduje:",
     "options": [
       "A. o súdnych sporoch medzi fyzickými a právnickými osobami",
       "B. o sporoch medzi Európskou úniou a Slovenskou republikou",
@@ -1555,11 +1676,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 122,
-    "text": "Veková hranica na zvolenie za prezidenta Slovenskej republiky je :",
+    "text": "Veková hranica na zvolenie za prezidenta Slovenskej republiky je:",
     "options": [
       "A. 18 rokov",
       "B. 21 rokov",
@@ -1568,44 +1690,50 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 123,
-    "text": "Prezident Slovenskej republiky je volený :",
+    "text": "Prezident Slovenskej republiky je volený:",
     "options": [
       "A. Národnou radou SR",
       "B. občanmi v priamych voľbách, tajným hlasovaním",
       "C. Ústavným súdom SR",
-      "D. Národnou radou SR a Ústavným súdom SRZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. Národnou radou SR a Ústavným súdom SR"
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 124,
-    "text": "Slovenská republika sa stala členským štátom Európskej únie :",
+    "text": "Slovenská republika sa stala členským štátom Európskej únie:",
     "options": [
       "A. v roku 1990",
       "B. v roku 2000",
       "C. v roku 1998",
-      "D. v roku"
+      "D. v roku 2004"
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
-    "id": 2004125,
-    "text": "Medzi členské štáty Európskej únie nepatrí :",
+    "id": 125,
+    "text": "Medzi členské štáty Európskej únie nepatrí:",
     "options": [
       "A. Poľsko",
       "B. Nemecko",
       "C. Švajčiarsko",
       "D. Francúzsko"
     ],
-    "answer": []
+    "answer": [
+      "C"
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 126,
@@ -1618,20 +1746,22 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 127,
-    "text": "Ústava Slovenskej republiky bola prijatá v roku :",
+    "text": "Ústava Slovenskej republiky bola prijatá v roku:",
     "options": [
       "A. 1991",
       "B. 1992",
       "C. 1989",
-      "D. 1993 "
+      "D. 1993"
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 128,
@@ -1642,19 +1772,24 @@
       "C. 1989",
       "D. 1994"
     ],
-    "answer":
-    ["B"]
+    "answer": [
+      "B"
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 129,
-    "text": "Skratka WHO označuje :",
+    "text": "Skratka WHO označuje:",
     "options": [
       "A. Detský fond OSN",
       "B. Organizáciu pre atómovú energiu",
       "C. Svetovú zdravotnícku organizáciu",
       "D. Organizáciu pre obchod a rozvoj"
     ],
-    "answer": []
+    "answer": [
+      "C"
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 130,
@@ -1667,18 +1802,22 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 131,
-    "text": "Členmi OSN sú :",
+    "text": "Členmi OSN sú:",
     "options": [
       "A. medzinárodné organizácie",
       "B. fyzické osoby",
       "C. právnické osoby",
       "D. suverénne štáty"
     ],
-    "answer": ["D"]
+    "answer": [
+      "D"
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 132,
@@ -1687,11 +1826,12 @@
       "A. Chartou OSN",
       "B. Zmluvou o OSN",
       "C. Deklaráciou o založení OSN",
-      "D. Paktom OSNZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. Paktom OSN"
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 133,
@@ -1704,11 +1844,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 134,
-    "text": "Medzinárodný súdny dvor OSN sídli :",
+    "text": "Medzinárodný súdny dvor OSN sídli:",
     "options": [
       "A. v Bruseli",
       "B. v New Yorku",
@@ -1717,11 +1858,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 135,
-    "text": "Maastrichtskú zmluvu o Európskej únii podpísali v roku :",
+    "text": "Maastrichtskú zmluvu o Európskej únii podpísali v roku:",
     "options": [
       "A. 1985",
       "B. 1993",
@@ -1730,18 +1872,22 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 136,
-    "text": "Chartu OSN podpísali pôvodní zakladajúci členovia v roku :",
+    "text": "Chartu OSN podpísali pôvodní zakladajúci členovia v roku:",
     "options": [
       "A. 1946",
       "B. 1948",
       "C. 1945",
-      "D. 1950 "
+      "D. 1950"
     ],
-    "answer": ["C"]
+    "answer": [
+      "C"
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 137,
@@ -1752,7 +1898,10 @@
       "C. psychickej regulácii správania",
       "D. podpore snáh človeka"
     ],
-    "answer": ["C"]
+    "answer": [
+      "C"
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 138,
@@ -1765,7 +1914,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 139,
@@ -1778,7 +1928,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 140,
@@ -1791,7 +1942,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 141,
@@ -1800,11 +1952,12 @@
       "A. druhých",
       "B. seba",
       "C. osobný cieľ",
-      "D. vnímanie inýchZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. vnímanie iných"
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 142,
@@ -1817,7 +1970,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 143,
@@ -1830,7 +1984,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 144,
@@ -1843,7 +1998,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 145,
@@ -1856,11 +2012,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Etika"
   },
   {
     "id": 146,
-    "text": "Štruktúrovaný základ prejavov osobnosti ako upevnená sústava zovšeobecnených motívov sanazýva:",
+    "text": "Štruktúrovaný základ prejavov osobnosti ako upevnená sústava zovšeobecnených motívov sa nazýva:",
     "options": [
       "A. temperament",
       "B. sebarealizácia",
@@ -1869,7 +2026,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 147,
@@ -1882,7 +2040,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 148,
@@ -1895,7 +2054,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 149,
@@ -1908,7 +2068,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 150,
@@ -1917,11 +2078,12 @@
       "A. abstrakcia",
       "B. pojem",
       "C. vnímanie",
-      "D. predstavyZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. predstavy"
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 151,
@@ -1934,7 +2096,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 152,
@@ -1947,7 +2110,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 153,
@@ -1960,7 +2124,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 154,
@@ -1973,7 +2138,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 155,
@@ -1986,7 +2152,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 156,
@@ -1999,7 +2166,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 157,
@@ -2012,7 +2180,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 158,
@@ -2025,7 +2194,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 159,
@@ -2034,11 +2204,12 @@
       "A. analýza",
       "B. syntéza",
       "C. prognóza",
-      "D. afilianciaZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. afiliancia"
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 160,
@@ -2051,7 +2222,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Psychológia"
   },
   {
     "id": 161,
@@ -2064,7 +2236,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 162,
@@ -2077,7 +2250,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 163,
@@ -2090,7 +2264,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 164,
@@ -2103,7 +2278,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 165,
@@ -2116,7 +2292,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 166,
@@ -2129,7 +2306,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 167,
@@ -2142,7 +2320,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 168,
@@ -2151,11 +2330,12 @@
       "A. zodpovedá za vývoj a stabilitu meny",
       "B. prijíma vklady a poskytuje úvery podnikom",
       "C. poskytuje úverové zdroje klientom",
-      "D. vykonáva poisťovaciu činnosťZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. vykonáva poisťovaciu činnosť"
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Ekonómia"
   },
   {
     "id": 169,
@@ -2168,7 +2348,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 170,
@@ -2181,7 +2362,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 171,
@@ -2194,7 +2376,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Sociológia"
   },
   {
     "id": 172,
@@ -2207,7 +2390,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 173,
@@ -2220,7 +2404,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 174,
@@ -2233,11 +2418,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 175,
-    "text": "Bezúhonný človek je ten, kto :",
+    "text": "Bezúhonný človek je ten, kto:",
     "options": [
       "A. bol právoplatne odsúdený",
       "B. bol podmienečne odsúdený",
@@ -2246,7 +2432,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 176,
@@ -2259,7 +2446,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 177,
@@ -2268,11 +2456,12 @@
       "A. predaj hnuteľných vecí",
       "B. nákup nehnuteľností",
       "C. kúpu a predaj cenných papierov",
-      "D. prenájom hnuteľných zariaďovacích predmetov dlhodobej spotreby a iných predmetovZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. prenájom hnuteľných zariaďovacích predmetov dlhodobej spotreby a iných predmetov"
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 178,
@@ -2285,11 +2474,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Ekonómia"
   },
   {
     "id": 179,
-    "text": "Veľkoobchod  znamená:",
+    "text": "Veľkoobchod znamená:",
     "options": [
       "A. objednanie tovaru",
       "B. vrátenie reklamovaného tovaru",
@@ -2298,11 +2488,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 180,
-    "text": "Zahraničný  obchod predstavuje:",
+    "text": "Zahraničný obchod predstavuje:",
     "options": [
       "A. obchodovanie v rámci krajín",
       "B. obeh tovaru a služieb prekračujúci hranice a ekonomiku danej krajiny",
@@ -2311,7 +2502,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia"
   },
   {
     "id": 181,
@@ -2324,7 +2516,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 182,
@@ -2337,7 +2530,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 183,
@@ -2350,7 +2544,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 184,
@@ -2363,7 +2558,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 185,
@@ -2376,7 +2572,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 186,
@@ -2385,11 +2582,12 @@
       "A. Všeobecná úverová banka",
       "B. štátna banka",
       "C. Národná banka Slovenska",
-      "D. Tatra bankaZoznam otázok z oblasti: FOZOŠ - Náuka o spoločnosti /"
+      "D. Tatra banka"
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 187,
@@ -2402,7 +2600,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia"
   },
   {
     "id": 188,
@@ -2415,7 +2614,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 189,
@@ -2428,7 +2628,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 190,
@@ -2441,7 +2642,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia"
   },
   {
     "id": 191,
@@ -2454,7 +2656,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Ekonómia a filozofia"
   },
   {
     "id": 192,
@@ -2467,7 +2670,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekonómia"
   },
   {
     "id": 193,
@@ -2480,7 +2684,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Právo a politológia"
   },
   {
     "id": 194,
@@ -2493,6 +2698,7 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekonómia"
   }
 ]

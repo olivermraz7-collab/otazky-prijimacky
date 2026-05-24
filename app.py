@@ -676,141 +676,7 @@ def inject_css():
                 pointer-events: none;
             }
 
-            body.setup-active section[data-testid="stSidebar"] {
-                z-index: 10000 !important;
-                position: relative !important;
-            }
-
-            .setup-focus-card {
-                background:
-                    linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(37, 99, 235, 0.16)),
-                    rgba(15, 23, 42, 0.96);
-                border: 1px solid rgba(167, 139, 250, 0.38);
-                border-radius: 20px;
-                padding: 14px 15px;
-                margin: 12px 0;
-                box-shadow: 0 18px 50px rgba(0,0,0,0.45);
-                position: relative;
-                z-index: 10002;
-            }
-
-            .setup-focus-kicker {
-                color: #a78bfa;
-                font-size: 11px;
-                font-weight: 850;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                margin-bottom: 6px;
-            }
-
-            .setup-focus-title {
-                color: #ffffff;
-                font-size: 17px;
-                font-weight: 900;
-                letter-spacing: -0.035em;
-                margin-bottom: 4px;
-            }
-
-            .setup-focus-text {
-                color: #cbd5e1;
-                font-size: 12px;
-                line-height: 1.55;
-            }
-
-            .setup-main-hint {
-                position: fixed;
-                left: 50%;
-                top: 50%;
-                transform: translate(-35%, -50%);
-                max-width: 440px;
-                background:
-                    linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(30, 41, 59, 0.94));
-                border: 1px solid rgba(255,255,255,0.12);
-                border-radius: 28px;
-                padding: 24px 26px;
-                box-shadow: 0 24px 80px rgba(0,0,0,0.55);
-                z-index: 10001;
-                pointer-events: none;
-            }
-
-            .setup-main-hint-step {
-                color: #a78bfa;
-                font-size: 12px;
-                font-weight: 850;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                margin-bottom: 9px;
-            }
-
-            .setup-main-hint-title {
-                color: #ffffff;
-                font-size: 27px;
-                line-height: 1.08;
-                font-weight: 900;
-                letter-spacing: -0.055em;
-                margin-bottom: 8px;
-            }
-
-            .setup-main-hint-text {
-                color: #cbd5e1;
-                font-size: 14px;
-                line-height: 1.7;
-            }
-
-            .setup-focused-widget {
-                position: relative;
-                z-index: 10003 !important;
-                background: rgba(15, 23, 42, 0.98);
-                border-radius: 18px;
-                padding: 10px;
-                border: 1px solid rgba(167,139,250,0.38);
-                box-shadow: 0 18px 50px rgba(0,0,0,0.45);
-                margin-bottom: 10px;
-            }
-
-
-            body.setup-active .main,
-            body.setup-active header,
-            body.setup-active footer {
-                filter: brightness(0.25) saturate(0.55);
-            }
-
-            body.setup-active .setup-main-hint {
-                filter: none !important;
-            }
-
-            .setup-hidden-during-flow {
-                display: none !important;
-            }
-
-            body.setup-active .main .block-container {
-                pointer-events: none;
-            }
-
-            @media (max-width: 900px) {
-                .hero-title {
-                    font-size: 26px;
-                }
-
-                .top-hero {
-                    padding: 20px 18px;
-                }
-
-                .login-card {
-                    padding: 28px 24px;
-                }
-            }
-        /* CLEAN SETUP OVERRIDES */
-
-            body.setup-active .stApp::after {
-                content: "";
-                position: fixed;
-                inset: 0;
-                background: rgba(2, 6, 23, 0.965);
-                backdrop-filter: grayscale(1) blur(10px);
-                z-index: 9990;
-                pointer-events: none;
-            }
+            
 
             body.setup-active .main,
             body.setup-active header,
@@ -827,11 +693,7 @@ def inject_css():
                 opacity: 0.10 !important;
             }
 
-            body.setup-active section[data-testid="stSidebar"] {
-                z-index: 10000 !important;
-                position: relative !important;
-                filter: grayscale(1) brightness(0.30);
-            }
+            
 
             body.setup-active .setup-focus-card,
             body.setup-active .setup-focused-widget,
@@ -841,13 +703,7 @@ def inject_css():
                 opacity: 1 !important;
             }
 
-            body.setup-active section[data-testid="stSidebar"] .stSelectbox,
-            body.setup-active section[data-testid="stSidebar"] .stDateInput,
-            body.setup-active section[data-testid="stSidebar"] .stButton {
-                opacity: 0.18;
-                filter: grayscale(1);
-                pointer-events: none;
-            }
+            
 
             body.setup-active .setup-focused-widget .stSelectbox,
             body.setup-active .setup-focused-widget .stDateInput,
@@ -927,11 +783,7 @@ def inject_css():
                 opacity: 0.05 !important;
             }
 
-            body.setup-active section[data-testid="stSidebar"] {
-                z-index: 10000 !important;
-                position: relative !important;
-                filter: grayscale(1) brightness(0.22) !important;
-            }
+            
 
             body.setup-active .setup-sidebar-brand,
             body.setup-active .setup-focus-card,
@@ -2347,11 +2199,12 @@ def setup_current_step():
 
 
 
+
 def inject_active_setup_css():
     """
     Reálne zatmavenie počas prvého setupu.
-    Nepoužíva JavaScript ani body.setup-active, lebo Streamlit <script> v st.markdown()
-    spoľahlivo nespúšťa. CSS sa vloží iba vtedy, keď je setup aktívny.
+    Netlmí sidebar widgety, lebo Streamlit nevie spoľahlivo obaliť selectbox cez st.markdown("<div>").
+    Sidebar počas setupu zobrazuje iba aktuálny krok, takže aktívny prvok ostane čistý a viditeľný.
     """
     if not setup_is_active():
         return
@@ -2359,75 +2212,72 @@ def inject_active_setup_css():
     st.markdown(
         """
         <style>
-            /* Všetko v hlavnej aplikácii potlačiť */
-            .main .block-container,
-            header,
-            footer,
-            .top-hero,
-            div[data-testid="stVerticalBlockBorderWrapper"],
-            div[data-testid="stMetric"],
-            .stProgress,
-            .question-text,
-            .question-topline {
-                filter: grayscale(1) brightness(0.08) contrast(0.65) !important;
-                opacity: 0.055 !important;
-                pointer-events: none !important;
-            }
-
-            /* Tmavý film cez aplikáciu */
+            /* Tmavý film cez hlavnú aplikáciu, nie cez sidebar */
             .stApp::before {
                 content: "";
                 position: fixed;
                 inset: 0;
                 background: rgba(2, 6, 23, 0.94);
                 backdrop-filter: grayscale(1) blur(8px);
-                z-index: 9990;
+                z-index: 10;
                 pointer-events: none;
             }
 
-            /* Sidebar nech je nad tmavým filmom */
-            section[data-testid="stSidebar"] {
-                position: relative !important;
-                z-index: 10000 !important;
-                filter: grayscale(1) brightness(0.22) !important;
-            }
-
-            /* Väčšinu sidebaru tiež potlačiť */
-            section[data-testid="stSidebar"] .stSelectbox,
-            section[data-testid="stSidebar"] .stDateInput,
-            section[data-testid="stSidebar"] .stButton,
-            section[data-testid="stSidebar"] .stMarkdown,
-            section[data-testid="stSidebar"] .stCaption {
-                opacity: 0.16 !important;
-                filter: grayscale(1) brightness(0.65) !important;
+            /* Hlavný obsah nech prakticky zmizne */
+            .main .block-container,
+            header,
+            footer {
+                filter: grayscale(1) brightness(0.08) contrast(0.65) !important;
+                opacity: 0.06 !important;
                 pointer-events: none !important;
             }
 
-            /* Aktuálne zvýraznené okno musí byť plne viditeľné a klikateľné */
-            .setup-focus-card,
-            .setup-focused-widget,
-            .setup-focused-widget *,
-            .setup-plan-widget,
-            .setup-plan-widget *,
-            .setup-sidebar-brand {
-                opacity: 1 !important;
-                filter: none !important;
-                pointer-events: auto !important;
+            /* Sidebar musí byť nad overlayom a normálne čitateľný */
+            section[data-testid="stSidebar"] {
                 position: relative !important;
-                z-index: 10005 !important;
+                z-index: 100 !important;
+                filter: none !important;
+                opacity: 1 !important;
             }
 
-            .setup-focused-widget .stSelectbox,
-            .setup-focused-widget .stDateInput,
-            .setup-focused-widget .stButton,
-            .setup-plan-widget .stDateInput,
-            .setup-plan-widget .stButton {
-                opacity: 1 !important;
+            section[data-testid="stSidebar"] * {
                 filter: none !important;
+                opacity: 1 !important;
                 pointer-events: auto !important;
             }
 
-            /* Textové vysvetlenie nad overlayom */
+            /* Zvýraznená karta */
+            .setup-focus-card {
+                background:
+                    linear-gradient(135deg, rgba(124, 58, 237, 0.28), rgba(37, 99, 235, 0.18)),
+                    rgba(15, 23, 42, 0.99) !important;
+                border: 1px solid rgba(167, 139, 250, 0.55) !important;
+                border-radius: 20px !important;
+                padding: 14px 15px !important;
+                margin: 12px 0 !important;
+                box-shadow: 0 18px 70px rgba(0,0,0,0.70) !important;
+                position: relative !important;
+                z-index: 120 !important;
+            }
+
+            .setup-focused-widget {
+                background: rgba(15, 23, 42, 0.99) !important;
+                border-radius: 18px !important;
+                padding: 12px !important;
+                border: 1px solid rgba(167,139,250,0.72) !important;
+                box-shadow: 0 0 0 2px rgba(139,92,246,0.25), 0 24px 80px rgba(0,0,0,0.75) !important;
+                margin-bottom: 12px !important;
+                position: relative !important;
+                z-index: 121 !important;
+            }
+
+            .setup-focused-widget div[data-baseweb="select"] > div,
+            .setup-focused-widget input {
+                background: rgba(2, 6, 23, 0.95) !important;
+                border: 1px solid rgba(167,139,250,0.70) !important;
+                color: #ffffff !important;
+            }
+
             .setup-main-hint {
                 position: fixed !important;
                 left: 50% !important;
@@ -2440,14 +2290,8 @@ def inject_active_setup_css():
                 border-radius: 28px !important;
                 padding: 24px 26px !important;
                 box-shadow: 0 24px 90px rgba(0,0,0,0.76) !important;
-                z-index: 10006 !important;
+                z-index: 110 !important;
                 pointer-events: none !important;
-                opacity: 1 !important;
-                filter: none !important;
-            }
-
-            .setup-main-hint,
-            .setup-main-hint * {
                 opacity: 1 !important;
                 filter: none !important;
             }
@@ -2475,59 +2319,7 @@ def inject_active_setup_css():
                 font-size: 14px !important;
                 line-height: 1.7 !important;
             }
-        
-            /* FIX: aktívny spotlight widget nesmie byť zatmavený */
-            .setup-focused-widget,
-            .setup-focused-widget *,
-            .setup-plan-widget,
-            .setup-plan-widget *,
-            .setup-focus-card,
-            .setup-focus-card *,
-            .setup-sidebar-brand,
-            .setup-sidebar-brand * {
-                opacity: 1 !important;
-                filter: none !important;
-                pointer-events: auto !important;
-                color: inherit !important;
-            }
-
-            .setup-focused-widget {
-                background: rgba(15, 23, 42, 0.99) !important;
-                border: 1px solid rgba(167,139,250,0.70) !important;
-                box-shadow: 0 0 0 2px rgba(139,92,246,0.25), 0 24px 80px rgba(0,0,0,0.75) !important;
-            }
-
-            .setup-focused-widget div[data-testid="stSelectbox"],
-            .setup-focused-widget div[data-testid="stSelectbox"] *,
-            .setup-focused-widget div[data-baseweb="select"],
-            .setup-focused-widget div[data-baseweb="select"] *,
-            .setup-focused-widget .stButton,
-            .setup-focused-widget .stButton *,
-            .setup-plan-widget div[data-testid="stDateInput"],
-            .setup-plan-widget div[data-testid="stDateInput"] *,
-            .setup-plan-widget .stButton,
-            .setup-plan-widget .stButton * {
-                opacity: 1 !important;
-                filter: none !important;
-                pointer-events: auto !important;
-            }
-
-            .setup-focused-widget div[data-baseweb="select"] > div {
-                background: rgba(2, 6, 23, 0.95) !important;
-                border: 1px solid rgba(167,139,250,0.65) !important;
-                color: #ffffff !important;
-            }
-
-            .setup-focused-widget label,
-            .setup-focused-widget label p,
-            .setup-plan-widget label,
-            .setup-plan-widget label p {
-                color: #ffffff !important;
-                opacity: 1 !important;
-                filter: none !important;
-            }
-
-</style>
+        </style>
         """,
         unsafe_allow_html=True
     )

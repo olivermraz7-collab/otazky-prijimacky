@@ -2188,6 +2188,51 @@ def render_question_text_and_images(q):
 # 10. SPOTLIGHT SETUP
 # ============================================================
 
+
+def build_date_from_selects(prefix, default_date):
+    years = list(range(date.today().year, date.today().year + 3))
+    months = list(range(1, 13))
+    days = list(range(1, 32))
+
+    col_day, col_month, col_year = st.columns([0.28, 0.34, 0.38])
+
+    with col_day:
+        day = st.selectbox(
+            "Deň",
+            days,
+            index=max(0, min(default_date.day - 1, 30)),
+            key=f"{prefix}_day"
+        )
+
+    with col_month:
+        month = st.selectbox(
+            "Mesiac",
+            months,
+            index=max(0, min(default_date.month - 1, 11)),
+            key=f"{prefix}_month",
+            format_func=lambda x: f"{x:02d}"
+        )
+
+    with col_year:
+        year = st.selectbox(
+            "Rok",
+            years,
+            index=years.index(default_date.year) if default_date.year in years else 0,
+            key=f"{prefix}_year"
+        )
+
+    try:
+        return date(year, month, day)
+    except ValueError:
+        for safe_day in range(31, 27, -1):
+            try:
+                return date(year, month, safe_day)
+            except ValueError:
+                continue
+
+    return default_date
+
+
 def setup_is_active():
     return not st.session_state.get("setup_completed", False)
 
@@ -2320,7 +2365,7 @@ def inject_active_setup_css():
                 line-height: 1.7 !important;
             }
         
-            /* FIX: date picker počas setupu musí byť klikateľný */
+            /* date picker popover removed - using selectboxes */
             div[data-baseweb="popover"],
             div[data-baseweb="popover"] *,
             div[data-baseweb="calendar"],
@@ -2369,18 +2414,7 @@ def inject_active_setup_css():
 
 
 def setup_overlay(step, title, text):
-    if not setup_is_active():
-        return
-
-    st.markdown(
-        f"""<div class="setup-main-hint">
-            <div class="setup-main-hint-step">Krok {step}/3</div>
-            <div class="setup-main-hint-title">{escape(title)}</div>
-            <div class="setup-main-hint-text">{escape(text)}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    return
 
 
 def setup_sidebar_note(step, title, text):
@@ -2833,12 +2867,7 @@ with right_col:
 
         current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
         current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
-        updated_exam_date = st.date_input(
-            "Termín skúšky" if setup_active and step == 2 else "Upraviť termín skúšky",
-            value=current_exam_date,
-            format="DD.MM.YYYY",
-            key=f"exam_date_plan_{selected_field_name}"
-        )
+        updated_exam_date = build_date_from_selects("exam_date_setup", current_exam_date)
 
         if setup_active and step == 2:
             if st.button("Potvrdiť termín", use_container_width=True, key="confirm_exam_date_setup"):

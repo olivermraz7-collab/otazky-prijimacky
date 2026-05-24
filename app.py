@@ -654,8 +654,8 @@ def inject_css():
                 content: "";
                 position: fixed;
                 inset: 0;
-                background: rgba(2, 6, 23, 0.72);
-                backdrop-filter: blur(3px);
+                background: rgba(2, 6, 23, 0.92);
+                backdrop-filter: blur(8px);
                 z-index: 9990;
                 pointer-events: none;
             }
@@ -750,6 +750,21 @@ def inject_css():
                 border: 1px solid rgba(167,139,250,0.38);
                 box-shadow: 0 18px 50px rgba(0,0,0,0.45);
                 margin-bottom: 10px;
+            }
+
+
+            body.setup-active .main,
+            body.setup-active header,
+            body.setup-active footer {
+                filter: brightness(0.25) saturate(0.55);
+            }
+
+            body.setup-active .setup-main-hint {
+                filter: none !important;
+            }
+
+            .setup-hidden-during-flow {
+                display: none !important;
             }
 
             body.setup-active .main .block-container {
@@ -2089,7 +2104,7 @@ if setup_active and step == 1:
     setup_overlay(
         1,
         "Vyber si odbor",
-        "V sidebare je zvýraznený výber odboru. Najprv ho potvrď, potom sa odomkne termín skúšky."
+        "Vyber si odbor v zvýraznenom okne v sidebare."
     )
 
 available_subjects = FIELDS[selected_field_name]
@@ -2128,7 +2143,7 @@ if setup_active and step == 2:
     setup_overlay(
         2,
         "Zadaj termín skúšky",
-        "Vyber dátum prijímačiek. Aplikácia podľa neho vypočíta, koľko otázok denne treba prejsť."
+        "Zadaj termín skúšky v zvýraznenom okne v sidebare."
     )
 
 if setup_active and step == 3:
@@ -2156,7 +2171,7 @@ if setup_active and step == 3:
     setup_overlay(
         3,
         "Vyber predmet",
-        "Po výbere predmetu klikni na Začať testovať. Potom už bude aplikácia fungovať normálne."
+        "Vyber predmet a klikni na Začať testovať."
     )
 
 # Po dokončení setupu pokračuje normálna navigácia.
@@ -2210,55 +2225,6 @@ st.session_state.study_mode = st.sidebar.selectbox(
 
 current_exam_date = get_exam_date_for_field(selected_field_name)
 default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12)
-selected_exam_date = st.sidebar.date_input(
-    "Termín skúšky",
-    value=default_exam_date,
-    format="DD.MM.YYYY"
-)
-
-if current_exam_date != selected_exam_date:
-    set_exam_date_for_field(selected_field_name, selected_exam_date)
-    current_exam_date = selected_exam_date
-
-filtered_questions = filter_questions_by_topic(
-    questions,
-    st.session_state.selected_topic_name
-)
-
-mode_filtered_questions = filter_questions_for_study_mode(
-    filtered_questions,
-    current_data,
-    st.session_state.study_mode,
-    current_exam_date
-)
-
-if not filtered_questions:
-    st.warning("V tomto celku zatiaľ nie sú žiadne otázky.")
-    st.stop()
-
-if not mode_filtered_questions:
-    if st.session_state.study_mode == "Len nesprávne":
-        st.warning("V tomto výbere zatiaľ nemáš žiadne nesprávne otázky. Prepni režim na Smart review.")
-    else:
-        st.warning("V tomto výbere momentálne nie sú otázky na opakovanie. Prepni celok alebo režim.")
-    st.stop()
-
-active_filter_key = f"{selected_file}::{st.session_state.selected_topic_name}::{st.session_state.study_mode}::{current_exam_date}"
-
-if st.session_state.get("active_filter_key") != active_filter_key:
-    st.session_state.answered = False
-    st.session_state.active_filter_key = active_filter_key
-
-st.sidebar.markdown(
-    f"""
-    <div class="sidebar-mini-note">
-        Výber: <strong>{len(mode_filtered_questions)}</strong> otázok<br>
-        Predmet spolu: {len(questions)} otázok
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
 
 # ============================================================
 # 11. CURRENT QUESTION

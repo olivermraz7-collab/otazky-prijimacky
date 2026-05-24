@@ -10,7 +10,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 6,
@@ -75,11 +80,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 7,
-    "text": "Základná fyzikálna jednotka elektrickej vodivosti  je:",
+    "text": "Základná fyzikálna jednotka elektrickej vodivosti je:",
     "options": [
       "A. Siemens (S)",
       "B. Ampér (A)",
@@ -88,7 +94,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 8,
@@ -101,11 +108,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 9,
-    "text": "Hybnosť hmotného bodu (p) je daná vzťahom (m - je hmotnosť hmotného bodu, v – je rýchlosťpohybu hmotného bodu):",
+    "text": "Hybnosť hmotného bodu (p) je daná vzťahom (m - je hmotnosť hmotného bodu, v – je rýchlosť pohybu hmotného bodu):",
     "options": [
       "A. p = m + v",
       "B. p = m/v",
@@ -114,7 +122,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 10,
@@ -127,7 +136,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 11,
@@ -140,11 +150,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 2,
-    "text": "Ak je uhlová rýchlosť oboch pohybov rovnaká a r1 > r2, potom preobvodové rýchlosti v1 a v2 platí:",
+    "text": "Ak je uhlová rýchlosť oboch pohybov rovnaká a r1 > r2, potom pre obvodové rýchlosti v1 a v2 platí:",
     "options": [
       "A. v1 > v2",
       "B. v1 = v2",
@@ -153,24 +164,26 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 13,
     "text": "Vratkú rovnovážnu polohu má teleso:",
     "options": [
       "A. ktoré sa po vychýlení z tejto polohy opäť vracia do rovnakej polohy",
-      "B. ktoré sa po vychýlení z tejto polohy nevracia samé do rovnakej polohy, ale prechádza donovej stálej polohy",
+      "B. ktoré sa po vychýlení z tejto polohy nevracia samé do rovnakej polohy, ale prechádza do novej stálej polohy",
       "C. ktoré po vychýlení zostáva v akejkoľvek novej polohe",
       "D. ktoré je otáčavé okolo vodorovnej osy prechádzajúcej ťažiskom"
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 14,
-    "text": "Potenciálna energia telesa (W) o hmotnosti m vo výške h, kde je tiažové zrýchlenie g, je danávzťahom:",
+    "text": "Potenciálna energia telesa (W) o hmotnosti m vo výške h, kde je tiažové zrýchlenie g, je daná vzťahom:",
     "options": [
       "A. W = m + g + h",
       "B. W = m·g ·h",
@@ -179,7 +192,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 15,
@@ -192,7 +206,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 16,
@@ -205,18 +220,20 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 17,
-    "text": "Rovnica spojitosti (kontinuity) je vyjadrením zákona zachovania hmotnosti pre ustálené prúdeniekvapaliny a vyjadruje že:",
+    "text": "Rovnica spojitosti (kontinuity) je vyjadrením zákona zachovania hmotnosti pre ustálené prúdenie kvapaliny a vyjadruje že:",
     "options": [
       "A. súčet rýchlosti prúdiacej kvapaliny a prierezu trubice je veličina konštantná",
       "B. pri ustálenom prúdení je hmotnostný tok tekutiny so stálou hustotou ρ v každom prierezeprúdovej trubice rovnaký",
       "C. podiel rýchlosti prúdiacej kvapaliny a prierezu trubice je veličina konštantná",
       "D. logaritmus súčtu rýchlosti prúdiacej kvapaliny a priemeru trubice je veličina konštantná"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 18,
@@ -229,11 +246,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 19,
-    "text": "Robotník posunuje paletu s tiažou 200 kg po vodorovnej dráhe dlhej 5 metrov. Akú veľkú prácuvykoná, keď pohyb vozíka je rovnomerný a koeficient trenia k=0,07? Gravitačné zrýchlenie    g=10m.s-2",
+    "text": "Robotník posunuje paletu s tiažou 200 kg po vodorovnej dráhe dlhej 5 metrov. Akú veľkú prácu vykoná, keď pohyb vozíka je rovnomerný a koeficient trenia k=0,07? Gravitačné zrýchlenie g=10m.s-2",
     "options": [
       "A. 700 J",
       "B. 10⁰⁰⁰ J",
@@ -242,7 +260,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 20,
@@ -255,11 +274,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 21,
-    "text": "Polomer  r1 menšieho piesta hydraulického lisu je  2 cm, polomer  r2 väčšieho  piesta je 4 cm. Akpôsobíme na menší piest silou 100 N, väčší piest vyvolá tlakovú silu:",
+    "text": "Polomer r1 menšieho piesta hydraulického lisu je 2 cm, polomer r2 väčšieho piesta je 4 cm. Akpôsobíme na menší piest silou 100 N, väčší piest vyvolá tlakovú silu:",
     "options": [
       "A. 20 N",
       "B. 400 N",
@@ -268,7 +288,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 22,
@@ -281,11 +302,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 23,
-    "text": "Krivka, ktorá vyjadruje závislosť tlaku plynu ako funkciu jeho objemu pri izobarickom deji sanazýva:",
+    "text": "Krivka, ktorá vyjadruje závislosť tlaku plynu ako funkciu jeho objemu pri izobarickom deji sa nazýva:",
     "options": [
       "A. izoterma",
       "B. izobara",
@@ -294,11 +316,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 24,
-    "text": "Skupenská premena  látky  z pevného skupenstva priamo na plynné skupenstvosa nazýva:",
+    "text": "Skupenská premena látky z pevného skupenstva priamo na plynné skupenstvosa nazýva:",
     "options": [
       "A. ionizácia",
       "B. sublimácia",
@@ -307,7 +330,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 25,
@@ -320,7 +344,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 26,
@@ -333,7 +358,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 27,
@@ -346,7 +372,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 28,
@@ -359,11 +386,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 29,
-    "text": "Kapacita C vodiča  elektrického prúdu je vlastnosť vodiča definovaná vzťahom ... ,  kde Q jenáboj, U je napätie:",
+    "text": "Kapacita C vodiča elektrického prúdu je vlastnosť vodiča definovaná vzťahom ... , kde Q jenáboj, U je napätie:",
     "options": [
       "A. C = Q·U,",
       "B. C = (Q·U)2",
@@ -372,7 +400,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 30,
@@ -385,11 +414,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 31,
-    "text": "Pri paralelnom zapojení dvoch kondenzátorov o kapacite C1 a C2 je výsledná kapacita C danávzťahom:",
+    "text": "Pri paralelnom zapojení dvoch kondenzátorov o kapacite C1 a C2 je výsledná kapacita C daná vzťahom:",
     "options": [
       "A. C = C1 · C2",
       "B. C = C1 / C2",
@@ -398,18 +428,20 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 32,
-    "text": "Pri sériovom zapojení dvoch kondenzátorov o kapacite C1 a C2 je výsledná kapacita C danávzťahom:",
+    "text": "Pri sériovom zapojení dvoch kondenzátorov o kapacite C1 a C2 je výsledná kapacita C daná vzťahom:",
     "options": [
       "A. C = C1 + C2",
       "B. C = C1 · C2",
       "C. C = 1/ C1 + 1/ C2",
       "D. 1/C = 1/ C1 + 1/ C2"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 33,
@@ -421,7 +453,8 @@
       "C. žiarovka A svieti viac ako žiarovka B",
       "D. žiarovka A svieti menej ako žiarovka BZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 34,
@@ -435,7 +468,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 35,
@@ -448,7 +482,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 36,
@@ -461,7 +496,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 37,
@@ -474,7 +510,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 38,
@@ -487,7 +524,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 39,
@@ -500,7 +538,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 40,
@@ -513,11 +552,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 41,
-    "text": "Práca W, ktorá sa vykoná pri prenose náboja Q medzi dvoma bodmi, za predpokladu, že je medzibodmi napätie U  (kde I- elektrický prúd, t- čas, R -odpor) je:",
+    "text": "Práca W, ktorá sa vykoná pri prenose náboja Q medzi dvoma bodmi, za predpokladu, že je medzibodmi napätie U (kde I- elektrický prúd, t- čas, R -odpor) je:",
     "options": [
       "A. W = U · I · t",
       "B. W = U · I2 · t",
@@ -526,7 +566,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 42,
@@ -538,7 +579,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 43,
@@ -551,7 +593,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 44,
@@ -564,7 +607,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 45,
@@ -577,7 +621,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 46,
@@ -590,7 +635,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 47,
@@ -603,7 +649,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 48,
@@ -616,7 +663,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 49,
@@ -629,23 +677,25 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 50,
     "text": "Jednotkou intenzity elektrického poľa je:",
     "options": [
-      "A. ",
+      "A.",
       "C. m",
-      "B. ",
+      "B.",
       "C. m-1",
       "C. V.m-1",
-      "D. ",
+      "D.",
       "A. m"
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 51,
@@ -658,7 +708,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 52,
@@ -671,7 +722,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 53,
@@ -684,7 +736,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 54,
@@ -697,7 +750,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 55,
@@ -710,7 +764,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 56,
@@ -723,7 +778,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 57,
@@ -736,7 +792,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 58,
@@ -749,7 +806,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 59,
@@ -762,7 +820,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 60,
@@ -774,7 +833,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 61,
@@ -787,11 +847,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 62,
-    "text": " Induktancia cievky v obvode striedavého prúdu pri frekvencii f1 je X1 a pri frekvencii f2 je X2. Ak je f1 > f2, potom pre induktancie platí:",
+    "text": "Induktancia cievky v obvode striedavého prúdu pri frekvencii f1 je X1 a pri frekvencii f2 je X2. Ak je f1 > f2, potom pre induktancie platí:",
     "options": [
       "A. X1 > X2",
       "B. X1 < X2",
@@ -800,7 +861,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 63,
@@ -811,7 +873,8 @@
       "C. 62,8 Ω",
       "D. 628 Ω"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 64,
@@ -824,7 +887,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 65,
@@ -835,7 +899,8 @@
       "C. odpor paralelne",
       "D. kondenzátor paralelne"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 66,
@@ -848,28 +913,31 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 67,
-    "text": "Transformátor striedavého prúdu mení striedavé napätie na iné napätie s tou istou frekvenciou.Pre pomer počtu závitov N1 v primárnej cievky a sekundárnej cievke N2 a pomer indukovanéhonapätia v cievkach  U1 a  U2  platí vzťah:",
+    "text": "Transformátor striedavého prúdu mení striedavé napätie na iné napätie s tou istou frekvenciou.Pre pomer počtu závitov N1 v primárnej cievky a sekundárnej cievke N2 a pomer indukovanéhonapätia v cievkach U1 a U2 platí vzťah:",
     "options": [
       "A. U1: U2 = N1 : N2",
       "B. U1: U2 = (N1 : N2 )2",
       "C. U1: U2 = N2 : N1",
       "D. U1: U2 = (N1 : N2 )-2"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 68,
-    "text": "Index lomu n, ak  rýchlosť svetla vo vákuu je c a je rýchlosť svetla v danom prostredí je v, jedefinovaný vzťahom:",
+    "text": "Index lomu n, ak rýchlosť svetla vo vákuu je c a je rýchlosť svetla v danom prostredí je v, jedefinovaný vzťahom:",
     "options": [
       "A. n = c·v",
       "B. n = c/v",
       "C. n = v/c"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 69,
@@ -882,7 +950,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 270,
@@ -893,7 +962,8 @@
       "C. nepriamy",
       "D. zmenšený"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 71,
@@ -906,7 +976,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 72,
@@ -919,7 +990,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 73,
@@ -932,7 +1004,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 74,
@@ -945,7 +1018,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 75,
@@ -958,7 +1032,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 76,
@@ -971,7 +1046,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 77,
@@ -983,7 +1059,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 78,
@@ -996,7 +1073,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 79,
@@ -1009,7 +1087,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 80,
@@ -1022,7 +1101,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 81,
@@ -1035,7 +1115,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 82,
@@ -1048,7 +1129,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 83,
@@ -1061,7 +1143,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   },
   {
     "id": 84,
@@ -1074,7 +1157,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   },
   {
     "id": 85,
@@ -1087,7 +1171,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   },
   {
     "id": 86,
@@ -1100,7 +1185,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   },
   {
     "id": 87,
@@ -1113,7 +1199,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 88,
@@ -1126,7 +1213,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   },
   {
     "id": 89,
@@ -1137,7 +1225,8 @@
       "C. nerovnomernom pohybe",
       "D. voľnom páde"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 90,
@@ -1150,7 +1239,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 91,
@@ -1163,7 +1253,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 92,
@@ -1176,7 +1267,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 93,
@@ -1189,7 +1281,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 94,
@@ -1202,7 +1295,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 95,
@@ -1215,7 +1309,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 96,
@@ -1228,7 +1323,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 97,
@@ -1241,7 +1337,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 98,
@@ -1254,7 +1351,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 99,
@@ -1267,7 +1365,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 100,
@@ -1278,7 +1377,8 @@
       "C. intenzity osvetlenia",
       "D. lomu svetla"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 101,
@@ -1291,7 +1391,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 102,
@@ -1304,7 +1405,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 103,
@@ -1317,7 +1419,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 104,
@@ -1330,7 +1433,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 105,
@@ -1343,7 +1447,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 106,
@@ -1354,7 +1459,8 @@
       "C. adiabatickom",
       "D. izobarickom"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 107,
@@ -1367,7 +1473,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 108,
@@ -1380,7 +1487,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 109,
@@ -1393,7 +1501,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 110,
@@ -1406,7 +1515,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 111,
@@ -1419,7 +1529,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 112,
@@ -1432,7 +1543,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 113,
@@ -1445,7 +1557,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 114,
@@ -1458,7 +1571,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 115,
@@ -1471,11 +1585,12 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 116,
-    "text": "Izoterma (krivka popisujúca zmeny stavových veličín počas izotermického deja) má  tvar:",
+    "text": "Izoterma (krivka popisujúca zmeny stavových veličín počas izotermického deja) má tvar:",
     "options": [
       "A. hyperboly",
       "B. paraboly",
@@ -1484,7 +1599,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 117,
@@ -1497,7 +1613,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 118,
@@ -1510,7 +1627,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 119,
@@ -1523,7 +1641,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 120,
@@ -1536,7 +1655,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 121,
@@ -1549,11 +1669,12 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 122,
-    "text": "Vyberte správny vzťah medzi veličinami, vyplývajúcimi  z  Ohmovho zákona:",
+    "text": "Vyberte správny vzťah medzi veličinami, vyplývajúcimi z Ohmovho zákona:",
     "options": [
       "A. U= R/I",
       "B. V= Ω·A",
@@ -1562,7 +1683,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 123,
@@ -1575,7 +1697,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 124,
@@ -1586,7 +1709,8 @@
       "C. 0,15 kΩ",
       "D. 30 kΩ"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 125,
@@ -1599,7 +1723,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 126,
@@ -1612,7 +1737,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 127,
@@ -1625,7 +1751,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 128,
@@ -1638,7 +1765,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 129,
@@ -1651,7 +1779,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 130,
@@ -1664,7 +1793,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 131,
@@ -1677,7 +1807,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 132,
@@ -1690,7 +1821,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 133,
@@ -1701,7 +1833,8 @@
       "C. s=g·t²",
       "D. s=g·t²/2"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 134,
@@ -1712,7 +1845,8 @@
       "C. m·s⁻¹",
       "D. s·r·m⁻¹"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 135,
@@ -1723,7 +1857,8 @@
       "C. EP=m·g²·h/2",
       "D. EP=m·g·h"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 136,
@@ -1736,7 +1871,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 2137,
@@ -1747,7 +1883,8 @@
       "C. Fg=κ·m1·m2·r",
       "D. Fg=κ·m1 ·m2 ·r²"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 2138,
@@ -1758,7 +1895,8 @@
       "C. K=Fg/m",
       "D. K=Fg/m²"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 139,
@@ -1769,11 +1907,12 @@
       "C. účinnosť",
       "D. energia"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 140,
-    "text": "Fyzikálna jednotka  (fyzikálny rozmer) odstredivého zrýchlenia je:",
+    "text": "Fyzikálna jednotka (fyzikálny rozmer) odstredivého zrýchlenia je:",
     "options": [
       "A. m·s⁻¹",
       "B. m·s⁻²",
@@ -1781,7 +1920,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 141,
@@ -1792,7 +1932,8 @@
       "C. elektrického náboja",
       "D. elektrického potenciálu"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 142,
@@ -1805,7 +1946,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 143,
@@ -1818,7 +1960,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 144,
@@ -1831,7 +1974,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 145,
@@ -1844,7 +1988,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 146,
@@ -1857,7 +2002,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 147,
@@ -1870,7 +2016,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 148,
@@ -1883,7 +2030,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 149,
@@ -1896,7 +2044,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 150,
@@ -1909,7 +2058,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 151,
@@ -1922,7 +2072,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 152,
@@ -1935,7 +2086,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 153,
@@ -1948,7 +2100,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 154,
@@ -1961,7 +2114,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 155,
@@ -1974,7 +2128,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 156,
@@ -1987,7 +2142,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 157,
@@ -2000,7 +2156,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 158,
@@ -2013,7 +2170,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 159,
@@ -2026,11 +2184,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 160,
-    "text": "Ak sú dĺžky dvoch kyvadiel l1 = 0,36 m a l2 = 0,25 m, potom ich doby kmitov  T1: T2 sú vpomere:",
+    "text": "Ak sú dĺžky dvoch kyvadiel l1 = 0,36 m a l2 = 0,25 m, potom ich doby kmitov T1: T2 sú vpomere:",
     "options": [
       "A. 5: 6",
       "B. 6: 5",
@@ -2039,7 +2198,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 161,
@@ -2050,7 +2210,8 @@
       "C. tiažovom zrýchlení",
       "D. hustote ponoreného telesa"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 162,
@@ -2063,11 +2224,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 163,
-    "text": " V stene suda naplneného vodou je v hĺbke 2m pod hladinou otvor veľkosti 5 cm2. Na zátku votvore pôsobí tlaková sila ( ak g=10m·s-2, ρ=1000 kg·m-3) :",
+    "text": "V stene suda naplneného vodou je v hĺbke 2m pod hladinou otvor veľkosti 5 cm2. Na zátku votvore pôsobí tlaková sila ( ak g=10m·s-2, ρ=1000 kg·m-3) :",
     "options": [
       "A. 5N",
       "B. 10N",
@@ -2076,7 +2238,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 164,
@@ -2089,7 +2252,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 165,
@@ -2102,7 +2266,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 166,
@@ -2113,7 +2278,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 167,
@@ -2126,7 +2292,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 168,
@@ -2137,11 +2304,12 @@
       "C. p·V = N·k·T",
       "D. p·V·T = N·k"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 169,
-    "text": "Tepelná kapacita  telesa C, kde Q je teplo a T je teplota je:",
+    "text": "Tepelná kapacita telesa C, kde Q je teplo a T je teplota je:",
     "options": [
       "A. C = Q/U",
       "B. C = Q/ΔT",
@@ -2150,7 +2318,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 170,
@@ -2163,7 +2332,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 171,
@@ -2176,7 +2346,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 172,
@@ -2189,7 +2360,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 173,
@@ -2202,7 +2374,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 174,
@@ -2215,7 +2388,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 175,
@@ -2228,7 +2402,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 176,
@@ -2239,7 +2414,8 @@
       "C. σn = ε/E",
       "D. σn = l/E·ε"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 177,
@@ -2252,7 +2428,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 178,
@@ -2265,7 +2442,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 179,
@@ -2278,7 +2456,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 180,
@@ -2291,7 +2470,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 181,
@@ -2304,7 +2484,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 182,
@@ -2317,7 +2498,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 183,
@@ -2330,7 +2512,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Termika a termodynamika"
   },
   {
     "id": 184,
@@ -2343,7 +2526,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 185,
@@ -2356,11 +2540,12 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 186,
-    "text": " Obvod pozostáva zo zdroja jednosmerného napätia o veľkosti 12 V a dvoch odporov R1 a R2.Naodpore R2 sa nameralo napätie 8 V, na odpore R1 je napätie:",
+    "text": "Obvod pozostáva zo zdroja jednosmerného napätia o veľkosti 12 V a dvoch odporov R1 a R2.Naodpore R2 sa nameralo napätie 8 V, na odpore R1 je napätie:",
     "options": [
       "A. rovnaké",
       "B. 12 V",
@@ -2369,7 +2554,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 187,
@@ -2382,7 +2568,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 188,
@@ -2396,7 +2583,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 189,
@@ -2409,7 +2597,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 190,
@@ -2422,7 +2611,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 191,
@@ -2433,7 +2623,8 @@
       "C. zostane rovnaká",
       "D. vzrastie štvornásobneZoznam otázok z oblasti: FOZOŠ - Fyzika /"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 192,
@@ -2446,7 +2637,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 193,
@@ -2459,7 +2651,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 194,
@@ -2472,7 +2665,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 195,
@@ -2485,7 +2679,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 196,
@@ -2496,7 +2691,8 @@
       "C. elektrický náboj jedného mólu neutrónov",
       "D. hmotnosť jedného mólu danej látky"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 197,
@@ -2509,7 +2705,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 198,
@@ -2522,7 +2719,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 199,
@@ -2535,7 +2733,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 200,
@@ -2548,7 +2747,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 201,
@@ -2561,7 +2761,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Vlnenie, zvuk a optika"
   },
   {
     "id": 202,
@@ -2574,7 +2775,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mechanika"
   },
   {
     "id": 203,
@@ -2585,7 +2787,8 @@
       "C. λ/4",
       "D. (2·k +1) λ/2, kde k je celé číslo"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Mechanika"
   },
   {
     "id": 204,
@@ -2598,7 +2801,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 205,
@@ -2611,7 +2815,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   },
   {
     "id": 206,
@@ -2624,7 +2829,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Fyzikálne veličiny a jednotky"
   },
   {
     "id": 207,
@@ -2637,20 +2843,22 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   },
   {
     "id": 208,
     "text": "Koľko elektrónov v atómovom obale má neutrálny atóm 5628Ni?",
     "options": [
       "A. 58",
-      "B. 28", 
-      "C. 30", 
+      "B. 28",
+      "C. 30",
       "D. 86"
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 209,
@@ -2661,7 +2869,8 @@
       "C. jadrami atómu",
       "D. atómami"
     ],
-    "answer": []
+    "answer": [],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 210,
@@ -2674,7 +2883,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Elektrina a magnetizmus"
   },
   {
     "id": 211,
@@ -2687,7 +2897,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   },
   {
     "id": 212,
@@ -2700,6 +2911,7 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Atómová a jadrová fyzika"
   }
 ]

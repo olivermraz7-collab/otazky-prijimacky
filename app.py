@@ -2530,6 +2530,8 @@ s_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
 if "exam_dates" not in st.session_state:
     st.session_state.exam_dates = {}
 
+current_exam_date = get_exam_date_for_field(selected_field_name)
+
 if setup_active and setup_step == 3:
     setup_note_sidebar(3, "Vyber predmet", "Vyber prvý predmet, ktorým začneš.")
     st.sidebar.markdown('<div class="setup-focused-widget setup-visible">', unsafe_allow_html=True)
@@ -2697,6 +2699,9 @@ if "answered" not in st.session_state:
 
 
 subject_learning_percent = calculate_learning_percent(current_data, questions)
+if "current_exam_date" not in globals():
+    current_exam_date = get_exam_date_for_field(selected_field_name)
+
 hero_daily_goal, _hero_field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
 
 render_hero(

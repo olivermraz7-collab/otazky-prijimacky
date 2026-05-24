@@ -1584,7 +1584,8 @@ def render_hero(
     topic_name="Všetky celky",
     question_count=None,
     total_count=None,
-    learning_percent=0
+    learning_percent=0,
+    daily_goal=None
 ):
     if topic_name == "Všetky celky":
         subtitle = f"{field_name} · všetky celky"
@@ -1596,7 +1597,9 @@ def render_hero(
     elif question_count is not None:
         count_label = f"{question_count} otázok"
     else:
-        count_label = f"Cieľ {DAILY_GOAL}/deň"
+        count_label = f"Cieľ {daily_goal or DAILY_GOAL}/deň"
+
+    display_daily_goal = daily_goal or DAILY_GOAL
 
     st.markdown(
         f"""
@@ -1611,7 +1614,7 @@ def render_hero(
                 </div>
                 <div class="hero-pill-row">
                     <span class="hero-pill">Naučené: {learning_percent}%</span>
-                    <span class="hero-pill">Cieľ: {DAILY_GOAL}/deň</span>
+                    <span class="hero-pill">Cieľ: {display_daily_goal}/deň</span>
                 </div>
             </div>
         </div>
@@ -1875,6 +1878,7 @@ if "answered" not in st.session_state:
 # ============================================================
 
 subject_learning_percent = calculate_learning_percent(current_data, questions)
+hero_daily_goal, _hero_field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
 
 render_hero(
     st.session_state.selected_subject_name,
@@ -1882,7 +1886,8 @@ render_hero(
     st.session_state.selected_topic_name,
     len(mode_filtered_questions),
     len(questions),
-    subject_learning_percent
+    subject_learning_percent,
+    hero_daily_goal
 )
 
 left_col, right_col = st.columns([0.70, 0.30], gap="large")

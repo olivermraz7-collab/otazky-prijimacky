@@ -46,7 +46,6 @@ FIELDS = {
     },
     "Urgentná medicína": {
         "Náuka o spoločnosti": "nos.json",
-        "Fyzika": "fyzika.json",
         "Biológia": "biologia-urgent.json"
     }
 }

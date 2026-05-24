@@ -10,7 +10,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 4,
@@ -50,7 +53,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 5,
@@ -63,7 +67,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 6,
@@ -77,7 +82,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 7,
@@ -90,7 +96,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 8,
@@ -103,7 +110,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 9,
@@ -116,7 +124,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 10,
@@ -130,7 +139,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 11,
@@ -143,7 +153,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 12,
@@ -158,7 +169,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 13,
@@ -171,7 +183,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 14,
@@ -185,7 +198,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 15,
@@ -198,7 +212,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 16,
@@ -211,7 +226,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 17,
@@ -225,7 +241,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 18,
@@ -238,7 +255,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 19,
@@ -251,7 +269,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 20,
@@ -264,7 +283,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 21,
@@ -277,7 +297,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 22,
@@ -290,7 +311,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 23,
@@ -304,7 +326,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 24,
@@ -319,7 +342,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 25,
@@ -332,7 +356,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 26,
@@ -345,7 +370,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 27,
@@ -358,7 +384,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 28,
@@ -371,11 +398,12 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 29,
-    "text": "Tvrdenie, že všetky živé organizmy sú otvorené sústavy znamená, že si so svojim okolímvymieňajú:",
+    "text": "Tvrdenie, že všetky živé organizmy sú otvorené sústavy znamená, že si so svojim okolím vymieňajú:",
     "options": [
       "A. látky, energiu a informácie",
       "B. iba látky a energiu",
@@ -384,7 +412,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 30,
@@ -399,7 +428,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 31,
@@ -413,7 +443,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 32,
@@ -427,7 +458,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 33,
@@ -441,7 +473,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 34,
@@ -455,7 +488,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 35,
@@ -468,7 +502,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 36,
@@ -481,7 +516,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 37,
@@ -494,7 +530,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 38,
@@ -507,7 +544,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 39,
@@ -521,7 +559,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 40,
@@ -535,7 +574,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 41,
@@ -549,7 +589,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 42,
@@ -564,7 +605,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 43,
@@ -578,7 +620,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 44,
@@ -592,7 +635,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 45,
@@ -606,7 +650,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 46,
@@ -619,7 +664,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 47,
@@ -633,7 +679,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 48,
@@ -646,7 +693,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 49,
@@ -660,7 +708,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 50,
@@ -673,7 +722,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 51,
@@ -686,7 +736,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 52,
@@ -700,7 +751,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 53,
@@ -714,7 +766,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 54,
@@ -728,7 +781,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 55,
@@ -741,7 +795,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 56,
@@ -754,7 +809,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 57,
@@ -767,7 +823,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 58,
@@ -780,7 +837,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 59,
@@ -793,7 +851,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 60,
@@ -807,7 +866,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 61,
@@ -821,7 +881,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 62,
@@ -834,7 +895,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 63,
@@ -847,7 +909,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 64,
@@ -861,7 +924,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 65,
@@ -875,7 +939,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 66,
@@ -888,7 +953,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 67,
@@ -902,7 +968,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 68,
@@ -915,7 +982,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 69,
@@ -929,7 +997,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 70,
@@ -944,7 +1013,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 71,
@@ -958,7 +1028,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 72,
@@ -971,7 +1042,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 73,
@@ -984,7 +1056,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 74,
@@ -997,7 +1070,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 75,
@@ -1011,7 +1085,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 76,
@@ -1024,7 +1099,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 77,
@@ -1038,7 +1114,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Všeobecná biológia"
   },
   {
     "id": 78,
@@ -1051,7 +1128,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 79,
@@ -1064,7 +1142,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 80,
@@ -1077,7 +1156,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 81,
@@ -1091,7 +1171,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 82,
@@ -1104,7 +1185,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 83,
@@ -1118,7 +1200,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 84,
@@ -1133,7 +1216,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 85,
@@ -1146,7 +1230,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 86,
@@ -1159,7 +1244,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 87,
@@ -1172,7 +1258,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 88,
@@ -1185,7 +1272,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 89,
@@ -1199,7 +1287,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 90,
@@ -1212,7 +1301,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 91,
@@ -1226,7 +1316,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 92,
@@ -1239,7 +1330,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 93,
@@ -1252,7 +1344,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 94,
@@ -1267,7 +1360,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 95,
@@ -1281,7 +1375,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 96,
@@ -1295,7 +1390,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 97,
@@ -1309,7 +1405,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 98,
@@ -1322,7 +1419,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 99,
@@ -1335,7 +1433,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 100,
@@ -1349,7 +1448,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 101,
@@ -1362,7 +1462,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 102,
@@ -1376,7 +1477,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 103,
@@ -1390,7 +1492,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 104,
@@ -1403,7 +1506,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 105,
@@ -1417,7 +1521,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 106,
@@ -1431,7 +1536,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 107,
@@ -1445,7 +1551,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 108,
@@ -1460,7 +1567,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 109,
@@ -1473,7 +1581,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 110,
@@ -1488,7 +1597,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 111,
@@ -1503,7 +1613,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 112,
@@ -1516,7 +1627,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 113,
@@ -1529,7 +1641,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 114,
@@ -1543,7 +1656,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 115,
@@ -1556,7 +1670,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 116,
@@ -1571,7 +1686,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 117,
@@ -1584,7 +1700,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 118,
@@ -1597,7 +1714,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 119,
@@ -1610,7 +1728,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 120,
@@ -1623,7 +1742,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 121,
@@ -1638,7 +1758,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 122,
@@ -1651,7 +1772,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 123,
@@ -1666,7 +1788,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 124,
@@ -1680,7 +1803,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 125,
@@ -1694,7 +1818,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 126,
@@ -1709,7 +1834,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 127,
@@ -1722,7 +1848,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 128,
@@ -1735,7 +1862,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 129,
@@ -1751,7 +1879,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 130,
@@ -1764,7 +1893,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 131,
@@ -1777,7 +1907,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 132,
@@ -1790,7 +1921,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 133,
@@ -1803,7 +1935,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 134,
@@ -1816,7 +1949,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 135,
@@ -1830,7 +1964,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 136,
@@ -1844,7 +1979,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 137,
@@ -1857,7 +1993,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 138,
@@ -1870,7 +2007,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 139,
@@ -1883,7 +2021,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 140,
@@ -1897,7 +2036,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 141,
@@ -1910,7 +2050,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 142,
@@ -1925,7 +2066,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 143,
@@ -1938,7 +2080,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 144,
@@ -1951,7 +2094,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 145,
@@ -1965,7 +2109,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 146,
@@ -1980,7 +2125,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 147,
@@ -1994,7 +2140,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 148,
@@ -2007,7 +2154,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 149,
@@ -2020,7 +2168,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 150,
@@ -2033,7 +2182,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 151,
@@ -2047,7 +2197,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 152,
@@ -2061,7 +2212,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 153,
@@ -2074,7 +2226,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 154,
@@ -2087,7 +2240,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 155,
@@ -2102,7 +2256,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 156,
@@ -2115,7 +2270,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 157,
@@ -2128,7 +2284,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 158,
@@ -2141,7 +2298,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 159,
@@ -2154,7 +2312,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 160,
@@ -2168,7 +2327,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 161,
@@ -2182,7 +2342,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 162,
@@ -2197,7 +2358,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 163,
@@ -2210,7 +2372,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 164,
@@ -2223,7 +2386,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 165,
@@ -2237,7 +2401,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 166,
@@ -2250,7 +2415,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 167,
@@ -2264,7 +2430,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 168,
@@ -2277,7 +2444,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 169,
@@ -2290,7 +2458,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 170,
@@ -2304,7 +2473,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 171,
@@ -2317,7 +2487,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 172,
@@ -2330,7 +2501,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 173,
@@ -2343,7 +2515,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 174,
@@ -2358,7 +2531,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 175,
@@ -2371,7 +2545,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 176,
@@ -2386,7 +2561,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 177,
@@ -2399,7 +2575,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 178,
@@ -2412,7 +2589,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 179,
@@ -2425,7 +2603,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 180,
@@ -2438,7 +2617,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 181,
@@ -2452,7 +2632,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 182,
@@ -2467,7 +2648,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 183,
@@ -2481,7 +2663,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 184,
@@ -2495,7 +2678,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 185,
@@ -2509,7 +2693,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 186,
@@ -2522,7 +2707,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 187,
@@ -2536,7 +2722,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 188,
@@ -2549,7 +2736,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 189,
@@ -2562,7 +2750,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 190,
@@ -2576,7 +2765,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 191,
@@ -2591,7 +2781,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 192,
@@ -2606,7 +2797,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 193,
@@ -2621,7 +2813,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 194,
@@ -2635,7 +2828,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 195,
@@ -2648,7 +2842,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 196,
@@ -2661,7 +2856,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 197,
@@ -2674,7 +2870,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 198,
@@ -2690,7 +2887,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 199,
@@ -2703,7 +2901,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 200,
@@ -2717,7 +2916,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 201,
@@ -2730,7 +2930,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 202,
@@ -2743,7 +2944,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 203,
@@ -2756,7 +2958,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 204,
@@ -2769,7 +2972,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 205,
@@ -2783,7 +2987,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 206,
@@ -2796,7 +3001,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 207,
@@ -2809,7 +3015,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 208,
@@ -2824,7 +3031,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 209,
@@ -2838,7 +3046,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 210,
@@ -2851,7 +3060,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 211,
@@ -2862,7 +3072,8 @@
       "C. mitochondrie",
       "D. mitotický aparát"
     ],
-    "answer": "A"
+    "answer": "A",
+    "topic": "Genetika"
   },
   {
     "id": 212,
@@ -2875,7 +3086,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 213,
@@ -2888,7 +3100,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 214,
@@ -2902,7 +3115,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 215,
@@ -2916,7 +3130,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 216,
@@ -2929,7 +3144,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 217,
@@ -2944,7 +3160,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 218,
@@ -2958,7 +3175,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 219,
@@ -2972,7 +3190,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 220,
@@ -2986,7 +3205,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 221,
@@ -2999,7 +3219,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 222,
@@ -3012,7 +3233,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 223,
@@ -3025,7 +3247,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 224,
@@ -3038,7 +3261,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 225,
@@ -3051,7 +3275,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 226,
@@ -3064,7 +3289,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 227,
@@ -3078,7 +3304,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 228,
@@ -3091,7 +3318,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 229,
@@ -3104,7 +3332,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 230,
@@ -3117,7 +3346,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 231,
@@ -3131,7 +3361,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 232,
@@ -3144,7 +3375,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 233,
@@ -3159,7 +3391,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 234,
@@ -3172,7 +3405,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 235,
@@ -3185,7 +3419,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 236,
@@ -3199,7 +3434,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 237,
@@ -3214,7 +3450,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 238,
@@ -3228,7 +3465,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 239,
@@ -3242,7 +3480,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 240,
@@ -3257,7 +3496,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 241,
@@ -3270,7 +3510,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 242,
@@ -3284,7 +3525,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 243,
@@ -3298,7 +3540,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 244,
@@ -3312,7 +3555,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 245,
@@ -3325,7 +3569,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 246,
@@ -3338,7 +3583,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 247,
@@ -3351,7 +3597,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 248,
@@ -3365,7 +3612,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 249,
@@ -3378,7 +3626,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 250,
@@ -3391,7 +3640,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 251,
@@ -3404,7 +3654,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 252,
@@ -3417,7 +3668,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 253,
@@ -3430,7 +3682,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 254,
@@ -3443,7 +3696,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 255,
@@ -3456,7 +3710,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 256,
@@ -3469,7 +3724,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 257,
@@ -3482,7 +3738,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 258,
@@ -3495,7 +3752,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 259,
@@ -3508,7 +3766,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 260,
@@ -3521,7 +3780,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 261,
@@ -3535,7 +3795,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 262,
@@ -3549,7 +3810,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 263,
@@ -3562,7 +3824,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 264,
@@ -3575,7 +3838,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 265,
@@ -3588,7 +3852,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 266,
@@ -3601,7 +3866,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 267,
@@ -3614,7 +3880,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 268,
@@ -3627,7 +3894,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 269,
@@ -3640,7 +3908,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 270,
@@ -3653,7 +3922,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 271,
@@ -3666,7 +3936,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 272,
@@ -3679,7 +3950,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 273,
@@ -3692,7 +3964,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 274,
@@ -3705,7 +3978,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 275,
@@ -3718,7 +3992,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 276,
@@ -3731,7 +4006,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 277,
@@ -3744,7 +4020,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 278,
@@ -3759,7 +4036,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 279,
@@ -3772,7 +4050,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 280,
@@ -3785,7 +4064,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 281,
@@ -3798,7 +4078,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 282,
@@ -3811,7 +4092,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 283,
@@ -3825,7 +4107,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 284,
@@ -3839,7 +4122,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 285,
@@ -3853,7 +4137,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 286,
@@ -3868,7 +4153,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 287,
@@ -3881,7 +4167,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 288,
@@ -3894,7 +4181,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 289,
@@ -3907,7 +4195,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 290,
@@ -3923,7 +4212,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 291,
@@ -3936,7 +4226,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 292,
@@ -3951,7 +4242,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 293,
@@ -3964,7 +4256,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 294,
@@ -3977,7 +4270,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 295,
@@ -3990,7 +4284,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 296,
@@ -4004,7 +4299,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 297,
@@ -4018,7 +4314,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 298,
@@ -4031,7 +4328,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 299,
@@ -4044,7 +4342,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 300,
@@ -4058,7 +4357,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 301,
@@ -4072,7 +4372,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 302,
@@ -4086,7 +4387,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 303,
@@ -4100,7 +4402,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 304,
@@ -4113,7 +4416,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 305,
@@ -4126,7 +4430,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 306,
@@ -4139,7 +4444,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 307,
@@ -4152,7 +4458,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 308,
@@ -4165,7 +4472,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 309,
@@ -4178,7 +4486,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 310,
@@ -4191,7 +4500,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 311,
@@ -4204,7 +4514,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 312,
@@ -4219,7 +4530,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 313,
@@ -4232,7 +4544,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 314,
@@ -4245,7 +4558,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 315,
@@ -4258,7 +4572,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 316,
@@ -4271,7 +4586,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 317,
@@ -4286,7 +4602,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 318,
@@ -4300,7 +4617,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 319,
@@ -4314,7 +4632,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 320,
@@ -4327,7 +4646,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 321,
@@ -4340,7 +4660,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 322,
@@ -4353,7 +4674,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 323,
@@ -4366,7 +4688,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 324,
@@ -4379,7 +4702,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 325,
@@ -4393,7 +4717,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 326,
@@ -4406,7 +4731,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 327,
@@ -4419,7 +4745,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 328,
@@ -4432,7 +4759,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 329,
@@ -4445,7 +4773,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 330,
@@ -4459,7 +4788,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 331,
@@ -4472,7 +4802,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 332,
@@ -4485,7 +4816,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 333,
@@ -4498,7 +4830,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 334,
@@ -4511,7 +4844,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 335,
@@ -4525,7 +4859,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 336,
@@ -4538,7 +4873,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 337,
@@ -4551,7 +4887,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 338,
@@ -4565,7 +4902,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 339,
@@ -4578,7 +4916,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 340,
@@ -4592,7 +4931,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 341,
@@ -4607,7 +4947,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 342,
@@ -4621,7 +4962,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 343,
@@ -4636,7 +4978,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 344,
@@ -4650,7 +4993,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 345,
@@ -4665,7 +5009,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 346,
@@ -4678,7 +5023,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 347,
@@ -4691,7 +5037,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 348,
@@ -4704,7 +5051,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 349,
@@ -4717,7 +5065,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 350,
@@ -4730,7 +5079,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 351,
@@ -4744,7 +5094,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 352,
@@ -4758,7 +5109,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 353,
@@ -4771,7 +5123,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 354,
@@ -4784,7 +5137,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 355,
@@ -4797,7 +5151,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 356,
@@ -4810,7 +5165,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 357,
@@ -4823,7 +5179,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 358,
@@ -4836,7 +5193,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 359,
@@ -4849,7 +5207,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 360,
@@ -4863,7 +5222,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 361,
@@ -4876,7 +5236,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 362,
@@ -4889,7 +5250,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 363,
@@ -4903,7 +5265,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 364,
@@ -4916,7 +5279,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 365,
@@ -4929,7 +5293,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 366,
@@ -4942,7 +5307,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 367,
@@ -4957,7 +5323,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 368,
@@ -4971,7 +5338,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 369,
@@ -4984,7 +5352,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 370,
@@ -4998,7 +5367,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 371,
@@ -5012,7 +5382,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 372,
@@ -5026,7 +5397,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 373,
@@ -5041,7 +5413,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 374,
@@ -5056,7 +5429,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 375,
@@ -5070,7 +5444,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 376,
@@ -5084,7 +5459,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 377,
@@ -5098,7 +5474,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 378,
@@ -5112,7 +5489,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 379,
@@ -5125,7 +5503,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 380,
@@ -5139,7 +5518,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 381,
@@ -5152,7 +5532,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 382,
@@ -5165,7 +5546,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 383,
@@ -5180,7 +5562,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 384,
@@ -5194,7 +5577,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 385,
@@ -5206,8 +5590,10 @@
       "D. 0,5"
     ],
     "answer": [
-      "A","B"
-    ]
+      "A",
+      "B"
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 386,
@@ -5219,8 +5605,10 @@
       "D. 0,5"
     ],
     "answer": [
-      "C","D"
-    ]
+      "C",
+      "D"
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 387,
@@ -5232,8 +5620,10 @@
       "D. 84%"
     ],
     "answer": [
-      "A","C"
-    ]
+      "A",
+      "C"
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 388,
@@ -5247,7 +5637,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 389,
@@ -5261,7 +5652,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 390,
@@ -5275,7 +5667,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 391,
@@ -5289,7 +5682,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 392,
@@ -5301,8 +5695,10 @@
       "D. 0, 75"
     ],
     "answer": [
-      "A","C"
-    ]
+      "A",
+      "C"
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 393,
@@ -5314,8 +5710,10 @@
       "D. 0,75"
     ],
     "answer": [
-      "A","B"
-    ]
+      "A",
+      "B"
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 394,
@@ -5328,7 +5726,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 395,
@@ -5340,8 +5739,10 @@
       "D. 0,25"
     ],
     "answer": [
-      "A","C"
-    ]
+      "A",
+      "C"
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 396,
@@ -5355,7 +5756,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 397,
@@ -5369,7 +5771,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 398,
@@ -5382,7 +5785,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 399,
@@ -5397,7 +5801,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 400,
@@ -5412,7 +5817,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 401,
@@ -5426,7 +5832,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 402,
@@ -5439,7 +5846,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 403,
@@ -5454,7 +5862,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 404,
@@ -5468,7 +5877,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 405,
@@ -5481,7 +5891,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 406,
@@ -5495,7 +5906,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 407,
@@ -5508,7 +5920,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 408,
@@ -5524,7 +5937,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 409,
@@ -5539,7 +5953,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 410,
@@ -5553,7 +5968,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 411,
@@ -5566,7 +5982,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 412,
@@ -5579,7 +5996,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 413,
@@ -5592,7 +6010,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 414,
@@ -5605,7 +6024,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 415,
@@ -5619,7 +6039,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 416,
@@ -5633,7 +6054,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 417,
@@ -5648,7 +6070,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 418,
@@ -5661,7 +6084,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 419,
@@ -5675,7 +6099,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 420,
@@ -5688,7 +6113,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 421,
@@ -5701,7 +6127,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 422,
@@ -5715,7 +6142,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 423,
@@ -5728,7 +6156,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 424,
@@ -5741,7 +6170,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 425,
@@ -5754,7 +6184,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 426,
@@ -5768,7 +6199,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 427,
@@ -5783,7 +6215,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 428,
@@ -5797,7 +6230,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 429,
@@ -5811,7 +6245,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 430,
@@ -5824,7 +6259,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 431,
@@ -5837,7 +6273,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 432,
@@ -5852,7 +6289,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 433,
@@ -5866,7 +6304,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 434,
@@ -5879,7 +6318,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 435,
@@ -5892,7 +6332,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 436,
@@ -5907,7 +6348,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 437,
@@ -5920,7 +6362,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 438,
@@ -5933,7 +6376,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 439,
@@ -5946,7 +6390,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 440,
@@ -5959,7 +6404,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 441,
@@ -5972,7 +6418,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 442,
@@ -5985,7 +6432,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 443,
@@ -5998,7 +6446,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 444,
@@ -6011,7 +6460,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 445,
@@ -6024,7 +6474,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 446,
@@ -6037,7 +6488,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 447,
@@ -6052,7 +6504,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 448,
@@ -6066,7 +6519,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 449,
@@ -6079,7 +6533,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 450,
@@ -6092,7 +6547,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 451,
@@ -6106,7 +6562,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 452,
@@ -6120,7 +6577,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 453,
@@ -6135,7 +6593,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 454,
@@ -6149,7 +6608,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 455,
@@ -6162,7 +6622,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 456,
@@ -6176,7 +6637,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 457,
@@ -6190,7 +6652,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 458,
@@ -6204,7 +6667,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 459,
@@ -6217,7 +6681,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 460,
@@ -6231,7 +6696,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 461,
@@ -6244,7 +6710,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 462,
@@ -6257,7 +6724,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 463,
@@ -6270,7 +6738,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 464,
@@ -6284,7 +6753,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 465,
@@ -6297,7 +6767,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 466,
@@ -6311,7 +6782,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 467,
@@ -6325,7 +6797,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 468,
@@ -6339,7 +6812,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 469,
@@ -6353,7 +6827,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 470,
@@ -6367,7 +6842,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 471,
@@ -6380,7 +6856,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 472,
@@ -6394,7 +6871,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 473,
@@ -6407,7 +6885,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 474,
@@ -6420,7 +6899,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 475,
@@ -6434,7 +6914,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 476,
@@ -6447,7 +6928,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 477,
@@ -6462,7 +6944,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 478,
@@ -6475,7 +6958,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 479,
@@ -6488,7 +6972,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 480,
@@ -6501,7 +6986,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 481,
@@ -6515,7 +7001,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 482,
@@ -6528,7 +7015,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 483,
@@ -6543,7 +7031,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 484,
@@ -6556,7 +7045,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 485,
@@ -6569,7 +7059,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 486,
@@ -6582,7 +7073,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 487,
@@ -6595,7 +7087,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 488,
@@ -6609,7 +7102,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 489,
@@ -6625,7 +7119,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 490,
@@ -6638,7 +7133,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 491,
@@ -6652,7 +7148,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 492,
@@ -6665,7 +7162,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 493,
@@ -6678,7 +7176,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 494,
@@ -6692,7 +7191,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 495,
@@ -6706,7 +7206,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 496,
@@ -6719,7 +7220,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 497,
@@ -6732,7 +7234,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 498,
@@ -6746,7 +7249,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 499,
@@ -6759,7 +7263,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 500,
@@ -6773,7 +7278,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 501,
@@ -6787,7 +7293,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 502,
@@ -6801,7 +7308,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 503,
@@ -6816,7 +7324,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 504,
@@ -6829,7 +7338,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 505,
@@ -6842,7 +7352,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 506,
@@ -6855,7 +7366,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 507,
@@ -6868,7 +7380,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 508,
@@ -6883,7 +7396,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 509,
@@ -6897,7 +7411,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 510,
@@ -6910,7 +7425,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 511,
@@ -6923,7 +7439,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 512,
@@ -6936,7 +7453,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 513,
@@ -6949,7 +7467,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 514,
@@ -6962,7 +7481,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Metabolizmus a biochémia bunky"
   },
   {
     "id": 515,
@@ -6975,7 +7495,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 516,
@@ -6988,7 +7509,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 517,
@@ -7002,7 +7524,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 518,
@@ -7015,7 +7538,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 519,
@@ -7028,7 +7552,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 520,
@@ -7042,7 +7567,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 521,
@@ -7057,7 +7583,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 522,
@@ -7071,7 +7598,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 523,
@@ -7084,7 +7612,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 524,
@@ -7099,7 +7628,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 525,
@@ -7112,7 +7642,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 526,
@@ -7125,7 +7656,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 527,
@@ -7139,7 +7671,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 528,
@@ -7152,7 +7685,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 529,
@@ -7165,7 +7699,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 530,
@@ -7178,7 +7713,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 531,
@@ -7191,7 +7727,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 532,
@@ -7205,7 +7742,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 533,
@@ -7218,7 +7756,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 534,
@@ -7232,7 +7771,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 535,
@@ -7246,7 +7786,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 536,
@@ -7259,7 +7800,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 537,
@@ -7273,7 +7815,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 538,
@@ -7287,7 +7830,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 539,
@@ -7300,7 +7844,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 540,
@@ -7314,7 +7859,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 541,
@@ -7328,7 +7874,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 542,
@@ -7342,7 +7889,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 543,
@@ -7356,7 +7904,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 544,
@@ -7370,7 +7919,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 545,
@@ -7383,7 +7933,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 546,
@@ -7396,7 +7947,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 547,
@@ -7409,7 +7961,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 548,
@@ -7423,7 +7976,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 549,
@@ -7437,7 +7991,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 550,
@@ -7450,7 +8005,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 551,
@@ -7465,7 +8021,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 552,
@@ -7478,7 +8035,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 553,
@@ -7491,7 +8049,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 554,
@@ -7504,7 +8063,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 555,
@@ -7517,7 +8077,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 556,
@@ -7530,7 +8091,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 557,
@@ -7543,7 +8105,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 558,
@@ -7558,7 +8121,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 559,
@@ -7571,7 +8135,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 560,
@@ -7584,7 +8149,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 561,
@@ -7600,7 +8166,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 562,
@@ -7614,7 +8181,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 563,
@@ -7629,7 +8197,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 564,
@@ -7643,7 +8212,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 565,
@@ -7656,7 +8226,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 566,
@@ -7669,7 +8240,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 567,
@@ -7683,7 +8255,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 568,
@@ -7696,7 +8269,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 569,
@@ -7710,7 +8284,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 570,
@@ -7723,7 +8298,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 571,
@@ -7738,7 +8314,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 572,
@@ -7751,7 +8328,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 573,
@@ -7764,7 +8342,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Mikrobiológia, vírusy a huby"
   },
   {
     "id": 574,
@@ -7778,7 +8357,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 575,
@@ -7792,7 +8372,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 576,
@@ -7805,7 +8386,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 577,
@@ -7818,7 +8400,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 578,
@@ -7831,7 +8414,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 579,
@@ -7844,7 +8428,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 580,
@@ -7857,7 +8442,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 581,
@@ -7870,7 +8456,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 582,
@@ -7883,7 +8470,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Zoológia"
   },
   {
     "id": 583,
@@ -7899,7 +8487,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 584,
@@ -7912,7 +8501,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 585,
@@ -7925,7 +8515,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 586,
@@ -7938,7 +8529,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 587,
@@ -7951,7 +8543,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 588,
@@ -7964,7 +8557,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 589,
@@ -7977,7 +8571,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 590,
@@ -7990,7 +8585,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 591,
@@ -8005,7 +8601,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 592,
@@ -8018,7 +8615,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 593,
@@ -8032,7 +8630,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 594,
@@ -8046,7 +8645,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 595,
@@ -8060,7 +8660,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 596,
@@ -8074,7 +8675,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 597,
@@ -8087,7 +8689,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 598,
@@ -8100,7 +8703,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 599,
@@ -8114,7 +8718,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 600,
@@ -8128,7 +8733,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 601,
@@ -8141,7 +8747,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 602,
@@ -8154,7 +8761,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 603,
@@ -8167,7 +8775,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 604,
@@ -8180,7 +8789,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 605,
@@ -8193,7 +8803,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 606,
@@ -8208,7 +8819,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 607,
@@ -8221,7 +8833,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 608,
@@ -8234,7 +8847,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 609,
@@ -8249,7 +8863,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 610,
@@ -8263,7 +8878,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 611,
@@ -8276,7 +8892,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 612,
@@ -8291,7 +8908,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 613,
@@ -8304,7 +8922,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 614,
@@ -8319,7 +8938,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 615,
@@ -8333,7 +8953,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 616,
@@ -8347,7 +8968,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 617,
@@ -8360,7 +8982,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 618,
@@ -8373,7 +8996,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 619,
@@ -8386,7 +9010,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 620,
@@ -8399,7 +9024,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 621,
@@ -8413,7 +9039,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 622,
@@ -8426,7 +9053,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 623,
@@ -8440,7 +9068,8 @@
     "answer": [
       "A",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 624,
@@ -8453,7 +9082,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 625,
@@ -8466,7 +9096,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 626,
@@ -8479,7 +9110,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 627,
@@ -8492,7 +9124,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 628,
@@ -8505,7 +9138,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 629,
@@ -8518,7 +9152,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 630,
@@ -8531,7 +9166,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 631,
@@ -8545,7 +9181,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 632,
@@ -8561,7 +9198,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 633,
@@ -8574,7 +9212,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 634,
@@ -8587,7 +9226,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 635,
@@ -8600,7 +9240,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 636,
@@ -8613,7 +9254,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 637,
@@ -8626,7 +9268,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 638,
@@ -8639,7 +9282,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 639,
@@ -8652,7 +9296,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 640,
@@ -8665,7 +9310,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 641,
@@ -8678,7 +9324,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 642,
@@ -8691,7 +9338,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 643,
@@ -8705,7 +9353,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 644,
@@ -8718,7 +9367,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 645,
@@ -8731,7 +9381,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 646,
@@ -8745,7 +9396,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 647,
@@ -8760,7 +9412,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 648,
@@ -8773,7 +9426,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 649,
@@ -8788,7 +9442,8 @@
       "A",
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 650,
@@ -8801,7 +9456,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 651,
@@ -8816,7 +9472,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 652,
@@ -8829,7 +9486,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 653,
@@ -8843,7 +9501,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 654,
@@ -8859,7 +9518,8 @@
       "B",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 655,
@@ -8872,7 +9532,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 656,
@@ -8885,7 +9546,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 657,
@@ -8898,7 +9560,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 658,
@@ -8911,7 +9574,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 659,
@@ -8926,7 +9590,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 660,
@@ -8939,7 +9604,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 661,
@@ -8952,7 +9618,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 662,
@@ -8965,7 +9632,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 663,
@@ -8978,7 +9646,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 664,
@@ -8991,7 +9660,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 665,
@@ -9005,7 +9675,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 666,
@@ -9020,7 +9691,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 667,
@@ -9034,7 +9706,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 668,
@@ -9048,7 +9721,8 @@
     "answer": [
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 669,
@@ -9062,7 +9736,8 @@
     "answer": [
       "A",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 670,
@@ -9075,7 +9750,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 671,
@@ -9090,7 +9766,8 @@
       "A",
       "C",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 672,
@@ -9104,7 +9781,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 673,
@@ -9117,7 +9795,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 674,
@@ -9131,7 +9810,8 @@
     "answer": [
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 675,
@@ -9144,7 +9824,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 676,
@@ -9159,7 +9840,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 677,
@@ -9173,7 +9855,8 @@
     "answer": [
       "B",
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 678,
@@ -9186,7 +9869,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Ekológia"
   },
   {
     "id": 679,
@@ -9199,7 +9883,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 680,
@@ -9212,7 +9897,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 681,
@@ -9225,7 +9911,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 682,
@@ -9238,7 +9925,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 683,
@@ -9251,7 +9939,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 684,
@@ -9264,7 +9953,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 685,
@@ -9277,7 +9967,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 686,
@@ -9290,7 +9981,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 687,
@@ -9305,7 +9997,8 @@
       "A",
       "B",
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 688,
@@ -9318,7 +10011,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 689,
@@ -9331,7 +10025,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 690,
@@ -9344,7 +10039,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 691,
@@ -9357,7 +10053,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 692,
@@ -9370,7 +10067,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Genetika"
   },
   {
     "id": 693,
@@ -9384,7 +10082,8 @@
     "answer": [
       "A",
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 694,
@@ -9397,7 +10096,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 695,
@@ -9410,7 +10110,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 696,
@@ -9423,7 +10124,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 697,
@@ -9436,7 +10138,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 698,
@@ -9449,7 +10152,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 699,
@@ -9462,7 +10166,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 700,
@@ -9475,7 +10180,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Bunka, tkanivá a pletivá"
   },
   {
     "id": 701,
@@ -9488,7 +10194,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 702,
@@ -9501,7 +10208,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 703,
@@ -9514,7 +10222,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 704,
@@ -9527,7 +10236,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 705,
@@ -9540,7 +10250,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 706,
@@ -9553,7 +10264,8 @@
     ],
     "answer": [
       "D"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 707,
@@ -9566,7 +10278,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 708,
@@ -9579,7 +10292,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 709,
@@ -9592,7 +10306,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 710,
@@ -9605,7 +10320,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 711,
@@ -9618,7 +10334,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Evolúcia, systematika a dejiny biológie"
   },
   {
     "id": 712,
@@ -9631,7 +10348,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 713,
@@ -9644,7 +10362,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 714,
@@ -9657,7 +10376,8 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   },
   {
     "id": 715,
@@ -9670,7 +10390,8 @@
     ],
     "answer": [
       "C"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 716,
@@ -9683,7 +10404,8 @@
     ],
     "answer": [
       "B"
-    ]
+    ],
+    "topic": "Botanika"
   },
   {
     "id": 717,
@@ -9696,6 +10418,7 @@
     ],
     "answer": [
       "A"
-    ]
+    ],
+    "topic": "Biológia človeka"
   }
 ]

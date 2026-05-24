@@ -1938,7 +1938,7 @@ def render_forced_sidebar_setup():
         render_setup_locked_main(
             1,
             "Vyber odbor v sidebare",
-            "Najprv si vyber odbor, na ktorý sa pripravuješ. Kým ho nepotvrdíš, aplikácia ťa nepustí ďalej."
+            "Najprv si vyber odbor, na ktorý sa pripravuješ."
         )
 
     elif st.session_state.setup_step == 2:

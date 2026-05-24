@@ -1544,7 +1544,6 @@ with right_col:
 
         st.caption(
             f"Nové otázky dnes: {new_seen_today} / {new_limit} · "
-            f"zvyšok systém dopĺňa opakovaním podľa slabých miest"
         )
 
     with st.container(border=True):

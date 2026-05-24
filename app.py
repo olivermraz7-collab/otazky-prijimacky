@@ -15,8 +15,8 @@ from streamlit_cookies_manager import EncryptedCookieManager
 # ============================================================
 
 st.set_page_config(
-    page_title="Medicína Príprava",
-    page_icon="🩺",
+    page_title="Prijímačky",
+    page_icon="🎓",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -25,6 +25,9 @@ st.set_page_config(
 # ============================================================
 # 2. APP SETTINGS
 # ============================================================
+
+APP_NAME = "Prijímačky"
+APP_SUBTITLE = "príprava na prijímacie skúšky"
 
 DAILY_GOAL = 130
 RECENT_LIMIT = 8
@@ -80,7 +83,7 @@ def inject_css():
             }
 
             .block-container {
-                padding-top: 2.2rem;
+                padding-top: 1.8rem;
                 padding-bottom: 3rem;
                 max-width: 1240px;
             }
@@ -103,10 +106,10 @@ def inject_css():
                 background:
                     linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(30, 41, 59, 0.78));
                 border: 1px solid var(--border);
-                border-radius: 30px;
-                padding: 30px 32px;
+                border-radius: 28px;
+                padding: 20px 24px;
                 box-shadow: var(--shadow);
-                margin-bottom: 22px;
+                margin-bottom: 18px;
                 position: relative;
                 overflow: hidden;
             }
@@ -126,36 +129,37 @@ def inject_css():
                 z-index: 1;
             }
 
+            .hero-top-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 18px;
+                flex-wrap: wrap;
+            }
+
             .hero-kicker {
                 color: #a78bfa;
                 font-size: 12px;
                 font-weight: 800;
                 letter-spacing: 0.12em;
                 text-transform: uppercase;
-                margin-bottom: 10px;
+                margin-bottom: 6px;
             }
 
             .hero-title {
-                font-size: 38px;
-                line-height: 1.02;
+                font-size: 30px;
+                line-height: 1.05;
                 font-weight: 900;
                 letter-spacing: -0.055em;
                 color: #ffffff;
-                margin-bottom: 10px;
-            }
-
-            .hero-subtitle {
-                color: #cbd5e1;
-                font-size: 15px;
-                line-height: 1.65;
-                max-width: 780px;
+                margin-bottom: 0;
             }
 
             .hero-pill-row {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 8px;
-                margin-top: 20px;
+                justify-content: flex-end;
             }
 
             .hero-pill {
@@ -471,11 +475,11 @@ def inject_css():
 
             @media (max-width: 900px) {
                 .hero-title {
-                    font-size: 29px;
+                    font-size: 26px;
                 }
 
                 .top-hero {
-                    padding: 24px 22px;
+                    padding: 20px 18px;
                 }
 
                 .login-card {
@@ -496,7 +500,7 @@ inject_css()
 # ============================================================
 
 cookies = EncryptedCookieManager(
-    prefix="med_prep_dark_v2/",
+    prefix="prep_app_dark_v3/",
     password="Heslo1234"
 )
 
@@ -677,13 +681,12 @@ def logout_user():
 
 def render_login_screen():
     st.markdown(
-        """
+        f"""
         <div class="login-card">
-            <div class="hero-kicker">Medicína Príprava</div>
+            <div class="hero-kicker">{escape(APP_NAME)}</div>
             <div class="login-title">Vitaj späť.</div>
             <div class="login-subtitle">
-                Prihlás sa a pokračuj presne tam, kde si skončil. Každý používateľ má vlastné otázky,
-                vlastný progres a vlastný smart review systém.
+                Prihlás sa a pokračuj v príprave presne tam, kde si skončil.
             </div>
         </div>
         """,
@@ -708,7 +711,7 @@ def render_login_screen():
         with st.form("login_form"):
             username = st.text_input(
                 "Používateľské meno",
-                placeholder="napr. oliver"
+                placeholder="zadaj používateľské meno"
             )
 
             password = st.text_input(
@@ -732,12 +735,12 @@ def render_login_screen():
         with st.form("register_form"):
             display_name = st.text_input(
                 "Meno",
-                placeholder="napr. Oliver"
+                placeholder="Tvoje meno"
             )
 
             new_username = st.text_input(
                 "Používateľské meno",
-                placeholder="napr. oliver"
+                placeholder="meno_pouzivatela"
             )
 
             new_password = st.text_input(
@@ -1237,16 +1240,16 @@ def render_hero(subject_name, field_name, display_name):
     st.markdown(
         f"""
         <div class="top-hero">
-            <div class="hero-kicker">Smart review systém</div>
-            <div class="hero-title">Príprava: {escape(subject_name)}</div>
-            <div class="hero-subtitle">
-                Personalizované opakovanie otázok podľa toho, čo ovládaš, čo si mýliš
-                a čo je potrebné zopakovať. Každý používateľ má vlastný progres.
-            </div>
-            <div class="hero-pill-row">
-                <span class="hero-pill">Odbor: {escape(field_name)}</span>
-                <span class="hero-pill">Používateľ: {escape(display_name)}</span>
-                <span class="hero-pill">Denný cieľ: {DAILY_GOAL} otázok</span>
+            <div class="hero-top-row">
+                <div>
+                    <div class="hero-kicker">Smart review</div>
+                    <div class="hero-title">{escape(subject_name)}</div>
+                </div>
+                <div class="hero-pill-row">
+                    <span class="hero-pill">{escape(field_name)}</span>
+                    <span class="hero-pill">{escape(display_name)}</span>
+                    <span class="hero-pill">Cieľ: {DAILY_GOAL}/deň</span>
+                </div>
             </div>
         </div>
         """,
@@ -1333,13 +1336,13 @@ def render_question_text_and_images(q):
 # ============================================================
 
 st.sidebar.markdown(
-    """
+    f"""
     <div style="padding-bottom: 8px;">
         <div style="font-size: 22px; font-weight: 850; letter-spacing: -0.04em; color: #f9fafb;">
-            Medicína
+            {escape(APP_NAME)}
         </div>
         <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">
-            príprava na prijímačky
+            {escape(APP_SUBTITLE)}
         </div>
     </div>
     """,
@@ -1528,16 +1531,21 @@ with right_col:
 
     with st.container(border=True):
         st.markdown("### Denný cieľ")
+
         st.progress(progress_percent(answered_today, DAILY_GOAL))
         st.markdown(f"**{answered_today} / {DAILY_GOAL}** otázok dnes")
-
-        st.progress(progress_percent(new_seen_today, new_limit))
-        st.markdown(f"**{new_seen_today} / {new_limit}** nových otázok")
 
         if answered_today >= DAILY_GOAL:
             st.success("Denný cieľ splnený.")
         else:
             st.caption(f"Zostáva dnes: {max(0, DAILY_GOAL - answered_today)} otázok")
+
+        st.divider()
+
+        st.caption(
+            f"Nové otázky dnes: {new_seen_today} / {new_limit} · "
+            f"zvyšok systém dopĺňa opakovaním podľa slabých miest"
+        )
 
     with st.container(border=True):
         st.markdown("### Dnes")
@@ -1589,12 +1597,12 @@ answered_today = daily_stats.get("answered", 0)
 new_seen_today = daily_stats.get("new_seen", 0)
 
 render_sidebar_card(
-    "Rýchly prehľad",
+    "Dnešný cieľ",
     [
-        ("Otázky dnes", f"{answered_today} / {DAILY_GOAL}"),
-        ("Nové dnes", f"{new_seen_today} / {new_limit}"),
-        ("Problémové", counts.get("RED", 0)),
-        ("Mastered", counts.get("MASTERED", 0))
+        ("Hlavný cieľ", f"{answered_today} / {DAILY_GOAL}"),
+        ("Zostáva", max(0, DAILY_GOAL - answered_today)),
+        ("Nové otázky", f"{new_seen_today} / {new_limit}"),
+        ("Problémové", counts.get("RED", 0))
     ]
 )
 

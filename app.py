@@ -2226,6 +2226,27 @@ st.session_state.study_mode = st.sidebar.selectbox(
 current_exam_date = get_exam_date_for_field(selected_field_name)
 default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12)
 
+
+# Bezpečný alias pre otázky po filtrovaní režimu/celku.
+# Niektoré časti appky používajú kratší názov mode_filtered_q.
+if "mode_filtered_q" not in globals():
+    try:
+        mode_filtered_q = mode_filtered_questions
+    except NameError:
+        try:
+            mode_filtered_q = filtered_questions
+        except NameError:
+            try:
+                mode_filtered_q = topic_filtered_questions
+            except NameError:
+                mode_filtered_q = questions
+
+
+try:
+    mode_filtered_questions
+except NameError:
+    mode_filtered_questions = mode_filtered_q
+
 # ============================================================
 # 11. CURRENT QUESTION
 # ============================================================

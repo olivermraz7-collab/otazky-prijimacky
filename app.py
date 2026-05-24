@@ -174,6 +174,18 @@ def inject_css():
                 font-weight: 700;
             }
 
+
+            .sidebar-filter-note {
+                color: #94a3b8;
+                font-size: 12px;
+                line-height: 1.45;
+                padding: 6px 2px 12px 2px;
+            }
+
+            .sidebar-bottom-spacer {
+                height: 22px;
+            }
+
             .question-topline {
                 display: flex;
                 justify-content: space-between;
@@ -471,29 +483,6 @@ def inject_css():
 
             hr {
                 border-color: rgba(255,255,255,0.08) !important;
-            }
-
-
-
-            .topic-mini-card {
-                background: rgba(15, 23, 42, 0.72);
-                border: 1px solid rgba(255,255,255,0.08);
-                border-radius: 18px;
-                padding: 12px 14px;
-                margin: 10px 0 14px 0;
-            }
-
-            .topic-mini-title {
-                color: #f8fafc;
-                font-size: 13px;
-                font-weight: 850;
-                margin-bottom: 7px;
-            }
-
-            .topic-mini-muted {
-                color: #94a3b8;
-                font-size: 12px;
-                line-height: 1.5;
             }
 
             @media (max-width: 900px) {
@@ -1304,14 +1293,17 @@ def status_class(status):
 
 
 def render_hero(subject_name, field_name, display_name, topic_name="Všetky celky", question_count=None, total_count=None):
-    topic_label = "Všetky celky" if topic_name == "Všetky celky" else topic_name
-
-    if question_count is not None and total_count is not None:
-        count_label = f"Otázky: {question_count} / {total_count}"
-    elif question_count is not None:
-        count_label = f"Otázky: {question_count}"
+    if topic_name == "Všetky celky":
+        subtitle = f"{field_name} · všetky celky"
     else:
-        count_label = f"Cieľ: {DAILY_GOAL}/deň"
+        subtitle = f"{field_name} · {topic_name}"
+
+    if question_count is not None and total_count is not None and question_count != total_count:
+        count_label = f"{question_count} otázok vo výbere"
+    elif question_count is not None:
+        count_label = f"{question_count} otázok"
+    else:
+        count_label = f"Cieľ {DAILY_GOAL}/deň"
 
     st.markdown(
         f"""
@@ -1320,12 +1312,13 @@ def render_hero(subject_name, field_name, display_name, topic_name="Všetky celk
                 <div>
                     <div class="hero-kicker">Smart review</div>
                     <div class="hero-title">{escape(subject_name)}</div>
+                    <div style="color:#94a3b8;font-size:13px;margin-top:6px;">
+                        {escape(subtitle)} · {escape(count_label)}
+                    </div>
                 </div>
                 <div class="hero-pill-row">
-                    <span class="hero-pill">{escape(field_name)}</span>
-                    <span class="hero-pill">{escape(topic_label)}</span>
-                    <span class="hero-pill">{escape(count_label)}</span>
                     <span class="hero-pill">{escape(display_name)}</span>
+                    <span class="hero-pill">Cieľ: {DAILY_GOAL}/deň</span>
                 </div>
             </div>
         </div>
@@ -1498,11 +1491,14 @@ if st.session_state.get("active_filter_key") != active_filter_key:
     st.session_state.answered = False
     st.session_state.active_filter_key = active_filter_key
 
-with st.sidebar.container(border=True):
-    st.markdown("#### Výber otázok")
-    st.caption("Aktuálne sa precvičujú otázky z vybraného celku.")
-    st.markdown(f"**Celok:** {st.session_state.selected_topic_name}")
-    st.markdown(f"**Otázky v celku:** {len(filtered_questions)} / {len(questions)}")
+st.sidebar.markdown(
+    f"""
+    <div class="sidebar-filter-note">
+        Zobrazené: <strong>{len(filtered_questions)}</strong> z {len(questions)} otázok
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 
 # ============================================================
@@ -1703,27 +1699,10 @@ with right_col:
 
 
 # ============================================================
-# 13. SIDEBAR STATS + LOGOUT
+# 13. SIDEBAR LOGOUT
 # ============================================================
 
-counts = count_statuses(current_data, filtered_questions)
-daily_stats = get_daily_stats(current_data)
-new_limit = dynamic_daily_new_limit(counts)
-
-answered_today = daily_stats.get("answered", 0)
-new_seen_today = daily_stats.get("new_seen", 0)
-
-render_sidebar_card(
-    "Dnešný cieľ",
-    [
-        ("Hlavný cieľ", f"{answered_today} / {DAILY_GOAL}"),
-        ("Zostáva", max(0, DAILY_GOAL - answered_today)),
-        ("Celok", st.session_state.selected_topic_name),
-        ("Otázky v celku", f"{len(filtered_questions)} / {len(questions)}"),
-        ("Problémové", counts.get("RED", 0))
-    ]
-)
-
+st.sidebar.markdown('<div class="sidebar-bottom-spacer"></div>', unsafe_allow_html=True)
 st.sidebar.divider()
 st.sidebar.markdown(
     f"""

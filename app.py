@@ -2096,7 +2096,7 @@ with right_col:
 
         st.divider()
 
-        st.caption("Nové otázky dnes: vypnuté · posledné dni sú určené na opakovanie") if dynamic_new_goal == 0 else st.caption(f"Nové otázky dnes: {new_seen_today} / {dynamic_new_goal}")
+        st.caption("Nové otázky dnes: vypnuté") if dynamic_new_goal == 0 else st.caption(f"Nové otázky dnes: {new_seen_today} / {dynamic_new_goal}")
         if st.session_state.study_mode == "Len nesprávne":
             st.caption("Tento režim sa počíta do otázok dnes, ale nie do nových otázok.")
 

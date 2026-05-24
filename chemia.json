@@ -284,7 +284,7 @@
       "A. ich zloženie vyjadrujeme hmotnostným zlomkom w",
       "B. obsahujú rozptýlené častice s veľkosťou 10⁻⁸ – 10⁻¹⁰ m",
       "C. obsahujú rozptýlené častice s veľkosťou väčšou ako 10⁻⁹ m",
-      "D. ich zloženie vyjadrujeme v jednotkách mol . dm⁻³, g . dm⁻³"
+      "D. ich zloženie vyjadrujeme v jednotkách mol. dm⁻³, g. dm⁻³"
     ],
     "answer": [
       "A",
@@ -436,8 +436,8 @@
     "text": "Atómová hmotnostná jednotka u a atómová hmotnostná konštanta (mᵤ):",
     "options": [
       "A. je hmotnosť atómu vodíka",
-      "B. má hodnotu 6,023 . 10²³",
-      "C. má hodnotu 1,66057 . 10⁻²⁷ kg (u)",
+      "B. má hodnotu 6,023. 10²³",
+      "C. má hodnotu 1,66057. 10⁻²⁷ kg (u)",
       "D. je hmotnosť 1 ⁄ 12 hmotnosti atómu nuklidu uhlíka ¹²C (mᵤ)"
     ],
     "answer": [
@@ -466,7 +466,7 @@
     "options": [
       "A. je súčet relatívnych atómových hmotností všetkých atómov v molekule",
       "B. udáva, koľkokrát je molekula danej látky ťažšia, ako atómová hmotnostná jednotka",
-      "C. sa udáva v g . mol⁻¹",
+      "C. sa udáva v g. mol⁻¹",
       "D. má značku Mₘ"
     ],
     "answer": [
@@ -493,9 +493,9 @@
     "text": "Látkové množstvo:",
     "options": [
       "A. je množstvo látky, ktoré obsahuje rovnaký počet častíc aký sa nachádza v 12 g nuklidu¹₂C",
-      "B. je množstvo látky, ktoré obsahuje 6,022 . 10²₃ častíc",
-      "C. obsahuje 1,66 . 10²₇ častíc",
-      "D. je 6,022 . 10²₃g"
+      "B. je množstvo látky, ktoré obsahuje 6,022. 10²₃ častíc",
+      "C. obsahuje 1,66. 10²₇ častíc",
+      "D. je 6,022. 10²₃g"
     ],
     "answer": [
       "A",
@@ -507,9 +507,9 @@
     "text": "Molová hmotnosť:",
     "options": [
       "A. je hmotnosť 1 mol látky",
-      "B. vyjadruje sa v kg . dm³",
-      "C. vyjadruje sa v g . mol⁻¹",
-      "D. vyjadruje sa v g . mol"
+      "B. vyjadruje sa v kg. dm³",
+      "C. vyjadruje sa v g. mol⁻¹",
+      "D. vyjadruje sa v g. mol"
     ],
     "answer": [
       "A",
@@ -549,7 +549,7 @@
       "A. 3",
       "B. 4",
       "C. 6",
-      "D. "
+      "D."
     ],
     "answer": [
       "D"
@@ -968,10 +968,10 @@
     "id": 71,
     "text": "Vyznačte nepravdivé tvrdenie:",
     "options": [
-      "A. kyselinotvornosť oxidov prvkov tretej periódy narastá od I. A  po VII.A skupinu PSP",
+      "A. kyselinotvornosť oxidov prvkov tretej periódy narastá od I. A po VII.A skupinu PSP",
       "B. oxidy majú iónovú, atómovú alebo molekulovú štruktúru",
       "C. všetky oxidy halogénov sú anhydridy kyselín",
-      "D. zásadotvornosť oxidov prvkov tretej periódy klesá od I. A  po VII.A skupinu PSP"
+      "D. zásadotvornosť oxidov prvkov tretej periódy klesá od I. A po VII.A skupinu PSP"
     ],
     "answer": [
       "C"
@@ -979,11 +979,11 @@
   },
   {
     "id": 72,
-    "text": "Kyselinotvorné oxidy :",
+    "text": "Kyselinotvorné oxidy:",
     "options": [
       "A. sú oxidy s prvkami s nízkou hodnotou elektronegativity",
       "B. CO₂, BaO, SO₃sú anhydridy kyselín",
-      "C. ktoré sú nerozpustné vo vode, reagujú s alkalickými hydroxidmi za vzniku solí ako SiO₂ +2 NaOH  →  Na₂SiO₃ + H₂O",
+      "C. ktoré sú nerozpustné vo vode, reagujú s alkalickými hydroxidmi za vzniku solí ako SiO₂ +2 NaOH → Na₂SiO₃ + H₂O",
       "D. sú oxidy s prvkami s vysokou hodnotou elektronegativity"
     ],
     "answer": [
@@ -997,7 +997,7 @@
     "options": [
       "A. sú oxidy len prvkov s¹ a s²",
       "B. nerozpustné vo vode reagujú s kyselinami aj zásadami za vzniku solí",
-      "C. reagujú podľa rovnice  O²⁻ + H₂O → 2 OH–",
+      "C. reagujú podľa rovnice O²⁻ + H₂O → 2 OH–",
       "D. sú oxidy kovov s oxidačným číslom menším ako IV"
     ],
     "answer": [
@@ -1180,7 +1180,7 @@
     "options": [
       "A. 2 KCl + F₂ → Cl₂ + 2 KF",
       "B. 2 Br⁻ + I₂ → Br₂ + 2 I⁻",
-      "C. F₂ + 2 I⁻  → I₂ + 2 F⁻",
+      "C. F₂ + 2 I⁻ → I₂ + 2 F⁻",
       "D. Cl₂ + 2 Br⁻ → Br₂ + 2 Cl⁻"
     ],
     "answer": [
@@ -1193,7 +1193,7 @@
     "id": 87,
     "text": "Pre halogény platí:",
     "options": [
-      "A. môžu reagovať podľa rovnice F₂ + 2 NaBr →  2 NaF + Br₂",
+      "A. môžu reagovať podľa rovnice F₂ + 2 NaBr → 2 NaF + Br₂",
       "B. halogén s väčšou elektronegativitou má silnejšie oxidačné účinky",
       "C. pri izbovej teplote je kvapalný len bróm a jód",
       "D. všetky ľahko sublimujú"
@@ -2094,7 +2094,7 @@
   },
   {
     "id": 151,
-    "text": "Prvky d :",
+    "text": "Prvky d:",
     "options": [
       "A. sú prvky, ktorých atómy majú valenčné elektróny v orbitáloch ns¹-₂(n-1)d¹-₁₀",
       "B. majú na poslednej elektrónovej vrstve 1 až 2 elektróny",
@@ -2123,11 +2123,11 @@
   },
   {
     "id": 153,
-    "text": "Prvky d :",
+    "text": "Prvky d:",
     "options": [
       "A. v komplexných zlúčeninách sú donormi elektrónového páru",
       "B. vystupujú v komplexných zlúčeninách ako centrálne atómy",
-      "C. majú na valenčnej vrstve v orbitále np 6 elektrónov a na orbitále (n-1)d  1-10 elektrónov",
+      "C. majú na valenčnej vrstve v orbitále np 6 elektrónov a na orbitále (n-1)d 1-10 elektrónov",
       "D. na predposlednej vrstve majú 18 elektrónov"
     ],
     "answer": [
@@ -2404,10 +2404,10 @@
     "id": 173,
     "text": "Vyberte dvojice, v ktorých sa nachádza koordinačná väzba:",
     "options": [
-      "A. CH₄ ; CHCl₃",
+      "A. CH₄; CHCl₃",
       "B. H₃O⁺; NH₄⁺",
-      "C. [Cu(NH₃)₄]Cl₂ ; KCr(SO₄)₂",
-      "D. [Ni(H₂O)₃](NO₃)₂ ; NH₄Cl"
+      "C. [Cu(NH₃)₄]Cl₂; KCr(SO₄)₂",
+      "D. [Ni(H₂O)₃](NO₃)₂; NH₄Cl"
     ],
     "answer": [
       "B",
@@ -2904,10 +2904,10 @@
     "id": 209,
     "text": "Vyberte exotermické rovnice:",
     "options": [
-      "A. 4 NH₃ (g) + 5 O₂ (g) → 4 NO (g) + 6 H₂O (g)         ∆H = -906 kJ/mol",
+      "A. 4 NH₃ (g) + 5 O₂ (g) → 4 NO (g) + 6 H₂O (g) ∆H = -906 kJ/mol",
       "B. 2 CO + O (g) → 2 CO₂ (g) + 566 kJ",
-      "C. CaCO₃ (g) + 178 kJ  →  CaO (g) + CO₂ (g)",
-      "D. 2 H₂ (g) + O₂ (g)  →  2 H₂O (l) + 571,6 kJ"
+      "C. CaCO₃ (g) + 178 kJ → CaO (g) + CO₂ (g)",
+      "D. 2 H₂ (g) + O₂ (g) → 2 H₂O (l) + 571,6 kJ"
     ],
     "answer": [
       "A",
@@ -3019,7 +3019,7 @@
       "A. vypočítame pomocou energetickej bilancie chemického deja",
       "B. v = Δt/Δc",
       "C. v = Δc/Δt",
-      "D. má jednotku mol . dm⁻³ . s⁻¹"
+      "D. má jednotku mol. dm⁻³. s⁻¹"
     ],
     "answer": [
       "C",
@@ -3033,7 +3033,7 @@
       "A. rýchlosť chemickej rekcie je priamo úmerná súčtu molárnych koncentrácii reaktantov a produktov",
       "B. rýchlosť chemickej reakcie je pri stálej teplote priamo úmerná súčinu koncentrácií dosiaľ nezreagovaných reaktantov",
       "C. sa rýchlosť v priebehu chemickej reakcie nemení, je konštantná",
-      "D. rýchlosť pre všeobecnú reakciu vypočítame podľa rovnice v = k . c(A)α. c(B)β"
+      "D. rýchlosť pre všeobecnú reakciu vypočítame podľa rovnice v = k. c(A)α. c(B)β"
     ],
     "answer": [
       "B",
@@ -3261,12 +3261,12 @@
   },
   {
     "id": 235,
-    "text": "Hodnota rovnovážnej konštanty reakcie 4 KClO₃ ↔ KCl + 3 KClO₄  je daná vzťahom:",
+    "text": "Hodnota rovnovážnej konštanty reakcie 4 KClO₃ ↔ KCl + 3 KClO₄ je daná vzťahom:",
     "options": [
       "A. K = 4 [ KClO₃ ] / ( [ KCl ] + 3 [ KClO₄] )",
       "B. K = ( [ KCl ].[ KClO₄ ]³ ) / [ KClO₃ ]⁴",
       "C. K = ( [ KCl ] + [ KClO₄ ]³ ) / [ KClO₃]",
-      "D. K = [ KClO₃ ]⁴/ ( [ KCl ] . [KClO₄ ]³ )"
+      "D. K = [ KClO₃ ]⁴/ ( [ KCl ]. [KClO₄ ]³ )"
     ],
     "answer": [
       "B"
@@ -3292,7 +3292,7 @@
       "A. sa vypočíta z Hessovho zákona",
       "B. sa vypočíta pomocou 1. kinetického zákona",
       "C. je podiel rýchlostnej konštanty priamej a spätnej reakcie",
-      "D. "
+      "D."
     ],
     "answer": [
       "B",
@@ -3966,10 +3966,10 @@
     "id": 286,
     "text": "Podľa koncentrácií H₃O⁺a OH⁻vyberte zásadité roztoky:",
     "options": [
-      "A. c(H₃O⁺) = 1,5 . 10⁻₅mol . dm–₃",
-      "B. c(OH⁻) = 4,5 . 10⁻₁₂mol . dm–₃",
-      "C. c(OH⁻) = 8,7 . 10⁻₃mol . dm–₃",
-      "D. c(H₃O⁺) = 4,4 . 10⁻₁₁mol . dm–₃"
+      "A. c(H₃O⁺) = 1,5. 10⁻₅mol. dm–₃",
+      "B. c(OH⁻) = 4,5. 10⁻₁₂mol. dm–₃",
+      "C. c(OH⁻) = 8,7. 10⁻₃mol. dm–₃",
+      "D. c(H₃O⁺) = 4,4. 10⁻₁₁mol. dm–₃"
     ],
     "answer": [
       "C",
@@ -4005,7 +4005,7 @@
   },
   {
     "id": 289,
-    "text": "Pre redoxnú reakciu KMnO₄ + FeSO₄ + H₂SO₄ → MnSO₄ + K₂SO₄  + Fe₂(SO₄)₃ + H₂O  platí:",
+    "text": "Pre redoxnú reakciu KMnO₄ + FeSO₄ + H₂SO₄ → MnSO₄ + K₂SO₄ + Fe₂(SO₄)₃ + H₂O platí:",
     "options": [
       "A. mangán sa redukuje",
       "B. Mnᴵᵛ + 2e → Mnᴵᴵ",
@@ -4022,7 +4022,7 @@
     "text": "Pre redoxnú reakciu HCl + KMnO₄ → Cl₂ + MnCl₂ + KCl + H₂O platí:",
     "options": [
       "A. 2Cl⁻ᴵ + 2e → Cl⁰",
-      "B. Mnᵛᴵᴵ  + 5e → Mnᴵᴵ",
+      "B. Mnᵛᴵᴵ + 5e → Mnᴵᴵ",
       "C. Mnᵛᴵ + 4e → Mnᴵᴵ",
       "D. stechiometrické koeficienty sú 16 + 2 → 5 + 2 + 2 + 8"
     ],
@@ -4036,8 +4036,8 @@
     "text": "Pre redoxnú reakciu H₂S + K₂Cr₂O₇ + H₂SO₄ → S + Cr₂(SO₄)₃ + K₂SO₄ + H₂O platí:",
     "options": [
       "A. H₂S pôsobí ako oxidačné činidlo",
-      "B. S⁻II  + 3e → SIV",
-      "C. Cr₂VI  + 6e → Cr₂III",
+      "B. S⁻II + 3e → SIV",
+      "C. Cr₂VI + 6e → Cr₂III",
       "D. stechiometrické koeficienty sú 3 + 1 + 4 → 3 + 1 + 1 +"
     ],
     "answer": [
@@ -4047,7 +4047,7 @@
   },
   {
     "id": 292,
-    "text": "V chemickej reakcii Fe + MgSO₄ ↔  FeSO₄ + Mg :",
+    "text": "V chemickej reakcii Fe + MgSO₄ ↔ FeSO₄ + Mg:",
     "options": [
       "A. železo sa oxiduje",
       "B. môže prebiehať len sprava doľava",
@@ -4065,8 +4065,8 @@
     "text": "Pre redoxnú reakciu NH₃ + O₂ → HNO₃ + H₂O platí:",
     "options": [
       "A. dusík sa v NH₃ nachádza v oxidačnom čísle -III",
-      "B. N⁻ᴵᴵᴵ - 8 e  → Nᵛ",
-      "C. Nᴵᴵᴵ - 2 e  → Nᵛ",
+      "B. N⁻ᴵᴵᴵ - 8 e → Nᵛ",
+      "C. Nᴵᴵᴵ - 2 e → Nᵛ",
       "D. stechiometrické koeficienty sú: 1 + 2 → 1+ 1"
     ],
     "answer": [
@@ -4077,7 +4077,7 @@
   },
   {
     "id": 294,
-    "text": "Atóm draslíka v reakcii 2 K + 2 H₂O → 2 KOH + H₂ :",
+    "text": "Atóm draslíka v reakcii 2 K + 2 H₂O → 2 KOH + H₂:",
     "options": [
       "A. sa oxiduje, je oxidovadlo",
       "B. sa oxiduje, je redukovadlo",
@@ -4105,7 +4105,7 @@
   },
   {
     "id": 296,
-    "text": "V reakcii Zn + NiSO₄ ↔ ZnSO₄ + Ni :",
+    "text": "V reakcii Zn + NiSO₄ ↔ ZnSO₄ + Ni:",
     "options": [
       "A. zinok sa oxiduje a vystupuje ako redukčné činidlo",
       "B. Zn nemôže redukovať Ni, pretože v rade napätia kovov stojí viac vľavo",
@@ -4120,7 +4120,7 @@
   },
   {
     "id": 297,
-    "text": "Reakcia Cl₂ + 2 NaI ↔ 2 NaCl + I₂ :",
+    "text": "Reakcia Cl₂ + 2 NaI ↔ 2 NaCl + I₂:",
     "options": [
       "A. prebieha sprava doľava, pretože chlór má silnejšie oxidačné účinky ako jód",
       "B. prebieha zľava doprava, pretože chlór má silnejšie oxidačné účinky ako jód",
@@ -4134,11 +4134,11 @@
   },
   {
     "id": 298,
-    "text": "Pre redoxnú reakciu H₂O₂ + KMnO₄ + H₂SO₄ →  O₂ + MnSO₄ + K₂SO₄ + H₂O platí",
+    "text": "Pre redoxnú reakciu H₂O₂ + KMnO₄ + H₂SO₄ → O₂ + MnSO₄ + K₂SO₄ + H₂O platí",
     "options": [
       "A. Mnᵛᴵᴵ - 5e → Mn ᴵᴵ",
-      "B. O₂–ᴵ - 2e →  O₂⁰",
-      "C. O–ᴵ + 1e  →  O⁻ᴵᴵ",
+      "B. O₂–ᴵ - 2e → O₂⁰",
+      "C. O–ᴵ + 1e → O⁻ᴵᴵ",
       "D. stechiometrické koeficienty sú: 5 + 2 + 3 → 5 + 2 + 2 + 7"
     ],
     "answer": [
@@ -4147,10 +4147,10 @@
   },
   {
     "id": 299,
-    "text": "Pre redoxnú reakciu H₂O₂ + KI + H₂SO₄ →  I₂ + K₂SO₄ + H₂O platí:",
+    "text": "Pre redoxnú reakciu H₂O₂ + KI + H₂SO₄ → I₂ + K₂SO₄ + H₂O platí:",
     "options": [
-      "A. O₂⁻ᴵ  + 2e  → 2O⁻ᴵᴵ",
-      "B. 2 I⁻ᴵ - 2e  → I₂⁰",
+      "A. O₂⁻ᴵ + 2e → 2O⁻ᴵᴵ",
+      "B. 2 I⁻ᴵ - 2e → I₂⁰",
       "C. peroxid je redukovadlo",
       "D. stechiometrické koeficienty sú: 1 + 3 + 1 → 1 + 3 + 2"
     ],
@@ -4276,7 +4276,7 @@
       "A. Zn sa oxiduje, prijíma elektróny",
       "B. Zn sa oxiduje, je redukovadlo",
       "C. vodík sa redukuje, odovzdáva elektróny",
-      "D. stechiometrické koeficienty sú: 1 + 2  → 1 + 2"
+      "D. stechiometrické koeficienty sú: 1 + 2 → 1 + 2"
     ],
     "answer": [
       "B"
@@ -4475,10 +4475,10 @@
     "id": 323,
     "text": "Pri danej teplote je najmenej rozpustná zlúčenina:",
     "options": [
-      "A. AgBr:  ak Ks = 3,6 . 10",
-      "B. Ag₂CrO₄: ak za daných podmienok je jeho rozpustnosť 3,32 . 10 g/l",
+      "A. AgBr: ak Ks = 3,6. 10",
+      "B. Ag₂CrO₄: ak za daných podmienok je jeho rozpustnosť 3,32. 10 g/l",
       "C. ₂₄",
-      "D. AgOH: ak za daných podmienok je jeho rozpustnosť 3,95 . 10⁻³ g/l"
+      "D. AgOH: ak za daných podmienok je jeho rozpustnosť 3,95. 10⁻³ g/l"
     ],
     "answer": [
       "A"
@@ -4519,7 +4519,7 @@
     "text": "Rádioaktívne žiarenie:",
     "options": [
       "A. alfa, beta a gama sa nedajú rozlíšiť podľa správania sa v elektrickom poli",
-      "B. gama je elektromagnetické žiarenie s vlnovou dĺžkou 0,5 - 40 . 10⁻¹² m",
+      "B. gama je elektromagnetické žiarenie s vlnovou dĺžkou 0,5 - 40. 10⁻¹² m",
       "C. alfa a beta je prenikavejšie ako gama",
       "D. gama je najprenikavejšie"
     ],
@@ -4767,10 +4767,10 @@
     "id": 344,
     "text": "Fyziologický roztok je:",
     "options": [
-      "A. roztok glukózy s koncentráciou 0,3 mol . dm⁻³",
-      "B. roztok NaCl s koncentráciou 0,15 mol . dm⁻³",
-      "C. roztok glukózy s koncentráciou 0,15 mol . dm⁻³",
-      "D. roztok NaCl s koncentráciou 0,3 mol . dm⁻³"
+      "A. roztok glukózy s koncentráciou 0,3 mol. dm⁻³",
+      "B. roztok NaCl s koncentráciou 0,15 mol. dm⁻³",
+      "C. roztok glukózy s koncentráciou 0,15 mol. dm⁻³",
+      "D. roztok NaCl s koncentráciou 0,3 mol. dm⁻³"
     ],
     "answer": [
       "B"
@@ -4837,7 +4837,7 @@
     "options": [
       "A. je izotonický s vnútorným prostredím bunky",
       "B. izolované bunky pečene v ňom nemenia svoj objem",
-      "C. je izotonický s roztokom sacharózy s koncentráciou 0,15 mol . l⁻¹",
+      "C. je izotonický s roztokom sacharózy s koncentráciou 0,15 mol. l⁻¹",
       "D. je roztok glukózy"
     ],
     "answer": [
@@ -5255,7 +5255,7 @@
     "id": 379,
     "text": "Homolytické činidlo:",
     "options": [
-      "A. je Cl• ; H•",
+      "A. je Cl•; H•",
       "B. môže byť Br₂ v prítomnosti UV žiarenia",
       "C. je aj Cl₂ v prítomnosti FeCl₃",
       "D. môže byť len ultrafialové žiarenie, ionizačné žiarenie alebo zvýšená teplota"
@@ -5702,7 +5702,7 @@
   },
   {
     "id": 411,
-    "text": "Vyberte konštitučné izoméry :",
+    "text": "Vyberte konštitučné izoméry:",
     "options": [
       "A. image_47_202.png",
       "B. image_47_203.png",
@@ -5721,7 +5721,7 @@
       "A. cis-/trans- sa vyskytuje v molekulách organických zlúčenín, kde dvojitá väzba bráni rotáciiokolo väzby C=C",
       "B. je typ konštitučnej izomérie",
       "C. môže byť cis-/trans- izoméria",
-      "D. cis-/trans-  sa nachádza aj v molekulách necyklických alkánov"
+      "D. cis-/trans- sa nachádza aj v molekulách necyklických alkánov"
     ],
     "answer": [
       "A",
@@ -5787,8 +5787,8 @@
     "id": 417,
     "text": "Racemát:",
     "options": [
-      "A. je zmes anomérov α a β v pomere 1 : 1",
-      "B. je zmes pravotočivého a ľavotočivého izoméru v pomere 1 : 1",
+      "A. je zmes anomérov α a β v pomere 1: 1",
+      "B. je zmes pravotočivého a ľavotočivého izoméru v pomere 1: 1",
       "C. nie je opticky aktívna zmes",
       "D. je roztok neelektrolytu"
     ],
@@ -5803,7 +5803,7 @@
     "options": [
       "A. CH-CH-COOH a CH-O-CH",
       "B. CH=CH-OH a CH-CHO",
-      "C. CH₃-O-CH₃  a (CH₃-CH₂)₂O",
+      "C. CH₃-O-CH₃ a (CH₃-CH₂)₂O",
       "D. CH₂=C(OH)-CH₃ a CH₃-CO-CH₃"
     ],
     "answer": [
@@ -5951,7 +5951,7 @@
   },
   {
     "id": 429,
-    "text": "Alkyly, R- :",
+    "text": "Alkyly, R-:",
     "options": [
       "A. sú napríklad formyl, acetyl",
       "B. sú napríklad benzyl, benzoyl",
@@ -5966,10 +5966,10 @@
     "id": 430,
     "text": "Vyberte dvojicu tautomérov:",
     "options": [
-      "A. etanal ; etanol",
-      "B. dimetylketón ; acetón",
-      "C. butanón ; but-1-én-2-ol",
-      "D. propanol ; dimetyléter"
+      "A. etanal; etanol",
+      "B. dimetylketón; acetón",
+      "C. butanón; but-1-én-2-ol",
+      "D. propanol; dimetyléter"
     ],
     "answer": [
       "C"
@@ -5993,10 +5993,10 @@
     "id": 432,
     "text": "Konštitučné izoméry sú:",
     "options": [
-      "A. kyselina pyrohroznová ; kyselina 2-hydroxyakrylová",
-      "B. acetón ; dimetylketón",
-      "C. bután ; 2-metylbután",
-      "D. rezorcinol ; pyrogalol"
+      "A. kyselina pyrohroznová; kyselina 2-hydroxyakrylová",
+      "B. acetón; dimetylketón",
+      "C. bután; 2-metylbután",
+      "D. rezorcinol; pyrogalol"
     ],
     "answer": [
       "A"
@@ -8477,7 +8477,7 @@
   },
   {
     "id": 611,
-    "text": "Zlúčenina CH₃CH₂OK :",
+    "text": "Zlúčenina CH₃CH₂OK:",
     "options": [
       "A. je etoxid draselný",
       "B. etanoát draselný",
@@ -8859,7 +8859,7 @@
     "text": "O etántiole platí:",
     "options": [
       "A. je kvapalina príjemnej vône, preto sa používa na odorizáciu zemného plynu",
-      "B. má  v molekule dve -SH skupiny",
+      "B. má v molekule dve -SH skupiny",
       "C. je sírna obdoba etylalkoholu",
       "D. dehydrogenáciou vzniká dietyldisulfid"
     ],
@@ -9110,7 +9110,7 @@
   },
   {
     "id": 656,
-    "text": "Z uvedených zlúčenín vyberte acetály :",
+    "text": "Z uvedených zlúčenín vyberte acetály:",
     "options": [
       "A. image_76_376.png",
       "B. image_77_381.png",
@@ -10098,7 +10098,7 @@
   },
   {
     "id": 727,
-    "text": "Podľa hodnôt pKa kyselín: jantárová 4,2 ; propénová 4,26 ; maslová 4,9 ; mravčia 3,68 ;octová 4,74 ; benzoová 4,19 rozhodnite, či platí:",
+    "text": "Podľa hodnôt pKa kyselín: jantárová 4,2; propénová 4,26; maslová 4,9; mravčia 3,68;octová 4,74; benzoová 4,19 rozhodnite, či platí:",
     "options": [
       "A. kyselina maslová je silnejšia ako kyselina jantárová",
       "B. kyselina jantárová je najslabšia",
@@ -10154,7 +10154,7 @@
     "id": 731,
     "text": "Izoelektrický bod pI aminokyseliny:",
     "options": [
-      "A. je hodnota pKa, pri ktorej sa aminokyselina  v elektrickom poli nepohybuje",
+      "A. je hodnota pKa, pri ktorej sa aminokyselina v elektrickom poli nepohybuje",
       "B. je rovnovážna konštanta aminokyseliny",
       "C. je hodnota pH prostredia, pri ktorej aminokyselina v roztoku tvorí amfión",
       "D. sa využíva pri elektroforetickej separácii aminokyselín"
@@ -10180,7 +10180,7 @@
   },
   {
     "id": 733,
-    "text": "Hydroxykyseliny :",
+    "text": "Hydroxykyseliny:",
     "options": [
       "A. získame napríklad oxidáciou kyseliny pyrohroznovej",
       "B. sú napríklad kyselina mliečna a salicylová",
@@ -10845,7 +10845,7 @@
     "options": [
       "A. voľný elektrónový pár sa nezapája do konjugácie",
       "B. aromatický charakter vzniká tak, že päť nespárených elektrónov 5-ich atómov uhlíka a jedennespárený elektrón atómu dusíka vytvárajú delokalizovaný oblak",
-      "C. do delokalizácie π-elektrónov sa z atómu dusíka  zapája voľný elektrónový pár, preto sazvyšuje elektrónová hustota a prejavuje sa zásaditý charakter",
+      "C. do delokalizácie π-elektrónov sa z atómu dusíka zapája voľný elektrónový pár, preto sazvyšuje elektrónová hustota a prejavuje sa zásaditý charakter",
       "D. elektrofilné substitučné reakcie na pyridíne prebiehajú ľahšie ako na benzéne"
     ],
     "answer": [
@@ -10888,7 +10888,7 @@
       "A. je derivátom pyrimidínu",
       "B. v organizme sa mení na nikotínamid",
       "C. je známa ako niacín",
-      "D. môže vznikať v organizme aj z tryptofánu, ak je dostatok vitamínu B₁, B₂ a  B₆"
+      "D. môže vznikať v organizme aj z tryptofánu, ak je dostatok vitamínu B₁, B₂ a B₆"
     ],
     "answer": [
       "B",
@@ -11578,7 +11578,7 @@
   },
   {
     "id": 833,
-    "text": "Ribitol a galaktitol :",
+    "text": "Ribitol a galaktitol:",
     "options": [
       "A. patria medzi hydroxyderiváty",
       "B. vzniknú oxidáciou príslušných monosacharidov pôsobením bežných oxidačných činidiel",
@@ -12660,7 +12660,7 @@
     "id": 910,
     "text": "Označte zmiešané acylglyceroly mastných kyselín:",
     "options": [
-      "A. image_107_546.png ",
+      "A. image_107_546.png",
       "B. image_108_551.png",
       "C. image_108_552.png",
       "D. image_108_553.png"
@@ -13190,7 +13190,7 @@
   },
   {
     "id": 948,
-    "text": "Skupina  je súčasťou molekuly:",
+    "text": "Skupina je súčasťou molekuly:",
     "options": [
       "A. asparagínu",
       "B. kyseliny asparágovej",
@@ -14105,7 +14105,7 @@
     "options": [
       "A. komplementarita báz sa uplatňuje medzi kodónom a antikodónom v procese proteosyntézy",
       "B. kodón a antikodón sa viažu esterovou väzbou",
-      "C. v makromolekule DNA je vždy pomer báz A : U = 1 : 1",
+      "C. v makromolekule DNA je vždy pomer báz A: U = 1: 1",
       "D. na komplementarite báz je založená transkripcia"
     ],
     "answer": [
@@ -14184,7 +14184,7 @@
   },
   {
     "id": 1019,
-    "text": "Vyberte správne výroky o RNA :",
+    "text": "Vyberte správne výroky o RNA:",
     "options": [
       "A. na mRNA sa nachádzajú kodóny",
       "B. sekundárna štruktúra rRNA je dvojitý α-helix a v miestach, kde je porušená komplementaritabáz sa tvoria oválne výbežky, laloky",
@@ -14558,7 +14558,7 @@
     "id": 1046,
     "text": "O význame citrátového cyklu platí:",
     "options": [
-      "A. z  medziproduktov citrátového cyklu môžu v organizme vzniknúť napríklad neesenciálneaminokyseliny, glukóza",
+      "A. z medziproduktov citrátového cyklu môžu v organizme vzniknúť napríklad neesenciálneaminokyseliny, glukóza",
       "B. je zdrojom redukovaných koenzýmov",
       "C. je zdroj kyseliny citrónovej",
       "D. vzniká 8 molekúl ATP"
@@ -15215,8 +15215,8 @@
     "text": "Roztok hydrogénuhličitanu vápenatého s c = 0,20 mol/l (Mᵣ = 162) obsahuje:",
     "options": [
       "A. 0,20 mol CaHCO₃ v 1 litri roztoku",
-      "B. 32,4 g Ca(HCO₃)₂  v 1 litri roztoku",
-      "C. 64,8 g Ca(HCO₃)₂  v 2 litroch rozpúšťadla",
+      "B. 32,4 g Ca(HCO₃)₂ v 1 litri roztoku",
+      "C. 64,8 g Ca(HCO₃)₂ v 2 litroch rozpúšťadla",
       "D. 0,20 mol Ca(HCO₃)₂ v 2 litroch roztoku"
     ],
     "answer": [
@@ -15227,10 +15227,10 @@
     "id": 1094,
     "text": "Hmotnosť molekuly vody je:",
     "options": [
-      "A. 29,89 . 10⁻₂₇kg",
-      "B. 29,89 . 10⁻₂₄g",
-      "C. 29,89 . 10⁻₂₉kg",
-      "D. 29,89 . 10⁻₂₇g"
+      "A. 29,89. 10⁻₂₇kg",
+      "B. 29,89. 10⁻₂₄g",
+      "C. 29,89. 10⁻₂₉kg",
+      "D. 29,89. 10⁻₂₇g"
     ],
     "answer": [
       "A",
@@ -15241,10 +15241,10 @@
     "id": 1095,
     "text": "Vypočítajte hmotnosť atómu síry v jednotkách hmotnosti:",
     "options": [
-      "A. 5,31 . 10⁻₂₃g",
-      "B. 53,12 . 10²₇kg",
-      "C. 192,74 . 10²₃g",
-      "D. 19,27 . 10⁻₂₇kg"
+      "A. 5,31. 10⁻₂₃g",
+      "B. 53,12. 10²₇kg",
+      "C. 192,74. 10²₃g",
+      "D. 19,27. 10⁻₂₇kg"
     ],
     "answer": [
       "A"
@@ -15254,9 +15254,9 @@
     "id": 1096,
     "text": "Vypočítajte hmotnosť molekuly NaOH:",
     "options": [
-      "A. 24,09 . 10⁻₂₃g",
-      "B. 0,042 . 10⁻₂₃g",
-      "C. 6,64 . 10⁻₂₃g",
+      "A. 24,09. 10⁻₂₃g",
+      "B. 0,042. 10⁻₂₃g",
+      "C. 6,64. 10⁻₂₃g",
       "D. 40,00 g"
     ],
     "answer": [
@@ -15268,9 +15268,9 @@
     "text": "Vypočítajte aké látkové mno~stvo predstavuje 100 g vody:",
     "options": [
       "A. 5,56 mol",
-      "B. 5,56 . 10³mmol",
+      "B. 5,56. 10³mmol",
       "C. 0,18 mol",
-      "D. 1,8 . 10²mol"
+      "D. 1,8. 10²mol"
     ],
     "answer": [
       "A",
@@ -15295,10 +15295,10 @@
     "id": 1099,
     "text": "Vypočítajte, koľko molekúl kyseliny dusičnej predstavuje 5 mol tejto látky:",
     "options": [
-      "A. 0,8 . 10²₃molekúl",
-      "B. 1,2 . 10⁻₂₃molekúl",
-      "C. 30 . 10⁻₂₃molekúl",
-      "D. 30 . 10²₃molekúl"
+      "A. 0,8. 10²₃molekúl",
+      "B. 1,2. 10⁻₂₃molekúl",
+      "C. 30. 10⁻₂₃molekúl",
+      "D. 30. 10²₃molekúl"
     ],
     "answer": [
       "D"
@@ -15334,10 +15334,10 @@
     "id": 1102,
     "text": "Vypočítajte, koľko molekúl hydroxidu sodného sa nachádza v jeho 25 g.",
     "options": [
-      "A. 6,022 . 10²₆",
-      "B. 3,76 . 10²₃",
-      "C. 1,03 . 10⁻₂₃",
-      "D. 376 . 10²₁"
+      "A. 6,022. 10²₆",
+      "B. 3,76. 10²₃",
+      "C. 1,03. 10⁻₂₃",
+      "D. 376. 10²₁"
     ],
     "answer": [
       "B",
@@ -15346,12 +15346,12 @@
   },
   {
     "id": 1103,
-    "text": "Vypočítajte hmotnosť 5 . 10⁹atómov ~eleza. Mr(Fe) = 56",
+    "text": "Vypočítajte hmotnosť 5.10⁹atómov železa. Mr(Fe) = 56",
     "options": [
-      "A. 46,49 . 10⁻₁₄g",
-      "B. 7,44 . 10⁻₁₄g . mol⁻₁",
-      "C. 148 . 10⁻₁₀g . mol⁻₁",
-      "D. 4,649 . 10⁻₁₃g . mol⁻₁"
+      "A. 46,49. 10⁻₁₄g",
+      "B. 7,44. 10⁻₁₄g. mol⁻₁",
+      "C. 148. 10⁻₁₀g. mol⁻₁",
+      "D. 4,649. 10⁻₁₃g. mol⁻₁"
     ],
     "answer": [
       "A"
@@ -15359,8 +15359,13 @@
   },
   {
     "id": 1104,
-    "text": "Arginín má Mr = 174,2; dusík má Ar =",
-    "options": [],
+    "text": "Arginín má Mr = 174,2; dusík má Ar =14. Obsah dusíka v 400mg arginínu je:",
+    "options": [
+      "A. 0,129 g",
+      "B. 0,056 g",
+      "C. 1,12 g",
+      "D. 128,6 mg"
+    ],
     "answer": [
       "A",
       "D"
@@ -15368,8 +15373,13 @@
   },
   {
     "id": 1105,
-    "text": "Lyzín má Mr = 146,",
-    "options": [],
+    "text": "Lyzín má Mr = 146,2 vypočítajte koľko dusíka obsahuje 220 mg lyzínu",
+    "options": [
+      "A. 14 mg",
+      "B. 42 mg",
+      "C. 0,042 mg",
+      "D. neobsahuje dusík"
+],
     "answer": [
       "B",
       "C"
@@ -15377,8 +15387,13 @@
   },
   {
     "id": 1106,
-    "text": "Purín má Mr =",
-    "options": [],
+    "text": "Purín má Mr =120 vypočítajte kolko dusíka obsahuje 240 µg purínu",
+    "options": [
+      "A. 112 µg",
+      "B. 56 µg",
+      "C. 28 µg",
+      "D. 224 µg"
+],
     "answer": [
       "A"
     ]
@@ -15491,12 +15506,12 @@
   },
   {
     "id": 1115,
-    "text": "Vypočítajte, koľko tepla sa spotrebuje pri výrobe 100 kg páleného vápna z uhličitanu vápenatého, ak ΔH = +178 kJ . mol⁻₁.",
+    "text": "Vypočítajte, koľko tepla sa spotrebuje pri výrobe 100 kg páleného vápna z uhličitanu vápenatého, ak ΔH = +178 kJ. mol⁻₁.",
     "options": [
-      "A. 317,86 kJ . mol⁻₁",
+      "A. 317,86 kJ. mol⁻₁",
       "B. 17,8 MJ",
       "C. 317,86 MJ",
-      "D. 17,8 kJ . mol⁻₁"
+      "D. 17,8 kJ. mol⁻₁"
     ],
     "answer": [
       "C"
@@ -15504,12 +15519,12 @@
   },
   {
     "id": 1116,
-    "text": "Pri reakcii CO (g) + ½ O₂(g) → CO₂(g) sa uvoľní 283 kJ . mol⁻₁. Vypočítajte, koľko tepla sa uvoľní pri reakcii 20 l oxidu uhoľnatého za normálnych podmienok.",
+    "text": "Pri reakcii CO (g) + ½ O₂(g) → CO₂(g) sa uvoľní 283 kJ. mol⁻₁. Vypočítajte, koľko tepla sa uvoľní pri reakcii 20 l oxidu uhoľnatého za normálnych podmienok.",
     "options": [
-      "A. 252,68 MJ . mol⁻₁",
+      "A. 252,68 MJ. mol⁻₁",
       "B. 252,5 kJ",
       "C. 126,34 MJ",
-      "D. 126,34 kJ . mol⁻₁"
+      "D. 126,34 kJ. mol⁻₁"
     ],
     "answer": [
       "B"
@@ -15517,7 +15532,7 @@
   },
   {
     "id": 1117,
-    "text": "Pri horení metánu za normálnych podmienok sa uvoľní 802 kJ . mol⁻₁. Koľko metánu sa musí spáliť aby sa uvoľnilo 20 MJ?",
+    "text": "Pri horení metánu za normálnych podmienok sa uvoľní 802 kJ. mol⁻₁. Koľko metánu sa musí spáliť aby sa uvoľnilo 20 MJ?",
     "options": [
       "A. 29,94 mol",
       "B. 399 kg",
@@ -15535,8 +15550,8 @@
     "options": [
       "A. 2862,96 kJ",
       "B. 1386,55 kJ",
-      "C. 1386,55 kJ . mol⁻₁",
-      "D. 2862,96 kJ . mol⁻₁"
+      "C. 1386,55 kJ. mol⁻₁",
+      "D. 2862,96 kJ. mol⁻₁"
     ],
     "answer": [
       "C"
@@ -15544,7 +15559,7 @@
   },
   {
     "id": 1119,
-    "text": "Rýchlosť chemickej reakcie A + 3 B → C vypočítame zo vzťahu v = k . ca . cB³ . Ako sa zmení rýchlosť reakcie, ak sa koncentrácia látky A zmenaí o polovicu a koncentrácia látky B sa zvýai dvojnásobne?",
+    "text": "Rýchlosť chemickej reakcie A + 3 B → C vypočítame zo vzťahu v = k. ca. cB³. Ako sa zmení rýchlosť reakcie, ak sa koncentrácia látky A zmenaí o polovicu a koncentrácia látky B sa zvýai dvojnásobne?",
     "options": [
       "A. rýchlosť reakcie sa zvýši osemkrát",
       "B. rýchlosť reakcie sa zvýši štyrikrát",
@@ -15667,7 +15682,7 @@
     "options": [
       "A. 1 ml",
       "B. 0,2 μl",
-      "C. 2 . 10⁻₇l",
+      "C. 2. 10⁻₇l",
       "D. 2 μl"
     ],
     "answer": [
@@ -15703,12 +15718,12 @@
   },
   {
     "id": 1131,
-    "text": "Aký objem 80 % (w %) kyseliny sírovej (hustota = 1,70 g . cm⁻₃) je potrebný na prípravu 500 g roztoku, ktorého w = 15 % ?",
+    "text": "Aký objem 80 % (w %) kyseliny sírovej (hustota = 1,70 g. cm⁻₃) je potrebný na prípravu 500 g roztoku, ktorého w = 15 %?",
     "options": [
       "A. 53,33 ml",
       "B. 53,33 l",
       "C. 55,15 ml",
-      "D. 55,15 . 10–₃l"
+      "D. 55,15. 10–₃l"
     ],
     "answer": [
       "C",
@@ -15717,7 +15732,7 @@
   },
   {
     "id": 1132,
-    "text": "Vypočítajte, koľko gramov glukózy je potrebné na prípravu 350 ml roztoku s koncentráciou 0,25 mol . l⁻₁. Mr(glukóza) = 180,16",
+    "text": "Vypočítajte, koľko gramov glukózy je potrebné na prípravu 350 ml roztoku s koncentráciou 0,25 mol. l⁻₁. Mr(glukóza) = 180,16",
     "options": [
       "A. 15,76 g",
       "B. 128,70 g",
@@ -15730,7 +15745,7 @@
   },
   {
     "id": 1133,
-    "text": "Koľko gramov alebo mililitrov kyseliny dusičnej, w = 68 %, hustota = 1,4 g . cm⁻₃, je potrebné na prípravu 500 ml roztoku, ktorého c = 0,2 mol . l⁻₁? Mr(HNO₃) = 63",
+    "text": "Koľko gramov alebo mililitrov kyseliny dusičnej, w = 68 %, hustota = 1,4 g. cm⁻₃, je potrebné na prípravu 500 ml roztoku, ktorého c = 0,2 mol. l⁻₁? Mr(HNO₃) = 63",
     "options": [
       "A. 6,30 g",
       "B. 9,27 g",
@@ -15757,11 +15772,11 @@
   },
   {
     "id": 1135,
-    "text": "Aké mno~stvo vody treba odpariť z 250 ml roztoku CuSO₄, ktorého hustota = 1,09 g . cm⁻₃a w = 15 %, aby vznikol 25 % roztok?",
+    "text": "Aké mno~stvo vody treba odpariť z 250 ml roztoku CuSO₄, ktorého hustota = 1,09 g. cm⁻₃a w = 15 %, aby vznikol 25 % roztok?",
     "options": [
       "A. 109 g",
       "B. 109 mg",
-      "C. 1,09 . 10²g",
+      "C. 1,09. 10²g",
       "D. 68,12 g"
     ],
     "answer": [
@@ -15771,7 +15786,7 @@
   },
   {
     "id": 1136,
-    "text": "Koľko gramov 75 % kyseliny sírovej je potrebných na prípravu 800 g roztoku s w = 15 % ?",
+    "text": "Koľko gramov 75 % kyseliny sírovej je potrebných na prípravu 800 g roztoku s w = 15 %?",
     "options": [
       "A. 120,0 g",
       "B. 320,0 g",
@@ -15812,12 +15827,12 @@
   },
   {
     "id": 1139,
-    "text": "Aká bude koncentrácia látkového mno~stva 12 % roztoku chloridu vápenatého, ktorého hustota = 1,07 g . cm⁻₃ ?",
+    "text": "Aká bude koncentrácia látkového mno~stva 12 % roztoku chloridu vápenatého, ktorého hustota = 1,07 g. cm⁻₃?",
     "options": [
-      "A. 11,61 mol . dm⁻₃",
-      "B. 1,16 mol . dm⁻₃",
-      "C. 1,16 mmol . cm⁻₃",
-      "D. 11,61 mmol . cm⁻₃"
+      "A. 11,61 mol. dm⁻₃",
+      "B. 1,16 mol. dm⁻₃",
+      "C. 1,16 mmol. cm⁻₃",
+      "D. 11,61 mmol. cm⁻₃"
     ],
     "answer": [
       "B",
@@ -15826,7 +15841,7 @@
   },
   {
     "id": 1140,
-    "text": "Vypočítajte, aký objem 64 % kyseliny dusičnej s hustotou 1,75 g . cm⁻₃je potrebný na prípravu 2 litrov roztoku s koncentráciou 0,2 mol . dm⁻₃.",
+    "text": "Vypočítajte, aký objem 64 % kyseliny dusičnej s hustotou 1,75 g. cm⁻₃je potrebný na prípravu 2 litrov roztoku s koncentráciou 0,2 mol. dm⁻₃.",
     "options": [
       "A. 25,2 ml",
       "B. 25,2 dm⁻₃",
@@ -15840,12 +15855,12 @@
   },
   {
     "id": 1141,
-    "text": "Aká bude koncentrácia 15 % roztoku síranu horečnatého (hustota = 1,05 g . cm⁻₃)?",
+    "text": "Aká bude koncentrácia 15 % roztoku síranu horečnatého (hustota = 1,05 g. cm⁻₃)?",
     "options": [
-      "A. 1,31 mol . dm⁻₃",
-      "B. 3,52 mol . dm⁻₃",
-      "C. 2,87 mol . dm⁻₃",
-      "D. 2,87 g . cm⁻₃"
+      "A. 1,31 mol. dm⁻₃",
+      "B. 3,52 mol. dm⁻₃",
+      "C. 2,87 mol. dm⁻₃",
+      "D. 2,87 g. cm⁻₃"
     ],
     "answer": [
       "A"
@@ -15856,7 +15871,7 @@
     "text": "Vypočítajte mno~stvo pentahydrátu síranu zinočnatého a vody potrebné na prípravu 500 g 18 % roztoku.",
     "options": [
       "A. 90 g pentahydrátu síranu zinočnatého a 410 g vody",
-      "B. 0,09 kg ZnSO₄ . 5 H₂O a 0,41 kg vody",
+      "B. 0,09 kg ZnSO₄. 5 H₂O a 0,41 kg vody",
       "C. 140,2 g pentahydrátu síranu zinočnatého a 359,8 g vody",
       "D. 57,6 g síranu zinočnatého a 442,4 g vody"
     ],
@@ -15866,7 +15881,7 @@
   },
   {
     "id": 1143,
-    "text": "Na prípravu 25 ml 0,001 mol . dm⁻₃roztoku NaOH je potrebné navá~iť:",
+    "text": "Na prípravu 25 ml 0,001 mol. dm⁻₃roztoku NaOH je potrebné navá~iť:",
     "options": [
       "A. 25 μmol",
       "B. 1,0 mg",
@@ -15895,12 +15910,12 @@
   },
   {
     "id": 1145,
-    "text": "K 400 ml roztoku chloridu sodného c = 0,25 mol . dm⁻₃sme pridali 200 ml destilovanej vody. Výsledná koncentrácia roztoku bude:",
+    "text": "K 400 ml roztoku chloridu sodného c = 0,25 mol. dm⁻₃sme pridali 200 ml destilovanej vody. Výsledná koncentrácia roztoku bude:",
     "options": [
-      "A. 0,05 mol . dm⁻₃",
-      "B. 0,17 mol . dm⁻₃",
-      "C. 0,12 mol . dm⁻₃",
-      "D. 170 mmol . dm⁻₃"
+      "A. 0,05 mol. dm⁻₃",
+      "B. 0,17 mol. dm⁻₃",
+      "C. 0,12 mol. dm⁻₃",
+      "D. 170 mmol. dm⁻₃"
     ],
     "answer": [
       "B",
@@ -15909,11 +15924,11 @@
   },
   {
     "id": 1146,
-    "text": "Vypočítajte látkové mno~stvo a hmotnosť dusičnanu strieborného, ktoré sa nachádza v 300 ml roztoku s koncentráciou 0,15 mol . dm⁻₃.",
+    "text": "Vypočítajte látkové mno~stvo a hmotnosť dusičnanu strieborného, ktoré sa nachádza v 300 ml roztoku s koncentráciou 0,15 mol. dm⁻₃.",
     "options": [
       "A. 0,045 mol",
       "B. 7,65 g",
-      "C. 0,5 . 10⁻₃mol",
+      "C. 0,5. 10⁻₃mol",
       "D. 0,085 g"
     ],
     "answer": [
@@ -15923,7 +15938,7 @@
   },
   {
     "id": 1147,
-    "text": "Roztok manganistanu draselného, ktorý má koncentráciu 0,5 mol . dm⁻₃obsahuje:",
+    "text": "Roztok manganistanu draselného, ktorý má koncentráciu 0,5 mol. dm⁻₃obsahuje:",
     "options": [
       "A. 0,5 mol K₂MnO₄v 1 litri vody",
       "B. 79 g KMnO₄v 1 l roztoku",
@@ -16007,12 +16022,12 @@
   },
   {
     "id": 1153,
-    "text": "Na reakciu 300 ml kyseliny sírovej s c = 0,5 mol . dm⁻₃sa navá~ilo 16 g NaOH. Aká bude koncentrácia hydroxidu sodného po reakcii, ak objem reakčnej zmesi bol doplnený na 0,5 l ?",
+    "text": "Na reakciu 300 ml kyseliny sírovej s c = 0,5 mol. dm⁻₃sa navá~ilo 16 g NaOH. Aká bude koncentrácia hydroxidu sodného po reakcii, ak objem reakčnej zmesi bol doplnený na 0,5 l?",
     "options": [
-      "A. 0,6 mol . dm⁻₃",
-      "B. 0,5 mol . dm⁻₃",
-      "C. 0,4 mol . dm⁻₃",
-      "D. 0,2 mol . dm⁻₃"
+      "A. 0,6 mol. dm⁻₃",
+      "B. 0,5 mol. dm⁻₃",
+      "C. 0,4 mol. dm⁻₃",
+      "D. 0,2 mol. dm⁻₃"
     ],
     "answer": [
       "D"
@@ -16034,7 +16049,7 @@
   },
   {
     "id": 1155,
-    "text": "Pri neutralizácii kyseliny chlorovodíkovej hydroxidom vápenatým vzniká chlorid vápenatý a voda. Vypočítajte, koľko 75 % HCl potrebujeme na prípravu 250 ml CaCl₂, c = 0,3 mol . dm⁻₃. Mr(HCl) = 36,5",
+    "text": "Pri neutralizácii kyseliny chlorovodíkovej hydroxidom vápenatým vzniká chlorid vápenatý a voda. Vypočítajte, koľko 75 % HCl potrebujeme na prípravu 250 ml CaCl₂, c = 0,3 mol. dm⁻₃. Mr(HCl) = 36,5",
     "options": [
       "A. 5,475 g",
       "B. 3,65 g",
@@ -16047,12 +16062,12 @@
   },
   {
     "id": 1156,
-    "text": "Koľko hydroxidu draselného treba na neutralizáciu 100 ml 0,1 mol . dm⁻₃kyseliny chloristej?",
+    "text": "Koľko hydroxidu draselného treba na neutralizáciu 100 ml 0,1 mol. dm⁻₃kyseliny chloristej?",
     "options": [
       "A. 100 mmol",
       "B. 10 mmol",
       "C. 0,1 mol",
-      "D. 1 . 10⁻₃mol"
+      "D. 1. 10⁻₃mol"
     ],
     "answer": [
       "B"
@@ -16101,7 +16116,7 @@
   },
   {
     "id": 1160,
-    "text": "Koľko gramov alebo aké látkové mno~stvo ~eleza potrebujeme na reakciu s 25 ml HCl, c = 0,5 mol . l⁻₁, aby sme pripravili chlorid ~elezitý?",
+    "text": "Koľko gramov alebo aké látkové mno~stvo ~eleza potrebujeme na reakciu s 25 ml HCl, c = 0,5 mol. l⁻₁, aby sme pripravili chlorid ~elezitý?",
     "options": [
       "A. 2,33 g Fe",
       "B. 7 g Fe",
@@ -16115,7 +16130,7 @@
   },
   {
     "id": 1161,
-    "text": "Vypočítajte, aký objem kyseliny sírovej, c = 0,2 mol . l⁻₁, potrebujeme na neutralizáciu 30 ml hydroxidu draselného, c = 0,15 mol . l⁻₁.",
+    "text": "Vypočítajte, aký objem kyseliny sírovej, c = 0,2 mol. l⁻₁, potrebujeme na neutralizáciu 30 ml hydroxidu draselného, c = 0,15 mol. l⁻₁.",
     "options": [
       "A. 0,01125 l",
       "B. 22,5 ml",
@@ -16129,7 +16144,7 @@
   },
   {
     "id": 1162,
-    "text": "Pri hasení páleného vápna sa spotrebovalo 25 litrov vody (hustota = 1 g . cm⁻₃). Vypočítajte, aké mno~stvo oxidu vápenatého, w = 80 %, potrebujeme na reakciu a aké mno~stvo hydroxidu vápenatého vzniklo. Mr(CaO) = 56; Mr(Ca(OH)₂) = 74",
+    "text": "Pri hasení páleného vápna sa spotrebovalo 25 litrov vody (hustota = 1 g. cm⁻₃). Vypočítajte, aké mno~stvo oxidu vápenatého, w = 80 %, potrebujeme na reakciu a aké mno~stvo hydroxidu vápenatého vzniklo. Mr(CaO) = 56; Mr(Ca(OH)₂) = 74",
     "options": [
       "A. 62,22 kg CaO",
       "B. 102,78 kg Ca(OH)₂",
@@ -16143,12 +16158,12 @@
   },
   {
     "id": 1163,
-    "text": "Na reakciu 100 ml chloridu sodného, c = 0,5 mol . l⁻₁, s dusičnanom strieborným sme navá~ili 10,2 g AgNO₃. Vypočítajte, aká bude jeho koncentrácia v mol . l⁻₁, ak sme po skončení reakcie doplnili reakčný systém destilovanou vodou do objemu 350 ml. Mr(AgNO₃) = 170; Mr(NaCl) = 58",
+    "text": "Na reakciu 100 ml chloridu sodného, c = 0,5 mol. l⁻₁, s dusičnanom strieborným sme navá~ili 10,2 g AgNO₃. Vypočítajte, aká bude jeho koncentrácia v mol. l⁻₁, ak sme po skončení reakcie doplnili reakčný systém destilovanou vodou do objemu 350 ml. Mr(AgNO₃) = 170; Mr(NaCl) = 58",
     "options": [
-      "A. 0,05 mol . l–₁",
-      "B. 0,029 mol . l–₁",
-      "C. 0,17 mol . l–₁",
-      "D. 0,06 mol . l–₁"
+      "A. 0,05 mol. l–₁",
+      "B. 0,029 mol. l–₁",
+      "C. 0,17 mol. l–₁",
+      "D. 0,06 mol. l–₁"
     ],
     "answer": [
       "B"
@@ -16211,7 +16226,7 @@
   },
   {
     "id": 1168,
-    "text": "Aké je pH roztoku kyseliny chlorovodíkovej o koncentrácii 0,1 mmol . dm⁻₃?",
+    "text": "Aké je pH roztoku kyseliny chlorovodíkovej o koncentrácii 0,1 mmol. dm⁻₃?",
     "options": [
       "A. 1",
       "B. 2",
@@ -16240,7 +16255,7 @@
     "id": 1170,
     "text": "Pre roztok, ktorý vznikne doplnením 50 g 0,72 % roztoku HCl do 1 litra platí:",
     "options": [
-      "A. koncentrácia je 0,01 mol . dm–₃",
+      "A. koncentrácia je 0,01 mol. dm–₃",
       "B. pH = 3",
       "C. pOH = 11",
       "D. pH = 2"
@@ -16266,7 +16281,7 @@
   },
   {
     "id": 1172,
-    "text": "Vypočítajte pH roztoku, ktorý vznikne zmieaaním 50 ml roztoku kyseliny sírovej s c = 0,25 mol . l⁻₁a 50 ml roztoku hydroxidu draselného s c = 0,25 mol . l⁻₁. (log 0,250 = – 0,602; log 0,125 = – 0,903)",
+    "text": "Vypočítajte pH roztoku, ktorý vznikne zmieaaním 50 ml roztoku kyseliny sírovej s c = 0,25 mol. l⁻₁a 50 ml roztoku hydroxidu draselného s c = 0,25 mol. l⁻₁. (log 0,250 = – 0,602; log 0,125 = – 0,903)",
     "options": [
       "A. dochádza k neutralizácii, preto bude roztok neutrálny",
       "B. pH = 11,796",
@@ -16307,11 +16322,11 @@
   },
   {
     "id": 1175,
-    "text": "Vypočítajte pH, pOH, [H₃O⁺] a [OH⁻] nasýteného roztoku hydroxidu vápenatého, ak jeho rozpustnosť pri danej teplote je 1,17 . 10⁻₂mol . dm⁻₃. (log 1,17 = 0,068; log 2,34 = 0,369)",
+    "text": "Vypočítajte pH, pOH, [H₃O⁺] a [OH⁻] nasýteného roztoku hydroxidu vápenatého, ak jeho rozpustnosť pri danej teplote je 1,17. 10⁻₂mol. dm⁻₃. (log 1,17 = 0,068; log 2,34 = 0,369)",
     "options": [
       "A. pH = 12,369; pOH = 1,631",
-      "B. [H₃O⁺] = 4,27 . 10⁻₁₃mol . dm⁻₃; [OH⁻] = 2,34 . 10⁻₂mol . dm⁻₃",
-      "C. [H₃O⁺] = 8,54 . 10⁻₁₃mol . dm⁻₃; [OH⁻] = 1,17 . 10⁻₂mol . dm⁻₃",
+      "B. [H₃O⁺] = 4,27. 10⁻₁₃mol. dm⁻₃; [OH⁻] = 2,34. 10⁻₂mol. dm⁻₃",
+      "C. [H₃O⁺] = 8,54. 10⁻₁₃mol. dm⁻₃; [OH⁻] = 1,17. 10⁻₂mol. dm⁻₃",
       "D. pH = 12,068; pOH = 1,932"
     ],
     "answer": [
@@ -16347,12 +16362,12 @@
   },
   {
     "id": 1178,
-    "text": "Súčin rozpustnosti fluoridu olovnatého pri 18 °C je 3,7 . 10⁻₈. Aká je koncentrácia jednotlivých iónov v jeho nasýtenom roztoku? Vyjadrite rozpustnosť danej látky v mol na 1 liter roztoku. (³√3,2 = 1,474; ³√9,25 = 2,1; √3,2 = 1,79)",
+    "text": "Súčin rozpustnosti fluoridu olovnatého pri 18 °C je 3,7. 10⁻₈. Aká je koncentrácia jednotlivých iónov v jeho nasýtenom roztoku? Vyjadrite rozpustnosť danej látky v mol na 1 liter roztoku. (³√3,2 = 1,474; ³√9,25 = 2,1; √3,2 = 1,79)",
     "options": [
-      "A. [Pb²+] = 2,1 . 10⁻₃mol . l⁻₁",
-      "B. [F⁻] = 4,2 . 10⁻₃mol . l⁻₁",
-      "C. [PbF₂] = 4,2 . 10⁻₃mol . l⁻₁",
-      "D. [PbF₂] = 2,1 . 10⁻₃mol . l⁻₁"
+      "A. [Pb²+] = 2,1. 10⁻₃mol. l⁻₁",
+      "B. [F⁻] = 4,2. 10⁻₃mol. l⁻₁",
+      "C. [PbF₂] = 4,2. 10⁻₃mol. l⁻₁",
+      "D. [PbF₂] = 2,1. 10⁻₃mol. l⁻₁"
     ],
     "answer": [
       "A",
@@ -16364,10 +16379,10 @@
     "id": 1179,
     "text": "V nasýtenom roztoku dusičnanu strieborného je za daných podmienok rozpustených 36 mg AgNO₃v 300 ml roztoku. Vypočítajte súčin rozpustnosti dusičnanu strieborného.",
     "options": [
-      "A. Ks = 0,5 . 10⁻₆",
+      "A. Ks = 0,5. 10⁻₆",
       "B. Ks = 0,5",
-      "C. Ks = 2,6 . 10⁻₄",
-      "D. Ks = 2,6 . 10⁻₆"
+      "C. Ks = 2,6. 10⁻₄",
+      "D. Ks = 2,6. 10⁻₆"
     ],
     "answer": [
       "A"
@@ -16375,8 +16390,13 @@
   },
   {
     "id": 1180,
-    "text": "Zmieaali sme rovnaké objemy roztoku BaCl₂s koncentráciou 0,05 mol . l⁻₁a Na₂SO₄s koncentráciou tie~ 0,05 mol . l⁻₁. Vznikne zrazenina BaSO₄? Vypočítajte molovú koncentráciu rozpusteného síranu bárnatého vo vzniknutom roztoku. Súčin rozpustnosti BaSO₄je pri danej teplote",
-    "options": [],
+    "text": "Zmiešali sme rovnaké objemy roztoku BaCl₂s koncentráciou 0,05 mol. l⁻₁a Na₂SO₄s koncentráciou tiež 0,05 mol. l⁻₁. Vznikne zrazenina BaSO₄? Vypočítajte molovú koncentráciu rozpusteného síranu bárnatého vo vzniknutom roztoku. Súčin rozpustnosti BaSO₄je pri danej teplote",
+    "options": [
+      "A. ano vznikne zrazenina",
+      "B. nie nevznikne zrazenina",
+      "C. 0,05 mol.1⁻₁",
+      "D. 1.10⁻₅ mol.1⁻₁"
+],
     "answer": [
       "A",
       "D"
@@ -16384,12 +16404,12 @@
   },
   {
     "id": 1181,
-    "text": "Vypočítajte súčin rozpustnosti sulfidu strieborného, ak pri danej teplote je v 1 litri nasýteného roztoku rozpustenej 6,23 . 10⁻₁₅g látky.",
+    "text": "Vypočítajte súčin rozpustnosti sulfidu strieborného, ak pri danej teplote je v 1 litri nasýteného roztoku rozpustenej 6,23. 10⁻₁₅g látky.",
     "options": [
-      "A. 6,36 . 10⁻₅₀",
-      "B. 1,58 . 10⁻₅₀",
-      "C. 3,52 . 10⁻₄₉",
-      "D. 8,81 . 10⁻₅₀"
+      "A. 6,36. 10⁻₅₀",
+      "B. 1,58. 10⁻₅₀",
+      "C. 3,52. 10⁻₄₉",
+      "D. 8,81. 10⁻₅₀"
     ],
     "answer": [
       "A"
@@ -16397,12 +16417,12 @@
   },
   {
     "id": 1182,
-    "text": "V 500 ml nasýteného roztoku sa pri danej teplote nachádza 6,58 . 10⁻₅g bromidu strieborného. Vypočítajte jeho súčin rozpustnosti.",
+    "text": "V 500 ml nasýteného roztoku sa pri danej teplote nachádza 6,58. 10⁻₅g bromidu strieborného. Vypočítajte jeho súčin rozpustnosti.",
     "options": [
-      "A. KS = 4,9 . 10⁻₁₃",
-      "B. KS = 4,9 . 10⁻₁₇",
-      "C. KS = 7,0 . 10⁻₇",
-      "D. KS = 7,0 . 10⁻₁₄"
+      "A. KS = 4,9. 10⁻₁₃",
+      "B. KS = 4,9. 10⁻₁₇",
+      "C. KS = 7,0. 10⁻₇",
+      "D. KS = 7,0. 10⁻₁₄"
     ],
     "answer": [
       "A"
@@ -16410,12 +16430,12 @@
   },
   {
     "id": 1183,
-    "text": "Vypočítajte koľko síranu bárnatého je rozpusteného v 0,5 l nasýteného roztoku, ak pri danej teplote je Ks = 1,08 . 10⁻₁₀. (√1,08 = 1,039; √108 = 10,39)",
+    "text": "Vypočítajte koľko síranu bárnatého je rozpusteného v 0,5 l nasýteného roztoku, ak pri danej teplote je Ks = 1,08. 10⁻₁₀. (√1,08 = 1,039; √108 = 10,39)",
     "options": [
       "A. 1,21 mg",
       "B. 1,21 g",
-      "C. 12,1 . 10³mg",
-      "D. 0,121 . 10⁻₂kg"
+      "C. 12,1. 10³mg",
+      "D. 0,121. 10⁻₂kg"
     ],
     "answer": [
       "A"
@@ -16423,20 +16443,25 @@
   },
   {
     "id": 1184,
-    "text": "Vypočítajte súčin rozpustnosti hydroxidu strieborného, ak pri danej teplote pH nasýteného roztoku je 10,",
-    "options": [],
+    "text": "Vypočítajte súčin rozpustnosti hydroxidu strieborného, ak pri danej teplote pH nasýteného roztoku je 10,3 (log 3,7 = 0,568; log 1,996 = 0,300)",
+    "options": [
+"A. 3,98 . 10-10",
+"B. 3,98 . 10-8",
+"C. 3,96 . 10-10",
+"D. 39,6 . 10-8"
+],
     "answer": [
       "B"
     ]
   },
   {
     "id": 1185,
-    "text": "V rovnová~nom stave reakcie 2 SO₂ + O₂ ↔ 2 SO₃je rovnová~na koncentrácia SO₃ 4,5 mol . l⁻₁; kyslíka 1,5 mol . l⁻₁a oxidu siričitého 2,5 mol . l⁻₁. Vypočítajte rovnová~nu konatantu reakcie a počiatočné koncentrácie oxidu siričitého a kyslíka.",
+    "text": "V rovnová~nom stave reakcie 2 SO₂ + O₂ ↔ 2 SO₃je rovnová~na koncentrácia SO₃ 4,5 mol. l⁻₁; kyslíka 1,5 mol. l⁻₁a oxidu siričitého 2,5 mol. l⁻₁. Vypočítajte rovnová~nu konatantu reakcie a počiatočné koncentrácie oxidu siričitého a kyslíka.",
     "options": [
       "A. K = 2,16",
-      "B. [SO₂] = 7 mol . l⁻₁; [O₂] = 3,75 mol . l⁻₁",
+      "B. [SO₂] = 7 mol. l⁻₁; [O₂] = 3,75 mol. l⁻₁",
       "C. K = 0,77",
-      "D. [O₂] = 7 mol . l⁻₁; [SO₂] = 3,75 mol . l⁻₁"
+      "D. [O₂] = 7 mol. l⁻₁; [SO₂] = 3,75 mol. l⁻₁"
     ],
     "answer": [
       "A",
@@ -16445,12 +16470,12 @@
   },
   {
     "id": 1186,
-    "text": "Pri reakcii vodíka s dusíkom sa zistili pri danej teplote v reakčnej zmesi rovnová~ne koncentrácie vodíka 5 mol . l⁻₁; dusíka 3,5 mol . l⁻₁a amoniaku 6 mol . l⁻₁. Vypočítajte rovnová~nu konatantu tejto reakcie a zistite počiatočné koncentrácie dusíka a vodíka.",
+    "text": "Pri reakcii vodíka s dusíkom sa zistili pri danej teplote v reakčnej zmesi rovnová~ne koncentrácie vodíka 5 mol. l⁻₁; dusíka 3,5 mol. l⁻₁a amoniaku 6 mol. l⁻₁. Vypočítajte rovnová~nu konatantu tejto reakcie a zistite počiatočné koncentrácie dusíka a vodíka.",
     "options": [
       "A. K = 0,082",
       "B. K = 10",
-      "C. [H₂] = 8 mol . cm⁻₃; [N₂] = 9,5 mol . cm⁻₃",
-      "D. [H₂] = 14 mol . dm⁻₃; [N₂] = 6,5 mol . dm⁻₃"
+      "C. [H₂] = 8 mol. cm⁻₃; [N₂] = 9,5 mol. cm⁻₃",
+      "D. [H₂] = 14 mol. dm⁻₃; [N₂] = 6,5 mol. dm⁻₃"
     ],
     "answer": [
       "A",
@@ -16459,10 +16484,10 @@
   },
   {
     "id": 1187,
-    "text": "V rovnová~nom stave reakcie 2 N₂ + 3 O₂ ↔ 2 N₂O₃sa zistila koncentrácia dusíka 2,30 mol . l⁻₁; kyslíka 1,05 mol . l⁻₁a oxidu dusitého 3,42 mol . l⁻₁. Vypočítajte rovnová~nu konatantu reakcie a počiatočné koncentrácie dusíka a kyslíka.",
+    "text": "V rovnová~nom stave reakcie 2 N₂ + 3 O₂ ↔ 2 N₂O₃sa zistila koncentrácia dusíka 2,30 mol. l⁻₁; kyslíka 1,05 mol. l⁻₁a oxidu dusitého 3,42 mol. l⁻₁. Vypočítajte rovnová~nu konatantu reakcie a počiatočné koncentrácie dusíka a kyslíka.",
     "options": [
-      "A. [N₂] = 5,72 mol . dm⁻₃; [O₂] = 6,18 mol . dm⁻₃",
-      "B. [N₂] = 4,01 mol . dm⁻₃; [O₂] = 2,29 mol . dm⁻₃",
+      "A. [N₂] = 5,72 mol. dm⁻₃; [O₂] = 6,18 mol. dm⁻₃",
+      "B. [N₂] = 4,01 mol. dm⁻₃; [O₂] = 2,29 mol. dm⁻₃",
       "C. K = 0,524",
       "D. K = 1,910"
     ],
@@ -16473,8 +16498,13 @@
   },
   {
     "id": 1188,
-    "text": "Pri reakcii 5 mol kyseliny octovej a 5 mol metanolu vzniká octan metylový. Vypočítajte rovnová~ne koncentrácie jednotlivých látok v reakčnej zmesi, ak viete, ~e K =",
-    "options": [],
+    "text": "Pri reakcii 5 mol kyseliny octovej a 5 mol metanolu vzniká octan metylový. Vypočítajte rovnovážne koncentrácie jednotlivých látok v reakčnej zmesi, ak viete, že K =4",
+    "options": [
+"A. [CH3COOCH3] = 1,67 mol . dm-3; [H2O] = 1,67 mol . dm-3",
+"B. [CH3COOH] = 1,67 mol . dm-3; [CH3OH] = 1,67 mol . dm-3",
+"C. [CH3COOCH3] = 3,33 mol . dm-3; [H2O] = 1,67 mol . dm-3",
+"D. [CH3COOCH3] = 3,33 mol . dm-3; [H2O] = 3,33 mol . dm-3"
+],
     "answer": [
       "B",
       "D"
@@ -16482,8 +16512,15 @@
   },
   {
     "id": 1189,
-    "text": "Rovnová~na konatanta syntézy HI z I₂a H₂má hodnotu K =",
-    "options": [],
+    "text": "Rovnová~na konatanta syntézy HI z I2 a H2 má hodnotu K = 9. Vypočítajte rovnová~ne
+koncentrácie jednotlivých látok v reakčnej zmesi, ak východiskové koncentrácie vodíka a jódu boli
+2 mol . l-1.",
+    "options": [
+"A. [H2] = 1,5 mol . dm-3; [I2] = 1,5 mol . dm-3",
+"B. [HI] = 2,4 mol . dm-3",
+"C. [H2] = 0,8 mol . dm-3; [I2] = 0,8 mol . dm-3",
+"D. [HI] = 0,5 mol . dm-3"
+],
     "answer": [
       "B",
       "C"
@@ -16491,12 +16528,12 @@
   },
   {
     "id": 1190,
-    "text": "Vyberte izotonické roztoky k roztoku NiCl₂s koncentráciou 0,3 mol . dm⁻₃ :",
+    "text": "Vyberte izotonické roztoky k roztoku NiCl₂s koncentráciou 0,3 mol. dm⁻₃:",
     "options": [
-      "A. glukóza, c = 0,1 mol . dm⁻₃",
-      "B. FeCl₃, c = 0,1 mol . dm⁻₃",
-      "C. Na₂SO₄, c = 0,3 mol . dm⁻₃",
-      "D. ZnI₂, c = 0,2 mol . dm⁻₃"
+      "A. glukóza, c = 0,1 mol. dm⁻₃",
+      "B. FeCl₃, c = 0,1 mol. dm⁻₃",
+      "C. Na₂SO₄, c = 0,3 mol. dm⁻₃",
+      "D. ZnI₂, c = 0,2 mol. dm⁻₃"
     ],
     "answer": [
       "C"
@@ -16517,7 +16554,7 @@
   },
   {
     "id": 1192,
-    "text": "O vodných roztokoch sacharózy, c = 0,2 mol . l⁻₁ ; NaCl, c = 0,1 mol . l⁻₁a AlCl₃, c = 0,2 mol . l⁻₁pri rovnakej teplote platí:",
+    "text": "O vodných roztokoch sacharózy, c = 0,2 mol. l⁻₁; NaCl, c = 0,1 mol. l⁻₁a AlCl₃, c = 0,2 mol. l⁻₁pri rovnakej teplote platí:",
     "options": [
       "A. roztoky sacharózy a chloridu hlinitého sú izotonické",
       "B. roztok sacharózy je hypertonický voči roztoku chloridu sodného",
@@ -16531,7 +16568,7 @@
   },
   {
     "id": 1193,
-    "text": "O vodných roztokoch fruktózy, c = 0,3 mol . l⁻₁ ; NiCl₂, c = 0,1 mol . l⁻₁a KCl, c = 0,15 mol . l⁻₁za rovnakých podmienok platí:",
+    "text": "O vodných roztokoch fruktózy, c = 0,3 mol. l⁻₁; NiCl₂, c = 0,1 mol. l⁻₁a KCl, c = 0,15 mol. l⁻₁za rovnakých podmienok platí:",
     "options": [
       "A. roztok fruktózy je hypertonický voči roztoku chloridu nikelnatého aj voči roztoku chloridu draselného",
       "B. všetky roztoky sú navzájom voči sebe izotonické",
@@ -16547,10 +16584,10 @@
     "id": 1194,
     "text": "Vyberte hypertonické roztoky k roztoku CuSO₄s koncentráciou 0,2 mol/l:",
     "options": [
-      "A. NaCl ; c = 0,4 mol/l",
-      "B. (CH₃COO)₃Al ; c = 0,2 mol/l",
-      "C. Cu(NO₃)₂ ; c = 0,1 mol/l",
-      "D. KClO₃ ; c = 0,4 mol/l"
+      "A. NaCl; c = 0,4 mol/l",
+      "B. (CH₃COO)₃Al; c = 0,2 mol/l",
+      "C. Cu(NO₃)₂; c = 0,1 mol/l",
+      "D. KClO₃; c = 0,4 mol/l"
     ],
     "answer": [
       "A",
@@ -16560,11 +16597,11 @@
   },
   {
     "id": 1195,
-    "text": "Vypočítajte osmotický tlak a koncentráciu osmoticky účinných častíc v roztoku chloridu hlinitého. Pri teplote 27°C sa v 1 litri roztoku nachádza 3,829 g chloridu hlinitého. (R = 8,32 J . K⁻₁ . mol⁻₁)",
+    "text": "Vypočítajte osmotický tlak a koncentráciu osmoticky účinných častíc v roztoku chloridu hlinitého. Pri teplote 27°C sa v 1 litri roztoku nachádza 3,829 g chloridu hlinitého. (R = 8,32 J. K⁻₁. mol⁻₁)",
     "options": [
-      "A. 0,1149 mol . dm⁻₃",
+      "A. 0,1149 mol. dm⁻₃",
       "B. 286,8 kPa",
-      "C. 0,029 mol . dm⁻₃",
+      "C. 0,029 mol. dm⁻₃",
       "D. 71,63 kPa"
     ],
     "answer": [
@@ -16574,10 +16611,10 @@
   },
   {
     "id": 1196,
-    "text": "Roztok má pri 25oC osmotický tlak 280,34 kPa a v 500 ml obsahuje 8,476 g neelektrolytu. Vypočítajte jeho molovú hmotnosť a určte o akú látku ide. (R = 8,32 J . K⁻₁. mol⁻₁)",
+    "text": "Roztok má pri 25oC osmotický tlak 280,34 kPa a v 500 ml obsahuje 8,476 g neelektrolytu. Vypočítajte jeho molovú hmotnosť a určte o akú látku ide. (R = 8,32 J. K⁻₁. mol⁻₁)",
     "options": [
-      "A. 150 g . mol⁻₁",
-      "B. 150 mol . dm⁻₃",
+      "A. 150 g. mol⁻₁",
+      "B. 150 mol. dm⁻₃",
       "C. ribóza",
       "D. deoxyribóza"
     ],
@@ -16588,10 +16625,10 @@
   },
   {
     "id": 1197,
-    "text": "Roztok má pri 37oC osmotický tlak 709,6 kPa a v 200 ml obsahuje 2,53 g neelektrolytu. Vypočítajte jeho molovú hmotnosť a určte o akú látku ide. (R = 8,32 J . K⁻₁. mol⁻₁)",
+    "text": "Roztok má pri 37oC osmotický tlak 709,6 kPa a v 200 ml obsahuje 2,53 g neelektrolytu. Vypočítajte jeho molovú hmotnosť a určte o akú látku ide. (R = 8,32 J. K⁻₁. mol⁻₁)",
     "options": [
-      "A. 18,40 g . mol⁻₁",
-      "B. 46 g . mol⁻₁",
+      "A. 18,40 g. mol⁻₁",
+      "B. 46 g. mol⁻₁",
       "C. metanol",
       "D. etanol"
     ],
@@ -16602,7 +16639,7 @@
   },
   {
     "id": 1198,
-    "text": "Aký bude osmotický tlak roztoku octanu hlinitého pri teplote 25 °C, ak sa v 500 ml roztoku nachádza 5 g tejto látky? (R = 8,32 J . K⁻₁ . mol⁻₁)",
+    "text": "Aký bude osmotický tlak roztoku octanu hlinitého pri teplote 25 °C, ak sa v 500 ml roztoku nachádza 5 g tejto látky? (R = 8,32 J. K⁻₁. mol⁻₁)",
     "options": [
       "A. 0,48 kPa",
       "B. 486,4 kPa",
@@ -16615,7 +16652,7 @@
   },
   {
     "id": 1199,
-    "text": "Vypočítajte hmotnosť fruktózy, ktorá sa nachádza v 750 ml roztoku, ak pri 25°C je osmotický tlak roztoku 275,4 kPa. (R = 8,32 J . K⁻₁. mol⁻₁)",
+    "text": "Vypočítajte hmotnosť fruktózy, ktorá sa nachádza v 750 ml roztoku, ak pri 25°C je osmotický tlak roztoku 275,4 kPa. (R = 8,32 J. K⁻₁. mol⁻₁)",
     "options": [
       "A. 15 g",
       "B. 15 mg",
@@ -16628,7 +16665,7 @@
   },
   {
     "id": 1200,
-    "text": "Roztok neznámeho sacharidu o objeme 0,5 litra obsahuje 25 g sacharidu a pri teplote 30 oC má osmotický tlak 700 kPa. Rozhodnite, aký sacharid je rozpustený v roztoku. (R = 8,32 J . K⁻₁. mol⁻₁)",
+    "text": "Roztok neznámeho sacharidu o objeme 0,5 litra obsahuje 25 g sacharidu a pri teplote 30 oC má osmotický tlak 700 kPa. Rozhodnite, aký sacharid je rozpustený v roztoku. (R = 8,32 J. K⁻₁. mol⁻₁)",
     "options": [
       "A. sacharóza",
       "B. glukóza",

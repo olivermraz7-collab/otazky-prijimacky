@@ -2495,13 +2495,24 @@ def render_center_date_setup(selected_field_name, current_exam_date):
             div[data-baseweb="calendar"] * {
                 z-index: 2147483647 !important;
             }
-        </style>
+        
+            /* dialog-title-visual-fix: natívny názov dialógu zladíme s dizajnom */
+            div[role="dialog"] h2,
+            div[role="dialog"] h1 {
+                color: #ffffff !important;
+                font-size: 20px !important;
+                font-weight: 900 !important;
+                letter-spacing: -0.035em !important;
+                margin-bottom: 8px !important;
+            }
+
+</style>
         """,
         unsafe_allow_html=True
     )
 
     if hasattr(st, "dialog"):
-        @st.dialog("")
+        @st.dialog("Zadaj termín skúšky")
         def exam_date_dialog():
             st.markdown(
                 f"""

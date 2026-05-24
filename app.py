@@ -2576,16 +2576,26 @@ if not questions:
 
 
 # ============================================================
+# ============================================================
 # FILTERS: TOPIC + MODE
 # ============================================================
 
 topic_values = sorted(
     {
-        q.get("topic", "Nezaradené")
+        str(q.get("topic", "Nezaradené")).strip()
         for q in questions
-        if isinstance(q, dict)
+        if isinstance(q, dict) and str(q.get("topic", "Nezaradené")).strip()
     }
 )
+
+# Nikdy nevytvárať technické rozsahy typu [0 - 99].
+topic_values = [
+    topic for topic in topic_values
+    if not re.fullmatch(r"\[\d+\s*-\s*\d+\]", topic)
+]
+
+if not topic_values:
+    topic_values = ["Nezaradené"]
 
 topic_options = ["Všetky celky"] + topic_values
 
@@ -2602,8 +2612,10 @@ if selected_topic_name == "Všetky celky":
 else:
     topic_filtered_questions = [
         q for q in questions
-        if q.get("topic", "Nezaradené") == selected_topic_name
+        if str(q.get("topic", "Nezaradené")).strip() == selected_topic_name
     ]
+
+st.session_state.selected_topic_name = selected_topic_name
 
 study_mode = st.sidebar.selectbox(
     "Režim",
@@ -2613,7 +2625,6 @@ study_mode = st.sidebar.selectbox(
     key="sidebar_mode_select"
 )
 
-st.session_state.selected_topic_name = selected_topic_name
 st.session_state.study_mode = study_mode
 
 current_data = ensure_subject_state(selected_file, questions)

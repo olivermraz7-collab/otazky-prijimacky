@@ -105,11 +105,6 @@ def inject_css():
                 font-size: 1.55rem;
             }
 
-            .app-shell {
-                max-width: 1180px;
-                margin: 0 auto;
-            }
-
             .top-hero {
                 background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(239,246,255,0.92));
                 border: 1px solid var(--border);
@@ -163,7 +158,7 @@ def inject_css():
             }
 
             .glass-card {
-                background: rgba(255,255,255,0.94);
+                background: rgba(255,255,255,0.97);
                 border: 1px solid var(--border);
                 border-radius: 24px;
                 box-shadow: var(--shadow-soft);
@@ -172,7 +167,7 @@ def inject_css():
             }
 
             .question-card {
-                background: rgba(255,255,255,0.97);
+                background: rgba(255,255,255,0.98);
                 border: 1px solid var(--border);
                 border-radius: 28px;
                 box-shadow: var(--shadow);
@@ -194,12 +189,6 @@ def inject_css():
                 font-weight: 800;
                 font-size: 24px;
                 letter-spacing: -0.03em;
-            }
-
-            .meta-line {
-                color: #9ca3af;
-                font-size: 12px;
-                margin-bottom: 12px;
             }
 
             .status-pill {
@@ -289,11 +278,6 @@ def inject_css():
                 margin-bottom: 8px;
             }
 
-            .sidebar-muted {
-                font-size: 12px;
-                color: #6b7280;
-            }
-
             .stat-row {
                 display: flex;
                 justify-content: space-between;
@@ -318,8 +302,8 @@ def inject_css():
 
             .login-card {
                 max-width: 620px;
-                margin: 4rem auto;
-                background: rgba(255,255,255,0.95);
+                margin: 3rem auto 1.5rem auto;
+                background: rgba(255,255,255,0.97);
                 border: 1px solid rgba(17,24,39,0.08);
                 border-radius: 30px;
                 box-shadow: var(--shadow);
@@ -340,16 +324,6 @@ def inject_css():
                 color: #6b7280;
                 line-height: 1.6;
                 margin-bottom: 18px;
-            }
-
-            .success-box {
-                background: #f0fdf4;
-                border: 1px solid #bbf7d0;
-                color: #166534;
-                padding: 13px 15px;
-                border-radius: 16px;
-                font-size: 14px;
-                margin: 10px 0;
             }
 
             .warning-box {
@@ -393,15 +367,101 @@ def inject_css():
             }
 
             div[data-testid="stCheckbox"] {
-                background: rgba(249,250,251,0.8);
+                background: rgba(249,250,251,0.86);
                 border: 1px solid rgba(17,24,39,0.06);
                 border-radius: 14px;
                 padding: 7px 11px;
                 margin-bottom: 8px;
             }
 
+            div[data-testid="stCheckbox"] label,
+            div[data-testid="stCheckbox"] label p {
+                color: #111827 !important;
+                font-weight: 500 !important;
+            }
+
             .stProgress > div > div > div > div {
                 background: linear-gradient(90deg, #2563eb, #4f46e5);
+            }
+
+            /* ============================================================
+               FIX: Login/Register tabs + input labels visibility
+               ============================================================ */
+
+            button[data-baseweb="tab"] {
+                color: #374151 !important;
+                background: transparent !important;
+                border-radius: 12px 12px 0 0 !important;
+                font-weight: 700 !important;
+            }
+
+            button[data-baseweb="tab"] p {
+                color: #374151 !important;
+                font-weight: 700 !important;
+            }
+
+            button[data-baseweb="tab"][aria-selected="true"] {
+                color: #111827 !important;
+                background: #ffffff !important;
+                border-bottom: 2px solid #2563eb !important;
+            }
+
+            button[data-baseweb="tab"][aria-selected="true"] p {
+                color: #111827 !important;
+            }
+
+            div[data-baseweb="tab-list"] {
+                background: rgba(255,255,255,0.75) !important;
+                border-radius: 14px !important;
+                padding: 4px !important;
+                border: 1px solid rgba(17,24,39,0.08) !important;
+            }
+
+            div[data-testid="stTabs"] {
+                background: rgba(255,255,255,0.80) !important;
+                border: 1px solid rgba(17,24,39,0.08) !important;
+                border-radius: 18px !important;
+                padding: 14px !important;
+                box-shadow: 0 8px 22px rgba(15,23,42,0.04) !important;
+            }
+
+            label,
+            label p,
+            div[data-testid="stTextInput"] label,
+            div[data-testid="stTextInput"] label p,
+            div[data-testid="stSelectbox"] label,
+            div[data-testid="stSelectbox"] label p {
+                color: #374151 !important;
+                font-weight: 700 !important;
+                font-size: 13px !important;
+            }
+
+            div[data-testid="stTextInput"] input {
+                color: #111827 !important;
+                background-color: #ffffff !important;
+                border: 1px solid rgba(17,24,39,0.16) !important;
+                border-radius: 12px !important;
+            }
+
+            div[data-testid="stTextInput"] input::placeholder {
+                color: #9ca3af !important;
+                opacity: 1 !important;
+            }
+
+            input[type="password"],
+            input[type="text"] {
+                color: #111827 !important;
+                background-color: #ffffff !important;
+            }
+
+            div[data-baseweb="select"] > div {
+                background-color: #ffffff !important;
+                border-radius: 12px !important;
+                color: #111827 !important;
+            }
+
+            div[data-baseweb="select"] span {
+                color: #111827 !important;
             }
 
             @media (max-width: 900px) {
@@ -641,8 +701,17 @@ def render_login_screen():
 
     with login_tab:
         with st.form("login_form"):
-            username = st.text_input("Používateľské meno")
-            password = st.text_input("Heslo", type="password")
+            username = st.text_input(
+                "Používateľské meno",
+                placeholder="napr. oliver"
+            )
+
+            password = st.text_input(
+                "Heslo",
+                type="password",
+                placeholder="zadaj heslo"
+            )
+
             submitted = st.form_submit_button("Prihlásiť sa")
 
         if submitted:
@@ -656,10 +725,28 @@ def render_login_screen():
 
     with register_tab:
         with st.form("register_form"):
-            display_name = st.text_input("Meno")
-            new_username = st.text_input("Používateľské meno")
-            new_password = st.text_input("Heslo", type="password")
-            new_password_confirm = st.text_input("Zopakuj heslo", type="password")
+            display_name = st.text_input(
+                "Meno",
+                placeholder="napr. Oliver"
+            )
+
+            new_username = st.text_input(
+                "Používateľské meno",
+                placeholder="napr. oliver"
+            )
+
+            new_password = st.text_input(
+                "Heslo",
+                type="password",
+                placeholder="minimálne 4 znaky"
+            )
+
+            new_password_confirm = st.text_input(
+                "Zopakuj heslo",
+                type="password",
+                placeholder="zopakuj heslo"
+            )
+
             submitted_register = st.form_submit_button("Vytvoriť účet")
 
         if submitted_register:

@@ -473,6 +473,29 @@ def inject_css():
                 border-color: rgba(255,255,255,0.08) !important;
             }
 
+
+
+            .topic-mini-card {
+                background: rgba(15, 23, 42, 0.72);
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 18px;
+                padding: 12px 14px;
+                margin: 10px 0 14px 0;
+            }
+
+            .topic-mini-title {
+                color: #f8fafc;
+                font-size: 13px;
+                font-weight: 850;
+                margin-bottom: 7px;
+            }
+
+            .topic-mini-muted {
+                color: #94a3b8;
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
             @media (max-width: 900px) {
                 .hero-title {
                     font-size: 26px;
@@ -807,7 +830,8 @@ def default_user_state():
         "subjects_data": {},
         "last_settings": {
             "field_idx": 0,
-            "subj_name": None
+            "subj_name": None,
+            "topic_name": "Všetky celky"
         }
     }
 
@@ -827,8 +851,12 @@ def load_user_state(username):
     if "last_settings" not in user_state:
         user_state["last_settings"] = {
             "field_idx": 0,
-            "subj_name": None
+            "subj_name": None,
+            "topic_name": "Všetky celky"
         }
+
+    if "topic_name" not in user_state["last_settings"]:
+        user_state["last_settings"]["topic_name"] = "Všetky celky"
 
     return user_state
 
@@ -845,7 +873,8 @@ def save_progress():
         "subjects_data": st.session_state.subjects_data,
         "last_settings": {
             "field_idx": st.session_state.selected_field_index,
-            "subj_name": st.session_state.selected_subject_name
+            "subj_name": st.session_state.selected_subject_name,
+            "topic_name": st.session_state.get("selected_topic_name", "Všetky celky")
         }
     }
 
@@ -860,7 +889,8 @@ if st.session_state.get("loaded_user") != st.session_state.username:
         "last_settings",
         {
             "field_idx": 0,
-            "subj_name": None
+            "subj_name": None,
+            "topic_name": "Všetky celky"
         }
     )
 
@@ -1136,6 +1166,43 @@ def get_question_by_id(questions, qid):
     return None
 
 
+
+def sanitize_key(value):
+    value = str(value)
+    value = value.lower()
+    value = re.sub(r"[^a-z0-9áäčďéíĺľňóôŕšťúýž]+", "_", value)
+    value = value.strip("_")
+    return value or "all"
+
+
+def get_question_topic(q):
+    topic = q.get("topic")
+
+    if isinstance(topic, str) and topic.strip():
+        return topic.strip()
+
+    return "Nezaradené"
+
+
+def get_available_topics(questions):
+    topics = sorted({get_question_topic(q) for q in questions})
+    return ["Všetky celky"] + topics
+
+
+def filter_questions_by_topic(questions, selected_topic):
+    if selected_topic == "Všetky celky":
+        return questions
+
+    return [q for q in questions if get_question_topic(q) == selected_topic]
+
+
+def count_topic_questions(questions, selected_topic):
+    if selected_topic == "Všetky celky":
+        return len(questions)
+
+    return sum(1 for q in questions if get_question_topic(q) == selected_topic)
+
+
 def update_recent_questions(subject_state, qid):
     recent = subject_state.get("recent_question_ids", [])
     recent.append(str(qid))
@@ -1236,7 +1303,16 @@ def status_class(status):
     return classes.get(status, "status-new")
 
 
-def render_hero(subject_name, field_name, display_name):
+def render_hero(subject_name, field_name, display_name, topic_name="Všetky celky", question_count=None, total_count=None):
+    topic_label = "Všetky celky" if topic_name == "Všetky celky" else topic_name
+
+    if question_count is not None and total_count is not None:
+        count_label = f"Otázky: {question_count} / {total_count}"
+    elif question_count is not None:
+        count_label = f"Otázky: {question_count}"
+    else:
+        count_label = f"Cieľ: {DAILY_GOAL}/deň"
+
     st.markdown(
         f"""
         <div class="top-hero">
@@ -1247,8 +1323,9 @@ def render_hero(subject_name, field_name, display_name):
                 </div>
                 <div class="hero-pill-row">
                     <span class="hero-pill">{escape(field_name)}</span>
+                    <span class="hero-pill">{escape(topic_label)}</span>
+                    <span class="hero-pill">{escape(count_label)}</span>
                     <span class="hero-pill">{escape(display_name)}</span>
-                    <span class="hero-pill">Cieľ: {DAILY_GOAL}/deň</span>
                 </div>
             </div>
         </div>
@@ -1269,6 +1346,8 @@ def render_question_header(q, p):
         </div>
 
         <div class="subtle-stats">
+            Celok: {escape(get_question_topic(q))}
+            &nbsp;·&nbsp;
             Správne: {p.get("correct_count", 0)}
             &nbsp;·&nbsp;
             Nesprávne: {p.get("wrong_count", 0)}
@@ -1393,25 +1472,58 @@ if not questions:
 
 current_data = ensure_subject_state(selected_file, questions)
 
+topic_options = get_available_topics(questions)
+default_topic = st.session_state.last_settings.get("topic_name", "Všetky celky")
+t_idx = topic_options.index(default_topic) if default_topic in topic_options else 0
+
+st.session_state.selected_topic_name = st.sidebar.selectbox(
+    "Celok",
+    topic_options,
+    index=t_idx,
+    help="Vyber konkrétny tematický celok alebo nechaj Všetky celky."
+)
+
+filtered_questions = filter_questions_by_topic(
+    questions,
+    st.session_state.selected_topic_name
+)
+
+if not filtered_questions:
+    st.warning("V tomto celku zatiaľ nie sú žiadne otázky.")
+    st.stop()
+
+active_filter_key = f"{selected_file}::{st.session_state.selected_topic_name}"
+
+if st.session_state.get("active_filter_key") != active_filter_key:
+    st.session_state.answered = False
+    st.session_state.active_filter_key = active_filter_key
+
+with st.sidebar.container(border=True):
+    st.markdown("#### Výber otázok")
+    st.caption("Aktuálne sa precvičujú otázky z vybraného celku.")
+    st.markdown(f"**Celok:** {st.session_state.selected_topic_name}")
+    st.markdown(f"**Otázky v celku:** {len(filtered_questions)} / {len(questions)}")
+
 
 # ============================================================
 # 11. CURRENT QUESTION
 # ============================================================
 
-question_session_key = f"current_question_id_{selected_file}"
-nonce_key = f"answer_nonce_{selected_file}"
+topic_key = sanitize_key(st.session_state.selected_topic_name)
+question_session_key = f"current_question_id_{selected_file}_{topic_key}"
+nonce_key = f"answer_nonce_{selected_file}_{topic_key}"
 
 if nonce_key not in st.session_state:
     st.session_state[nonce_key] = 0
 
 if question_session_key not in st.session_state:
-    selected_question = choose_next_question(questions, current_data)
+    selected_question = choose_next_question(filtered_questions, current_data)
     st.session_state[question_session_key] = get_qid(selected_question)
 
-q = get_question_by_id(questions, st.session_state[question_session_key])
+q = get_question_by_id(filtered_questions, st.session_state[question_session_key])
 
 if q is None:
-    selected_question = choose_next_question(questions, current_data)
+    selected_question = choose_next_question(filtered_questions, current_data)
     st.session_state[question_session_key] = get_qid(selected_question)
     q = selected_question
 
@@ -1429,7 +1541,10 @@ if "answered" not in st.session_state:
 render_hero(
     st.session_state.selected_subject_name,
     selected_field_name,
-    st.session_state.display_name
+    st.session_state.display_name,
+    st.session_state.selected_topic_name,
+    len(filtered_questions),
+    len(questions)
 )
 
 left_col, right_col = st.columns([0.70, 0.30], gap="large")
@@ -1513,7 +1628,7 @@ with left_col:
 
 
 with right_col:
-    counts = count_statuses(current_data, questions)
+    counts = count_statuses(current_data, filtered_questions)
     daily_stats = get_daily_stats(current_data)
     new_limit = dynamic_daily_new_limit(counts)
 
@@ -1553,7 +1668,7 @@ with right_col:
         metric_col_2.metric("Nesprávne", wrong_today)
 
     with st.container(border=True):
-        st.markdown("### Stav predmetu")
+        st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
 
         status_rows = [
             ("Nové", counts.get("NEW", 0)),
@@ -1569,9 +1684,12 @@ with right_col:
             col1.caption(label)
             col2.markdown(f"**{value}**")
 
-    if len(questions) > 0 and counts.get("MASTERED", 0) == len(questions):
+    if len(filtered_questions) > 0 and counts.get("MASTERED", 0) == len(filtered_questions):
         st.balloons()
-        st.success("Všetky otázky v tomto predmete sú zvládnuté.")
+        if st.session_state.selected_topic_name == "Všetky celky":
+            st.success("Všetky otázky v tomto predmete sú zvládnuté.")
+        else:
+            st.success("Všetky otázky v tomto celku sú zvládnuté.")
 
         if st.button("Reštartovať predmet", use_container_width=True):
             if selected_file in st.session_state.subjects_data:
@@ -1588,7 +1706,7 @@ with right_col:
 # 13. SIDEBAR STATS + LOGOUT
 # ============================================================
 
-counts = count_statuses(current_data, questions)
+counts = count_statuses(current_data, filtered_questions)
 daily_stats = get_daily_stats(current_data)
 new_limit = dynamic_daily_new_limit(counts)
 
@@ -1600,7 +1718,8 @@ render_sidebar_card(
     [
         ("Hlavný cieľ", f"{answered_today} / {DAILY_GOAL}"),
         ("Zostáva", max(0, DAILY_GOAL - answered_today)),
-        ("Nové otázky", f"{new_seen_today} / {new_limit}"),
+        ("Celok", st.session_state.selected_topic_name),
+        ("Otázky v celku", f"{len(filtered_questions)} / {len(questions)}"),
         ("Problémové", counts.get("RED", 0))
     ]
 )

@@ -1848,8 +1848,9 @@ if not questions:
 current_data = ensure_subject_state(selected_file, questions)
 
 dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
+subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
 final_review_period = is_final_review_period(selected_field_name)
-dynamic_new_goal = 0 if final_review_period else dynamic_daily_goal
+dynamic_new_goal = 0 if final_review_period else subject_daily_goal
 
 topic_options = get_available_topics(questions)
 default_topic = st.session_state.last_settings.get("topic_name", "Všetky celky")
@@ -2056,7 +2057,7 @@ with right_col:
     counts = count_statuses(current_data, mode_filtered_questions)
     daily_stats = get_daily_stats(current_data)
     new_limit = dynamic_daily_new_limit(counts)
-    dynamic_new_goal = 0 if final_review_period else dynamic_daily_goal
+    dynamic_new_goal = 0 if final_review_period else subject_daily_goal
 
     answered_today = daily_stats.get("answered", 0)
     new_seen_today = daily_stats.get("new_seen", 0)
@@ -2086,13 +2087,13 @@ with right_col:
     with st.container(border=True):
         st.markdown("### Denný cieľ")
 
-        st.progress(progress_percent(answered_today, dynamic_daily_goal))
-        st.markdown(f"**{answered_today} / {dynamic_daily_goal}** otázok dnes")
+        st.progress(progress_percent(answered_today, subject_daily_goal))
+        st.markdown(f"**{answered_today} / {subject_daily_goal}** otázok dnes")
 
-        if answered_today >= dynamic_daily_goal:
+        if answered_today >= subject_daily_goal:
             st.success("Denný cieľ splnený.")
         else:
-            st.caption(f"Zostáva dnes: {max(0, dynamic_daily_goal - answered_today)} otázok")
+            st.caption(f"Zostáva dnes: {max(0, subject_daily_goal - answered_today)} otázok")
 
         st.divider()
 

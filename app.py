@@ -585,6 +585,95 @@ def inject_css():
             }
 
 
+
+            .onboarding-card {
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(30, 41, 59, 0.92));
+                border: 1px solid rgba(255,255,255,0.10);
+                border-radius: 30px;
+                box-shadow: 0 24px 70px rgba(0,0,0,0.42);
+                padding: 30px 32px;
+                margin: 1.5rem auto;
+                max-width: 820px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .onboarding-card::before {
+                content: "";
+                position: absolute;
+                inset: -1px;
+                background:
+                    radial-gradient(circle at 10% 0%, rgba(139,92,246,0.20), transparent 22rem),
+                    radial-gradient(circle at 95% 20%, rgba(37,99,235,0.16), transparent 20rem);
+                pointer-events: none;
+            }
+
+            .onboarding-card > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .onboarding-step {
+                color: #a78bfa;
+                font-size: 12px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+            .onboarding-title {
+                font-size: 31px;
+                line-height: 1.08;
+                font-weight: 900;
+                letter-spacing: -0.055em;
+                color: #ffffff;
+                margin-bottom: 10px;
+            }
+
+            .onboarding-text {
+                color: #cbd5e1;
+                font-size: 15px;
+                line-height: 1.75;
+                margin-bottom: 18px;
+            }
+
+            .onboarding-mini-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 10px;
+                margin-top: 16px;
+            }
+
+            .onboarding-mini {
+                background: rgba(2, 6, 23, 0.48);
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 18px;
+                padding: 13px 14px;
+            }
+
+            .onboarding-mini-title {
+                font-size: 12px;
+                color: #e5e7eb;
+                font-weight: 850;
+                margin-bottom: 5px;
+            }
+
+            .onboarding-mini-text {
+                font-size: 12px;
+                color: #94a3b8;
+                line-height: 1.55;
+            }
+
+            .clean-login-note {
+                max-width: 640px;
+                margin: 0 auto 1rem auto;
+                color: #94a3b8;
+                font-size: 13px;
+                text-align: center;
+            }
+
             @media (max-width: 900px) {
                 .hero-title {
                     font-size: 26px;
@@ -778,7 +867,10 @@ def logout_user():
         "loaded_user",
         "answered",
         "selected_field_index",
-        "selected_subject_name"
+        "selected_subject_name",
+        "onboarding_step",
+        "onboarding_field",
+        "onboarding_subject"
     ]
 
     for key in keys_to_delete:
@@ -799,7 +891,7 @@ def render_login_screen():
             <div class="hero-kicker">{escape(APP_NAME)}</div>
             <div class="login-title">Vitaj späť.</div>
             <div class="login-subtitle">
-                Prihlás sa a pokračuj v príprave presne tam, kde si skončil.
+                Prihlás sa a pokračuj v príprave tam, kde si skončil.
             </div>
         </div>
         """,
@@ -958,6 +1050,9 @@ def load_user_state(username):
     if "exam_dates" not in user_state:
         user_state["exam_dates"] = {}
 
+    if "onboarding_completed" not in user_state:
+        user_state["onboarding_completed"] = False
+
     if "last_settings" not in user_state:
         user_state["last_settings"] = {
             "field_idx": 0,
@@ -986,6 +1081,7 @@ def save_progress():
     user_state = {
         "subjects_data": st.session_state.subjects_data,
         "exam_dates": st.session_state.get("exam_dates", {}),
+        "onboarding_completed": st.session_state.get("onboarding_completed", False),
         "last_settings": {
             "field_idx": st.session_state.selected_field_index,
             "subj_name": st.session_state.selected_subject_name,
@@ -1002,6 +1098,7 @@ if st.session_state.get("loaded_user") != st.session_state.username:
 
     st.session_state.subjects_data = loaded_state.get("subjects_data", {})
     st.session_state.exam_dates = loaded_state.get("exam_dates", {})
+    st.session_state.onboarding_completed = loaded_state.get("onboarding_completed", False)
     st.session_state.last_settings = loaded_state.get(
         "last_settings",
         {
@@ -1784,8 +1881,237 @@ def render_question_text_and_images(q):
                 )
 
 
+
 # ============================================================
-# 10. SIDEBAR SETTINGS
+# 10. ONBOARDING
+# ============================================================
+
+def render_onboarding_card(step_label, title, text):
+    st.markdown(
+        f"""
+        <div class="onboarding-card">
+            <div class="onboarding-step">{escape(step_label)}</div>
+            <div class="onboarding-title">{escape(title)}</div>
+            <div class="onboarding-text">{escape(text)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+def mark_onboarding_done():
+    st.session_state.onboarding_completed = True
+    st.session_state.onboarding_step = 1
+    save_progress()
+    st.rerun()
+
+
+def render_onboarding():
+    if st.session_state.get("onboarding_completed", False):
+        return
+
+    if "onboarding_step" not in st.session_state:
+        st.session_state.onboarding_step = 1
+
+    step = st.session_state.onboarding_step
+
+    st.markdown(
+        f"""
+        <div class="top-hero">
+            <div class="hero-top-row">
+                <div>
+                    <div class="hero-kicker">Prvé nastavenie</div>
+                    <div class="hero-title">Nastav si prípravu</div>
+                </div>
+                <div class="hero-pill-row">
+                    <span class="hero-pill">Krok {step}/5</span>
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    progress_value = min(1.0, step / 5)
+    st.progress(progress_value)
+
+    if step == 1:
+        render_onboarding_card(
+            "Krok 1",
+            "Vyber odbor",
+            "Najprv si vyber odbor, na ktorý sa pripravuješ. Podľa odboru aplikácia vie, ktoré predmety má započítať do plánu."
+        )
+
+        field_list = list(FIELDS.keys())
+        default_index = 0
+
+        if st.session_state.last_settings.get("field_idx", 0) < len(field_list):
+            default_index = st.session_state.last_settings.get("field_idx", 0)
+
+        selected = st.selectbox(
+            "Odbor",
+            field_list,
+            index=default_index,
+            key="onboarding_field_select"
+        )
+
+        st.session_state.onboarding_field = selected
+
+        if st.button("Pokračovať", use_container_width=True):
+            st.session_state.selected_field_index = field_list.index(selected)
+            st.session_state.onboarding_step = 2
+            st.rerun()
+
+    elif step == 2:
+        field_name = st.session_state.get("onboarding_field") or list(FIELDS.keys())[0]
+
+        render_onboarding_card(
+            "Krok 2",
+            "Nastav termín skúšky",
+            "Termín skúšky slúži na výpočet denného plánu. Posledné dni pred skúškou aplikácia automaticky uprednostní opakovanie pred novými otázkami."
+        )
+
+        current_value = st.session_state.get("exam_dates", {}).get(field_name)
+        current_date = parse_date_safe(current_value) or date.today() + timedelta(days=21)
+
+        exam_date = st.date_input(
+            f"Termín skúšky pre odbor: {field_name}",
+            value=current_date,
+            key="onboarding_exam_date"
+        )
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            if st.button("Späť", use_container_width=True):
+                st.session_state.onboarding_step = 1
+                st.rerun()
+
+        with col2:
+            if st.button("Pokračovať", use_container_width=True):
+                st.session_state.exam_dates[field_name] = exam_date.isoformat()
+                save_progress()
+                st.session_state.onboarding_step = 3
+                st.rerun()
+
+    elif step == 3:
+        field_name = st.session_state.get("onboarding_field") or list(FIELDS.keys())[0]
+        subjects = list(FIELDS[field_name].keys())
+
+        render_onboarding_card(
+            "Krok 3",
+            "Vyber prvý predmet",
+            "Predmet si vieš neskôr kedykoľvek zmeniť v sidebare. Aplikácia si pre každý predmet pamätá vlastný progres."
+        )
+
+        selected_subject = st.selectbox(
+            "Predmet",
+            subjects,
+            index=0,
+            key="onboarding_subject_select"
+        )
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            if st.button("Späť", use_container_width=True):
+                st.session_state.onboarding_step = 2
+                st.rerun()
+
+        with col2:
+            if st.button("Pokračovať", use_container_width=True):
+                st.session_state.onboarding_subject = selected_subject
+                st.session_state.last_settings["field_idx"] = list(FIELDS.keys()).index(field_name)
+                st.session_state.last_settings["subj_name"] = selected_subject
+                save_progress()
+                st.session_state.onboarding_step = 4
+                st.rerun()
+
+    elif step == 4:
+        render_onboarding_card(
+            "Krok 4",
+            "Ako čítať pravý panel",
+            "Vpravo uvidíš dnešný výkon, denný cieľ, stav predmetu a dole kompaktný plán do skúšky. Hlavný cieľ je počet otázok, ktoré máš dnes prejsť v aktuálnom predmete."
+        )
+
+        st.markdown(
+            """
+            <div class="onboarding-mini-grid">
+                <div class="onboarding-mini">
+                    <div class="onboarding-mini-title">Dnes</div>
+                    <div class="onboarding-mini-text">Koľko odpovedí bolo správne a nesprávne.</div>
+                </div>
+                <div class="onboarding-mini">
+                    <div class="onboarding-mini-title">Denný cieľ</div>
+                    <div class="onboarding-mini-text">Počet otázok, ktoré máš dnes prejsť v predmete.</div>
+                </div>
+                <div class="onboarding-mini">
+                    <div class="onboarding-mini-title">Plán do skúšky</div>
+                    <div class="onboarding-mini-text">Rozpis podľa termínu skúšky a zostávajúcich otázok.</div>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            if st.button("Späť", use_container_width=True):
+                st.session_state.onboarding_step = 3
+                st.rerun()
+
+        with col2:
+            if st.button("Pokračovať", use_container_width=True):
+                st.session_state.onboarding_step = 5
+                st.rerun()
+
+    elif step == 5:
+        render_onboarding_card(
+            "Krok 5",
+            "Môžeš začať",
+            "V režime Smart review aplikácia mieša nové otázky, slabé miesta a opakovanie. Režim Len nesprávne slúži na samostatný tréning chýb."
+        )
+
+        st.markdown(
+            """
+            <div class="onboarding-mini-grid">
+                <div class="onboarding-mini">
+                    <div class="onboarding-mini-title">Smart review</div>
+                    <div class="onboarding-mini-text">Hlavný režim na každodenné učenie.</div>
+                </div>
+                <div class="onboarding-mini">
+                    <div class="onboarding-mini-title">Len nesprávne</div>
+                    <div class="onboarding-mini-text">Samostatné prechádzanie otázok, ktoré si už pokazil.</div>
+                </div>
+                <div class="onboarding-mini">
+                    <div class="onboarding-mini-title">Celky</div>
+                    <div class="onboarding-mini-text">Vieš sa učiť celý predmet alebo len konkrétny celok.</div>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            if st.button("Späť", use_container_width=True):
+                st.session_state.onboarding_step = 4
+                st.rerun()
+
+        with col2:
+            if st.button("Začať testovať", use_container_width=True):
+                mark_onboarding_done()
+
+    st.stop()
+
+
+render_onboarding()
+
+
+# ============================================================
+# 11. SIDEBAR SETTINGS
 # ============================================================
 
 st.sidebar.markdown(

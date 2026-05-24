@@ -2426,69 +2426,125 @@ def inject_active_setup_css():
 
 def render_center_date_setup(selected_field_name, current_exam_date):
     st.markdown(
-        f"""
-        <div class="setup-main-hint">
-            <div class="setup-main-hint-step">Krok 2/3</div>
-            <div class="setup-main-hint-title">Zadaj termín skúšky</div>
-            <div class="setup-main-hint-text">
-                Vyber deň, mesiac a rok prijímacej skúšky pre odbor <strong>{escape(selected_field_name)}</strong>.
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
         """
         <style>
-            /* pri kroku 2 nech je stredový formulár nad overlayom a klikateľný */
-            div[data-testid="stHorizontalBlock"] {
-                position: relative !important;
-                z-index: 10020 !important;
+            /* Stredová karta s kalendárom musí byť nad overlayom a klikateľná */
+            .center-calendar-card {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: min(520px, calc(100vw - 32px));
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96));
+                border: 1px solid rgba(255,255,255,0.14);
+                border-radius: 30px;
+                padding: 26px 28px;
+                box-shadow: 0 28px 100px rgba(0,0,0,0.78);
+                z-index: 10006;
+                pointer-events: none;
+            }
+
+            .center-calendar-step {
+                color: #a78bfa;
+                font-size: 12px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 9px;
+            }
+
+            .center-calendar-title {
+                color: #ffffff;
+                font-size: 28px;
+                line-height: 1.08;
+                font-weight: 900;
+                letter-spacing: -0.055em;
+                margin-bottom: 8px;
+            }
+
+            .center-calendar-text {
+                color: #cbd5e1;
+                font-size: 14px;
+                line-height: 1.7;
+                margin-bottom: 18px;
+            }
+
+            .center-calendar-form {
+                position: fixed;
+                left: 50%;
+                top: calc(50% + 92px);
+                transform: translateX(-50%);
+                width: min(420px, calc(100vw - 64px));
+                z-index: 10007;
+                pointer-events: auto;
+            }
+
+            .center-calendar-form,
+            .center-calendar-form *,
+            div[data-baseweb="popover"],
+            div[data-baseweb="popover"] *,
+            div[role="dialog"],
+            div[role="dialog"] *,
+            div[data-baseweb="calendar"],
+            div[data-baseweb="calendar"] * {
                 opacity: 1 !important;
                 filter: none !important;
                 pointer-events: auto !important;
             }
 
-            div[data-testid="stHorizontalBlock"] * {
-                opacity: 1 !important;
-                filter: none !important;
-                pointer-events: auto !important;
+            div[data-baseweb="popover"],
+            div[role="dialog"] {
+                z-index: 2147483647 !important;
             }
 
-            div[data-testid="stSelectbox"] {
-                opacity: 1 !important;
-                filter: none !important;
-                pointer-events: auto !important;
+            .center-calendar-form div[data-testid="stDateInput"] input {
+                color: #ffffff !important;
+                background: rgba(2, 6, 23, 0.96) !important;
+                border: 1px solid rgba(167,139,250,0.70) !important;
+                border-radius: 16px !important;
+                min-height: 44px !important;
             }
 
-            .center-date-actions {
-                position: relative;
-                z-index: 10020;
-                max-width: 420px;
-                margin: 260px auto 0 auto;
-                padding: 18px;
-                border-radius: 24px;
-                background: rgba(15, 23, 42, 0.98);
-                border: 1px solid rgba(167,139,250,0.50);
-                box-shadow: 0 24px 90px rgba(0,0,0,0.76);
+            .center-calendar-form div.stButton > button {
+                width: 100% !important;
+                margin-top: 8px !important;
             }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    st.markdown('<div class="center-date-actions">', unsafe_allow_html=True)
+    st.markdown(
+        f"""
+        <div class="center-calendar-card">
+            <div class="center-calendar-step">Krok 2/3</div>
+            <div class="center-calendar-title">Zadaj termín skúšky</div>
+            <div class="center-calendar-text">
+                Vyber termín prijímacej skúšky pre odbor <strong>{escape(selected_field_name)}</strong>.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-    selected_exam_date = build_date_from_selects("center_setup_exam_date", current_exam_date)
+    st.markdown('<div class="center-calendar-form">', unsafe_allow_html=True)
 
-    if st.button("Potvrdiť termín skúšky", use_container_width=True):
+    selected_exam_date = st.date_input(
+        "Termín skúšky",
+        value=current_exam_date,
+        format="DD.MM.YYYY",
+        key=f"center_setup_exam_date_{sanitize_key(selected_field_name)}"
+    )
+
+    if st.button("Potvrdiť termín skúšky", use_container_width=True, key="confirm_center_exam_date"):
         st.session_state.exam_dates[selected_field_name] = selected_exam_date.isoformat()
         st.session_state.setup_step = 3
         save_progress()
         st.rerun()
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 def setup_overlay(step, title, text):
@@ -2614,7 +2670,6 @@ current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelt
 if setup_active and step == 2:
     current_exam_raw = st.session_state.exam_dates.get(selected_field_name)
     current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
-
     render_center_date_setup(selected_field_name, current_exam_date)
 
 if setup_active and step == 3:

@@ -2475,7 +2475,59 @@ def inject_active_setup_css():
                 font-size: 14px !important;
                 line-height: 1.7 !important;
             }
-        </style>
+        
+            /* FIX: aktívny spotlight widget nesmie byť zatmavený */
+            .setup-focused-widget,
+            .setup-focused-widget *,
+            .setup-plan-widget,
+            .setup-plan-widget *,
+            .setup-focus-card,
+            .setup-focus-card *,
+            .setup-sidebar-brand,
+            .setup-sidebar-brand * {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+                color: inherit !important;
+            }
+
+            .setup-focused-widget {
+                background: rgba(15, 23, 42, 0.99) !important;
+                border: 1px solid rgba(167,139,250,0.70) !important;
+                box-shadow: 0 0 0 2px rgba(139,92,246,0.25), 0 24px 80px rgba(0,0,0,0.75) !important;
+            }
+
+            .setup-focused-widget div[data-testid="stSelectbox"],
+            .setup-focused-widget div[data-testid="stSelectbox"] *,
+            .setup-focused-widget div[data-baseweb="select"],
+            .setup-focused-widget div[data-baseweb="select"] *,
+            .setup-focused-widget .stButton,
+            .setup-focused-widget .stButton *,
+            .setup-plan-widget div[data-testid="stDateInput"],
+            .setup-plan-widget div[data-testid="stDateInput"] *,
+            .setup-plan-widget .stButton,
+            .setup-plan-widget .stButton * {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+            }
+
+            .setup-focused-widget div[data-baseweb="select"] > div {
+                background: rgba(2, 6, 23, 0.95) !important;
+                border: 1px solid rgba(167,139,250,0.65) !important;
+                color: #ffffff !important;
+            }
+
+            .setup-focused-widget label,
+            .setup-focused-widget label p,
+            .setup-plan-widget label,
+            .setup-plan-widget label p {
+                color: #ffffff !important;
+                opacity: 1 !important;
+                filter: none !important;
+            }
+
+</style>
         """,
         unsafe_allow_html=True
     )

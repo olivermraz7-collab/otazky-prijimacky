@@ -16,7 +16,6 @@ from streamlit_cookies_manager import EncryptedCookieManager
 
 st.set_page_config(
     page_title="Prijímačky",
-    page_icon="🎓",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -30,6 +29,7 @@ APP_NAME = "Prijímačky"
 APP_SUBTITLE = "príprava na prijímacie skúšky"
 
 DAILY_GOAL = 130
+REVIEW_DAYS_BEFORE_EXAM = 3
 RECENT_LIMIT = 8
 FINAL_MODE_DATE = date(2026, 6, 10)
 
@@ -485,6 +485,41 @@ def inject_css():
                 border-color: rgba(255,255,255,0.08) !important;
             }
 
+
+
+            .sidebar-mini-note {
+                color: #94a3b8;
+                font-size: 12px;
+                line-height: 1.5;
+                margin: 8px 0 14px 0;
+                padding: 10px 12px;
+                border-radius: 14px;
+                background: rgba(15, 23, 42, 0.52);
+                border: 1px solid rgba(255,255,255,0.06);
+            }
+
+            .plan-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                padding: 6px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+                font-size: 13px;
+            }
+
+            .plan-row:last-child {
+                border-bottom: none;
+            }
+
+            .plan-label {
+                color: #94a3b8;
+            }
+
+            .plan-value {
+                color: #f8fafc;
+                font-weight: 800;
+            }
+
             @media (max-width: 900px) {
                 .hero-title {
                     font-size: 26px;
@@ -674,6 +709,7 @@ def logout_user():
         "display_name",
         "subjects_data",
         "last_settings",
+        "exam_dates",
         "loaded_user",
         "answered",
         "selected_field_index",
@@ -715,6 +751,17 @@ def render_login_screen():
             </div>
             """,
             unsafe_allow_html=True
+        )
+
+    with st.expander("Ako aplikácia funguje", expanded=False):
+        st.markdown(
+            """
+            **Smart review** mieša nové otázky, problémové otázky a otázky na opakovanie podľa tvojho progresu.  
+            **Celky** v sidebare ti dovolia učiť sa iba konkrétnu časť predmetu, napríklad organiku alebo genetiku.  
+            **Termín skúšky** sa nastavuje zvlášť pre každý odbor a appka podľa neho vypočíta, koľko otázok denne treba prejsť z jednotlivých predmetov.  
+            Posledné tri dni pred skúškou appka v režime Smart review netlačí nové otázky a viac sa sústredí na opakovanie.  
+            **Len nesprávne** je samostatný tréning otázok, ktoré si už niekedy pokazil. Počíta sa do dennej aktivity, ale nezvyšuje počet nových otázok.
+            """
         )
 
     login_tab, register_tab = st.tabs(["Prihlásenie", "Registrácia"])
@@ -817,10 +864,12 @@ def get_user_progress_path(username):
 def default_user_state():
     return {
         "subjects_data": {},
+        "exam_dates": {},
         "last_settings": {
             "field_idx": 0,
             "subj_name": None,
-            "topic_name": "Všetky celky"
+            "topic_name": "Všetky celky",
+            "study_mode": "Smart review"
         }
     }
 
@@ -837,15 +886,22 @@ def load_user_state(username):
     if "subjects_data" not in user_state:
         user_state["subjects_data"] = {}
 
+    if "exam_dates" not in user_state:
+        user_state["exam_dates"] = {}
+
     if "last_settings" not in user_state:
         user_state["last_settings"] = {
             "field_idx": 0,
             "subj_name": None,
-            "topic_name": "Všetky celky"
+            "topic_name": "Všetky celky",
+            "study_mode": "Smart review"
         }
 
     if "topic_name" not in user_state["last_settings"]:
         user_state["last_settings"]["topic_name"] = "Všetky celky"
+
+    if "study_mode" not in user_state["last_settings"]:
+        user_state["last_settings"]["study_mode"] = "Smart review"
 
     return user_state
 
@@ -860,10 +916,12 @@ def save_progress():
 
     user_state = {
         "subjects_data": st.session_state.subjects_data,
+        "exam_dates": st.session_state.get("exam_dates", {}),
         "last_settings": {
             "field_idx": st.session_state.selected_field_index,
             "subj_name": st.session_state.selected_subject_name,
-            "topic_name": st.session_state.get("selected_topic_name", "Všetky celky")
+            "topic_name": st.session_state.get("selected_topic_name", "Všetky celky"),
+            "study_mode": st.session_state.get("study_mode", "Smart review")
         }
     }
 
@@ -874,12 +932,14 @@ if st.session_state.get("loaded_user") != st.session_state.username:
     loaded_state = load_user_state(st.session_state.username)
 
     st.session_state.subjects_data = loaded_state.get("subjects_data", {})
+    st.session_state.exam_dates = loaded_state.get("exam_dates", {})
     st.session_state.last_settings = loaded_state.get(
         "last_settings",
         {
             "field_idx": 0,
             "subj_name": None,
-            "topic_name": "Všetky celky"
+            "topic_name": "Všetky celky",
+            "study_mode": "Smart review"
         }
     )
 
@@ -937,7 +997,9 @@ def default_daily_stats():
         "answered": 0,
         "correct": 0,
         "wrong": 0,
-        "new_seen": 0
+        "new_seen": 0,
+        "smart_answered": 0,
+        "wrong_review_answered": 0
     }
 
 
@@ -985,7 +1047,12 @@ def get_daily_stats(subject_state):
     if d not in subject_state["daily_stats"]:
         subject_state["daily_stats"][d] = default_daily_stats()
 
-    return subject_state["daily_stats"][d]
+    stats = subject_state["daily_stats"][d]
+    for key, value in default_daily_stats().items():
+        if key not in stats:
+            stats[key] = value
+
+    return stats
 
 
 def get_question_progress(subject_state, qid):
@@ -1199,7 +1266,7 @@ def update_recent_questions(subject_state, qid):
     subject_state["recent_question_ids"] = recent
 
 
-def update_progress_after_answer(subject_state, qid, is_correct):
+def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Smart review"):
     p = get_question_progress(subject_state, qid)
     stats = get_daily_stats(subject_state)
 
@@ -1210,10 +1277,15 @@ def update_progress_after_answer(subject_state, qid, is_correct):
     if p.get("first_seen") is None:
         p["first_seen"] = today_iso
 
-    if old_status == "NEW":
+    if old_status == "NEW" and study_mode == "Smart review":
         stats["new_seen"] += 1
 
     stats["answered"] += 1
+    if study_mode == "Len nesprávne":
+        stats["wrong_review_answered"] += 1
+    else:
+        stats["smart_answered"] += 1
+
     p["last_seen"] = today_iso
 
     if is_correct:
@@ -1262,6 +1334,126 @@ def progress_percent(value, goal):
         return 0.0
 
     return min(1.0, value / goal)
+
+
+# ============================================================
+# 8B. EXAM PLAN + STUDY MODES
+# ============================================================
+
+def get_exam_date_for_field(field_name):
+    raw = st.session_state.get("exam_dates", {}).get(field_name)
+    parsed = parse_date_safe(raw)
+    return parsed
+
+
+def set_exam_date_for_field(field_name, exam_date):
+    if "exam_dates" not in st.session_state:
+        st.session_state.exam_dates = {}
+
+    if exam_date is None:
+        st.session_state.exam_dates.pop(field_name, None)
+    else:
+        st.session_state.exam_dates[field_name] = exam_date.isoformat()
+
+    save_progress()
+
+
+def days_until_exam(exam_date):
+    if exam_date is None:
+        return None
+
+    return (exam_date - date.today()).days
+
+
+def is_final_review_window(exam_date):
+    days_left = days_until_exam(exam_date)
+    return days_left is not None and 0 <= days_left <= REVIEW_DAYS_BEFORE_EXAM
+
+
+def get_unmastered_count(subject_state, questions):
+    counts = count_statuses(subject_state, questions)
+    return (
+        counts.get("NEW", 0)
+        + counts.get("RED", 0)
+        + counts.get("YELLOW", 0)
+        + counts.get("GREEN", 0)
+    )
+
+
+def calculate_field_plan(field_name, exam_date):
+    result = {
+        "days_left": None,
+        "learning_days": None,
+        "total_daily_needed": 0,
+        "subjects": []
+    }
+
+    if exam_date is None:
+        return result
+
+    days_left = max(0, days_until_exam(exam_date))
+    learning_days = max(0, days_left - REVIEW_DAYS_BEFORE_EXAM)
+
+    result["days_left"] = days_left
+    result["learning_days"] = learning_days
+
+    subjects = FIELDS.get(field_name, {})
+
+    for subject_name, file_name in subjects.items():
+        subject_questions = load_questions(file_name)
+
+        if not subject_questions:
+            continue
+
+        subject_state = ensure_subject_state(file_name, subject_questions)
+        remaining = get_unmastered_count(subject_state, subject_questions)
+
+        if learning_days > 0:
+            daily_needed = (remaining + learning_days - 1) // learning_days
+        else:
+            daily_needed = 0
+
+        result["subjects"].append({
+            "subject": subject_name,
+            "file": file_name,
+            "remaining": remaining,
+            "daily_needed": daily_needed,
+            "total": len(subject_questions)
+        })
+
+        result["total_daily_needed"] += daily_needed
+
+    return result
+
+
+def get_dynamic_daily_goal(field_name, exam_date):
+    plan = calculate_field_plan(field_name, exam_date)
+    return max(DAILY_GOAL, plan.get("total_daily_needed", 0)), plan
+
+
+def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_date):
+    if study_mode == "Len nesprávne":
+        wrong_questions = []
+
+        for q in questions:
+            p = get_question_progress(subject_state, get_qid(q))
+            if p.get("wrong_count", 0) > 0 or p.get("status") in ["RED", "YELLOW"]:
+                wrong_questions.append(q)
+
+        return wrong_questions
+
+    if is_final_review_window(exam_date):
+        review_questions = []
+
+        for q in questions:
+            p = get_question_progress(subject_state, get_qid(q))
+            if p.get("status") != "NEW":
+                review_questions.append(q)
+
+        if review_questions:
+            return review_questions
+
+    return questions
 
 
 # ============================================================
@@ -1380,6 +1572,26 @@ def render_sidebar_card(title, rows):
             col2.markdown(f"**{value}**")
 
 
+
+def render_plan_rows(plan):
+    subjects = plan.get("subjects", [])
+
+    if not subjects:
+        st.caption("Nastav termín skúšky a appka vypočíta denný plán podľa zostávajúcich otázok.")
+        return
+
+    for item in subjects:
+        st.markdown(
+            f"""
+            <div class="plan-row">
+                <span class="plan-label">{escape(item['subject'])}</span>
+                <span class="plan-value">{item['daily_needed']} / deň</span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
 def render_question_text_and_images(q):
     segments = re.split(r"(\S+\.png|\S+\.jpg)", q["text"])
 
@@ -1476,16 +1688,54 @@ st.session_state.selected_topic_name = st.sidebar.selectbox(
     help="Vyber konkrétny tematický celok alebo nechaj Všetky celky."
 )
 
+study_modes = ["Smart review", "Len nesprávne"]
+default_mode = st.session_state.last_settings.get("study_mode", "Smart review")
+mode_idx = study_modes.index(default_mode) if default_mode in study_modes else 0
+
+st.session_state.study_mode = st.sidebar.selectbox(
+    "Režim",
+    study_modes,
+    index=mode_idx,
+    help="Smart review je hlavné učenie. Len nesprávne zobrazí otázky, ktoré si už niekedy pokazil."
+)
+
+current_exam_date = get_exam_date_for_field(selected_field_name)
+default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12)
+selected_exam_date = st.sidebar.date_input(
+    "Termín skúšky",
+    value=default_exam_date,
+    format="DD.MM.YYYY",
+    help="Termín je uložený samostatne pre každý odbor a každého používateľa."
+)
+
+if current_exam_date != selected_exam_date:
+    set_exam_date_for_field(selected_field_name, selected_exam_date)
+    current_exam_date = selected_exam_date
+
 filtered_questions = filter_questions_by_topic(
     questions,
     st.session_state.selected_topic_name
+)
+
+mode_filtered_questions = filter_questions_for_study_mode(
+    filtered_questions,
+    current_data,
+    st.session_state.study_mode,
+    current_exam_date
 )
 
 if not filtered_questions:
     st.warning("V tomto celku zatiaľ nie sú žiadne otázky.")
     st.stop()
 
-active_filter_key = f"{selected_file}::{st.session_state.selected_topic_name}"
+if not mode_filtered_questions:
+    if st.session_state.study_mode == "Len nesprávne":
+        st.warning("V tomto výbere zatiaľ nemáš žiadne nesprávne otázky. Prepni režim na Smart review.")
+    else:
+        st.warning("V tomto výbere momentálne nie sú otázky na opakovanie. Prepni celok alebo režim.")
+    st.stop()
+
+active_filter_key = f"{selected_file}::{st.session_state.selected_topic_name}::{st.session_state.study_mode}::{current_exam_date}"
 
 if st.session_state.get("active_filter_key") != active_filter_key:
     st.session_state.answered = False
@@ -1493,8 +1743,9 @@ if st.session_state.get("active_filter_key") != active_filter_key:
 
 st.sidebar.markdown(
     f"""
-    <div class="sidebar-filter-note">
-        Zobrazené: <strong>{len(filtered_questions)}</strong> z {len(questions)} otázok
+    <div class="sidebar-mini-note">
+        Výber: <strong>{len(mode_filtered_questions)}</strong> otázok<br>
+        Celok spolu: {len(filtered_questions)} z {len(questions)}
     </div>
     """,
     unsafe_allow_html=True
@@ -1506,20 +1757,21 @@ st.sidebar.markdown(
 # ============================================================
 
 topic_key = sanitize_key(st.session_state.selected_topic_name)
-question_session_key = f"current_question_id_{selected_file}_{topic_key}"
-nonce_key = f"answer_nonce_{selected_file}_{topic_key}"
+mode_key = sanitize_key(st.session_state.study_mode)
+question_session_key = f"current_question_id_{selected_file}_{topic_key}_{mode_key}"
+nonce_key = f"answer_nonce_{selected_file}_{topic_key}_{mode_key}"
 
 if nonce_key not in st.session_state:
     st.session_state[nonce_key] = 0
 
 if question_session_key not in st.session_state:
-    selected_question = choose_next_question(filtered_questions, current_data)
+    selected_question = choose_next_question(mode_filtered_questions, current_data)
     st.session_state[question_session_key] = get_qid(selected_question)
 
-q = get_question_by_id(filtered_questions, st.session_state[question_session_key])
+q = get_question_by_id(mode_filtered_questions, st.session_state[question_session_key])
 
 if q is None:
-    selected_question = choose_next_question(filtered_questions, current_data)
+    selected_question = choose_next_question(mode_filtered_questions, current_data)
     st.session_state[question_session_key] = get_qid(selected_question)
     q = selected_question
 
@@ -1539,7 +1791,7 @@ render_hero(
     selected_field_name,
     st.session_state.display_name,
     st.session_state.selected_topic_name,
-    len(filtered_questions),
+    len(mode_filtered_questions),
     len(questions)
 )
 
@@ -1599,7 +1851,7 @@ with left_col:
                 correct_str = "".join(sorted(q["answer"]))
                 is_correct = user_str == correct_str
 
-                update_progress_after_answer(current_data, qid, is_correct)
+                update_progress_after_answer(current_data, qid, is_correct, st.session_state.study_mode)
 
                 if question_session_key in st.session_state:
                     del st.session_state[question_session_key]
@@ -1624,7 +1876,7 @@ with left_col:
 
 
 with right_col:
-    counts = count_statuses(current_data, filtered_questions)
+    counts = count_statuses(current_data, mode_filtered_questions)
     daily_stats = get_daily_stats(current_data)
     new_limit = dynamic_daily_new_limit(counts)
 
@@ -1632,6 +1884,12 @@ with right_col:
     new_seen_today = daily_stats.get("new_seen", 0)
     correct_today = daily_stats.get("correct", 0)
     wrong_today = daily_stats.get("wrong", 0)
+    smart_today = daily_stats.get("smart_answered", 0)
+    wrong_review_today = daily_stats.get("wrong_review_answered", 0)
+
+    dynamic_daily_goal, field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
+    days_left = field_plan.get("days_left")
+    learning_days = field_plan.get("learning_days")
 
     not_mastered = (
         counts.get("NEW", 0)
@@ -1643,25 +1901,39 @@ with right_col:
     with st.container(border=True):
         st.markdown("### Denný cieľ")
 
-        st.progress(progress_percent(answered_today, DAILY_GOAL))
-        st.markdown(f"**{answered_today} / {DAILY_GOAL}** otázok dnes")
+        st.progress(progress_percent(answered_today, dynamic_daily_goal))
+        st.markdown(f"**{answered_today} / {dynamic_daily_goal}** otázok dnes")
 
-        if answered_today >= DAILY_GOAL:
+        if answered_today >= dynamic_daily_goal:
             st.success("Denný cieľ splnený.")
         else:
-            st.caption(f"Zostáva dnes: {max(0, DAILY_GOAL - answered_today)} otázok")
+            st.caption(f"Zostáva dnes: {max(0, dynamic_daily_goal - answered_today)} otázok")
 
         st.divider()
 
-        st.caption(
-            f"Nové otázky dnes: {new_seen_today} / {new_limit} "
-        )
+        st.caption(f"Nové otázky dnes: {new_seen_today} / {new_limit}")
+        if st.session_state.study_mode == "Len nesprávne":
+            st.caption("Režim Len nesprávne sa počíta do otázok dnes, ale nie do nových otázok.")
+
+    with st.container(border=True):
+        st.markdown("### Plán do skúšky")
+
+        if current_exam_date:
+            st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
+            st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")
+            st.divider()
+            render_plan_rows(field_plan)
+            st.divider()
+            st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} otázok/deň")
+        else:
+            st.caption("Nastav termín skúšky v sidebare a appka vypočíta plán podľa predmetov.")
 
     with st.container(border=True):
         st.markdown("### Dnes")
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
+        st.caption(f"Smart review: {smart_today} · Len nesprávne: {wrong_review_today}")
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
@@ -1680,7 +1952,7 @@ with right_col:
             col1.caption(label)
             col2.markdown(f"**{value}**")
 
-    if len(filtered_questions) > 0 and counts.get("MASTERED", 0) == len(filtered_questions):
+    if len(mode_filtered_questions) > 0 and counts.get("MASTERED", 0) == len(mode_filtered_questions):
         st.balloons()
         if st.session_state.selected_topic_name == "Všetky celky":
             st.success("Všetky otázky v tomto predmete sú zvládnuté.")

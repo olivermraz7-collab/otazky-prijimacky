@@ -31,7 +31,6 @@ APP_SUBTITLE = "príprava na prijímacie skúšky"
 DAILY_GOAL = 130
 REVIEW_DAYS_BEFORE_EXAM = 3
 RECENT_LIMIT = 8
-FINAL_MODE_DATE = date(2026, 6, 10)
 
 DATA_DIR = "data"
 PROGRESS_DIR = os.path.join(DATA_DIR, "progress")
@@ -1224,7 +1223,7 @@ def question_priority(q, subject_state, counts):
             score += 8
 
     new_limit = dynamic_daily_new_limit(counts)
-    dynamic_new_goal = 0 if final_review_period else min(dynamic_daily_goal, new_limit)
+    dynamic_new_goal = 0 if final_review_period else dynamic_daily_goal
 
     if status == "NEW":
         if stats.get("new_seen", 0) >= new_limit:
@@ -1957,7 +1956,7 @@ if "answered" not in st.session_state:
 
 dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
 final_review_period = is_final_review_period(selected_field_name)
-dynamic_new_goal = 0 if final_review_period else min(dynamic_daily_goal, DAILY_GOAL)
+dynamic_new_goal = 0 if final_review_period else dynamic_daily_goal
 
 subject_learning_percent = calculate_learning_percent(current_data, questions)
 hero_daily_goal, _hero_field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
@@ -2056,7 +2055,7 @@ with right_col:
     counts = count_statuses(current_data, mode_filtered_questions)
     daily_stats = get_daily_stats(current_data)
     new_limit = dynamic_daily_new_limit(counts)
-    dynamic_new_goal = 0 if final_review_period else min(dynamic_daily_goal, new_limit)
+    dynamic_new_goal = 0 if final_review_period else dynamic_daily_goal
 
     answered_today = daily_stats.get("answered", 0)
     new_seen_today = daily_stats.get("new_seen", 0)

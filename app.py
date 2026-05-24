@@ -898,142 +898,6 @@ def inject_css():
                 pointer-events: none;
             }
 
-        
-            /* FIRST SETUP SPOTLIGHT */
-            body.setup-active .stApp::after {
-                content: "";
-                position: fixed;
-                inset: 0;
-                background: rgba(2, 6, 23, 0.975);
-                backdrop-filter: grayscale(1) blur(12px);
-                z-index: 9990;
-                pointer-events: none;
-            }
-
-            body.setup-active .main,
-            body.setup-active header,
-            body.setup-active footer,
-            body.setup-active .top-hero,
-            body.setup-active div[data-testid="stVerticalBlockBorderWrapper"],
-            body.setup-active div[data-testid="stMetric"],
-            body.setup-active .stProgress,
-            body.setup-active .question-text,
-            body.setup-active .question-topline {
-                filter: grayscale(1) brightness(0.08) contrast(0.7) !important;
-                opacity: 0.06 !important;
-            }
-
-            body.setup-active section[data-testid="stSidebar"] {
-                z-index: 10000 !important;
-                position: relative !important;
-                filter: grayscale(1) brightness(0.18) !important;
-            }
-
-            body.setup-active .setup-visible,
-            body.setup-active .setup-visible *,
-            body.setup-active .setup-focus-card,
-            body.setup-active .setup-focus-card *,
-            body.setup-active .setup-focused-widget,
-            body.setup-active .setup-focused-widget *,
-            body.setup-active .setup-plan-widget,
-            body.setup-active .setup-plan-widget * {
-                filter: none !important;
-                opacity: 1 !important;
-            }
-
-            body.setup-active .main .block-container {
-                pointer-events: none;
-            }
-
-            .setup-main-hint {
-                position: fixed;
-                left: 50%;
-                top: 50%;
-                transform: translate(-28%, -50%);
-                max-width: 420px;
-                background:
-                    linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96));
-                border: 1px solid rgba(255,255,255,0.12);
-                border-radius: 28px;
-                padding: 24px 26px;
-                box-shadow: 0 24px 90px rgba(0,0,0,0.76);
-                z-index: 10001;
-                pointer-events: none;
-            }
-
-            .setup-main-hint-step {
-                color: #a78bfa;
-                font-size: 12px;
-                font-weight: 850;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                margin-bottom: 9px;
-            }
-
-            .setup-main-hint-title {
-                color: #ffffff;
-                font-size: 27px;
-                line-height: 1.08;
-                font-weight: 900;
-                letter-spacing: -0.055em;
-                margin-bottom: 8px;
-            }
-
-            .setup-main-hint-text {
-                color: #cbd5e1;
-                font-size: 14px;
-                line-height: 1.7;
-            }
-
-            .setup-focus-card {
-                background:
-                    linear-gradient(135deg, rgba(124, 58, 237, 0.24), rgba(37, 99, 235, 0.16)),
-                    rgba(15, 23, 42, 0.99);
-                border: 1px solid rgba(167, 139, 250, 0.48);
-                border-radius: 20px;
-                padding: 14px 15px;
-                margin: 12px 0;
-                box-shadow: 0 18px 60px rgba(0,0,0,0.65);
-                position: relative;
-                z-index: 10002;
-            }
-
-            .setup-focus-kicker {
-                color: #a78bfa;
-                font-size: 11px;
-                font-weight: 850;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                margin-bottom: 6px;
-            }
-
-            .setup-focus-title {
-                color: #ffffff;
-                font-size: 17px;
-                font-weight: 900;
-                letter-spacing: -0.035em;
-                margin-bottom: 4px;
-            }
-
-            .setup-focus-text {
-                color: #cbd5e1;
-                font-size: 12px;
-                line-height: 1.55;
-            }
-
-            .setup-focused-widget,
-            .setup-plan-widget {
-                position: relative;
-                z-index: 10003 !important;
-                background: rgba(15, 23, 42, 0.99);
-                border-radius: 18px;
-                padding: 10px;
-                border: 1px solid rgba(167,139,250,0.50);
-                box-shadow: 0 18px 60px rgba(0,0,0,0.65);
-                margin-bottom: 10px;
-                pointer-events: auto !important;
-            }
-
         </style>
         """,
         unsafe_allow_html=True
@@ -1175,18 +1039,6 @@ def save_users(data):
     write_json_file(USERS_FILE, data)
 
 
-
-def initial_user_state():
-    return {
-        "subjects_data": {},
-        "exam_dates": {},
-        "setup_completed": False,
-        "last_settings": {
-            "field_idx": 0,
-            "subj_name": None
-        }
-    }
-
 def create_user(username, display_name, password):
     username = normalize_username(username)
 
@@ -1219,7 +1071,7 @@ def create_user(username, display_name, password):
 
             supabase.table("app_users").insert(user_row).execute()
 
-            initial_state = initial_user_state()
+            initial_state = default_user_state()
 
             supabase.table("user_states").insert(
                 {
@@ -2131,28 +1983,6 @@ def calculate_learning_percent(subject_state, questions):
     return round((total_score / len(questions)) * 100)
 
 
-
-
-
-
-def is_range_topic(value):
-    value = str(value or "").strip()
-    value = value.replace("–", "-").replace("—", "-")
-    return bool(re.fullmatch(r"\[?\s*\d+\s*-\s*\d+\s*\]?", value))
-
-
-def normalize_question_topic(q):
-    if not isinstance(q, dict):
-        return "Nezaradené"
-
-    topic = str(q.get("topic", "") or "").strip()
-    topic = topic.replace("–", "-").replace("—", "-")
-
-    if not topic or is_range_topic(topic):
-        return "Nezaradené"
-
-    return topic
-
 # ============================================================
 # 8B. EXAM PLAN + STUDY MODES
 # ============================================================
@@ -2470,7 +2300,7 @@ def setup_overlay(step, title, text):
     )
 
 
-def setup_note_sidebar(step, title, text):
+def setup_sidebar_note(step, title, text):
     st.sidebar.markdown(
         f"""
         <div class="setup-focus-card">
@@ -2491,23 +2321,30 @@ def end_focused_widget():
     st.sidebar.markdown('</div>', unsafe_allow_html=True)
 
 
-def complete_first_setup():
-    st.session_state.setup_completed = True
-    st.session_state.setup_step = 4
-    save_progress()
-    st.rerun()
+def complete_setup_if_ready():
+    field_list = list(FIELDS.keys())
+    field_idx = st.session_state.get("selected_field_index", 0)
+
+    if field_idx >= len(field_list):
+        return
+
+    field_name = field_list[field_idx]
+    subject_name = st.session_state.get("selected_subject_name")
+
+    if field_name and subject_name and st.session_state.get("exam_dates", {}).get(field_name):
+        st.session_state.setup_completed = True
+        st.session_state.setup_step = 4
+        save_progress()
+        st.rerun()
 
 
 # ============================================================
-# 10. SIDEBAR SETTINGS
+# 11. SIDEBAR SETTINGS
 # ============================================================
-
-setup_active = setup_is_active()
-setup_step = setup_current_step()
 
 st.sidebar.markdown(
     f"""
-    <div class="setup-visible" style="padding-bottom: 8px;">
+    <div class="setup-sidebar-brand" style="padding-bottom: 8px;">
         <div style="font-size: 22px; font-weight: 850; letter-spacing: -0.04em; color: #f9fafb;">
             {escape(APP_NAME)}
         </div>
@@ -2519,30 +2356,39 @@ st.sidebar.markdown(
     unsafe_allow_html=True
 )
 
+setup_active = setup_is_active()
+step = setup_current_step()
+
 field_list = list(FIELDS.keys())
 f_idx = st.session_state.last_settings.get("field_idx", 0)
 
-if setup_active and setup_step == 1:
-    setup_note_sidebar(1, "Vyber si odbor", "Vyber odbor, na ktorý sa pripravuješ.")
-    st.sidebar.markdown('<div class="setup-focused-widget setup-visible">', unsafe_allow_html=True)
+if setup_active and step == 1:
+    setup_sidebar_note(1, "Vyber si odbor", "Najprv vyber odbor. Ostatné nastavenia sa odomknú potom.")
+    begin_focused_widget()
 
 selected_field_name = st.sidebar.selectbox(
     "Odbor",
     field_list,
     index=f_idx if f_idx < len(field_list) else 0,
-    disabled=setup_active and setup_step != 1,
-    key="sidebar_field_select"
+    disabled=setup_active and step != 1
 )
 
-if setup_active and setup_step == 1:
+if setup_active and step == 1:
+    end_focused_widget()
+
+st.session_state.selected_field_index = field_list.index(selected_field_name)
+
+if setup_active and step == 1:
     if st.sidebar.button("Potvrdiť odbor", use_container_width=True):
-        st.session_state.selected_field_index = field_list.index(selected_field_name)
         st.session_state.setup_step = 2
         save_progress()
         st.rerun()
-    st.sidebar.markdown("</div>", unsafe_allow_html=True)
 
-st.session_state.selected_field_index = field_list.index(selected_field_name)
+    setup_overlay(
+        1,
+        "Vyber si odbor",
+        "Vyber si odbor v zvýraznenom okne v sidebare."
+    )
 
 available_subjects = FIELDS[selected_field_name]
 subj_list = list(available_subjects.keys())
@@ -2552,27 +2398,66 @@ s_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
 if "exam_dates" not in st.session_state:
     st.session_state.exam_dates = {}
 
-current_exam_date = get_exam_date_for_field(selected_field_name)
+if setup_active and step == 2:
+    setup_sidebar_note(2, "Zadaj termín skúšky", "Termín použijeme na výpočet denného plánu.")
+    begin_focused_widget()
 
-if setup_active and setup_step == 3:
-    setup_note_sidebar(3, "Vyber predmet", "Vyber prvý predmet, ktorým začneš.")
-    st.sidebar.markdown('<div class="setup-focused-widget setup-visible">', unsafe_allow_html=True)
+current_exam_raw = st.session_state.exam_dates.get(selected_field_name)
+current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
+
+selected_exam_date = st.sidebar.date_input(
+    "Termín skúšky",
+    value=current_exam_date,
+    disabled=setup_active and step != 2
+)
+
+if setup_active and step == 2:
+    end_focused_widget()
+
+if selected_exam_date:
+    st.session_state.exam_dates[selected_field_name] = selected_exam_date.isoformat()
+
+if setup_active and step == 2:
+    if st.sidebar.button("Potvrdiť termín", use_container_width=True):
+        save_progress()
+        st.session_state.setup_step = 3
+        st.rerun()
+
+    setup_overlay(
+        2,
+        "Zadaj termín skúšky",
+        "Zadaj termín skúšky v zvýraznenom okne v sidebare."
+    )
+
+if setup_active and step == 3:
+    setup_sidebar_note(3, "Vyber predmet", "Vyber predmet, ktorým chceš začať. Neskôr ho môžeš meniť.")
+    begin_focused_widget()
 
 st.session_state.selected_subject_name = st.sidebar.selectbox(
     "Predmet",
     subj_list,
     index=s_idx,
-    disabled=setup_active and setup_step != 3,
-    key="sidebar_subject_select"
+    disabled=setup_active and step != 3
 )
 
-if setup_active and setup_step == 3:
+if setup_active and step == 3:
+    end_focused_widget()
+
+if setup_active and step == 3:
     if st.sidebar.button("Začať testovať", use_container_width=True):
         st.session_state.last_settings["field_idx"] = st.session_state.selected_field_index
         st.session_state.last_settings["subj_name"] = st.session_state.selected_subject_name
-        complete_first_setup()
-    st.sidebar.markdown("</div>", unsafe_allow_html=True)
+        st.session_state.setup_completed = True
+        save_progress()
+        st.rerun()
 
+    setup_overlay(
+        3,
+        "Vyber predmet",
+        "Vyber predmet a klikni na Začať testovať."
+    )
+
+# Po dokončení setupu pokračuje normálna navigácia.
 selected_file = available_subjects[st.session_state.selected_subject_name]
 questions = load_questions(selected_file)
 
@@ -2581,9 +2466,7 @@ if not questions:
 
     render_hero(
         st.session_state.selected_subject_name,
-        selected_field_name,
-        st.session_state.display_name,
-        dynamic_daily_goal
+        selected_field_name
     )
 
     st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
@@ -2596,80 +2479,36 @@ if not questions:
 
     st.stop()
 
-
-# ============================================================
-# FILTERS: TOPIC + MODE
-# ============================================================
-
-# Najprv očisti topic priamo v otázkach.
-for _q in questions:
-    if isinstance(_q, dict):
-        _q["topic"] = normalize_question_topic(_q)
-
-topic_values = sorted(
-    {
-        q.get("topic", "Nezaradené")
-        for q in questions
-        if isinstance(q, dict)
-        and q.get("topic", "Nezaradené") != "Nezaradené"
-        and not is_range_topic(q.get("topic", ""))
-    }
-)
-
-topic_options = ["Všetky celky"] + topic_values
-
-selected_topic_name = st.sidebar.selectbox(
-    "Celok",
-    topic_options,
-    index=0,
-    disabled=setup_active,
-    key="sidebar_topic_select_clean_final"
-)
-
-if selected_topic_name == "Všetky celky":
-    topic_filtered_questions = questions
-else:
-    topic_filtered_questions = [
-        q for q in questions
-        if q.get("topic", "Nezaradené") == selected_topic_name
-    ]
-
-study_mode = st.sidebar.selectbox(
-    "Režim",
-    ["Smart review", "Len nesprávne"],
-    index=0,
-    disabled=setup_active,
-    key="sidebar_mode_select_clean_final"
-)
-
-st.session_state.selected_topic_name = selected_topic_name
-st.session_state.study_mode = study_mode
-
 current_data = ensure_subject_state(selected_file, questions)
-
-if study_mode == "Len nesprávne":
-    mode_filtered_questions = [
-        q for q in topic_filtered_questions
-        if get_question_progress(current_data, get_qid(q)).get("wrong_count", 0) > 0
-        or get_question_progress(current_data, get_qid(q)).get("status") in ["RED", "YELLOW"]
-    ]
-
-    if not mode_filtered_questions:
-        st.info("Zatiaľ tu nie sú žiadne nesprávne otázky v tomto výbere.")
-        mode_filtered_questions = topic_filtered_questions
-else:
-    mode_filtered_questions = topic_filtered_questions
-
-if not mode_filtered_questions:
-    st.warning("V tomto výbere nie sú žiadne otázky.")
-    st.stop()
-
-
 
 dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
 subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
 final_review_period = is_final_review_period(selected_field_name)
 dynamic_new_goal = 0 if final_review_period else subject_daily_goal
+
+topic_options = get_available_topics(questions)
+default_topic = st.session_state.last_settings.get("topic_name", "Všetky celky")
+t_idx = topic_options.index(default_topic) if default_topic in topic_options else 0
+
+st.session_state.selected_topic_name = st.sidebar.selectbox(
+    "Celok",
+    topic_options,
+    index=t_idx
+)
+
+study_modes = ["Smart review", "Len nesprávne"]
+default_mode = st.session_state.last_settings.get("study_mode", "Smart review")
+mode_idx = study_modes.index(default_mode) if default_mode in study_modes else 0
+
+st.session_state.study_mode = st.sidebar.selectbox(
+    "Režim",
+    study_modes,
+    index=mode_idx
+)
+
+current_exam_date = get_exam_date_for_field(selected_field_name)
+default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12)
+
 
 # Bezpečný alias pre otázky po filtrovaní režimu/celku.
 # Niektoré časti appky používajú kratší názov mode_filtered_q.
@@ -2704,13 +2543,13 @@ if nonce_key not in st.session_state:
     st.session_state[nonce_key] = 0
 
 if question_session_key not in st.session_state:
-    selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
+    selected_question = choose_next_question(mode_filtered_questions, current_data)
     st.session_state[question_session_key] = get_qid(selected_question)
 
 q = get_question_by_id(mode_filtered_questions, st.session_state[question_session_key])
 
 if q is None:
-    selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
+    selected_question = choose_next_question(mode_filtered_questions, current_data)
     st.session_state[question_session_key] = get_qid(selected_question)
     q = selected_question
 
@@ -2728,9 +2567,6 @@ if "answered" not in st.session_state:
 
 
 subject_learning_percent = calculate_learning_percent(current_data, questions)
-if "current_exam_date" not in globals():
-    current_exam_date = get_exam_date_for_field(selected_field_name)
-
 hero_daily_goal, _hero_field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
 
 render_hero(
@@ -2909,43 +2745,7 @@ with right_col:
             st.rerun()
 
 
-    with st.expander("Plán do skúšky", expanded=setup_active and setup_step == 2):
-        if setup_active and setup_step == 2:
-            st.markdown(
-                """
-                <div class="setup-focus-card setup-visible">
-                    <div class="setup-focus-kicker">Krok 2/3</div>
-                    <div class="setup-focus-title">Zadaj termín skúšky</div>
-                    <div class="setup-focus-text">Termín použijeme na výpočet denného plánu.</div>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.markdown('<div class="setup-plan-widget setup-visible">', unsafe_allow_html=True)
-
-        current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
-        current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
-        updated_exam_date = st.date_input(
-            "Termín skúšky",
-            value=current_exam_date,
-            format="DD.MM.YYYY",
-            key=f"exam_date_plan_{selected_field_name}",
-            disabled=setup_active and setup_step != 2
-        )
-
-        if setup_active and setup_step == 2:
-            if st.button("Potvrdiť termín skúšky", use_container_width=True):
-                st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
-                st.session_state.setup_step = 3
-                save_progress()
-                st.rerun()
-            st.markdown("</div>", unsafe_allow_html=True)
-            setup_hint(2, "Zadaj termín skúšky", "V pravom paneli je otvorený Plán do skúšky. Zadaj termín a potvrď ho.")
-        elif updated_exam_date.isoformat() != st.session_state.get("exam_dates", {}).get(selected_field_name):
-            st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
-            save_progress()
-            st.rerun()
-
+    with st.expander("Plán do skúšky", expanded=False):
         current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
         current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
         updated_exam_date = st.date_input(

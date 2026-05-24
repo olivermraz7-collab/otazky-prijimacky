@@ -2593,18 +2593,35 @@ if not questions:
 # ============================================================
 # ============================================================
 # ============================================================
+# ============================================================
 # FILTERS: TOPIC + MODE
 # ============================================================
 
+def question_topic(q):
+    if not isinstance(q, dict):
+        return "Nezaradené"
+
+    topic = str(q.get("topic", "") or "").strip()
+
+    if not topic:
+        return "Nezaradené"
+
+    # Nikdy nepoužívaj technické rozsahy ako celky.
+    if re.fullmatch(r"\[\d+\s*-\s*\d+\]", topic):
+        return "Nezaradené"
+
+    return topic
+
+
 topic_values = sorted(
     {
-        clean_topic_name(q.get("topic", "Nezaradené"))
+        question_topic(q)
         for q in questions
         if isinstance(q, dict)
     }
 )
 
-# Ak sú v dátach iba technické rozsahy, nezobrazovať ich ako celky.
+# Ak otázky nemajú reálne topics, nezobrazuj umelé rozsahy.
 topic_values = [
     topic
     for topic in topic_values
@@ -2626,7 +2643,7 @@ if selected_topic_name == "Všetky celky":
 else:
     topic_filtered_questions = [
         q for q in questions
-        if clean_topic_name(q.get("topic", "Nezaradené")) == selected_topic_name
+        if question_topic(q) == selected_topic_name
     ]
 
 st.session_state.selected_topic_name = selected_topic_name

@@ -2478,18 +2478,24 @@ def render_center_date_setup(selected_field_name, current_exam_date):
     st.markdown(
         """
         <style>
-            /* Stredová karta s kalendárom musí byť nad overlayom a klikateľná */
+            /*
+              Streamlit widgety sa nedajú vložiť priamo do HTML divu cez st.markdown.
+              Preto počas kroku 2 vizuálne presunieme samotný st.date_input a button
+              do stredu popup karty cez CSS.
+            */
+
             .center-calendar-card {
                 position: fixed;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
-                width: min(520px, calc(100vw - 32px));
+                width: min(540px, calc(100vw - 32px));
+                min-height: 330px;
                 background:
                     linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96));
                 border: 1px solid rgba(255,255,255,0.14);
                 border-radius: 30px;
-                padding: 26px 28px;
+                padding: 28px 30px;
                 box-shadow: 0 28px 100px rgba(0,0,0,0.78);
                 z-index: 10006;
                 pointer-events: none;
@@ -2520,18 +2526,70 @@ def render_center_date_setup(selected_field_name, current_exam_date):
                 margin-bottom: 18px;
             }
 
-            .center-calendar-form {
-                position: fixed;
-                left: 50%;
-                top: calc(50% + 92px);
-                transform: translateX(-50%);
-                width: min(420px, calc(100vw - 64px));
-                z-index: 10007;
-                pointer-events: auto;
+            /*
+              Toto je samotný výber dátumu.
+              Počas kroku 2 je v main časti iba tento date_input,
+              takže ho môžeme bezpečne pripnúť do popupu.
+            */
+            .main div[data-testid="stDateInput"] {
+                position: fixed !important;
+                left: 50% !important;
+                top: calc(50% + 42px) !important;
+                transform: translateX(-50%) !important;
+                width: min(420px, calc(100vw - 72px)) !important;
+                z-index: 10008 !important;
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+                background: transparent !important;
             }
 
-            .center-calendar-form,
-            .center-calendar-form *,
+            .main div[data-testid="stDateInput"] *,
+            .main div[data-testid="stDateInput"] input {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+            }
+
+            .main div[data-testid="stDateInput"] label,
+            .main div[data-testid="stDateInput"] label p {
+                color: #ffffff !important;
+                font-weight: 850 !important;
+            }
+
+            .main div[data-testid="stDateInput"] input {
+                color: #ffffff !important;
+                background: rgba(2, 6, 23, 0.96) !important;
+                border: 1px solid rgba(167,139,250,0.70) !important;
+                border-radius: 16px !important;
+                min-height: 44px !important;
+            }
+
+            /*
+              Toto je tlačidlo potvrdenia pod date_input.
+            */
+            .main div.stButton {
+                position: fixed !important;
+                left: 50% !important;
+                top: calc(50% + 130px) !important;
+                transform: translateX(-50%) !important;
+                width: min(420px, calc(100vw - 72px)) !important;
+                z-index: 10008 !important;
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+            }
+
+            .main div.stButton *,
+            .main div.stButton button {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+            }
+
+            /*
+              Kalendár popover musí byť úplne navrchu.
+            */
             div[data-baseweb="popover"],
             div[data-baseweb="popover"] *,
             div[role="dialog"],
@@ -2546,19 +2604,6 @@ def render_center_date_setup(selected_field_name, current_exam_date):
             div[data-baseweb="popover"],
             div[role="dialog"] {
                 z-index: 2147483647 !important;
-            }
-
-            .center-calendar-form div[data-testid="stDateInput"] input {
-                color: #ffffff !important;
-                background: rgba(2, 6, 23, 0.96) !important;
-                border: 1px solid rgba(167,139,250,0.70) !important;
-                border-radius: 16px !important;
-                min-height: 44px !important;
-            }
-
-            .center-calendar-form div.stButton > button {
-                width: 100% !important;
-                margin-top: 8px !important;
             }
         </style>
         """,
@@ -2578,8 +2623,6 @@ def render_center_date_setup(selected_field_name, current_exam_date):
         unsafe_allow_html=True
     )
 
-    st.markdown('<div class="center-calendar-form">', unsafe_allow_html=True)
-
     selected_exam_date = st.date_input(
         "Termín skúšky",
         value=current_exam_date,
@@ -2592,8 +2635,6 @@ def render_center_date_setup(selected_field_name, current_exam_date):
         st.session_state.setup_step = 3
         save_progress()
         st.rerun()
-
-    st.markdown("</div>", unsafe_allow_html=True)
 
 
 

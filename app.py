@@ -1407,6 +1407,64 @@ def progress_percent(value, goal):
     return min(1.0, value / goal)
 
 
+def calculate_recommended_daily_goal(field_name):
+    """
+    Vypočíta odporúčaný denný cieľ pre aktuálny odbor.
+    Berie do úvahy:
+    - termín skúšky používateľa,
+    - posledné 3 dni ako rezervu na opakovanie,
+    - počet otázok, ktoré ešte nie sú MASTERED vo všetkých predmetoch odboru.
+    """
+    exam_dates = st.session_state.get("exam_dates", {})
+    exam_date_raw = exam_dates.get(field_name)
+
+    if not exam_date_raw:
+        return DAILY_GOAL, {}
+
+    exam_date = parse_date_safe(exam_date_raw)
+
+    if exam_date is None:
+        return DAILY_GOAL, {}
+
+    days_until_exam = (exam_date - date.today()).days
+    learning_days = max(1, days_until_exam - 3)
+
+    recommended_by_subject = {}
+    total_recommended = 0
+
+    for subject_name, file_name in FIELDS.get(field_name, {}).items():
+        subject_questions = load_questions(file_name)
+
+        if not subject_questions:
+            continue
+
+        subject_state = st.session_state.subjects_data.get(
+            file_name,
+            {
+                "progress": {},
+                "daily_stats": {},
+                "recent_question_ids": [],
+                "score": 0,
+                "total_count": len(subject_questions)
+            }
+        )
+
+        remaining = 0
+
+        for question in subject_questions:
+            qid = get_qid(question)
+            progress = get_question_progress(subject_state, qid)
+
+            if progress.get("status", "NEW") != "MASTERED":
+                remaining += 1
+
+        recommended = int((remaining + learning_days - 1) // learning_days)
+        recommended_by_subject[subject_name] = recommended
+        total_recommended += recommended
+
+    return max(DAILY_GOAL, total_recommended), recommended_by_subject
+
+
 def calculate_learning_percent(subject_state, questions):
     if not questions:
         return 0
@@ -1753,6 +1811,8 @@ selected_file = available_subjects[st.session_state.selected_subject_name]
 questions = load_questions(selected_file)
 
 if not questions:
+    dynamic_daily_goal = DAILY_GOAL
+
     render_hero(
         st.session_state.selected_subject_name,
         selected_field_name
@@ -1875,6 +1935,8 @@ if "answered" not in st.session_state:
 # ============================================================
 # 12. MAIN LAYOUT
 # ============================================================
+
+dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
 
 subject_learning_percent = calculate_learning_percent(current_data, questions)
 hero_daily_goal, _hero_field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)

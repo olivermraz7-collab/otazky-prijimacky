@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "text": " Stavbou tela živočíchov sa zaoberá:",
+    "text": "Stavbou tela živočíchov sa zaoberá:",
     "options": [
       "A. antropológia",
       "B. fyziológia",
@@ -114,7 +114,7 @@
       "A. životné procesy živočíchov",
       "B. vývin živočíchov",
       "C. správanie živočíchov",
-      "D. vplyv živočíchov na prostredie\nZoznam otázok z oblasti: LF - Biológia / 2. strana"
+      "D. vplyv živočíchov na prostredie"
     ],
     "answer": [
       "C"
@@ -235,7 +235,7 @@
       "A. autor teórie o postupnom vývoji živej prírody",
       "B. autor dvojslovného pomenovania organizmov (binomickej nomenklatúry)",
       "C. tvorca teórie o význame prostredia pri vzniku nových druhov",
-      "D. zakladateľ modernej systematiky\nZoznam otázok z oblasti: LF - Biológia / 3. strana"
+      "D. zakladateľ modernej systematiky"
     ],
     "answer": [
       "B",
@@ -356,7 +356,7 @@
       "A. I.P.Pavlov",
       "B. Ch.R. Darwin",
       "C. A.I. Oparin",
-      "D. J.G. Mendel\nZoznam otázok z oblasti: LF - Biológia / 4. strana"
+      "D. J.G. Mendel"
     ],
     "answer": [
       "B"
@@ -379,8 +379,8 @@
     "id": 29,
     "text": "Ktorí z významných predstaviteľov dejín biológie prispeli k formulovaniu evolučnej teórie pred\nDarwinom?",
     "options": [
-      "A. J.",
-      "B. Lamarck\nB.\nJ.G. Mendel",
+      "A. J.B. Lamarck",
+      "B. J.G. Mendel",
       "C. K. Linné",
       "D. T. Malthus"
     ],
@@ -476,7 +476,7 @@
       "A. spotrebe energie",
       "B. uvoľneniu energie",
       "C. tvorbe zložitých látok z jednoduchých",
-      "D. rozkladu zložitých látok na jednoduché\nZoznam otázok z oblasti: LF - Biológia / 5. strana"
+      "D. rozkladu zložitých látok na jednoduché"
     ],
     "answer": [
       "A",
@@ -598,7 +598,7 @@
       "A. katabolický proces",
       "B. exergonickú reakciu",
       "C. anabolický proces",
-      "D. endergonickú reakciu\nZoznam otázok z oblasti: LF - Biológia / 6. strana"
+      "D. endergonickú reakciu"
     ],
     "answer": [
       "C",
@@ -723,7 +723,7 @@
       "A. množstvo O2 spotrebovaného pri oxidácii glukózy",
       "B. intenzitu dýchania",
       "C. pomer vyprodukovaného CO2 k spotrebovanému O2",
-      "D. závislosť uvoľnenej energie od spotrebovaného O2 pri dýchaní\nZoznam otázok z oblasti: LF - Biológia / 7. strana"
+      "D. závislosť uvoľnenej energie od spotrebovaného O2 pri dýchaní"
     ],
     "answer": [
       "B",
@@ -737,7 +737,7 @@
       "A. glukóza",
       "B. ATP",
       "C. CO2 a O2",
-      "D. CO2  a H2O"
+      "D. CO2 a H2O"
     ],
     "answer": [
       "D"
@@ -844,7 +844,7 @@
       "A. reakcií na podnety",
       "B. reflexov",
       "C. spätných väzieb",
-      "D. imunitných reakcií\nZoznam otázok z oblasti: LF - Biológia / 8. strana"
+      "D. imunitných reakcií"
     ],
     "answer": [
       "C"
@@ -965,7 +965,7 @@
       "A. prvokmi",
       "B. riasami",
       "C. sinicami",
-      "D. baktériami\nZoznam otázok z oblasti: LF - Biológia / 9. strana"
+      "D. baktériami"
     ],
     "answer": [
       "D"
@@ -1088,7 +1088,7 @@
       "A. 1,5 – 2 miliardami rokov",
       "B. 2,5 – 3 miliardami rokov",
       "C. 3,5 – 4 miliardami rokov",
-      "D. 4,5 – 6 miliardami rokov\nZoznam otázok z oblasti: LF - Biológia / 10. strana"
+      "D. 4,5 – 6 miliardami rokov"
     ],
     "answer": [
       "C"
@@ -1208,7 +1208,7 @@
       "A. druhohorné cicavcovité plazy",
       "B. morské plazy na konci prvohôr",
       "C. druhohorné vtáky",
-      "D. drobné suchozemské plazy v treťohorách\nZoznam otázok z oblasti: LF - Biológia / 11. strana"
+      "D. drobné suchozemské plazy v treťohorách"
     ],
     "answer": [
       "A"
@@ -1333,7 +1333,7 @@
       "A. analogické",
       "B. izologické",
       "C. homologické",
-      "D. heterologické\nZoznam otázok z oblasti: LF - Biológia / 12. strana"
+      "D. heterologické"
     ],
     "answer": [
       "C"
@@ -1383,7 +1383,7 @@
     "id": 103,
     "text": "Ekosystém charakterizujeme ako súhrn všetkých:",
     "options": [
-      "A. živých organizmov, ktoré  sa vyskytujú spoločne na určitom stanovišti",
+      "A. živých organizmov, ktoré sa vyskytujú spoločne na určitom stanovišti",
       "B. živých organizmov, ktoré so svojím prostredím tvoria funkčný celok",
       "C. vonkajších a vnútorných podmienok a zdrojov životného prostredia organizmov",
       "D. abiotických a biotických faktorov v prostredí a vzťahy medzi nimi"
@@ -1453,7 +1453,7 @@
     "options": [
       "A. súbor jedincov rovnakého druhu, žijúcich v spoločnom ohraničenom priestore v tom istom\nčase",
       "B. súbor viacerých druhov organizmov na určitom vyhradenom priestore",
-      "C. súbor všetkých rastlín a živočíchov na zemi, žijúcich v rovnakom čase\nZoznam otázok z oblasti: LF - Biológia / 13. strana",
+      "C. súbor všetkých rastlín a živočíchov na zemi, žijúcich v rovnakom čase",
       "D. súbor všetkých jedincov jedného druhu organizmov na Zemi"
     ],
     "answer": [
@@ -1574,7 +1574,7 @@
       "A. hemiparazitizmus",
       "B. saprofytizmus",
       "C. ektoparazitizmus",
-      "D. poloparazitizmus\nZoznam otázok z oblasti: LF - Biológia / 14. strana"
+      "D. poloparazitizmus"
     ],
     "answer": [
       "A",
@@ -1695,7 +1695,7 @@
       "A. srna a zajac",
       "B. zajac a líška",
       "C. dub a buk",
-      "D. pstruh a kapor\nZoznam otázok z oblasti: LF - Biológia / 15. strana"
+      "D. pstruh a kapor"
     ],
     "answer": [
       "A",
@@ -1823,7 +1823,7 @@
       "A. stenoekné",
       "B. bioindikátory",
       "C. euryekné",
-      "D. synantropné\nZoznam otázok z oblasti: LF - Biológia / 16. strana"
+      "D. synantropné"
     ],
     "answer": [
       "A",
@@ -1946,7 +1946,7 @@
       "A. je viazané na hostiteľskú bunku",
       "B. začína vytvorením spór",
       "C. uskutočňuje sa priečnym delením viriónu",
-      "D. obvykle vedie k zániku hostiteľskej bunky\nZoznam otázok z oblasti: LF - Biológia / 17. strana"
+      "D. obvykle vedie k zániku hostiteľskej bunky"
     ],
     "answer": [
       "A",
@@ -1973,7 +1973,7 @@
     "options": [
       "A. v bunkách živočíchov počas infekcie",
       "B. v medzibunkových priestoroch tkanív hostiteľského organizmu",
-      "C. v  bunkách baktérií, do ktorých prenikne len DNA bakteriofága",
+      "C. v bunkách baktérií, do ktorých prenikne len DNA bakteriofága",
       "D. na povrchu hostiteľskej baktérie, kde sa replikuje DNA"
     ],
     "answer": [
@@ -2071,7 +2071,7 @@
       "A. cytoplazmatickej membráne",
       "B. voľne v cytoplazme",
       "C. tylakoidoch",
-      "D. ribozómoch\nZoznam otázok z oblasti: LF - Biológia / 18. strana"
+      "D. ribozómoch"
     ],
     "answer": [
       "C"
@@ -2193,7 +2193,7 @@
       "A. ich bunka je prokaryotická",
       "B. ich bunka je eukaryotická",
       "C. majú tylakoidy",
-      "D. nemajú jadrovú membránu\nZoznam otázok z oblasti: LF - Biológia / 19. strana"
+      "D. nemajú jadrovú membránu"
     ],
     "answer": [
       "A",
@@ -2316,7 +2316,7 @@
       "A. z CO2 v procese fotosyntézy",
       "B. z organických zlúčenín",
       "C. autotrofne",
-      "D. heterotrofne\nZoznam otázok z oblasti: LF - Biológia / 20. strana"
+      "D. heterotrofne"
     ],
     "answer": [
       "A",
@@ -2446,7 +2446,7 @@
       "A. mliečnych produktov",
       "B. kvasných produktov",
       "C. farmaceutických produktov",
-      "D. pekárenských produktov\nZoznam otázok z oblasti: LF - Biológia / 21. strana"
+      "D. pekárenských produktov"
     ],
     "answer": [
       "A",
@@ -2572,7 +2572,7 @@
       "A. tvorbou hýf vo vreckách alebo bazídiách",
       "B. premenou primárneho podhubia na sekundárne",
       "C. delením, výtrusmi, pučaním alebo časťami hýf",
-      "D. iba delením, ostatné spôsoby patria k pohlavnému rozmnožovaniu\nZoznam otázok z oblasti: LF - Biológia / 22. strana"
+      "D. iba delením, ostatné spôsoby patria k pohlavnému rozmnožovaniu"
     ],
     "answer": [
       "C"
@@ -2696,7 +2696,7 @@
       "A. kvasinky a paplesne",
       "B. paplesňotvaré huby a spájavé plesne",
       "C. zástupcovia všetkých skupín",
-      "D. iba kvasinky\nZoznam otázok z oblasti: LF - Biológia / 23. strana"
+      "D. iba kvasinky"
     ],
     "answer": [
       "D"
@@ -2821,7 +2821,7 @@
       "A. muchotrávka má hlúbik uložený v pošve, pečiarka nie",
       "B. muchotrávka má na hlúbiku prsteň, pečiarka nie",
       "C. v okolí muchotrávky nájdeme uhynutý hmyz",
-      "D. muchotrávka má pod klobúkom lupene, pečiarka rúrky\nZoznam otázok z oblasti: LF - Biológia / 24. strana"
+      "D. muchotrávka má pod klobúkom lupene, pečiarka rúrky"
     ],
     "answer": [
       "A"
@@ -2942,7 +2942,7 @@
       "A. homeostázu",
       "B. enzymatické riadenie",
       "C. hospodárenie s vodou",
-      "D. metabolizmus\nZoznam otázok z oblasti: LF - Biológia / 25. strana"
+      "D. metabolizmus"
     ],
     "answer": [
       "A",
@@ -3065,7 +3065,7 @@
       "A. metabolické funkcie",
       "B. regulačné funkcie",
       "C. imunitu",
-      "D. mechanické funkcie\nZoznam otázok z oblasti: LF - Biológia / 26. strana"
+      "D. mechanické funkcie"
     ],
     "answer": [
       "A",
@@ -3188,7 +3188,7 @@
       "A. podieľajú sa na stavbe bunkových membrán",
       "B. vytvárajú prostredie pre chemické deje",
       "C. urýchľujú biochemické reakcie",
-      "D. predstavujú bohatý zdroj energie\nZoznam otázok z oblasti: LF - Biológia / 27. strana"
+      "D. predstavujú bohatý zdroj energie"
     ],
     "answer": [
       "A",
@@ -3265,7 +3265,7 @@
   },
   {
     "id": 240,
-    "text": "Energia získaná pri odbúraní jednej molekuly glukózy v procese aeróbnej glykolýzy sa využije\nna tvorbu :",
+    "text": "Energia získaná pri odbúraní jednej molekuly glukózy v procese aeróbnej glykolýzy sa využije\nna tvorbu:",
     "options": [
       "A. 2 molekúl ATP",
       "B. 12 molekúl ATP",
@@ -3293,7 +3293,7 @@
     "id": 242,
     "text": "Medzi prokaryotické organizmy patria:",
     "options": [
-      "A. baktérie , archeóny a sinice",
+      "A. baktérie, archeóny a sinice",
       "B. baktérie a vírusy",
       "C. baktérie, vírusy a sinice",
       "D. len baktérie"
@@ -3309,7 +3309,7 @@
       "A. všetky mnohobunkové a niektoré jednobunkové organizmy",
       "B. len mnohobunkové organizmy",
       "C. všetky organizmy, ktoré majú biologické membrány",
-      "D. baktérie a sinice\nZoznam otázok z oblasti: LF - Biológia / 28. strana"
+      "D. baktérie a sinice"
     ],
     "answer": [
       "A"
@@ -3402,7 +3402,7 @@
   },
   {
     "id": 250,
-    "text": "Bunkové jadro je štruktúra, v ktorej prebieha :",
+    "text": "Bunkové jadro je štruktúra, v ktorej prebieha:",
     "options": [
       "A. syntéza nukleových kyselín",
       "B. syntéza tukov",
@@ -3434,7 +3434,7 @@
       "A. proteíny",
       "B. steroidy",
       "C. ribozómovú RNA",
-      "D. transférovú RNA\nZoznam otázok z oblasti: LF - Biológia / 29. strana"
+      "D. transférovú RNA"
     ],
     "answer": [
       "C"
@@ -3555,7 +3555,7 @@
       "A. mitochondrie a plastidy",
       "B. Golgiho aparát a mitochondrie",
       "C. plastidy a lyzozómy",
-      "D. žiadne také štruktúry neexistujú, DNA je iba v jadre\nZoznam otázok z oblasti: LF - Biológia / 30. strana"
+      "D. žiadne také štruktúry neexistujú, DNA je iba v jadre"
     ],
     "answer": [
       "A"
@@ -3678,7 +3678,7 @@
       "A. z endoplazmatického retikula a ribózy",
       "B. z endoplazmatického retikula a RNA",
       "C. z endoplazmatického retikula a ribozómov",
-      "D. z endoplazmového retikula a DNA\nZoznam otázok z oblasti: LF - Biológia / 31. strana"
+      "D. z endoplazmového retikula a DNA"
     ],
     "answer": [
       "C"
@@ -3804,7 +3804,7 @@
       "A. intercelulárne filamenty",
       "B. intermediárne filamenty",
       "C. intermediárne tubuly",
-      "D. intercelulárne tubuly\nZoznam otázok z oblasti: LF - Biológia / 32. strana"
+      "D. intercelulárne tubuly"
     ],
     "answer": [
       "B"
@@ -3929,7 +3929,7 @@
       "A. pohyb molekúl z miesta vyššej koncentrácie na miesto s nižšou koncentráciou",
       "B. rozptyl látky v rozpúšťadle",
       "C. rozptyl rozpúšťadla v látke",
-      "D. vyrovnávanie koncentrácie medzi rozpúšťadlom a roztokom v smere koncentračného spádu\nZoznam otázok z oblasti: LF - Biológia / 33. strana"
+      "D. vyrovnávanie koncentrácie medzi rozpúšťadlom a roztokom v smere koncentračného spádu"
     ],
     "answer": [
       "A",
@@ -4053,7 +4053,7 @@
       "A. plazmolýza",
       "B. deplazmolýza",
       "C. plazmoptýza",
-      "D. osmolýza\nZoznam otázok z oblasti: LF - Biológia / 34. strana"
+      "D. osmolýza"
     ],
     "answer": [
       "C"
@@ -4173,7 +4173,7 @@
       "A. difúzia",
       "B. pinocytóza",
       "C. fagocytóza",
-      "D. osmóza\nZoznam otázok z oblasti: LF - Biológia / 35. strana"
+      "D. osmóza"
     ],
     "answer": [
       "A",
@@ -4195,7 +4195,7 @@
   },
   {
     "id": 309,
-    "text": "Ktorá bunková štruktúra zodpovedá za presné rozdelenie chromozómov do dcérskych buniek ?",
+    "text": "Ktorá bunková štruktúra zodpovedá za presné rozdelenie chromozómov do dcérskych buniek?",
     "options": [
       "A. jadro",
       "B. cytoskelet",
@@ -4293,7 +4293,7 @@
       "A. ukončeniu karyokinézy",
       "B. priebehu cytokinézy",
       "C. dešpiralizácii chromozómov",
-      "D. vzniku novej DNA\nZoznam otázok z oblasti: LF - Biológia / 36. strana"
+      "D. vzniku novej DNA"
     ],
     "answer": [
       "A",
@@ -4417,7 +4417,7 @@
       "A. telofáza",
       "B. metafáza",
       "C. cytokinéza",
-      "D. anafáza\nZoznam otázok z oblasti: LF - Biológia / 37. strana"
+      "D. anafáza"
     ],
     "answer": [
       "B"
@@ -4534,7 +4534,7 @@
       "A. umožňujú rast rastlín",
       "B. sú podmienkou primárneho hrubnutia v stonke",
       "C. zabezpečujú delenie buniek v rastových vrcholoch",
-      "D. tvoria všetky druhy mechanických pletív\nZoznam otázok z oblasti: LF - Biológia / 38. strana"
+      "D. tvoria všetky druhy mechanických pletív"
     ],
     "answer": [
       "A",
@@ -4611,7 +4611,7 @@
   },
   {
     "id": 340,
-    "text": "Ktoré rastlinné pletivo sa využíva ako významná hospodárska surovina v textilnom priemysle ?",
+    "text": "Ktoré rastlinné pletivo sa využíva ako významná hospodárska surovina v textilnom priemysle?",
     "options": [
       "A. sklerenchymatické",
       "B. parenchymatické",
@@ -4656,7 +4656,7 @@
       "A. otvory na okraji listov rastlín, ktorými sa odparuje voda",
       "B. dve bunky so schopnosťou zatvárať a otvárať medzeru medzi sebou",
       "C. bunky, ktoré svojou činnosťou sprostredkujú výmenu plynov",
-      "D. pokožkové útvary\nZoznam otázok z oblasti: LF - Biológia / 39. strana"
+      "D. pokožkové útvary"
     ],
     "answer": [
       "B",
@@ -4782,7 +4782,7 @@
       "A. hydatódy",
       "B. trichómy",
       "C. emergencie",
-      "D. prieduchy\nZoznam otázok z oblasti: LF - Biológia / 40. strana"
+      "D. prieduchy"
     ],
     "answer": [
       "D"
@@ -4902,7 +4902,7 @@
       "A. brachyblasty",
       "B. podzemky",
       "C. haustóriá",
-      "D. poplazy\nZoznam otázok z oblasti: LF - Biológia / 41. strana"
+      "D. poplazy"
     ],
     "answer": [
       "A",
@@ -5023,7 +5023,7 @@
       "A. je diferencovaný na palisádový a špongiový parenchým",
       "B. nie je diferencovaný",
       "C. sú v ňom umiestnené kolaterálne cievne zväzky",
-      "D. na jeho hornej aj spodnej časti sú prieduchy\nZoznam otázok z oblasti: LF - Biológia / 42. strana"
+      "D. na jeho hornej aj spodnej časti sú prieduchy"
     ],
     "answer": [
       "B",
@@ -5147,7 +5147,7 @@
       "A. lipnicovité",
       "B. kapustovité",
       "C. mrkvovité",
-      "D. iskerníkovité\nZoznam otázok z oblasti: LF - Biológia / 43. strana"
+      "D. iskerníkovité"
     ],
     "answer": [
       "B"
@@ -5265,7 +5265,7 @@
     "options": [
       "A. rastlina nemá vo svojom životnom cykle gametofyt",
       "B. gametofyt a sporofyt sa morfologicky nelíšia",
-      "C. rastlina produkuje iba izogaméty\nZoznam otázok z oblasti: LF - Biológia / 44. strana",
+      "C. rastlina produkuje iba izogaméty",
       "D. gametofyt aj sporofyt sú haploidné generácie"
     ],
     "answer": [
@@ -5391,7 +5391,7 @@
       "A. vo výtrusnici",
       "B. v zárodočníku",
       "C. v plemenníčku",
-      "D. na prvoklíku alebo prvoraste\nZoznam otázok z oblasti: LF - Biológia / 45. strana"
+      "D. na prvoklíku alebo prvoraste"
     ],
     "answer": [
       "A"
@@ -5517,7 +5517,7 @@
       "A. borovicu lesnú",
       "B. jedľu bielu",
       "C. smrek obyčajný",
-      "D. smrekovec opadavý\nZoznam otázok z oblasti: LF - Biológia / 46. strana"
+      "D. smrekovec opadavý"
     ],
     "answer": [
       "C"
@@ -5634,7 +5634,7 @@
       "A. nerozlíšený kvetný obal tvorený okvetnými lístkami",
       "B. pestro vyfarbené kvetné obaly lákajúce hmyz",
       "C. časť kvetu, z ktorej vyrastajú ostatné kvetné časti",
-      "D. ochranné kvetné obaly spravidla zelenej farby\nZoznam otázok z oblasti: LF - Biológia / 47. strana"
+      "D. ochranné kvetné obaly spravidla zelenej farby"
     ],
     "answer": [
       "A"
@@ -5753,7 +5753,7 @@
       "A. vznikne zygota a triploidný endosperm",
       "B. sa na oplodnení zúčastňujú dve spermatické bunky",
       "C. sa na oplodnení zúčastňujú dve vajcové bunky",
-      "D. vzniknú dve zygoty\nZoznam otázok z oblasti: LF - Biológia / 48. strana"
+      "D. vzniknú dve zygoty"
     ],
     "answer": [
       "A",
@@ -5873,7 +5873,7 @@
       "A. hybernácia",
       "B. etiolizácia",
       "C. fotoperióda",
-      "D. dormancia\nZoznam otázok z oblasti: LF - Biológia / 49. strana"
+      "D. dormancia"
     ],
     "answer": [
       "D"
@@ -5994,7 +5994,7 @@
       "A. meristematickou (embryonálnou)",
       "B. predlžovacou",
       "C. diferenciačnou (rozlišovacou)",
-      "D. kulminačnou\nZoznam otázok z oblasti: LF - Biológia / 50. strana"
+      "D. kulminačnou"
     ],
     "answer": [
       "A",
@@ -6117,7 +6117,7 @@
       "A. bôbovité – plodom je struk, semená sú bohaté na bielkoviny",
       "B. astrovité – kvety sú drobné, usporiadané do súkvetia úbor",
       "C. lipnicovité – stonku tvorí steblo, plodom sú zrná v klasoch",
-      "D. kapustovité – majú štvorpočetný kvet, plodom sú šešule\nZoznam otázok z oblasti: LF - Biológia / 51. strana"
+      "D. kapustovité – majú štvorpočetný kvet, plodom sú šešule"
     ],
     "answer": [
       "A",
@@ -6241,7 +6241,7 @@
       "A. v metafáze obsahuje aj bielkoviny, v interfáze ho tvorí iba DNA",
       "B. v metafáze je špiralizovaný a v interfáze dešpiralizovaný",
       "C. v metafáze je dvojchromatidový, v interfáze vždy jednochromatidový",
-      "D. nie je medzi nimi rozdiel, je to stále ten istý chromozóm\nZoznam otázok z oblasti: LF - Biológia / 52. strana"
+      "D. nie je medzi nimi rozdiel, je to stále ten istý chromozóm"
     ],
     "answer": [
       "B"
@@ -6367,7 +6367,7 @@
       "A. majú rovnaký genetický obsah, štruktúru a tvar",
       "B. sú to párové chromozómy jeden od otca, druhý od matky",
       "C. je to súbor chromozómov od jedného rodiča",
-      "D. sú to pohlavné chromozómy\nZoznam otázok z oblasti: LF - Biológia / 53. strana"
+      "D. sú to pohlavné chromozómy"
     ],
     "answer": [
       "A",
@@ -6417,9 +6417,9 @@
     "id": 473,
     "text": "V organizme sa vyskytujú nasledovné typy RNA:",
     "options": [
-      "A. genómová, mediátorová , transférová",
+      "A. genómová, mediátorová, transférová",
       "B. génová, transformačná, mediátorová",
-      "C. mediátorová , transférová, ribozómová",
+      "C. mediátorová, transférová, ribozómová",
       "D. translačná, jednovláknová a dvojvláknová"
     ],
     "answer": [
@@ -6484,7 +6484,7 @@
     "text": "Pri syntéze DNA sa k nukleotidu, ktorého súčasťou je dusíkatá báza tymín priradí v druhom\nreťazci komplementárny nukleotid s bázou:",
     "options": [
       "A. cytozín",
-      "B. guanín\nZoznam otázok z oblasti: LF - Biológia / 54. strana",
+      "B. guanín",
       "C. adenín",
       "D. uracil"
     ],
@@ -6520,7 +6520,7 @@
   },
   {
     "id": 481,
-    "text": "Koľko je STOP kodónov ?",
+    "text": "Koľko je STOP kodónov?",
     "options": [
       "A. 1",
       "B. 2",
@@ -6602,8 +6602,8 @@
     "options": [
       "A. v DNA je pentóza deoxyribóza a v RNA je hexóza ribóza",
       "B. DNA obsahuje pentózu deoxyribózu a RNA ribózu",
-      "C. DNA obsahuje dusíkatú bázu tymín a RNA uracil\nZoznam otázok z oblasti: LF - Biológia / 55. strana",
-      "D. v DNA je adenín komplementárny s  uracilom a v RNA s tymínom"
+      "C. DNA obsahuje dusíkatú bázu tymín a RNA uracil",
+      "D. v DNA je adenín komplementárny s uracilom a v RNA s tymínom"
     ],
     "answer": [
       "B",
@@ -6678,7 +6678,7 @@
   },
   {
     "id": 493,
-    "text": "Časť vlákna molekuly DNA tvoria nukleotidy s poradím báz  C-G-A-T-A-T. Aké je poradie\nnukleotidov v zodpovedajúcej časti komplementárneho vlákna?",
+    "text": "Časť vlákna molekuly DNA tvoria nukleotidy s poradím báz C-G-A-T-A-T. Aké je poradie nukleotidov v zodpovedajúcej časti komplementárneho vlákna?",
     "options": [
       "A. A-G-U-A-U-A",
       "B. G-C-T-A-T-A",
@@ -6691,7 +6691,7 @@
   },
   {
     "id": 494,
-    "text": "Aké je poradie nukleotidov v časti vlákna DNA, replikovaného podľa časti vlákna s nukleotidmi\nT-T-A-G-C-A",
+    "text": "Aké je poradie nukleotidov v časti vlákna DNA, replikovaného podľa časti vlákna s nukleotidmi T-T-A-G-C-A",
     "options": [
       "A. A-A-U-C-G-U",
       "B. U-U-T-C-G-T",
@@ -6719,7 +6719,7 @@
     "id": 496,
     "text": "Aké poradie nukleotidov vznikne v m-RNA transkribovanej podľa časti vlákna s nukleotidmi A-\nT-T-G-C-A",
     "options": [
-      "A. U-A-A-C-G-U\nZoznam otázok z oblasti: LF - Biológia / 56. strana",
+      "A. U-A-A-C-G-U",
       "B. T-A-A-C-G-T",
       "C. C-U-U-G-A-C",
       "D. U-T-T-G-C-U"
@@ -6826,7 +6826,7 @@
       "A. k zdvojeniu genetickej informácie",
       "B. k syntéze molekuly DNA",
       "C. ku vzniku dvoch identických molekúl DNA",
-      "D. ku vzniku m-RNA\nZoznam otázok z oblasti: LF - Biológia / 57. strana"
+      "D. ku vzniku m-RNA"
     ],
     "answer": [
       "A",
@@ -6950,7 +6950,7 @@
       "A. jednu aminokyselinu kóduje viac kodónov",
       "B. genetický kód je zmutovaný",
       "C. jednu aminokyselinu kóduje vždy len jeden kodón",
-      "D. každý triplet je tvorený tromi nukleotidmi\nZoznam otázok z oblasti: LF - Biológia / 58. strana"
+      "D. každý triplet je tvorený tromi nukleotidmi"
     ],
     "answer": [
       "A"
@@ -7072,7 +7072,7 @@
       "A. intermediárnu",
       "B. s úplnou dominanciou",
       "C. s neúplnou dominanciou",
-      "D. nehomologickú\nZoznam otázok z oblasti: LF - Biológia / 59. strana"
+      "D. nehomologickú"
     ],
     "answer": [
       "B"
@@ -7195,7 +7195,7 @@
       "A. heterozygot má vlastný fenotyp, odlišný od oboch homozygotov",
       "B. fenotyp heterozygota je zhodný s fenotypom homozygota dominantného",
       "C. dominantná alela sa vo fenotype neprejaví vôbec",
-      "D. v prípade úplnej dominancie heterozygot nevzniká\nZoznam otázok z oblasti: LF - Biológia / 60. strana"
+      "D. v prípade úplnej dominancie heterozygot nevzniká"
     ],
     "answer": [
       "A"
@@ -7314,7 +7314,7 @@
       "A. ide o dedičnosť s úplnou dominanciou",
       "B. ide o dedičnosť s neúplnou dominanciou",
       "C. ide o intermediaritu",
-      "D. líšia sa vždy\nZoznam otázok z oblasti: LF - Biológia / 61. strana"
+      "D. líšia sa vždy"
     ],
     "answer": [
       "A"
@@ -7418,7 +7418,7 @@
       "A. červenú a bielu v pomere 3:1",
       "B. červenú a bielu v pomere 1:1",
       "C. červenú, ružovú a bielu v pomere 1:2:1",
-      "D. len červenú\nZoznam otázok z oblasti: LF - Biológia / 62. strana"
+      "D. len červenú"
     ],
     "answer": [
       "C"
@@ -7538,7 +7538,7 @@
     "options": [
       "A. nie, môžu mať len deti s krvnými skupinami A alebo B",
       "B. nie, môžu mať len deti s krvnými skupinami A, B alebo 0",
-      "C. áno, môžu mať len deti so skupinami AB a 0\nZoznam otázok z oblasti: LF - Biológia / 63. strana",
+      "C. áno, môžu mať len deti so skupinami AB a 0",
       "D. áno, môžu mať len deti so skupinou AB"
     ],
     "answer": [
@@ -7655,7 +7655,7 @@
     "text": "Zákon o voľnej kombinovateľnosti alel rôznych alelických párov sa uplatňuje pri:",
     "options": [
       "A. monohybridizme",
-      "B. väzbe génov\nZoznam otázok z oblasti: LF - Biológia / 64. strana",
+      "B. väzbe génov",
       "C. dihybridizme",
       "D. viacnásobných hybridoch"
     ],
@@ -7776,7 +7776,7 @@
     "options": [
       "A. 0% zdravé deti",
       "B. 25% zdravý syn, 25% dcéra prenášačka, 50% choré deti",
-      "C. zdravé môžu byť iba dcéry – 50%\nZoznam otázok z oblasti: LF - Biológia / 65. strana",
+      "C. zdravé môžu byť iba dcéry – 50%",
       "D. zdravý bude iba syn – 25%"
     ],
     "answer": [
@@ -7828,7 +7828,7 @@
   },
   {
     "id": 583,
-    "text": "Príčinou dedičnej premenlivosti , môže byť:",
+    "text": "Príčinou dedičnej premenlivosti, môže byť:",
     "options": [
       "A. pohlavné rozmnožovanie",
       "B. trvalý vplyv faktorov prostredia",
@@ -7903,7 +7903,7 @@
       "A. zámenu jedného alebo viacerých nukleotidov za iný",
       "B. zdvojenie nukleotidov",
       "C. stratu jedného alebo viacerých nukleotidov",
-      "D. vsunutie jedného alebo viacerých nukleotidov\nZoznam otázok z oblasti: LF - Biológia / 66. strana"
+      "D. vsunutie jedného alebo viacerých nukleotidov"
     ],
     "answer": [
       "A"
@@ -8022,7 +8022,7 @@
       "A. zvýšením počtu 21. chromozómu z 2 na 3",
       "B. chýbaním jedného chromozómu 21",
       "C. chýbaním jedného chromozómu 18",
-      "D. zvýšením počtu 18. chromozómu z 2 na 3\nZoznam otázok z oblasti: LF - Biológia / 67. strana"
+      "D. zvýšením počtu 18. chromozómu z 2 na 3"
     ],
     "answer": [
       "A"
@@ -8141,7 +8141,7 @@
       "A. AB, Ab, aB, ab",
       "B. AB, ab",
       "C. AA, aa, BB, bb",
-      "D. A, a, B, b\nZoznam otázok z oblasti: LF - Biológia / 68. strana"
+      "D. A, a, B, b"
     ],
     "answer": [
       "A"
@@ -8268,7 +8268,7 @@
       "A. panmixia",
       "B. autogamia",
       "C. náhodné kríženie jedincov",
-      "D. inbríding\nZoznam otázok z oblasti: LF - Biológia / 69. strana"
+      "D. inbríding"
     ],
     "answer": [
       "A",
@@ -8351,7 +8351,7 @@
       "A. p\n2 +2pq + q\n2 =1",
       "B. p + q =1",
       "C. p\n2 + q\n2 =1",
-      "D. p\n2 x q\n2  =1"
+      "D. p\n2 x q\n2 =1"
     ],
     "answer": [
       "A"
@@ -8364,7 +8364,7 @@
       "A. p\n2 +2pq + q\n2 =1",
       "B. p + q =1",
       "C. p\n2 + q\n2 =1",
-      "D. p\n2 x q\n2  =1"
+      "D. p\n2 x q\n2 =1"
     ],
     "answer": [
       "B"
@@ -8392,7 +8392,7 @@
       "A. 25%",
       "B. 50%",
       "C. 0,5",
-      "D. 0,25\nZoznam otázok z oblasti: LF - Biológia / 70. strana"
+      "D. 0,25"
     ],
     "answer": [
       "A",
@@ -8503,7 +8503,7 @@
     "options": [
       "A. 0,5",
       "B. 5%",
-      "C. 50%\nZoznam otázok z oblasti: LF - Biológia / 71. strana",
+      "C. 50%",
       "D. 0,75"
     ],
     "answer": [
@@ -8513,7 +8513,7 @@
   },
   {
     "id": 634,
-    "text": "25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia dominantných\nhomozygotov v  tejto populácii?",
+    "text": "25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia dominantných\nhomozygotov v tejto populácii?",
     "options": [
       "A. 25%",
       "B. 0,25",
@@ -8527,7 +8527,7 @@
   },
   {
     "id": 635,
-    "text": "25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia heterozygotov v  tejto\npopulácii?",
+    "text": "25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia heterozygotov v tejto\npopulácii?",
     "options": [
       "A. 25%",
       "B. 0,25",
@@ -8540,7 +8540,7 @@
   },
   {
     "id": 636,
-    "text": "25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia nositeľov\ndominantného znaku v  tejto populácii?",
+    "text": "25% členov populácie je nositeľom recesívneho znaku. Aká je frekvencia nositeľov\ndominantného znaku v tejto populácii?",
     "options": [
       "A. 75%",
       "B. 50%",
@@ -8628,7 +8628,7 @@
     "text": "Ak je hodnota koeficientu dedivosti h\n2 = 0, znamená to, že:",
     "options": [
       "A. nejde o geneticky podmienený znak",
-      "B. ide o znak kvalitatívny\nZoznam otázok z oblasti: LF - Biológia / 72. strana",
+      "B. ide o znak kvalitatívny",
       "C. znak je určený výlučne prostredím",
       "D. znak je podmienený výlučne dedičnosťou"
     ],
@@ -8742,7 +8742,7 @@
       "A. koreňonožce",
       "B. bičíkovce",
       "C. nálevníky",
-      "D. výtrusovce\nZoznam otázok z oblasti: LF - Biológia / 73. strana"
+      "D. výtrusovce"
     ],
     "answer": [
       "A"
@@ -8865,7 +8865,7 @@
       "A. trichomonas pošvový",
       "B. meňavka červienková",
       "C. toxoplazma gondii",
-      "D. bičíkovce rodu bodo\nZoznam otázok z oblasti: LF - Biológia / 74. strana"
+      "D. bičíkovce rodu bodo"
     ],
     "answer": [
       "C"
@@ -8985,7 +8985,7 @@
       "A. chondrocyty",
       "B. ostie",
       "C. choanocyty",
-      "D. choány\nZoznam otázok z oblasti: LF - Biológia / 75. strana"
+      "D. choány"
     ],
     "answer": [
       "C"
@@ -9106,7 +9106,7 @@
       "A. vo vývine striedajú štádium polypa a medúzy",
       "B. sladkovodné žijú prisadnuto, morské sa voľne pohybujú",
       "C. ich telo tvorí diferencovaná gastrula",
-      "D. vyvinuli sa im svalové bunky a rozptýlená nervová sústava\nZoznam otázok z oblasti: LF - Biológia / 76. strana"
+      "D. vyvinuli sa im svalové bunky a rozptýlená nervová sústava"
     ],
     "answer": [
       "A",
@@ -9230,7 +9230,7 @@
       "A. mrľa ľudská",
       "B. motolica pečeňová",
       "C. svalovec špirálový",
-      "D. pásomnica dlhočlánková\nZoznam otázok z oblasti: LF - Biológia / 77. strana"
+      "D. pásomnica dlhočlánková"
     ],
     "answer": [
       "B",
@@ -9349,7 +9349,7 @@
       "A. kôrovce",
       "B. klepietkavce",
       "C. plášťovce",
-      "D. článkonožce\nZoznam otázok z oblasti: LF - Biológia / 78. strana"
+      "D. článkonožce"
     ],
     "answer": [
       "B"
@@ -9441,9 +9441,9 @@
     "text": "Typickým znakom klepietkavcov sú:",
     "options": [
       "A. chelicery, pedipalpy a dvojvetvové končatiny",
-      "B. hryzadlá ,  2 páry tykadiel a 8 kráčavých končatín",
+      "B. hryzadlá, 2 páry tykadiel a 8 kráčavých končatín",
       "C. chelicery, pedipalpy a 4 páry kráčavých končatín",
-      "D. hryzadlá , hmatadlá a 4 páry kráčavých končatín"
+      "D. hryzadlá, hmatadlá a 4 páry kráčavých končatín"
     ],
     "answer": [
       "C",
@@ -9471,7 +9471,7 @@
       "A. fagocytárna",
       "B. gastrovaskulárna",
       "C. metanefridiálna",
-      "D. ambulakrálna\nZoznam otázok z oblasti: LF - Biológia / 79. strana"
+      "D. ambulakrálna"
     ],
     "answer": [
       "B"
@@ -9595,7 +9595,7 @@
       "A. nervovú sústavu majú uloženú na chrbtovej strane tela",
       "B. cievna sústava je uložená na brušnej strane tela",
       "C. nervová sústava je rúrková, diferencovaná na ganglia",
-      "D. análny otvor vzniká z prvoúst\nZoznam otázok z oblasti: LF - Biológia / 80. strana"
+      "D. análny otvor vzniká z prvoúst"
     ],
     "answer": [
       "A",
@@ -9717,7 +9717,7 @@
       "A. niektoré sliznatky v larválnom štádiu",
       "B. väčšina mihúľ v larválnom štádiu",
       "C. mihuľa potočná aj v dospelosti",
-      "D. žiadne\nZoznam otázok z oblasti: LF - Biológia / 81. strana"
+      "D. žiadne"
     ],
     "answer": [
       "B",
@@ -9839,7 +9839,7 @@
       "A. cykloidné",
       "B. ktenoidné",
       "C. plakoidné",
-      "D. ganoidné\nZoznam otázok z oblasti: LF - Biológia / 82. strana"
+      "D. ganoidné"
     ],
     "answer": [
       "A",
@@ -9963,7 +9963,7 @@
       "A. okysličená krv do tela",
       "B. odkysličená krv do tela",
       "C. okysličená krv do žiabier",
-      "D. odkysličená krv do žiabier\nZoznam otázok z oblasti: LF - Biológia / 83. strana"
+      "D. odkysličená krv do žiabier"
     ],
     "answer": [
       "D"
@@ -10052,7 +10052,7 @@
   },
   {
     "id": 747,
-    "text": "Kloaka je :",
+    "text": "Kloaka je:",
     "options": [
       "A. vývod tráviacej, pohlavnej a vylučovacej sústavy",
       "B. vývod samičej pohlavnej sústavy obojživelníkov",
@@ -10084,7 +10084,7 @@
       "A. prídavný čuchový orgán obojživelníkov",
       "B. prídavný čuchový orgán plazov",
       "C. polohovorovnovážny orgán vtákov",
-      "D. sluchový orgán plazov\nZoznam otázok z oblasti: LF - Biológia / 84. strana"
+      "D. sluchový orgán plazov"
     ],
     "answer": [
       "A",
@@ -10204,7 +10204,7 @@
       "A. 3 druhy užoviek",
       "B. 4 druhy užoviek",
       "C. 5 druhov užoviek",
-      "D. 8 druhov užoviek\nZoznam otázok z oblasti: LF - Biológia / 85. strana"
+      "D. 8 druhov užoviek"
     ],
     "answer": [
       "B"
@@ -10324,7 +10324,7 @@
       "A. z hrvoľa a svalnatého žalúdka",
       "B. zo žľaznatého a svalnatého žalúdka",
       "C. zo žľaznatého žalúdka a slezu",
-      "D. je jednodielny\nZoznam otázok z oblasti: LF - Biológia / 86. strana"
+      "D. je jednodielny"
     ],
     "answer": [
       "B"
@@ -10447,7 +10447,7 @@
       "A. áno, tvorí sa v nich mlieko, základný zdroj výživy mláďať",
       "B. áno, ale nie všetky samice cicavcov majú vyvinuté aj mliečne bradavky",
       "C. nie, vajcorodcom mliečne žľazy chýbajú",
-      "D. nie, spoločným znakom cicavcov je srsť a mliečne bradavky samíc\nZoznam otázok z oblasti: LF - Biológia / 87. strana"
+      "D. nie, spoločným znakom cicavcov je srsť a mliečne bradavky samíc"
     ],
     "answer": [
       "A",
@@ -10567,7 +10567,7 @@
       "A. v horných dýchacích cestách",
       "B. vo vajíčkovodoch",
       "C. u žien sa nachádza na troch miestach organizmu",
-      "D. v Cortiho orgáne\nZoznam otázok z oblasti: LF - Biológia / 88. strana"
+      "D. v Cortiho orgáne"
     ],
     "answer": [
       "A",
@@ -10692,7 +10692,7 @@
       "A. krycí",
       "B. žľazový",
       "C. resorpčný",
-      "D. zmyslový\nZoznam otázok z oblasti: LF - Biológia / 89. strana"
+      "D. zmyslový"
     ],
     "answer": [
       "A",
@@ -10813,7 +10813,7 @@
       "A. v medzistavcových platničkách",
       "B. na povrchu kostí",
       "C. v hrtanovej príchlopke",
-      "D. v zuboch\nZoznam otázok z oblasti: LF - Biológia / 90. strana"
+      "D. v zuboch"
     ],
     "answer": [
       "A",
@@ -10938,7 +10938,7 @@
       "A. záhlavná, jarmová, spánková, temenná a čelová",
       "B. záhlavná, klinová, spánková, temenná a čelová",
       "C. záhlavná, klinová, jarmová a čelová",
-      "D. spánková, podnebná, temenná a jarmová\nZoznam otázok z oblasti: LF - Biológia / 91. strana"
+      "D. spánková, podnebná, temenná a jarmová"
     ],
     "answer": [
       "B"
@@ -10977,7 +10977,7 @@
     "text": "Pletenec dolnej končatiny ( panvový) sa skladá z kostí:",
     "options": [
       "A. 2 kostí panvových a krížovej kosti",
-      "B. 2 kostí panvových, kosti lonovej a  krížovej",
+      "B. 2 kostí panvových, kosti lonovej a krížovej",
       "C. 1 kosti panvovej, kosti lonovej a kostrče",
       "D. 1 kosti panvovej, krížovej a lonovej"
     ],
@@ -11029,9 +11029,9 @@
     "text": "Kosti ruky tvoria:",
     "options": [
       "A. 7 kostí zápästia, 5 záprstných kostí, 15 článkov prstov",
-      "B. 8 kostí zápästia , 5 záprstných kostí, 14 článkov prstov",
+      "B. 8 kostí zápästia, 5 záprstných kostí, 14 článkov prstov",
       "C. 8 kostí zápästia, 4 záprstných kostí, 14 článkov prstov",
-      "D. 7 kostí zápästia , 4 záprstné kosti, 12 článkov prstov"
+      "D. 7 kostí zápästia, 4 záprstné kosti, 12 článkov prstov"
     ],
     "answer": [
       "B"
@@ -11057,7 +11057,7 @@
       "A. kyfóza",
       "B. skolióza",
       "C. osteoporóza",
-      "D. lordóza\nZoznam otázok z oblasti: LF - Biológia / 92. strana"
+      "D. lordóza"
     ],
     "answer": [
       "B"
@@ -11179,7 +11179,7 @@
       "A. nemá telo",
       "B. tvorí ho iba predný a zadný oblúk",
       "C. jeho telo vybieha do zuba, ktorým sa spája s čapovcom",
-      "D. predný oblúk má jamku pre zub čapovca\nZoznam otázok z oblasti: LF - Biológia / 93. strana"
+      "D. predný oblúk má jamku pre zub čapovca"
     ],
     "answer": [
       "A",
@@ -11303,7 +11303,7 @@
       "A. štvorhlavý sval stehna",
       "B. krajčírsky sval",
       "C. trojhlavý sval lýtka",
-      "D. deltový sval\nZoznam otázok z oblasti: LF - Biológia / 94. strana"
+      "D. deltový sval"
     ],
     "answer": [
       "B"
@@ -11426,7 +11426,7 @@
       "A. hlavu, bruško a chvost",
       "B. hlavu a bruško",
       "C. bruško a výbežky",
-      "D. bruško, snopce a snopčeky\nZoznam otázok z oblasti: LF - Biológia / 95. strana"
+      "D. bruško, snopce a snopčeky"
     ],
     "answer": [
       "A"
@@ -11547,7 +11547,7 @@
       "A. 4 rezáky 8 stoličiek, 4 črenové zuby",
       "B. 8 rezákov, 2 očné zuby, 6 stoličiek",
       "C. 8 rezákov, 4 očné zuby a 8 stoličiek",
-      "D. 4 rezáky, 8 očných zubov,8 stoličiek\nZoznam otázok z oblasti: LF - Biológia / 96. strana"
+      "D. 4 rezáky, 8 očných zubov,8 stoličiek"
     ],
     "answer": [
       "C"
@@ -11668,7 +11668,7 @@
       "A. aktivuje neúčinný pepsinogén",
       "B. chemicky upravuje minerálne látky",
       "C. zabraňuje znehodnoteniu vitamínu C",
-      "D. zabraňuje znehodnoteniu vitamínov skupiny B\nZoznam otázok z oblasti: LF - Biológia / 97. strana"
+      "D. zabraňuje znehodnoteniu vitamínov skupiny B"
     ],
     "answer": [
       "A",
@@ -11773,7 +11773,7 @@
   },
   {
     "id": 877,
-    "text": "V slinách stavovcov sa nachádza enzým :",
+    "text": "V slinách stavovcov sa nachádza enzým:",
     "options": [
       "A. trypsín",
       "B. trypsinogén",
@@ -11791,7 +11791,7 @@
       "A. ptyalín",
       "B. lipáza",
       "C. chymozín",
-      "D. amyláza\nZoznam otázok z oblasti: LF - Biológia / 98. strana"
+      "D. amyláza"
     ],
     "answer": [
       "A",
@@ -11914,7 +11914,7 @@
       "A. podžalúdková žľaza",
       "B. štítna žľaza",
       "C. príušná slinná žľaza",
-      "D. pečeň\nZoznam otázok z oblasti: LF - Biológia / 99. strana"
+      "D. pečeň"
     ],
     "answer": [
       "D"
@@ -12034,7 +12034,7 @@
       "A. HCl, mucín, pepsín, lipázu, chymozín",
       "B. HCl, mucín, pepsín, amylázu",
       "C. len HCL, pepsín a chymozín",
-      "D. len HCL, lipázu, chymozín a pepsín\nZoznam otázok z oblasti: LF - Biológia / 100. strana"
+      "D. len HCL, lipázu, chymozín a pepsín"
     ],
     "answer": [
       "A"
@@ -12058,8 +12058,8 @@
     "id": 898,
     "text": "Do ústnej dutiny vyúsťujú 3 páry veľkých slinných žliaz:",
     "options": [
-      "A. podjazykové, podčeľustné , lícne",
-      "B. príušne, podčeľustne , lícne",
+      "A. podjazykové, podčeľustné, lícne",
+      "B. príušne, podčeľustne, lícne",
       "C. podčeľustné, podjazykové, príušné",
       "D. podsánkové, podjazykové, príušné"
     ],
@@ -12158,7 +12158,7 @@
       "A. hypovitaminózu",
       "B. skorbut",
       "C. krivicu",
-      "D. farbosleposť\nZoznam otázok z oblasti: LF - Biológia / 101. strana"
+      "D. farbosleposť"
     ],
     "answer": [
       "B"
@@ -12277,7 +12277,7 @@
       "A. rozvetvené krvné vlásočnice v pľúcach",
       "B. pľúcne mechúriky",
       "C. miesta v pľúcach, kde prebieha výmena dýchacích plynov",
-      "D. čuchové receptory v nosovej dutine\nZoznam otázok z oblasti: LF - Biológia / 102. strana"
+      "D. čuchové receptory v nosovej dutine"
     ],
     "answer": [
       "B",
@@ -12401,7 +12401,7 @@
       "A. osmózou",
       "B. difúziou",
       "C. iónovými interakciami",
-      "D. v smere koncentračného spádu\nZoznam otázok z oblasti: LF - Biológia / 103. strana"
+      "D. v smere koncentračného spádu"
     ],
     "answer": [
       "B",
@@ -12495,7 +12495,7 @@
     "options": [
       "A. u všetkých cicavcov",
       "B. u všetkých vtákov",
-      "C. u  žiadnych stavovcov",
+      "C. u žiadnych stavovcov",
       "D. majú jadro len u rýb a obojživelníkov"
     ],
     "answer": [
@@ -12524,7 +12524,7 @@
       "A. 12 dní",
       "B. 120 dní",
       "C. 1200 dní",
-      "D. viac ako 1200 dní\nZoznam otázok z oblasti: LF - Biológia / 104. strana"
+      "D. viac ako 1200 dní"
     ],
     "answer": [
       "B"
@@ -12643,7 +12643,7 @@
       "A. týmus ( detská žľaza)",
       "B. slezina",
       "C. lymfatické uzliny",
-      "D. kostná dreň\nZoznam otázok z oblasti: LF - Biológia / 105. strana"
+      "D. kostná dreň"
     ],
     "answer": [
       "A",
@@ -12713,7 +12713,7 @@
     "text": "Ktoré z uvedených orgánov sa zúčastňujú obranných reakcií?",
     "options": [
       "A. lymfatické uzliny, pečeň, Langerhansove bunky",
-      "B. krv (biele krvinky) , týmus, lymfatické uzliny",
+      "B. krv (biele krvinky), týmus, lymfatické uzliny",
       "C. uzliny, pečeň nadobličky",
       "D. týmus, uzliny, podžalúdková žľaza"
     ],
@@ -12769,7 +12769,7 @@
       "A. s hormónom",
       "B. s ribozómom",
       "C. s kovom",
-      "D. so substrátom\nZoznam otázok z oblasti: LF - Biológia / 106. strana"
+      "D. so substrátom"
     ],
     "answer": [
       "D"
@@ -12792,7 +12792,7 @@
   },
   {
     "id": 952,
-    "text": "Prirodzená (vrodená) odolnosť voči  určitej nákaze je podmienená:",
+    "text": "Prirodzená (vrodená) odolnosť voči určitej nákaze je podmienená:",
     "options": [
       "A. len T-lymfocytmi",
       "B. len B lymfocytmi",
@@ -12890,7 +12890,7 @@
       "A. B",
       "B. A",
       "C. 0",
-      "D. AB\nZoznam otázok z oblasti: LF - Biológia / 107. strana"
+      "D. AB"
     ],
     "answer": [
       "A"
@@ -13010,7 +13010,7 @@
       "A. v pravej srdcovej komore",
       "B. v ľavej srdcovej komore",
       "C. v pravej srdcovej predsieni",
-      "D. v ľavej srdcovej predsieni\nZoznam otázok z oblasti: LF - Biológia / 108. strana"
+      "D. v ľavej srdcovej predsieni"
     ],
     "answer": [
       "B"
@@ -13023,7 +13023,7 @@
       "A. systola komôr a distola predsiení",
       "B. systola predsiení a diastola komôr",
       "C. systola pravej časti a diastola ľavej časti srdca",
-      "D. systola a  diastola"
+      "D. systola a diastola"
     ],
     "answer": [
       "D"
@@ -13133,7 +13133,7 @@
       "A. sieť ciev okolo alveol",
       "B. vlastný srdcový obeh",
       "C. krvný obeh v obličkách",
-      "D. sieť vlásočníc kdekoľvek v organizme\nZoznam otázok z oblasti: LF - Biológia / 109. strana"
+      "D. sieť vlásočníc kdekoľvek v organizme"
     ],
     "answer": [
       "B"
@@ -13195,7 +13195,7 @@
   },
   {
     "id": 982,
-    "text": "Aorta vystupuje :",
+    "text": "Aorta vystupuje:",
     "options": [
       "A. z ľavej predsiene",
       "B. z ľavej komory",
@@ -13252,7 +13252,7 @@
       "A. na začiatku pľúcnice",
       "B. na začiatku srdcovnice (aorty)",
       "C. medzi komorami a tepnami",
-      "D. medzi predsieňami a komorami\nZoznam otázok z oblasti: LF - Biológia / 110. strana"
+      "D. medzi predsieňami a komorami"
     ],
     "answer": [
       "A",
@@ -13348,7 +13348,7 @@
     "text": "Homeostáza je:",
     "options": [
       "A. stagnácia vo vývoji organizmu",
-      "B. stabilný prietok krvi v  srdci",
+      "B. stabilný prietok krvi v srdci",
       "C. rovnaký genóm u matky a potomka",
       "D. stálosť vnútorného prostredia organizmu"
     ],
@@ -13378,7 +13378,7 @@
       "A. je oveľa kratšia",
       "B. je rovnako dlhá, ale jej časť je uložená v brušnej dutine",
       "C. zabezpečuje iba odvádzanie moču",
-      "D. nie je medzi nimi rozdiel\nZoznam otázok z oblasti: LF - Biológia / 111. strana"
+      "D. nie je medzi nimi rozdiel"
     ],
     "answer": [
       "A",
@@ -13499,7 +13499,7 @@
       "A. tepla, chladu, tlaku, dotyku a bolesti",
       "B. tepla a hmatu",
       "C. polohy a rovnováhy, hmatu a bolesti",
-      "D. termoreceptory, rádioreceptory a mechanoreceptory\nZoznam otázok z oblasti: LF - Biológia / 112. strana"
+      "D. termoreceptory, rádioreceptory a mechanoreceptory"
     ],
     "answer": [
       "A"
@@ -13620,7 +13620,7 @@
       "A. priestor medzi tvrdou mozgovou plenou a pavúčnicou",
       "B. mozgové komory a centrálny miechový kanál",
       "C. 2 komory v prednom mozgu",
-      "D. miechový kanál a priestor medzi mozgovými plenami\nZoznam otázok z oblasti: LF - Biológia / 113. strana"
+      "D. miechový kanál a priestor medzi mozgovými plenami"
     ],
     "answer": [
       "B"
@@ -13719,7 +13719,7 @@
   },
   {
     "id": 1021,
-    "text": "Prenos nervových vzruchov zabezpečujú :",
+    "text": "Prenos nervových vzruchov zabezpečujú:",
     "options": [
       "A. len neuróny",
       "B. neuróny a neurogliá",
@@ -13737,7 +13737,7 @@
       "A. v medzimozgu",
       "B. v talame",
       "C. v mozočku",
-      "D. v predĺženej mieche\nZoznam otázok z oblasti: LF - Biológia / 114. strana"
+      "D. v predĺženej mieche"
     ],
     "answer": [
       "C"
@@ -13860,7 +13860,7 @@
       "A. nie sú vrodené",
       "B. môžu sa vytvárať celý život",
       "C. môžu zaniknúť",
-      "D. sú chrakteristické len pre človeka\nZoznam otázok z oblasti: LF - Biológia / 115. strana"
+      "D. sú chrakteristické len pre človeka"
     ],
     "answer": [
       "A",
@@ -13985,7 +13985,7 @@
       "A. progesterón",
       "B. testosterón",
       "C. folikuly stimulujúci hormón",
-      "D. estrogény\nZoznam otázok z oblasti: LF - Biológia / 116. strana"
+      "D. estrogény"
     ],
     "answer": [
       "D"
@@ -14107,7 +14107,7 @@
       "A. sa nachádza v medzimozgu",
       "B. sa nachádza v mozočku",
       "C. produkuje hormóm melatonín",
-      "D. produkuje somatotropné hormóny\nZoznam otázok z oblasti: LF - Biológia / 117. strana"
+      "D. produkuje somatotropné hormóny"
     ],
     "answer": [
       "A",
@@ -14232,7 +14232,7 @@
       "A. vnímanie polohy tela",
       "B. vyrovnávanie tlaku medzi strednou ušnou dutinou a nosohltanom",
       "C. chvenie bubienka pri vnímaní zvuku",
-      "D. ochranu hlasiviek\nZoznam otázok z oblasti: LF - Biológia / 118. strana"
+      "D. ochranu hlasiviek"
     ],
     "answer": [
       "B"
@@ -14349,7 +14349,7 @@
       "A. je tvorená zmyslovými bunkami čapíkmi a tyčinkami",
       "B. čapíky sú na farebné videnia",
       "C. tyčinky vnímajú hlavne intenzitu svetla",
-      "D. žltá škvrna na sietnici je tvorená výlučne čapíkmi\nZoznam otázok z oblasti: LF - Biológia / 119. strana"
+      "D. žltá škvrna na sietnici je tvorená výlučne čapíkmi"
     ],
     "answer": [
       "A",
@@ -14359,7 +14359,7 @@
   },
   {
     "id": 1068,
-    "text": "Zrakový analyzátor je schopný registrovať svetelné vlny v rozsahu :",
+    "text": "Zrakový analyzátor je schopný registrovať svetelné vlny v rozsahu:",
     "options": [
       "A. 700-800nm",
       "B. 500-800nm",
@@ -14464,12 +14464,12 @@
   },
   {
     "id": 1076,
-    "text": "Koľko receptorov bolesti sa nachádza v priemere na 1 cm\n2  kože?",
+    "text": "Koľko receptorov bolesti sa nachádza v priemere na 1 cm\n2 kože?",
     "options": [
       "A. 5-10",
       "B. 20-50",
       "C. 50-150",
-      "D. 150-300\nZoznam otázok z oblasti: LF - Biológia / 120. strana"
+      "D. 150-300"
     ],
     "answer": [
       "C"
@@ -14479,7 +14479,7 @@
     "id": 1077,
     "text": "Kedy sa u žien začínajú tvoriť vajíčka?",
     "options": [
-      "A. počas  embryonálneho štádia vývinu",
+      "A. počas embryonálneho štádia vývinu",
       "B. v puberte",
       "C. po narodení",
       "D. po dosiahnutí schopnosti reprodukcie"
@@ -14586,7 +14586,7 @@
       "A. 12-16",
       "B. 17-21",
       "C. 22-26",
-      "D. 27-31\nZoznam otázok z oblasti: LF - Biológia / 121. strana"
+      "D. 27-31"
     ],
     "answer": [
       "A"
@@ -14659,7 +14659,7 @@
   },
   {
     "id": 1092,
-    "text": "Žlté teliesko produkuje progesterón :",
+    "text": "Žlté teliesko produkuje progesterón:",
     "options": [
       "A. do 4 mesiaca tehotnosti",
       "B. do 6 mesiaca tehotnosti",
@@ -14688,7 +14688,7 @@
     "text": "Ovariálny cyklus zahŕňa fázy:",
     "options": [
       "A. ovogenéznu, folikulovú a ovulačnú",
-      "B. folikulovú , ovulačnú, luteínovú",
+      "B. folikulovú, ovulačnú, luteínovú",
       "C. ovulačnú a menštruačnú",
       "D. progresívnu a regresívnu"
     ],
@@ -14703,7 +14703,7 @@
       "A. menštruačnú, proliferačnú, sekrečnú a ischemickú",
       "B. ovulačnú, proliferačnú a sekrečnú",
       "C. folikulovú, proliferačnú, sekrečnú a ovulačnú",
-      "D. sekrečnú, menštruačnú, proliferačnú a ischemickú\nZoznam otázok z oblasti: LF - Biológia / 122. strana"
+      "D. sekrečnú, menštruačnú, proliferačnú a ischemickú"
     ],
     "answer": [
       "A"

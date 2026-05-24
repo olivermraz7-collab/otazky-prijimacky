@@ -2414,7 +2414,19 @@ def inject_active_setup_css():
 
 
 def setup_overlay(step, title, text):
-    return
+    if not setup_is_active():
+        return
+
+    st.markdown(
+        f"""
+        <div class="setup-main-hint">
+            <div class="setup-main-hint-step">Krok {step}/3</div>
+            <div class="setup-main-hint-title">{escape(title)}</div>
+            <div class="setup-main-hint-text">{escape(text)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 def setup_sidebar_note(step, title, text):
@@ -2431,11 +2443,11 @@ def setup_sidebar_note(step, title, text):
 
 
 def begin_focused_widget():
-    st.sidebar.markdown('<div class="setup-focused-widget setup-visible">', unsafe_allow_html=True)
+    return
 
 
 def end_focused_widget():
-    st.sidebar.markdown('</div>', unsafe_allow_html=True)
+    return
 
 
 def complete_setup_if_ready():
@@ -2863,7 +2875,6 @@ with right_col:
                 """,
                 unsafe_allow_html=True
             )
-            st.markdown('<div class="setup-plan-widget setup-visible">', unsafe_allow_html=True)
 
         current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
         current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
@@ -2875,7 +2886,6 @@ with right_col:
                 save_progress()
                 st.session_state.setup_step = 3
                 st.rerun()
-            st.markdown("</div>", unsafe_allow_html=True)
         elif updated_exam_date.isoformat() != st.session_state.get("exam_dates", {}).get(selected_field_name):
             st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
             save_progress()

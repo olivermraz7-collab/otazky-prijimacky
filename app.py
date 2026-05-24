@@ -2189,50 +2189,6 @@ def render_question_text_and_images(q):
 # ============================================================
 
 
-def build_date_from_selects(prefix, default_date):
-    years = list(range(date.today().year, date.today().year + 3))
-    months = list(range(1, 13))
-    days = list(range(1, 32))
-
-    col_day, col_month, col_year = st.columns([0.28, 0.34, 0.38])
-
-    with col_day:
-        day = st.selectbox(
-            "Deň",
-            days,
-            index=max(0, min(default_date.day - 1, 30)),
-            key=f"{prefix}_day"
-        )
-
-    with col_month:
-        month = st.selectbox(
-            "Mesiac",
-            months,
-            index=max(0, min(default_date.month - 1, 11)),
-            key=f"{prefix}_month",
-            format_func=lambda x: f"{x:02d}"
-        )
-
-    with col_year:
-        year = st.selectbox(
-            "Rok",
-            years,
-            index=years.index(default_date.year) if default_date.year in years else 0,
-            key=f"{prefix}_year"
-        )
-
-    try:
-        return date(year, month, day)
-    except ValueError:
-        for safe_day in range(31, 27, -1):
-            try:
-                return date(year, month, safe_day)
-            except ValueError:
-                continue
-
-    return default_date
-
-
 def setup_is_active():
     return not st.session_state.get("setup_completed", False)
 
@@ -2478,19 +2434,13 @@ def render_center_date_setup(selected_field_name, current_exam_date):
     st.markdown(
         """
         <style>
-            /*
-              Streamlit widgety sa nedajú vložiť priamo do HTML divu cez st.markdown.
-              Preto počas kroku 2 vizuálne presunieme samotný st.date_input a button
-              do stredu popup karty cez CSS.
-            */
-
             .center-calendar-card {
                 position: fixed;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
                 width: min(540px, calc(100vw - 32px));
-                min-height: 330px;
+                min-height: 360px;
                 background:
                     linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96));
                 border: 1px solid rgba(255,255,255,0.14);
@@ -2526,15 +2476,18 @@ def render_center_date_setup(selected_field_name, current_exam_date):
                 margin-bottom: 18px;
             }
 
-            /*
-              Toto je samotný výber dátumu.
-              Počas kroku 2 je v main časti iba tento date_input,
-              takže ho môžeme bezpečne pripnúť do popupu.
-            */
+            /* Schovať prípadné staré selectboxy Deň/Mesiac/Rok v hlavnej časti */
+            .main div[data-testid="stSelectbox"] {
+                opacity: 0.04 !important;
+                filter: grayscale(1) brightness(0.05) !important;
+                pointer-events: none !important;
+            }
+
+            /* Vložiť skutočný date_input vizuálne do stredovej karty */
             .main div[data-testid="stDateInput"] {
                 position: fixed !important;
                 left: 50% !important;
-                top: calc(50% + 42px) !important;
+                top: calc(50% + 48px) !important;
                 transform: translateX(-50%) !important;
                 width: min(420px, calc(100vw - 72px)) !important;
                 z-index: 10008 !important;
@@ -2565,13 +2518,10 @@ def render_center_date_setup(selected_field_name, current_exam_date):
                 min-height: 44px !important;
             }
 
-            /*
-              Toto je tlačidlo potvrdenia pod date_input.
-            */
             .main div.stButton {
                 position: fixed !important;
                 left: 50% !important;
-                top: calc(50% + 130px) !important;
+                top: calc(50% + 136px) !important;
                 transform: translateX(-50%) !important;
                 width: min(420px, calc(100vw - 72px)) !important;
                 z-index: 10008 !important;
@@ -2587,9 +2537,6 @@ def render_center_date_setup(selected_field_name, current_exam_date):
                 pointer-events: auto !important;
             }
 
-            /*
-              Kalendár popover musí byť úplne navrchu.
-            */
             div[data-baseweb="popover"],
             div[data-baseweb="popover"] *,
             div[role="dialog"],
@@ -3100,21 +3047,6 @@ with right_col:
                 """,
                 unsafe_allow_html=True
             )
-
-        current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
-        current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
-        updated_exam_date = build_date_from_selects("exam_date_setup", current_exam_date)
-
-        if setup_active and step == 2:
-            if st.button("Potvrdiť termín", use_container_width=True, key="confirm_exam_date_setup"):
-                st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
-                save_progress()
-                st.session_state.setup_step = 3
-                st.rerun()
-        elif updated_exam_date.isoformat() != st.session_state.get("exam_dates", {}).get(selected_field_name):
-            st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
-            save_progress()
-            st.rerun()
 
         if current_exam_date:
             st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")

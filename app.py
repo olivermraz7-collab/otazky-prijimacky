@@ -520,6 +520,74 @@ def inject_css():
                 font-weight: 800;
             }
 
+            .tutorial-card {
+                max-width: 640px;
+                margin: 0 auto 18px auto;
+                padding: 18px 18px;
+                border-radius: 24px;
+                background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.70));
+                border: 1px solid rgba(255,255,255,0.10);
+                box-shadow: 0 18px 46px rgba(0,0,0,0.28);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .tutorial-card::before {
+                content: "";
+                position: absolute;
+                width: 180px;
+                height: 180px;
+                right: -70px;
+                top: -80px;
+                border-radius: 999px;
+                background: radial-gradient(circle, rgba(139,92,246,0.45), transparent 65%);
+                animation: tutorialGlow 4s ease-in-out infinite alternate;
+            }
+
+            @keyframes tutorialGlow {
+                from { transform: translateY(0) scale(1); opacity: 0.55; }
+                to { transform: translateY(18px) scale(1.12); opacity: 0.95; }
+            }
+
+            .tutorial-title {
+                color: #ffffff;
+                font-weight: 900;
+                font-size: 17px;
+                letter-spacing: -0.02em;
+                margin-bottom: 8px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .tutorial-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .tutorial-step {
+                padding: 11px 12px;
+                border-radius: 16px;
+                background: rgba(2, 6, 23, 0.44);
+                border: 1px solid rgba(255,255,255,0.07);
+                color: #cbd5e1;
+                font-size: 12px;
+                line-height: 1.45;
+            }
+
+            .tutorial-step strong {
+                color: #f8fafc;
+            }
+
+            @media (max-width: 700px) {
+                .tutorial-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+
             @media (max-width: 900px) {
                 .hero-title {
                     font-size: 26px;
@@ -753,17 +821,6 @@ def render_login_screen():
             unsafe_allow_html=True
         )
 
-    with st.expander("Ako aplikácia funguje", expanded=False):
-        st.markdown(
-            """
-            **Smart review** mieša nové otázky, problémové otázky a otázky na opakovanie podľa tvojho progresu.  
-            **Celky** v sidebare ti dovolia učiť sa iba konkrétnu časť predmetu, napríklad organiku alebo genetiku.  
-            **Termín skúšky** sa nastavuje zvlášť pre každý odbor a appka podľa neho vypočíta, koľko otázok denne treba prejsť z jednotlivých predmetov.  
-            Posledné tri dni pred skúškou appka v režime Smart review netlačí nové otázky a viac sa sústredí na opakovanie.  
-            **Len nesprávne** je samostatný tréning otázok, ktoré si už niekedy pokazil. Počíta sa do dennej aktivity, ale nezvyšuje počet nových otázok.
-            """
-        )
-
     login_tab, register_tab = st.tabs(["Prihlásenie", "Registrácia"])
 
     with login_tab:
@@ -791,6 +848,21 @@ def render_login_screen():
                 st.error("Nesprávne používateľské meno alebo heslo.")
 
     with register_tab:
+        st.markdown(
+            """
+            <div class="tutorial-card">
+                <div class="tutorial-title">Ako aplikácia funguje</div>
+                <div class="tutorial-grid">
+                    <div class="tutorial-step"><strong>Smart review</strong><br>Appka mieša nové, problémové a opakovacie otázky podľa tvojho progresu.</div>
+                    <div class="tutorial-step"><strong>Celky</strong><br>Vieš sa učiť celý predmet alebo iba konkrétny tematický celok.</div>
+                    <div class="tutorial-step"><strong>Termín skúšky</strong><br>Pre každý odbor si nastavíš vlastný dátum a appka vypočíta odporúčané tempo.</div>
+                    <div class="tutorial-step"><strong>Len nesprávne</strong><br>Samostatný tréning otázok, ktoré si už pokazil. Počíta sa do aktivity, nie do nových otázok.</div>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
         with st.form("register_form"):
             display_name = st.text_input(
                 "Meno",
@@ -1520,24 +1592,16 @@ def render_hero(subject_name, field_name, display_name, topic_name="Všetky celk
 
 
 def render_question_header(q, p):
-    status = p.get("status", "NEW")
-    next_review = p.get("next_review") or "—"
-
     st.markdown(
         f"""
         <div class="question-topline">
             <div class="question-number">Otázka č. {escape(str(q["id"]))}</div>
-            <div class="status-pill {status_class(status)}">{escape(status_label(status))}</div>
         </div>
 
         <div class="subtle-stats">
-            Celok: {escape(get_question_topic(q))}
-            &nbsp;·&nbsp;
             Správne: {p.get("correct_count", 0)}
             &nbsp;·&nbsp;
             Nesprávne: {p.get("wrong_count", 0)}
-            &nbsp;·&nbsp;
-            Ďalšie opakovanie: {escape(str(next_review))}
         </div>
         """,
         unsafe_allow_html=True
@@ -1684,8 +1748,7 @@ t_idx = topic_options.index(default_topic) if default_topic in topic_options els
 st.session_state.selected_topic_name = st.sidebar.selectbox(
     "Celok",
     topic_options,
-    index=t_idx,
-    help="Vyber konkrétny tematický celok alebo nechaj Všetky celky."
+    index=t_idx
 )
 
 study_modes = ["Smart review", "Len nesprávne"]
@@ -1695,8 +1758,7 @@ mode_idx = study_modes.index(default_mode) if default_mode in study_modes else 0
 st.session_state.study_mode = st.sidebar.selectbox(
     "Režim",
     study_modes,
-    index=mode_idx,
-    help="Smart review je hlavné učenie. Len nesprávne zobrazí otázky, ktoré si už niekedy pokazil."
+    index=mode_idx
 )
 
 current_exam_date = get_exam_date_for_field(selected_field_name)
@@ -1704,8 +1766,7 @@ default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12
 selected_exam_date = st.sidebar.date_input(
     "Termín skúšky",
     value=default_exam_date,
-    format="DD.MM.YYYY",
-    help="Termín je uložený samostatne pre každý odbor a každého používateľa."
+    format="DD.MM.YYYY"
 )
 
 if current_exam_date != selected_exam_date:
@@ -1899,6 +1960,13 @@ with right_col:
     )
 
     with st.container(border=True):
+        st.markdown("### Dnes")
+        metric_col_1, metric_col_2 = st.columns(2)
+        metric_col_1.metric("Správne", correct_today)
+        metric_col_2.metric("Nesprávne", wrong_today)
+        st.caption(f"Smart review: {smart_today} · Len nesprávne: {wrong_review_today}")
+
+    with st.container(border=True):
         st.markdown("### Denný cieľ")
 
         st.progress(progress_percent(answered_today, dynamic_daily_goal))
@@ -1913,27 +1981,7 @@ with right_col:
 
         st.caption(f"Nové otázky dnes: {new_seen_today} / {new_limit}")
         if st.session_state.study_mode == "Len nesprávne":
-            st.caption("Režim Len nesprávne sa počíta do otázok dnes, ale nie do nových otázok.")
-
-    with st.container(border=True):
-        st.markdown("### Plán do skúšky")
-
-        if current_exam_date:
-            st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
-            st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")
-            st.divider()
-            render_plan_rows(field_plan)
-            st.divider()
-            st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} otázok/deň")
-        else:
-            st.caption("Nastav termín skúšky v sidebare a appka vypočíta plán podľa predmetov.")
-
-    with st.container(border=True):
-        st.markdown("### Dnes")
-        metric_col_1, metric_col_2 = st.columns(2)
-        metric_col_1.metric("Správne", correct_today)
-        metric_col_2.metric("Nesprávne", wrong_today)
-        st.caption(f"Smart review: {smart_today} · Len nesprávne: {wrong_review_today}")
+            st.caption("Tento režim sa počíta do otázok dnes, ale nie do nových otázok.")
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
@@ -1968,6 +2016,18 @@ with right_col:
 
             save_progress()
             st.rerun()
+
+
+with st.expander("Plán do skúšky", expanded=False):
+    if current_exam_date:
+        st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
+        st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")
+        st.divider()
+        render_plan_rows(field_plan)
+        st.divider()
+        st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} otázok/deň")
+    else:
+        st.caption("Nastav termín skúšky v sidebare a appka vypočíta plán podľa predmetov.")
 
 
 # ============================================================

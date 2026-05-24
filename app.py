@@ -6,15 +6,24 @@ import os
 import hashlib
 import secrets
 from datetime import date, timedelta
+from html import escape
 from streamlit_cookies_manager import EncryptedCookieManager
+
+
+# ============================================================
+# 1. PAGE CONFIG
+# ============================================================
 
 st.set_page_config(
     page_title="Medicína Príprava",
-    layout="centered"
+    page_icon="🩺",
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
+
 # ============================================================
-# 1. NASTAVENIA
+# 2. APP SETTINGS
 # ============================================================
 
 DAILY_GOAL = 130
@@ -24,6 +33,8 @@ FINAL_MODE_DATE = date(2026, 6, 10)
 DATA_DIR = "data"
 PROGRESS_DIR = os.path.join(DATA_DIR, "progress")
 USERS_FILE = os.path.join(DATA_DIR, "users.json")
+
+REPORT_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLScVa1VK6mJYX6YRmgcms64AMxaTm5wSDmJF9vnl1M4QzzmCUw/viewform"
 
 FIELDS = {
     "Všeobecné lekárstvo": {
@@ -37,15 +48,390 @@ FIELDS = {
     }
 }
 
-REPORT_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLScVa1VK6mJYX6YRmgcms64AMxaTm5wSDmJF9vnl1M4QzzmCUw/viewform"
+
+# ============================================================
+# 3. PREMIUM CSS
+# ============================================================
+
+def inject_css():
+    st.markdown(
+        """
+        <style>
+            :root {
+                --bg: #f6f7fb;
+                --card: #ffffff;
+                --muted: #6b7280;
+                --text: #111827;
+                --soft: #eef2ff;
+                --border: rgba(17, 24, 39, 0.08);
+                --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+                --shadow-soft: 0 8px 22px rgba(15, 23, 42, 0.06);
+                --primary: #2563eb;
+                --primary-soft: #dbeafe;
+                --green: #16a34a;
+                --red: #dc2626;
+                --yellow: #ca8a04;
+                --dark: #111827;
+            }
+
+            .stApp {
+                background:
+                    radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 32rem),
+                    radial-gradient(circle at top right, rgba(99, 102, 241, 0.10), transparent 28rem),
+                    #f6f7fb;
+            }
+
+            section[data-testid="stSidebar"] {
+                background: rgba(255,255,255,0.86);
+                backdrop-filter: blur(18px);
+                border-right: 1px solid rgba(17,24,39,0.08);
+            }
+
+            section[data-testid="stSidebar"] > div {
+                padding-top: 1.3rem;
+            }
+
+            .block-container {
+                padding-top: 2.2rem;
+                padding-bottom: 3rem;
+                max-width: 1240px;
+            }
+
+            h1, h2, h3 {
+                letter-spacing: -0.035em;
+            }
+
+            div[data-testid="stMetricValue"] {
+                font-size: 1.55rem;
+            }
+
+            .app-shell {
+                max-width: 1180px;
+                margin: 0 auto;
+            }
+
+            .top-hero {
+                background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(239,246,255,0.92));
+                border: 1px solid var(--border);
+                border-radius: 28px;
+                padding: 28px 30px;
+                box-shadow: var(--shadow);
+                margin-bottom: 22px;
+            }
+
+            .hero-kicker {
+                color: var(--primary);
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+                line-height: 1.05;
+                font-weight: 800;
+                color: var(--text);
+                margin-bottom: 8px;
+            }
+
+            .hero-subtitle {
+                color: var(--muted);
+                font-size: 15px;
+                line-height: 1.6;
+                max-width: 740px;
+            }
+
+            .hero-pill-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 18px;
+            }
+
+            .hero-pill {
+                display: inline-flex;
+                align-items: center;
+                padding: 7px 11px;
+                border-radius: 999px;
+                background: rgba(255,255,255,0.72);
+                border: 1px solid rgba(17,24,39,0.08);
+                font-size: 12px;
+                color: #374151;
+                font-weight: 600;
+            }
+
+            .glass-card {
+                background: rgba(255,255,255,0.94);
+                border: 1px solid var(--border);
+                border-radius: 24px;
+                box-shadow: var(--shadow-soft);
+                padding: 22px 24px;
+                margin-bottom: 18px;
+            }
+
+            .question-card {
+                background: rgba(255,255,255,0.97);
+                border: 1px solid var(--border);
+                border-radius: 28px;
+                box-shadow: var(--shadow);
+                padding: 28px 30px 24px 30px;
+                margin-bottom: 18px;
+            }
+
+            .question-topline {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 12px;
+                flex-wrap: wrap;
+            }
+
+            .question-number {
+                color: var(--text);
+                font-weight: 800;
+                font-size: 24px;
+                letter-spacing: -0.03em;
+            }
+
+            .meta-line {
+                color: #9ca3af;
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+
+            .status-pill {
+                display: inline-flex;
+                align-items: center;
+                border-radius: 999px;
+                padding: 6px 10px;
+                font-size: 12px;
+                font-weight: 700;
+                border: 1px solid transparent;
+            }
+
+            .status-new {
+                background: #f3f4f6;
+                color: #4b5563;
+                border-color: #e5e7eb;
+            }
+
+            .status-red {
+                background: #fef2f2;
+                color: #b91c1c;
+                border-color: #fecaca;
+            }
+
+            .status-yellow {
+                background: #fffbeb;
+                color: #92400e;
+                border-color: #fde68a;
+            }
+
+            .status-green {
+                background: #f0fdf4;
+                color: #166534;
+                border-color: #bbf7d0;
+            }
+
+            .status-mastered {
+                background: #eff6ff;
+                color: #1d4ed8;
+                border-color: #bfdbfe;
+            }
+
+            .subtle-stats {
+                color: #8b95a1;
+                font-size: 12px;
+                line-height: 1.8;
+                margin-bottom: 16px;
+            }
+
+            .question-text {
+                font-size: 17px;
+                line-height: 1.72;
+                color: #111827;
+            }
+
+            .tiny-report {
+                text-align: right;
+                margin-top: 8px;
+                margin-bottom: 4px;
+            }
+
+            .tiny-report a {
+                color: #9ca3af;
+                text-decoration: none;
+                font-size: 12px;
+                transition: color 0.15s ease;
+            }
+
+            .tiny-report a:hover {
+                color: #4b5563;
+                text-decoration: underline;
+            }
+
+            .sidebar-card {
+                background: rgba(255,255,255,0.78);
+                border: 1px solid rgba(17,24,39,0.08);
+                border-radius: 18px;
+                padding: 14px 15px;
+                margin: 10px 0 14px 0;
+                box-shadow: 0 8px 18px rgba(15,23,42,0.04);
+            }
+
+            .sidebar-title {
+                font-size: 13px;
+                font-weight: 800;
+                color: #111827;
+                margin-bottom: 8px;
+            }
+
+            .sidebar-muted {
+                font-size: 12px;
+                color: #6b7280;
+            }
+
+            .stat-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 12px;
+                font-size: 13px;
+                padding: 5px 0;
+                border-bottom: 1px solid rgba(17,24,39,0.05);
+            }
+
+            .stat-row:last-child {
+                border-bottom: none;
+            }
+
+            .stat-label {
+                color: #6b7280;
+            }
+
+            .stat-value {
+                color: #111827;
+                font-weight: 750;
+            }
+
+            .login-card {
+                max-width: 620px;
+                margin: 4rem auto;
+                background: rgba(255,255,255,0.95);
+                border: 1px solid rgba(17,24,39,0.08);
+                border-radius: 30px;
+                box-shadow: var(--shadow);
+                padding: 34px 36px;
+            }
+
+            .login-title {
+                font-size: 34px;
+                line-height: 1.05;
+                font-weight: 850;
+                letter-spacing: -0.04em;
+                color: #111827;
+                margin-bottom: 8px;
+            }
+
+            .login-subtitle {
+                font-size: 14px;
+                color: #6b7280;
+                line-height: 1.6;
+                margin-bottom: 18px;
+            }
+
+            .success-box {
+                background: #f0fdf4;
+                border: 1px solid #bbf7d0;
+                color: #166534;
+                padding: 13px 15px;
+                border-radius: 16px;
+                font-size: 14px;
+                margin: 10px 0;
+            }
+
+            .warning-box {
+                background: #fffbeb;
+                border: 1px solid #fde68a;
+                color: #92400e;
+                padding: 13px 15px;
+                border-radius: 16px;
+                font-size: 14px;
+                margin: 10px 0;
+            }
+
+            .divider-soft {
+                height: 1px;
+                background: rgba(17,24,39,0.08);
+                margin: 16px 0;
+            }
+
+            .footer-user {
+                font-size: 12px;
+                color: #6b7280;
+                margin-top: 8px;
+            }
+
+            div.stButton > button,
+            div.stFormSubmitButton > button {
+                border-radius: 14px !important;
+                border: 1px solid rgba(37,99,235,0.16) !important;
+                background: linear-gradient(135deg, #2563eb, #4f46e5) !important;
+                color: white !important;
+                font-weight: 750 !important;
+                padding: 0.65rem 1rem !important;
+                box-shadow: 0 10px 22px rgba(37,99,235,0.22) !important;
+                transition: transform 0.12s ease, box-shadow 0.12s ease !important;
+            }
+
+            div.stButton > button:hover,
+            div.stFormSubmitButton > button:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 14px 26px rgba(37,99,235,0.28) !important;
+            }
+
+            div[data-testid="stCheckbox"] {
+                background: rgba(249,250,251,0.8);
+                border: 1px solid rgba(17,24,39,0.06);
+                border-radius: 14px;
+                padding: 7px 11px;
+                margin-bottom: 8px;
+            }
+
+            .stProgress > div > div > div > div {
+                background: linear-gradient(90deg, #2563eb, #4f46e5);
+            }
+
+            @media (max-width: 900px) {
+                .hero-title {
+                    font-size: 28px;
+                }
+
+                .question-card {
+                    padding: 22px 20px;
+                }
+
+                .top-hero {
+                    padding: 24px 22px;
+                }
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+inject_css()
 
 
 # ============================================================
-# 2. COOKIES - IBA LOGIN
+# 4. COOKIES - IBA LOGIN
 # ============================================================
 
 cookies = EncryptedCookieManager(
-    prefix="med_prep_v4/",
+    prefix="med_prep_lux_v1/",
     password="Heslo1234"
 )
 
@@ -54,7 +440,7 @@ if not cookies.ready():
 
 
 # ============================================================
-# 3. PRIEČINKY A JSON FUNKCIE
+# 5. FILE HELPERS
 # ============================================================
 
 def ensure_data_dirs():
@@ -87,7 +473,7 @@ def write_json_file(path, data):
 
 
 # ============================================================
-# 4. LOGIN / REGISTRÁCIA
+# 6. AUTH
 # ============================================================
 
 def normalize_username(username):
@@ -209,7 +595,6 @@ def logout_user():
         "last_settings",
         "loaded_user",
         "answered",
-        "current_question_id",
         "selected_field_index",
         "selected_subject_name"
     ]
@@ -218,16 +603,39 @@ def logout_user():
         if key in st.session_state:
             del st.session_state[key]
 
+    for key in list(st.session_state.keys()):
+        if key.startswith("current_question_id_") or key.startswith("answer_nonce_"):
+            del st.session_state[key]
+
     st.rerun()
 
 
 def render_login_screen():
-    st.title("Medicína Príprava")
+    st.markdown(
+        """
+        <div class="login-card">
+            <div class="hero-kicker">Medicína Príprava</div>
+            <div class="login-title">Vitaj späť.</div>
+            <div class="login-subtitle">
+                Prihlás sa a pokračuj presne tam, kde si skončil. Každý používateľ má vlastné otázky,
+                vlastný progres a vlastný smart review systém.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     users_data = load_users()
 
     if len(users_data["users"]) == 0:
-        st.info("Zatiaľ neexistuje žiadny používateľ. Vytvor si prvý účet.")
+        st.markdown(
+            """
+            <div class="warning-box">
+                Zatiaľ neexistuje žiadny používateľ. Vytvor si prvý účet v záložke Registrácia.
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     login_tab, register_tab = st.tabs(["Prihlásenie", "Registrácia"])
 
@@ -291,7 +699,7 @@ if not st.session_state.authenticated:
 
 
 # ============================================================
-# 5. POUŽÍVATEĽSKÝ PROGRES
+# 7. USER PROGRESS
 # ============================================================
 
 def get_user_progress_path(username):
@@ -365,7 +773,7 @@ if st.session_state.get("loaded_user") != st.session_state.username:
 
 
 # ============================================================
-# 6. OTÁZKY A SMART REVIEW FUNKCIE
+# 8. SMART REVIEW LOGIC
 # ============================================================
 
 def today_str():
@@ -386,8 +794,7 @@ def parse_date_safe(value):
 def load_questions(file_path):
     try:
         with open(file_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data
+            return json.load(f)
 
     except Exception:
         return []
@@ -476,6 +883,7 @@ def get_question_progress(subject_state, qid):
     p = progress[qid]
 
     defaults = default_question_progress()
+
     for key, value in defaults.items():
         if key not in p:
             p[key] = value
@@ -530,21 +938,16 @@ def question_priority(q, subject_state, counts):
     today = date.today()
     next_review = parse_date_safe(p.get("next_review"))
     last_seen = parse_date_safe(p.get("last_seen"))
-
     is_final_mode = today >= FINAL_MODE_DATE
 
     if status == "RED":
         score += 140
-
     elif status == "YELLOW":
         score += 95
-
     elif status == "GREEN":
         score += 45
-
     elif status == "NEW":
         score += 35
-
     elif status == "MASTERED":
         score -= 120
 
@@ -618,11 +1021,8 @@ def choose_next_question(questions, subject_state):
     top_n = min(12, len(candidates))
     top_candidates = candidates[:top_n]
 
-    weights = []
     min_score = min(priority for priority, _ in top_candidates)
-
-    for priority, _ in top_candidates:
-        weights.append(max(1, priority - min_score + 1))
+    weights = [max(1, priority - min_score + 1) for priority, _ in top_candidates]
 
     selected = random.choices(
         [q for _, q in top_candidates],
@@ -643,10 +1043,8 @@ def get_question_by_id(questions, qid):
 
 def update_recent_questions(subject_state, qid):
     recent = subject_state.get("recent_question_ids", [])
-
     recent.append(str(qid))
     recent = recent[-RECENT_LIMIT:]
-
     subject_state["recent_question_ids"] = recent
 
 
@@ -665,7 +1063,6 @@ def update_progress_after_answer(subject_state, qid, is_correct):
         stats["new_seen"] += 1
 
     stats["answered"] += 1
-
     p["last_seen"] = today_iso
 
     if is_correct:
@@ -683,15 +1080,12 @@ def update_progress_after_answer(subject_state, qid, is_correct):
         if p["level"] <= 1:
             p["status"] = "YELLOW"
             p["next_review"] = (today + timedelta(days=1)).isoformat()
-
         elif p["level"] == 2:
             p["status"] = "GREEN"
             p["next_review"] = (today + timedelta(days=3)).isoformat()
-
         elif p["level"] == 3:
             p["status"] = "GREEN"
             p["next_review"] = (today + timedelta(days=7)).isoformat()
-
         else:
             p["status"] = "MASTERED"
             p["next_review"] = FINAL_MODE_DATE.isoformat()
@@ -719,23 +1113,72 @@ def progress_percent(value, goal):
     return min(1.0, value / goal)
 
 
-def render_question_stats_above_question(p):
+# ============================================================
+# 9. UI HELPERS
+# ============================================================
+
+def status_label(status):
+    labels = {
+        "NEW": "Nová",
+        "RED": "Problémová",
+        "YELLOW": "Na opakovanie",
+        "GREEN": "Zvládnutá",
+        "MASTERED": "Mastered"
+    }
+
+    return labels.get(status, status)
+
+
+def status_class(status):
+    classes = {
+        "NEW": "status-new",
+        "RED": "status-red",
+        "YELLOW": "status-yellow",
+        "GREEN": "status-green",
+        "MASTERED": "status-mastered"
+    }
+
+    return classes.get(status, "status-new")
+
+
+def render_hero(subject_name, field_name, display_name):
+    st.markdown(
+        f"""
+        <div class="top-hero">
+            <div class="hero-kicker">Smart review systém</div>
+            <div class="hero-title">Príprava: {escape(subject_name)}</div>
+            <div class="hero-subtitle">
+                Personalizované opakovanie otázok podľa toho, čo ovládaš, čo si mýliš
+                a čo je potrebné zopakovať. Každý používateľ má vlastný progres.
+            </div>
+            <div class="hero-pill-row">
+                <span class="hero-pill">Odbor: {escape(field_name)}</span>
+                <span class="hero-pill">Používateľ: {escape(display_name)}</span>
+                <span class="hero-pill">Denný cieľ: {DAILY_GOAL} otázok</span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+def render_question_header(q, p):
     status = p.get("status", "NEW")
     next_review = p.get("next_review") or "—"
 
     st.markdown(
         f"""
-        <div style="
-            font-size: 11px;
-            color: #999;
-            margin-top: 4px;
-            margin-bottom: 6px;
-            text-align: left;
-        ">
-            Stav: {status}
-            &nbsp;·&nbsp; Správne: {p.get("correct_count", 0)}
-            &nbsp;·&nbsp; Nesprávne: {p.get("wrong_count", 0)}
-            &nbsp;·&nbsp; Opakovanie: {next_review}
+        <div class="question-topline">
+            <div class="question-number">Otázka č. {escape(str(q["id"]))}</div>
+            <div class="status-pill {status_class(status)}">{escape(status_label(status))}</div>
+        </div>
+
+        <div class="subtle-stats">
+            Správne: {p.get("correct_count", 0)}
+            &nbsp;·&nbsp;
+            Nesprávne: {p.get("wrong_count", 0)}
+            &nbsp;·&nbsp;
+            Ďalšie opakovanie: {escape(str(next_review))}
         </div>
         """,
         unsafe_allow_html=True
@@ -752,25 +1195,76 @@ def render_small_report_link(q, subject_name):
 
     st.markdown(
         f"""
-        <div style="text-align: right; margin-top: 8px; margin-bottom: 4px;">
-            <a href="{form_url}" target="_blank" style="
-                font-size: 13px;
-                color: #888;
-                text-decoration: none;
-            ">
-                Nahlásiť chybu
-            </a>
+        <div class="tiny-report">
+            <a href="{form_url}" target="_blank">Nahlásiť chybu</a>
         </div>
         """,
         unsafe_allow_html=True
     )
 
 
+def render_sidebar_card(title, rows):
+    row_html = ""
+
+    for label, value in rows:
+        row_html += f"""
+            <div class="stat-row">
+                <span class="stat-label">{escape(str(label))}</span>
+                <span class="stat-value">{escape(str(value))}</span>
+            </div>
+        """
+
+    st.sidebar.markdown(
+        f"""
+        <div class="sidebar-card">
+            <div class="sidebar-title">{escape(title)}</div>
+            {row_html}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+def render_question_text_and_images(q):
+    segments = re.split(r"(\S+\.png|\S+\.jpg)", q["text"])
+
+    for segment in segments:
+        clean_segment = segment.strip()
+
+        if clean_segment.lower().endswith((".png", ".jpg")):
+            try:
+                st.image(f"images/{clean_segment}", width=340)
+            except Exception:
+                st.error(f"Obrázok {clean_segment} chýba.")
+        else:
+            if clean_segment:
+                st.markdown(
+                    f"""
+                    <div class="question-text">
+                        {escape(clean_segment)}
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+
 # ============================================================
-# 7. SIDEBAR A VÝBER PREDMETU
+# 10. SIDEBAR SETTINGS
 # ============================================================
 
-st.sidebar.header("Nastavenia")
+st.sidebar.markdown(
+    """
+    <div style="padding-bottom: 8px;">
+        <div style="font-size: 22px; font-weight: 850; letter-spacing: -0.04em; color: #111827;">
+            Medicína
+        </div>
+        <div style="font-size: 12px; color: #6b7280; margin-top: 2px;">
+            príprava na prijímačky
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 field_list = list(FIELDS.keys())
 f_idx = st.session_state.last_settings.get("field_idx", 0)
@@ -798,10 +1292,15 @@ selected_file = available_subjects[st.session_state.selected_subject_name]
 questions = load_questions(selected_file)
 
 if not questions:
-    st.title(f"Príprava: {st.session_state.selected_subject_name}")
+    render_hero(
+        st.session_state.selected_subject_name,
+        selected_field_name,
+        st.session_state.display_name
+    )
+
     st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
 
-    st.sidebar.divider()
+    st.sidebar.markdown('<div class="divider-soft"></div>', unsafe_allow_html=True)
     st.sidebar.caption(f"Prihlásený: {st.session_state.display_name}")
 
     if st.sidebar.button("Odhlásiť sa", use_container_width=True):
@@ -813,10 +1312,14 @@ current_data = ensure_subject_state(selected_file, questions)
 
 
 # ============================================================
-# 8. VÝBER AKTUÁLNEJ OTÁZKY
+# 11. CURRENT QUESTION
 # ============================================================
 
 question_session_key = f"current_question_id_{selected_file}"
+nonce_key = f"answer_nonce_{selected_file}"
+
+if nonce_key not in st.session_state:
+    st.session_state[nonce_key] = 0
 
 if question_session_key not in st.session_state:
     selected_question = choose_next_question(questions, current_data)
@@ -837,106 +1340,179 @@ if "answered" not in st.session_state:
 
 
 # ============================================================
-# 9. HLAVNÉ TESTOVACIE ROZHRANIE
+# 12. MAIN LAYOUT
 # ============================================================
 
-st.title(f"Príprava: {st.session_state.selected_subject_name}")
+render_hero(
+    st.session_state.selected_subject_name,
+    selected_field_name,
+    st.session_state.display_name
+)
 
-render_question_stats_above_question(q_progress)
+left_col, right_col = st.columns([0.70, 0.30], gap="large")
 
-st.subheader(f"Otázka č. {q['id']}")
 
-segments = re.split(r"(\S+\.png|\S+\.jpg)", q["text"])
+with left_col:
+    st.markdown('<div class="question-card">', unsafe_allow_html=True)
 
-for segment in segments:
-    clean_segment = segment.strip()
+    render_question_header(q, q_progress)
+    render_question_text_and_images(q)
 
-    if clean_segment.lower().endswith((".png", ".jpg")):
-        try:
-            st.image(f"images/{clean_segment}", width=300)
-        except Exception:
-            st.error(f"Obrázok {clean_segment} chýba.")
-    else:
-        if clean_segment:
-            st.write(clean_segment)
+    user_choices = []
 
-user_choices = []
+    st.markdown('<div class="divider-soft"></div>', unsafe_allow_html=True)
 
-with st.form(key=f"form_{selected_file}_{q['id']}"):
-    for opt in q["options"]:
-        match = re.search(r"(\S+\.png|\S+\.jpg)", opt, re.IGNORECASE)
+    with st.form(key=f"form_{selected_file}_{q['id']}_{st.session_state[nonce_key]}"):
+        for opt in q["options"]:
+            match = re.search(r"(\S+\.png|\S+\.jpg)", opt, re.IGNORECASE)
 
-        if match:
-            img_filename = match.group(1)
-            clean_label = opt.replace(img_filename, "").strip()
+            if match:
+                img_filename = match.group(1)
+                clean_label = opt.replace(img_filename, "").strip()
 
-            if len(clean_label) < 4:
-                clean_label = opt[:3]
+                if len(clean_label) < 4:
+                    clean_label = opt[:3]
 
-            cb = st.checkbox(
-                clean_label,
-                key=f"cb_{selected_file}_{q['id']}_{opt}",
-                disabled=st.session_state.answered
-            )
+                cb = st.checkbox(
+                    clean_label,
+                    key=f"cb_{selected_file}_{q['id']}_{st.session_state[nonce_key]}_{opt}",
+                    disabled=st.session_state.answered
+                )
 
-            try:
-                st.image(f"images/{img_filename}", width=250)
-            except Exception:
-                st.warning(f"Súbor {img_filename} chýba.")
+                try:
+                    st.image(f"images/{img_filename}", width=260)
+                except Exception:
+                    st.warning(f"Súbor {img_filename} chýba.")
+            else:
+                cb = st.checkbox(
+                    opt,
+                    key=f"cb_{selected_file}_{q['id']}_{st.session_state[nonce_key]}_{opt}",
+                    disabled=st.session_state.answered
+                )
+
+            if cb:
+                user_choices.append(opt[0])
+
+        btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
+        submit = st.form_submit_button(btn_label)
+
+    if submit:
+        if not st.session_state.answered:
+            st.session_state.answered = True
+            st.rerun()
+
         else:
-            cb = st.checkbox(
-                opt,
-                key=f"cb_{selected_file}_{q['id']}_{opt}",
-                disabled=st.session_state.answered
-            )
+            user_str = "".join(sorted(user_choices))
+            correct_str = "".join(sorted(q["answer"]))
+            is_correct = user_str == correct_str
 
-        if cb:
-            user_choices.append(opt[0])
+            update_progress_after_answer(current_data, qid, is_correct)
 
-    btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
-    submit = st.form_submit_button(btn_label)
+            if question_session_key in st.session_state:
+                del st.session_state[question_session_key]
 
-if submit:
-    if not st.session_state.answered:
-        st.session_state.answered = True
-        st.rerun()
+            st.session_state[nonce_key] += 1
+            st.session_state.answered = False
 
-    else:
+            save_progress()
+            st.rerun()
+
+    if st.session_state.answered:
+        correct_display = ", ".join(q["answer"])
         user_str = "".join(sorted(user_choices))
         correct_str = "".join(sorted(q["answer"]))
-        is_correct = user_str == correct_str
 
-        update_progress_after_answer(current_data, qid, is_correct)
+        if user_str == correct_str:
+            st.success(f"Správne. Odpoveď: {correct_display}")
+        else:
+            st.error(f"Nesprávne. Správna odpoveď: {correct_display}")
 
-        for opt in q["options"]:
-            checkbox_key = f"cb_{selected_file}_{q['id']}_{opt}"
+    render_small_report_link(q, st.session_state.selected_subject_name)
 
-            if checkbox_key in st.session_state:
-                del st.session_state[checkbox_key]
+    st.markdown('</div>', unsafe_allow_html=True)
 
-        if question_session_key in st.session_state:
-            del st.session_state[question_session_key]
 
-        st.session_state.answered = False
+with right_col:
+    counts = count_statuses(current_data, questions)
+    daily_stats = get_daily_stats(current_data)
+    new_limit = dynamic_daily_new_limit(counts)
 
-        save_progress()
-        st.rerun()
+    answered_today = daily_stats.get("answered", 0)
+    new_seen_today = daily_stats.get("new_seen", 0)
+    correct_today = daily_stats.get("correct", 0)
+    wrong_today = daily_stats.get("wrong", 0)
 
-if st.session_state.answered:
-    correct_display = ", ".join(q["answer"])
-    user_str = "".join(sorted(user_choices))
-    correct_str = "".join(sorted(q["answer"]))
+    not_mastered = (
+        counts.get("NEW", 0)
+        + counts.get("RED", 0)
+        + counts.get("YELLOW", 0)
+        + counts.get("GREEN", 0)
+    )
 
-    if user_str == correct_str:
-        st.success(f"✅ Správne! Odpoveď: {correct_display}")
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.markdown("### Denný cieľ")
+    st.progress(progress_percent(answered_today, DAILY_GOAL))
+    st.markdown(f"**{answered_today} / {DAILY_GOAL}** otázok dnes")
+
+    st.progress(progress_percent(new_seen_today, new_limit))
+    st.markdown(f"**{new_seen_today} / {new_limit}** nových otázok")
+
+    if answered_today >= DAILY_GOAL:
+        st.success("Denný cieľ splnený.")
     else:
-        st.error(f"❌ Nesprávne! Správna odpoveď: {correct_display}")
+        st.caption(f"Zostáva dnes: {max(0, DAILY_GOAL - answered_today)} otázok")
 
-render_small_report_link(q, st.session_state.selected_subject_name)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.markdown("### Dnes")
+    metric_col_1, metric_col_2 = st.columns(2)
+    metric_col_1.metric("Správne", correct_today)
+    metric_col_2.metric("Nesprávne", wrong_today)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.markdown("### Stav predmetu")
+
+    status_rows = [
+        ("Nové", counts.get("NEW", 0)),
+        ("Problémové", counts.get("RED", 0)),
+        ("Na opakovanie", counts.get("YELLOW", 0)),
+        ("Zvládnuté", counts.get("GREEN", 0)),
+        ("Mastered", counts.get("MASTERED", 0)),
+        ("Zostáva zvládnuť", not_mastered)
+    ]
+
+    for label, value in status_rows:
+        st.markdown(
+            f"""
+            <div class="stat-row">
+                <span class="stat-label">{escape(str(label))}</span>
+                <span class="stat-value">{escape(str(value))}</span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    if len(questions) > 0 and counts.get("MASTERED", 0) == len(questions):
+        st.balloons()
+        st.success("Všetky otázky v tomto predmete sú zvládnuté.")
+
+        if st.button("Reštartovať predmet", use_container_width=True):
+            if selected_file in st.session_state.subjects_data:
+                del st.session_state.subjects_data[selected_file]
+
+            if question_session_key in st.session_state:
+                del st.session_state[question_session_key]
+
+            save_progress()
+            st.rerun()
 
 
 # ============================================================
-# 10. SIDEBAR ŠTATISTIKY A MOTIVÁCIA
+# 13. SIDEBAR STATS + LOGOUT
 # ============================================================
 
 counts = count_statuses(current_data, questions)
@@ -945,64 +1521,26 @@ new_limit = dynamic_daily_new_limit(counts)
 
 answered_today = daily_stats.get("answered", 0)
 new_seen_today = daily_stats.get("new_seen", 0)
-correct_today = daily_stats.get("correct", 0)
-wrong_today = daily_stats.get("wrong", 0)
 
-not_mastered = (
-    counts.get("NEW", 0)
-    + counts.get("RED", 0)
-    + counts.get("YELLOW", 0)
-    + counts.get("GREEN", 0)
+render_sidebar_card(
+    "Rýchly prehľad",
+    [
+        ("Otázky dnes", f"{answered_today} / {DAILY_GOAL}"),
+        ("Nové dnes", f"{new_seen_today} / {new_limit}"),
+        ("Problémové", counts.get("RED", 0)),
+        ("Mastered", counts.get("MASTERED", 0))
+    ]
 )
 
-st.sidebar.divider()
-st.sidebar.write("🎯 Denný progres")
-st.sidebar.progress(progress_percent(answered_today, DAILY_GOAL))
-st.sidebar.write(f"Otázky dnes: **{answered_today} / {DAILY_GOAL}**")
-
-st.sidebar.progress(progress_percent(new_seen_today, new_limit))
-st.sidebar.write(f"Nové dnes: **{new_seen_today} / {new_limit}**")
-
-if answered_today >= DAILY_GOAL:
-    st.sidebar.success("Denný cieľ splnený ✅")
-else:
-    st.sidebar.caption(f"Zostáva dnes: {max(0, DAILY_GOAL - answered_today)} otázok")
-
-st.sidebar.divider()
-st.sidebar.write("📊 Stav otázok")
-st.sidebar.write(f"Nové: **{counts.get('NEW', 0)}**")
-st.sidebar.write(f"Problémové: **{counts.get('RED', 0)}**")
-st.sidebar.write(f"Na opakovanie: **{counts.get('YELLOW', 0)}**")
-st.sidebar.write(f"Zvládnuté: **{counts.get('GREEN', 0)}**")
-st.sidebar.write(f"Mastered: **{counts.get('MASTERED', 0)}**")
-st.sidebar.write(f"Zostáva zvládnuť: **{not_mastered}**")
-
-st.sidebar.divider()
-st.sidebar.write("Dnes")
-st.sidebar.write(f"Správne: **{correct_today}**")
-st.sidebar.write(f"Nesprávne: **{wrong_today}**")
-
-if len(questions) > 0 and counts.get("MASTERED", 0) == len(questions):
-    st.balloons()
-    st.success("Hotovo! Všetky otázky v tomto predmete sú MASTERED.")
-
-    if st.sidebar.button("Reštartovať predmet"):
-        if selected_file in st.session_state.subjects_data:
-            del st.session_state.subjects_data[selected_file]
-
-        if question_session_key in st.session_state:
-            del st.session_state[question_session_key]
-
-        save_progress()
-        st.rerun()
-
-
-# ============================================================
-# 11. ODHLÁSENIE DOLE V SIDEBAR-E
-# ============================================================
-
-st.sidebar.divider()
-st.sidebar.caption(f"Prihlásený: {st.session_state.display_name}")
+st.sidebar.markdown('<div class="divider-soft"></div>', unsafe_allow_html=True)
+st.sidebar.markdown(
+    f"""
+    <div class="footer-user">
+        Prihlásený: <strong>{escape(st.session_state.display_name)}</strong>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 if st.sidebar.button("Odhlásiť sa", use_container_width=True):
     logout_user()

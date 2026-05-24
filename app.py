@@ -564,10 +564,19 @@ if len(pool) > 0:
         f"&entry.1513577736={st.session_state.selected_subject_name}"
     )
 
-    st.link_button(
-        "Nahlásiť chybu v otázke",
-        form_url,
-        use_container_width=True
+    st.markdown(
+    f"""
+    <div style="text-align: right; margin-top: 8px; margin-bottom: 4px;">
+        <a href="{form_url}" target="_blank" style="
+            font-size: 13px;
+            color: #888;
+            text-decoration: none;
+        ">
+            Nahlásiť chybu
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
     )
 
     # ========================================================

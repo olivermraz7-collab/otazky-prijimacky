@@ -2424,6 +2424,56 @@ def inject_active_setup_css():
 
 
 
+
+def inject_step2_center_only_css():
+    if not (setup_is_active() and setup_current_step() == 2):
+        return
+
+    st.markdown(
+        """
+        <style>
+            /* Počas kroku 2 nech nie je zvýraznené nič vpravo dole */
+            div[data-testid="column"]:nth-of-type(2),
+            div[data-testid="column"]:nth-of-type(2) * {
+                opacity: 0.04 !important;
+                filter: grayscale(1) brightness(0.05) !important;
+                pointer-events: none !important;
+            }
+
+            /* Stredový kalendár je jediný aktívny prvok */
+            .center-calendar-card,
+            .center-calendar-card *,
+            .center-calendar-form,
+            .center-calendar-form *,
+            div[data-baseweb="popover"],
+            div[data-baseweb="popover"] *,
+            div[role="dialog"],
+            div[role="dialog"] *,
+            div[data-baseweb="calendar"],
+            div[data-baseweb="calendar"] * {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+            }
+
+            .center-calendar-card {
+                z-index: 2147483000 !important;
+            }
+
+            .center-calendar-form {
+                z-index: 2147483001 !important;
+            }
+
+            div[data-baseweb="popover"],
+            div[role="dialog"] {
+                z-index: 2147483647 !important;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 def render_center_date_setup(selected_field_name, current_exam_date):
     st.markdown(
         """
@@ -2621,6 +2671,8 @@ st.sidebar.markdown(
 
 setup_active = setup_is_active()
 step = setup_current_step()
+
+inject_step2_center_only_css()
 
 inject_active_setup_css()
 

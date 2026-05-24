@@ -62,18 +62,11 @@ def inject_css():
                 --bg-soft: #0f172a;
                 --card: rgba(17, 24, 39, 0.88);
                 --card-solid: #111827;
-                --card-hover: #1f2937;
                 --border: rgba(255, 255, 255, 0.08);
-                --border-strong: rgba(255, 255, 255, 0.14);
                 --text: #f9fafb;
                 --muted: #9ca3af;
-                --muted-soft: #6b7280;
                 --primary: #8b5cf6;
                 --primary-2: #3b82f6;
-                --primary-soft: rgba(139, 92, 246, 0.16);
-                --red: #f87171;
-                --yellow: #facc15;
-                --green: #4ade80;
                 --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
                 --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.28);
             }
@@ -177,25 +170,6 @@ def inject_css():
                 font-weight: 700;
             }
 
-            .glass-card {
-                background: rgba(17, 24, 39, 0.78);
-                border: 1px solid var(--border);
-                border-radius: 26px;
-                box-shadow: var(--shadow-soft);
-                padding: 22px 24px;
-                margin-bottom: 18px;
-            }
-
-            .question-card {
-                background:
-                    linear-gradient(180deg, rgba(17, 24, 39, 0.94), rgba(15, 23, 42, 0.92));
-                border: 1px solid var(--border);
-                border-radius: 30px;
-                box-shadow: var(--shadow);
-                padding: 30px 32px 24px 32px;
-                margin-bottom: 18px;
-            }
-
             .question-topline {
                 display: flex;
                 justify-content: space-between;
@@ -223,6 +197,7 @@ def inject_css():
                 font-size: 17px;
                 line-height: 1.75;
                 color: #f8fafc;
+                margin-bottom: 10px;
             }
 
             .status-pill {
@@ -265,12 +240,6 @@ def inject_css():
                 border-color: rgba(139, 92, 246, 0.34);
             }
 
-            .divider-soft {
-                height: 1px;
-                background: rgba(255,255,255,0.08);
-                margin: 18px 0;
-            }
-
             .tiny-report {
                 text-align: right;
                 margin-top: 10px;
@@ -287,44 +256,6 @@ def inject_css():
             .tiny-report a:hover {
                 color: #cbd5e1;
                 text-decoration: underline;
-            }
-
-            .sidebar-card {
-                background: rgba(15, 23, 42, 0.74);
-                border: 1px solid rgba(255,255,255,0.08);
-                border-radius: 20px;
-                padding: 15px 16px;
-                margin: 12px 0 15px 0;
-                box-shadow: 0 14px 34px rgba(0,0,0,0.22);
-            }
-
-            .sidebar-title {
-                font-size: 13px;
-                font-weight: 850;
-                color: #f9fafb;
-                margin-bottom: 9px;
-            }
-
-            .stat-row {
-                display: flex;
-                justify-content: space-between;
-                gap: 12px;
-                font-size: 13px;
-                padding: 6px 0;
-                border-bottom: 1px solid rgba(255,255,255,0.06);
-            }
-
-            .stat-row:last-child {
-                border-bottom: none;
-            }
-
-            .stat-label {
-                color: #94a3b8;
-            }
-
-            .stat-value {
-                color: #f8fafc;
-                font-weight: 800;
             }
 
             .footer-user {
@@ -368,6 +299,17 @@ def inject_css():
                 border-radius: 16px;
                 font-size: 14px;
                 margin: 10px 0;
+            }
+
+            div[data-testid="stVerticalBlockBorderWrapper"] {
+                background: linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(15, 23, 42, 0.88)) !important;
+                border: 1px solid rgba(255,255,255,0.08) !important;
+                border-radius: 26px !important;
+                box-shadow: 0 16px 40px rgba(0,0,0,0.28) !important;
+            }
+
+            div[data-testid="stVerticalBlockBorderWrapper"] > div {
+                padding: 8px 10px !important;
             }
 
             div.stButton > button,
@@ -523,13 +465,13 @@ def inject_css():
                 color: #f9fafb !important;
             }
 
+            hr {
+                border-color: rgba(255,255,255,0.08) !important;
+            }
+
             @media (max-width: 900px) {
                 .hero-title {
                     font-size: 29px;
-                }
-
-                .question-card {
-                    padding: 22px 20px;
                 }
 
                 .top-hero {
@@ -554,7 +496,7 @@ inject_css()
 # ============================================================
 
 cookies = EncryptedCookieManager(
-    prefix="med_prep_dark_v1/",
+    prefix="med_prep_dark_v2/",
     password="Heslo1234"
 )
 
@@ -1354,25 +1296,13 @@ def render_small_report_link(q, subject_name):
 
 
 def render_sidebar_card(title, rows):
-    row_html = ""
+    with st.sidebar.container(border=True):
+        st.markdown(f"#### {title}")
 
-    for label, value in rows:
-        row_html += f"""
-            <div class="stat-row">
-                <span class="stat-label">{escape(str(label))}</span>
-                <span class="stat-value">{escape(str(value))}</span>
-            </div>
-        """
-
-    st.sidebar.markdown(
-        f"""
-        <div class="sidebar-card">
-            <div class="sidebar-title">{escape(title)}</div>
-            {row_html}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+        for label, value in rows:
+            col1, col2 = st.columns([0.65, 0.35])
+            col1.caption(str(label))
+            col2.markdown(f"**{value}**")
 
 
 def render_question_text_and_images(q):
@@ -1450,7 +1380,7 @@ if not questions:
 
     st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
 
-    st.sidebar.markdown('<div class="divider-soft"></div>', unsafe_allow_html=True)
+    st.sidebar.divider()
     st.sidebar.caption(f"Prihlásený: {st.session_state.display_name}")
 
     if st.sidebar.button("Odhlásiť sa", use_container_width=True):
@@ -1503,83 +1433,80 @@ left_col, right_col = st.columns([0.70, 0.30], gap="large")
 
 
 with left_col:
-    st.markdown('<div class="question-card">', unsafe_allow_html=True)
+    with st.container(border=True):
+        render_question_header(q, q_progress)
+        render_question_text_and_images(q)
 
-    render_question_header(q, q_progress)
-    render_question_text_and_images(q)
+        user_choices = []
 
-    user_choices = []
+        st.divider()
 
-    st.markdown('<div class="divider-soft"></div>', unsafe_allow_html=True)
+        with st.form(key=f"form_{selected_file}_{q['id']}_{st.session_state[nonce_key]}"):
+            for opt in q["options"]:
+                match = re.search(r"(\S+\.png|\S+\.jpg)", opt, re.IGNORECASE)
 
-    with st.form(key=f"form_{selected_file}_{q['id']}_{st.session_state[nonce_key]}"):
-        for opt in q["options"]:
-            match = re.search(r"(\S+\.png|\S+\.jpg)", opt, re.IGNORECASE)
+                if match:
+                    img_filename = match.group(1)
+                    clean_label = opt.replace(img_filename, "").strip()
 
-            if match:
-                img_filename = match.group(1)
-                clean_label = opt.replace(img_filename, "").strip()
+                    if len(clean_label) < 4:
+                        clean_label = opt[:3]
 
-                if len(clean_label) < 4:
-                    clean_label = opt[:3]
+                    cb = st.checkbox(
+                        clean_label,
+                        key=f"cb_{selected_file}_{q['id']}_{st.session_state[nonce_key]}_{opt}",
+                        disabled=st.session_state.answered
+                    )
 
-                cb = st.checkbox(
-                    clean_label,
-                    key=f"cb_{selected_file}_{q['id']}_{st.session_state[nonce_key]}_{opt}",
-                    disabled=st.session_state.answered
-                )
+                    try:
+                        st.image(f"images/{img_filename}", width=260)
+                    except Exception:
+                        st.warning(f"Súbor {img_filename} chýba.")
+                else:
+                    cb = st.checkbox(
+                        opt,
+                        key=f"cb_{selected_file}_{q['id']}_{st.session_state[nonce_key]}_{opt}",
+                        disabled=st.session_state.answered
+                    )
 
-                try:
-                    st.image(f"images/{img_filename}", width=260)
-                except Exception:
-                    st.warning(f"Súbor {img_filename} chýba.")
+                if cb:
+                    user_choices.append(opt[0])
+
+            btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
+            submit = st.form_submit_button(btn_label)
+
+        if submit:
+            if not st.session_state.answered:
+                st.session_state.answered = True
+                st.rerun()
+
             else:
-                cb = st.checkbox(
-                    opt,
-                    key=f"cb_{selected_file}_{q['id']}_{st.session_state[nonce_key]}_{opt}",
-                    disabled=st.session_state.answered
-                )
+                user_str = "".join(sorted(user_choices))
+                correct_str = "".join(sorted(q["answer"]))
+                is_correct = user_str == correct_str
 
-            if cb:
-                user_choices.append(opt[0])
+                update_progress_after_answer(current_data, qid, is_correct)
 
-        btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
-        submit = st.form_submit_button(btn_label)
+                if question_session_key in st.session_state:
+                    del st.session_state[question_session_key]
 
-    if submit:
-        if not st.session_state.answered:
-            st.session_state.answered = True
-            st.rerun()
+                st.session_state[nonce_key] += 1
+                st.session_state.answered = False
 
-        else:
+                save_progress()
+                st.rerun()
+
+        if st.session_state.answered:
+            correct_display = ", ".join(q["answer"])
             user_str = "".join(sorted(user_choices))
             correct_str = "".join(sorted(q["answer"]))
-            is_correct = user_str == correct_str
 
-            update_progress_after_answer(current_data, qid, is_correct)
+            if user_str == correct_str:
+                st.success(f"Správne. Odpoveď: {correct_display}")
+            else:
+                st.error(f"Nesprávne. Správna odpoveď: {correct_display}")
 
-            if question_session_key in st.session_state:
-                del st.session_state[question_session_key]
-
-            st.session_state[nonce_key] += 1
-            st.session_state.answered = False
-
-            save_progress()
-            st.rerun()
-
-    if st.session_state.answered:
-        correct_display = ", ".join(q["answer"])
-        user_str = "".join(sorted(user_choices))
-        correct_str = "".join(sorted(q["answer"]))
-
-        if user_str == correct_str:
-            st.success(f"Správne. Odpoveď: {correct_display}")
-        else:
-            st.error(f"Nesprávne. Správna odpoveď: {correct_display}")
-
-    render_small_report_link(q, st.session_state.selected_subject_name)
-
-    st.markdown('</div>', unsafe_allow_html=True)
+        render_small_report_link(q, st.session_state.selected_subject_name)
 
 
 with right_col:
@@ -1599,52 +1526,41 @@ with right_col:
         + counts.get("GREEN", 0)
     )
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown("### Denný cieľ")
-    st.progress(progress_percent(answered_today, DAILY_GOAL))
-    st.markdown(f"**{answered_today} / {DAILY_GOAL}** otázok dnes")
+    with st.container(border=True):
+        st.markdown("### Denný cieľ")
+        st.progress(progress_percent(answered_today, DAILY_GOAL))
+        st.markdown(f"**{answered_today} / {DAILY_GOAL}** otázok dnes")
 
-    st.progress(progress_percent(new_seen_today, new_limit))
-    st.markdown(f"**{new_seen_today} / {new_limit}** nových otázok")
+        st.progress(progress_percent(new_seen_today, new_limit))
+        st.markdown(f"**{new_seen_today} / {new_limit}** nových otázok")
 
-    if answered_today >= DAILY_GOAL:
-        st.success("Denný cieľ splnený.")
-    else:
-        st.caption(f"Zostáva dnes: {max(0, DAILY_GOAL - answered_today)} otázok")
+        if answered_today >= DAILY_GOAL:
+            st.success("Denný cieľ splnený.")
+        else:
+            st.caption(f"Zostáva dnes: {max(0, DAILY_GOAL - answered_today)} otázok")
 
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown("### Dnes")
+        metric_col_1, metric_col_2 = st.columns(2)
+        metric_col_1.metric("Správne", correct_today)
+        metric_col_2.metric("Nesprávne", wrong_today)
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown("### Dnes")
-    metric_col_1, metric_col_2 = st.columns(2)
-    metric_col_1.metric("Správne", correct_today)
-    metric_col_2.metric("Nesprávne", wrong_today)
-    st.markdown('</div>', unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown("### Stav predmetu")
 
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown("### Stav predmetu")
+        status_rows = [
+            ("Nové", counts.get("NEW", 0)),
+            ("Problémové", counts.get("RED", 0)),
+            ("Na opakovanie", counts.get("YELLOW", 0)),
+            ("Zvládnuté", counts.get("GREEN", 0)),
+            ("Mastered", counts.get("MASTERED", 0)),
+            ("Zostáva zvládnuť", not_mastered)
+        ]
 
-    status_rows = [
-        ("Nové", counts.get("NEW", 0)),
-        ("Problémové", counts.get("RED", 0)),
-        ("Na opakovanie", counts.get("YELLOW", 0)),
-        ("Zvládnuté", counts.get("GREEN", 0)),
-        ("Mastered", counts.get("MASTERED", 0)),
-        ("Zostáva zvládnuť", not_mastered)
-    ]
-
-    for label, value in status_rows:
-        st.markdown(
-            f"""
-            <div class="stat-row">
-                <span class="stat-label">{escape(str(label))}</span>
-                <span class="stat-value">{escape(str(value))}</span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    st.markdown('</div>', unsafe_allow_html=True)
+        for label, value in status_rows:
+            col1, col2 = st.columns([0.7, 0.3])
+            col1.caption(label)
+            col2.markdown(f"**{value}**")
 
     if len(questions) > 0 and counts.get("MASTERED", 0) == len(questions):
         st.balloons()
@@ -1682,7 +1598,7 @@ render_sidebar_card(
     ]
 )
 
-st.sidebar.markdown('<div class="divider-soft"></div>', unsafe_allow_html=True)
+st.sidebar.divider()
 st.sidebar.markdown(
     f"""
     <div class="footer-user">

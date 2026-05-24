@@ -2383,19 +2383,137 @@ def inject_active_setup_css():
 
 def render_center_date_setup(selected_field_name, current_exam_date):
     """
-    Krok 2 riešime cez natívny Streamlit dialog.
-    Toto je jediný spoľahlivý spôsob, aby bol st.date_input skutočne VNÚTRI popup okna,
-    nie iba vizuálne presunutý CSS-kom.
+    Krok 2 cez natívny Streamlit dialog, ale vizuálne zladený s krokmi 1 a 3.
     """
 
+    st.markdown(
+        """
+        <style>
+            /* Zladenie natívneho st.dialog s tmavým premium dizajnom appky */
+            div[role="dialog"] {
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96)) !important;
+                border: 1px solid rgba(255,255,255,0.14) !important;
+                border-radius: 30px !important;
+                box-shadow: 0 28px 100px rgba(0,0,0,0.82) !important;
+                color: #f9fafb !important;
+                max-width: 540px !important;
+            }
+
+            div[role="dialog"] > div {
+                background: transparent !important;
+            }
+
+            div[role="dialog"] h1,
+            div[role="dialog"] h2,
+            div[role="dialog"] h3,
+            div[role="dialog"] p,
+            div[role="dialog"] label,
+            div[role="dialog"] span {
+                color: #f9fafb !important;
+            }
+
+            div[role="dialog"] button[aria-label="Close"] {
+                color: #94a3b8 !important;
+                background: rgba(255,255,255,0.06) !important;
+                border-radius: 999px !important;
+            }
+
+            div[role="dialog"] button[aria-label="Close"]:hover {
+                color: #ffffff !important;
+                background: rgba(255,255,255,0.12) !important;
+            }
+
+            .dialog-step-card {
+                background:
+                    linear-gradient(135deg, rgba(124, 58, 237, 0.20), rgba(37, 99, 235, 0.13)),
+                    rgba(15, 23, 42, 0.70);
+                border: 1px solid rgba(167, 139, 250, 0.26);
+                border-radius: 22px;
+                padding: 18px 18px;
+                margin-bottom: 16px;
+                box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+            }
+
+            .dialog-step-kicker {
+                color: #a78bfa;
+                font-size: 12px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+            }
+
+            .dialog-step-title {
+                color: #ffffff;
+                font-size: 28px;
+                line-height: 1.08;
+                font-weight: 900;
+                letter-spacing: -0.055em;
+                margin-bottom: 8px;
+            }
+
+            .dialog-step-text {
+                color: #cbd5e1;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            div[role="dialog"] div[data-testid="stDateInput"] input {
+                color: #ffffff !important;
+                background: rgba(2, 6, 23, 0.84) !important;
+                border: 1px solid rgba(167,139,250,0.55) !important;
+                border-radius: 16px !important;
+                min-height: 44px !important;
+            }
+
+            div[role="dialog"] div[data-testid="stDateInput"] input:focus {
+                border-color: rgba(167,139,250,0.90) !important;
+                box-shadow: 0 0 0 3px rgba(139,92,246,0.22) !important;
+            }
+
+            div[role="dialog"] div.stButton > button {
+                border-radius: 15px !important;
+                border: 1px solid rgba(167, 139, 250, 0.35) !important;
+                background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
+                color: #ffffff !important;
+                font-weight: 850 !important;
+                padding: 0.72rem 1.1rem !important;
+                box-shadow: 0 14px 32px rgba(124, 58, 237, 0.30) !important;
+            }
+
+            div[role="dialog"] div.stButton > button:hover {
+                transform: translateY(-1px);
+                filter: brightness(1.06);
+                box-shadow: 0 18px 38px rgba(124, 58, 237, 0.38) !important;
+            }
+
+            /* Kalendár popover nad dialógom */
+            div[data-baseweb="popover"],
+            div[data-baseweb="popover"] *,
+            div[data-baseweb="calendar"],
+            div[data-baseweb="calendar"] * {
+                z-index: 2147483647 !important;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     if hasattr(st, "dialog"):
-        @st.dialog("Zadaj termín skúšky")
+        @st.dialog("")
         def exam_date_dialog():
-            st.caption("Krok 2/3")
             st.markdown(
                 f"""
-                Vyber termín prijímacej skúšky pre odbor **{escape(selected_field_name)}**.
-                """
+                <div class="dialog-step-card">
+                    <div class="dialog-step-kicker">Krok 2/3</div>
+                    <div class="dialog-step-title">Zadaj termín skúšky</div>
+                    <div class="dialog-step-text">
+                        Vyber termín prijímacej skúšky pre odbor <strong>{escape(selected_field_name)}</strong>.
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
             )
 
             selected_exam_date = st.date_input(
@@ -2414,8 +2532,6 @@ def render_center_date_setup(selected_field_name, current_exam_date):
         exam_date_dialog()
         return
 
-    # Fallback pre veľmi starú verziu Streamlitu bez st.dialog.
-    # Tento fallback sa použije iba ak hosting nemá novší Streamlit.
     st.warning("Tvoja verzia Streamlitu nepodporuje popup okno. Aktualizuj Streamlit v requirements.txt.")
     selected_exam_date = st.date_input(
         "Termín skúšky",

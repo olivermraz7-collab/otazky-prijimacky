@@ -2434,63 +2434,91 @@ def render_center_date_setup(selected_field_name, current_exam_date):
     st.markdown(
         """
         <style>
+            /*
+              KROK 2:
+              Popup karta + reálny Streamlit date_input musia byť na rovnakej prednej vrstve.
+              Preto date_input aj button dávame cez CSS na fixed pozíciu nad všetko ostatné.
+            */
+
             .center-calendar-card {
-                position: fixed;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                width: min(540px, calc(100vw - 32px));
-                min-height: 360px;
+                position: fixed !important;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: min(540px, calc(100vw - 32px)) !important;
+                min-height: 365px !important;
                 background:
-                    linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96));
-                border: 1px solid rgba(255,255,255,0.14);
-                border-radius: 30px;
-                padding: 28px 30px;
-                box-shadow: 0 28px 100px rgba(0,0,0,0.78);
-                z-index: 10006;
-                pointer-events: none;
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.995), rgba(30, 41, 59, 0.975)) !important;
+                border: 1px solid rgba(255,255,255,0.14) !important;
+                border-radius: 30px !important;
+                padding: 28px 30px !important;
+                box-shadow: 0 28px 100px rgba(0,0,0,0.82) !important;
+                z-index: 2147483000 !important;
+                pointer-events: none !important;
+                opacity: 1 !important;
+                filter: none !important;
             }
 
             .center-calendar-step {
-                color: #a78bfa;
-                font-size: 12px;
-                font-weight: 850;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                margin-bottom: 9px;
+                color: #a78bfa !important;
+                font-size: 12px !important;
+                font-weight: 850 !important;
+                letter-spacing: 0.12em !important;
+                text-transform: uppercase !important;
+                margin-bottom: 9px !important;
             }
 
             .center-calendar-title {
-                color: #ffffff;
-                font-size: 28px;
-                line-height: 1.08;
-                font-weight: 900;
-                letter-spacing: -0.055em;
-                margin-bottom: 8px;
+                color: #ffffff !important;
+                font-size: 28px !important;
+                line-height: 1.08 !important;
+                font-weight: 900 !important;
+                letter-spacing: -0.055em !important;
+                margin-bottom: 8px !important;
             }
 
             .center-calendar-text {
-                color: #cbd5e1;
-                font-size: 14px;
-                line-height: 1.7;
-                margin-bottom: 18px;
+                color: #cbd5e1 !important;
+                font-size: 14px !important;
+                line-height: 1.7 !important;
+                margin-bottom: 18px !important;
             }
 
-            /* Schovať prípadné staré selectboxy Deň/Mesiac/Rok v hlavnej časti */
-            .main div[data-testid="stSelectbox"] {
-                opacity: 0.04 !important;
-                filter: grayscale(1) brightness(0.05) !important;
+            /*
+              Zruš stmavenie parenta pre main kontajner.
+              Deti nemôžu prekonať opacity parenta, preto parent nesmie mať opacity 0.06.
+            */
+            .main .block-container {
+                opacity: 1 !important;
+                filter: none !important;
                 pointer-events: none !important;
             }
 
-            /* Vložiť skutočný date_input vizuálne do stredovej karty */
+            /*
+              Všetok bežný obsah v main oblasti ostane zatmavený,
+              ale NIE samotný date_input a button.
+            */
+            .top-hero,
+            div[data-testid="stVerticalBlockBorderWrapper"],
+            div[data-testid="stMetric"],
+            .stProgress,
+            .question-text,
+            .question-topline {
+                filter: grayscale(1) brightness(0.08) contrast(0.65) !important;
+                opacity: 0.06 !important;
+                pointer-events: none !important;
+            }
+
+            /*
+              Samotný date_input posunieme do popup karty.
+            */
             .main div[data-testid="stDateInput"] {
                 position: fixed !important;
                 left: 50% !important;
-                top: calc(50% + 48px) !important;
+                top: calc(50% + 50px) !important;
                 transform: translateX(-50%) !important;
                 width: min(420px, calc(100vw - 72px)) !important;
-                z-index: 10008 !important;
+                z-index: 2147483002 !important;
                 opacity: 1 !important;
                 filter: none !important;
                 pointer-events: auto !important;
@@ -2498,7 +2526,9 @@ def render_center_date_setup(selected_field_name, current_exam_date):
             }
 
             .main div[data-testid="stDateInput"] *,
-            .main div[data-testid="stDateInput"] input {
+            .main div[data-testid="stDateInput"] input,
+            .main div[data-testid="stDateInput"] label,
+            .main div[data-testid="stDateInput"] label p {
                 opacity: 1 !important;
                 filter: none !important;
                 pointer-events: auto !important;
@@ -2512,19 +2542,23 @@ def render_center_date_setup(selected_field_name, current_exam_date):
 
             .main div[data-testid="stDateInput"] input {
                 color: #ffffff !important;
-                background: rgba(2, 6, 23, 0.96) !important;
-                border: 1px solid rgba(167,139,250,0.70) !important;
+                background: rgba(2, 6, 23, 0.98) !important;
+                border: 1px solid rgba(167,139,250,0.75) !important;
                 border-radius: 16px !important;
                 min-height: 44px !important;
             }
 
+            /*
+              Potvrdzovacie tlačidlo pod date inputom.
+              Pozor: v kroku 2 je v main časti iba toto relevantné tlačidlo.
+            */
             .main div.stButton {
                 position: fixed !important;
                 left: 50% !important;
-                top: calc(50% + 136px) !important;
+                top: calc(50% + 138px) !important;
                 transform: translateX(-50%) !important;
                 width: min(420px, calc(100vw - 72px)) !important;
-                z-index: 10008 !important;
+                z-index: 2147483002 !important;
                 opacity: 1 !important;
                 filter: none !important;
                 pointer-events: auto !important;
@@ -2537,6 +2571,9 @@ def render_center_date_setup(selected_field_name, current_exam_date):
                 pointer-events: auto !important;
             }
 
+            /*
+              BaseWeb kalendár popover musí byť nad popupom aj nad overlayom.
+            */
             div[data-baseweb="popover"],
             div[data-baseweb="popover"] *,
             div[role="dialog"],
@@ -2551,6 +2588,16 @@ def render_center_date_setup(selected_field_name, current_exam_date):
             div[data-baseweb="popover"],
             div[role="dialog"] {
                 z-index: 2147483647 !important;
+            }
+
+            /*
+              Schovaj prípadné staré selectboxy Deň/Mesiac/Rok v hlavnej časti,
+              keby ešte niekde ostali.
+            */
+            .main div[data-testid="stSelectbox"] {
+                opacity: 0.02 !important;
+                filter: grayscale(1) brightness(0.05) !important;
+                pointer-events: none !important;
             }
         </style>
         """,

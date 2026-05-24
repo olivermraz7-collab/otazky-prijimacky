@@ -2508,7 +2508,8 @@ selected_field_name = st.sidebar.selectbox(
     "Odbor",
     field_list,
     index=f_idx if f_idx < len(field_list) else 0,
-    disabled=setup_active and setup_step != 1
+    disabled=setup_active and setup_step != 1,
+    key="sidebar_field_select"
 )
 
 if setup_active and setup_step == 1:
@@ -2537,7 +2538,8 @@ st.session_state.selected_subject_name = st.sidebar.selectbox(
     "Predmet",
     subj_list,
     index=s_idx,
-    disabled=setup_active and setup_step != 3
+    disabled=setup_active and setup_step != 3,
+    key="sidebar_subject_select"
 )
 
 if setup_active and setup_step == 3:
@@ -2589,7 +2591,8 @@ selected_topic_name = st.sidebar.selectbox(
     "Celok",
     topic_options,
     index=0,
-    disabled=setup_active
+    disabled=setup_active,
+    key="sidebar_topic_select"
 )
 
 if selected_topic_name == "Všetky celky":
@@ -2604,7 +2607,8 @@ study_mode = st.sidebar.selectbox(
     "Režim",
     ["Smart review", "Len nesprávne"],
     index=0,
-    disabled=setup_active
+    disabled=setup_active,
+    key="sidebar_mode_select"
 )
 
 st.session_state.selected_topic_name = selected_topic_name
@@ -2635,16 +2639,6 @@ dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(se
 subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
 final_review_period = is_final_review_period(selected_field_name)
 dynamic_new_goal = 0 if final_review_period else subject_daily_goal
-
-topic_options = get_available_topics(questions)
-default_topic = st.session_state.last_settings.get("topic_name", "Všetky celky")
-t_idx = topic_options.index(default_topic) if default_topic in topic_options else 0
-
-st.session_state.selected_topic_name = st.sidebar.selectbox(
-    "Celok",
-    topic_options,
-    index=t_idx
-)
 
 # Bezpečný alias pre otázky po filtrovaní režimu/celku.
 # Niektoré časti appky používajú kratší názov mode_filtered_q.

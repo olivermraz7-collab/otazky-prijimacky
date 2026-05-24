@@ -1224,6 +1224,7 @@ def question_priority(q, subject_state, counts):
             score += 8
 
     new_limit = dynamic_daily_new_limit(counts)
+    dynamic_new_goal = 0 if final_review_period else min(dynamic_daily_goal, new_limit)
 
     if status == "NEW":
         if stats.get("new_seen", 0) >= new_limit:
@@ -1405,6 +1406,24 @@ def progress_percent(value, goal):
         return 0.0
 
     return min(1.0, value / goal)
+
+
+
+
+def is_final_review_period(field_name):
+    exam_dates = st.session_state.get("exam_dates", {})
+    exam_date_raw = exam_dates.get(field_name)
+
+    if not exam_date_raw:
+        return False
+
+    exam_date = parse_date_safe(exam_date_raw)
+
+    if exam_date is None:
+        return False
+
+    days_until_exam = (exam_date - date.today()).days
+    return 0 <= days_until_exam <= 3
 
 
 def calculate_recommended_daily_goal(field_name):
@@ -1937,6 +1956,8 @@ if "answered" not in st.session_state:
 # ============================================================
 
 dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
+final_review_period = is_final_review_period(selected_field_name)
+dynamic_new_goal = 0 if final_review_period else min(dynamic_daily_goal, DAILY_GOAL)
 
 subject_learning_percent = calculate_learning_percent(current_data, questions)
 hero_daily_goal, _hero_field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
@@ -2035,6 +2056,7 @@ with right_col:
     counts = count_statuses(current_data, mode_filtered_questions)
     daily_stats = get_daily_stats(current_data)
     new_limit = dynamic_daily_new_limit(counts)
+    dynamic_new_goal = 0 if final_review_period else min(dynamic_daily_goal, new_limit)
 
     answered_today = daily_stats.get("answered", 0)
     new_seen_today = daily_stats.get("new_seen", 0)
@@ -2074,7 +2096,7 @@ with right_col:
 
         st.divider()
 
-        st.caption(f"Nové otázky dnes: {new_seen_today} / {new_limit}")
+        st.caption("Nové otázky dnes: vypnuté · posledné dni sú určené na opakovanie") if dynamic_new_goal == 0 else st.caption(f"Nové otázky dnes: {new_seen_today} / {dynamic_new_goal}")
         if st.session_state.study_mode == "Len nesprávne":
             st.caption("Tento režim sa počíta do otázok dnes, ale nie do nových otázok.")
 

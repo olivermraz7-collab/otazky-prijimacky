@@ -3035,28 +3035,17 @@ with right_col:
             st.rerun()
 
 
-    with st.expander("Plán do skúšky", expanded=(setup_active and step == 2)):
-        if setup_active and step == 2:
-            st.markdown(
-                """
-                <div class="setup-focus-card">
-                    <div class="setup-focus-kicker">Krok 2/3</div>
-                    <div class="setup-focus-title">Zadaj termín skúšky</div>
-                    <div class="setup-focus-text">Termín použijeme na výpočet denného plánu.</div>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-
-        if current_exam_date:
-            st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
-            st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")
-            st.divider()
-            render_plan_rows(field_plan)
-            st.divider()
-            st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} otázok/deň")
-        else:
-            st.caption("Nastav termín skúšky v sidebare a appka vypočíta plán podľa predmetov.")
+    if not (setup_active and step == 2):
+        with st.expander("Plán do skúšky", expanded=False):
+            if current_exam_date:
+                st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
+                st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")
+                st.divider()
+                render_plan_rows(field_plan)
+                st.divider()
+                st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} otázok/deň")
+            else:
+                st.caption("Termín skúšky nastavíš pri prvom spustení alebo neskôr v nastaveniach.")
 
 
 # ============================================================

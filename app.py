@@ -2319,7 +2319,50 @@ def inject_active_setup_css():
                 font-size: 14px !important;
                 line-height: 1.7 !important;
             }
-        </style>
+        
+            /* FIX: date picker počas setupu musí byť klikateľný */
+            div[data-baseweb="popover"],
+            div[data-baseweb="popover"] *,
+            div[data-baseweb="calendar"],
+            div[data-baseweb="calendar"] *,
+            div[role="dialog"],
+            div[role="dialog"] *,
+            div[data-testid="stDateInput"],
+            div[data-testid="stDateInput"] *,
+            .setup-plan-widget,
+            .setup-plan-widget *,
+            .setup-focused-widget,
+            .setup-focused-widget * {
+                pointer-events: auto !important;
+                opacity: 1 !important;
+                filter: none !important;
+            }
+
+            div[data-baseweb="popover"],
+            div[role="dialog"] {
+                z-index: 2147483647 !important;
+            }
+
+            .setup-plan-widget {
+                position: relative !important;
+                z-index: 2147483000 !important;
+                background: rgba(15, 23, 42, 0.99) !important;
+                border-radius: 18px !important;
+                padding: 12px !important;
+                border: 1px solid rgba(167,139,250,0.72) !important;
+                box-shadow: 0 0 0 2px rgba(139,92,246,0.25), 0 24px 80px rgba(0,0,0,0.75) !important;
+            }
+
+            .setup-plan-widget input {
+                pointer-events: auto !important;
+                opacity: 1 !important;
+                filter: none !important;
+                color: #ffffff !important;
+                background: rgba(2, 6, 23, 0.95) !important;
+                border: 1px solid rgba(167,139,250,0.70) !important;
+            }
+
+</style>
         """,
         unsafe_allow_html=True
     )

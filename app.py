@@ -1543,7 +1543,7 @@ with right_col:
         st.divider()
 
         st.caption(
-            f"Nové otázky dnes: {new_seen_today} / {new_limit} · "
+            f"Nové otázky dnes: {new_seen_today} / {new_limit} "
         )
 
     with st.container(border=True):

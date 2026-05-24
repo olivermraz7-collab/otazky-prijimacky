@@ -1408,6 +1408,28 @@ def progress_percent(value, goal):
     return min(1.0, value / goal)
 
 
+def calculate_learning_percent(subject_state, questions):
+    if not questions:
+        return 0
+
+    weights = {
+        "NEW": 0.0,
+        "RED": 0.0,
+        "YELLOW": 0.35,
+        "GREEN": 0.70,
+        "MASTERED": 1.0
+    }
+
+    total_score = 0.0
+
+    for q in questions:
+        qid = get_qid(q)
+        p = get_question_progress(subject_state, qid)
+        total_score += weights.get(p.get("status", "NEW"), 0.0)
+
+    return round((total_score / len(questions)) * 100)
+
+
 # ============================================================
 # 8B. EXAM PLAN + STUDY MODES
 # ============================================================
@@ -1556,7 +1578,14 @@ def status_class(status):
     return classes.get(status, "status-new")
 
 
-def render_hero(subject_name, field_name, display_name, topic_name="Všetky celky", question_count=None, total_count=None):
+def render_hero(
+    subject_name,
+    field_name,
+    topic_name="Všetky celky",
+    question_count=None,
+    total_count=None,
+    learning_percent=0
+):
     if topic_name == "Všetky celky":
         subtitle = f"{field_name} · všetky celky"
     else:
@@ -1581,7 +1610,7 @@ def render_hero(subject_name, field_name, display_name, topic_name="Všetky celk
                     </div>
                 </div>
                 <div class="hero-pill-row">
-                    <span class="hero-pill">{escape(display_name)}</span>
+                    <span class="hero-pill">Naučené: {learning_percent}%</span>
                     <span class="hero-pill">Cieľ: {DAILY_GOAL}/deň</span>
                 </div>
             </div>
@@ -1589,7 +1618,6 @@ def render_hero(subject_name, field_name, display_name, topic_name="Všetky celk
         """,
         unsafe_allow_html=True
     )
-
 
 def render_question_header(q, p):
     st.markdown(
@@ -1725,8 +1753,7 @@ questions = load_questions(selected_file)
 if not questions:
     render_hero(
         st.session_state.selected_subject_name,
-        selected_field_name,
-        st.session_state.display_name
+        selected_field_name
     )
 
     st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
@@ -1847,13 +1874,15 @@ if "answered" not in st.session_state:
 # 12. MAIN LAYOUT
 # ============================================================
 
+subject_learning_percent = calculate_learning_percent(current_data, questions)
+
 render_hero(
     st.session_state.selected_subject_name,
     selected_field_name,
-    st.session_state.display_name,
     st.session_state.selected_topic_name,
     len(mode_filtered_questions),
-    len(questions)
+    len(questions),
+    subject_learning_percent
 )
 
 left_col, right_col = st.columns([0.70, 0.30], gap="large")

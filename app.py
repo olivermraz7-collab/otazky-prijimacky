@@ -2132,19 +2132,26 @@ def calculate_learning_percent(subject_state, questions):
 
 
 
-def clean_topic_name(topic):
-    topic = str(topic or "Nezaradené").strip()
 
-    # Skryť technické rozsahy typu [0 - 99], [100 - 199] atď.
-    if re.fullmatch(r"\[\d+\s*-\s*\d+\]", topic):
+
+
+def is_range_topic(value):
+    value = str(value or "").strip()
+    value = value.replace("–", "-").replace("—", "-")
+    return bool(re.fullmatch(r"\[?\s*\d+\s*-\s*\d+\s*\]?", value))
+
+
+def normalize_question_topic(q):
+    if not isinstance(q, dict):
         return "Nezaradené"
 
-    if not topic:
+    topic = str(q.get("topic", "") or "").strip()
+    topic = topic.replace("–", "-").replace("—", "-")
+
+    if not topic or is_range_topic(topic):
         return "Nezaradené"
 
     return topic
-
-
 
 # ============================================================
 # 8B. EXAM PLAN + STUDY MODES
@@ -2591,42 +2598,23 @@ if not questions:
 
 
 # ============================================================
-# ============================================================
-# ============================================================
-# ============================================================
 # FILTERS: TOPIC + MODE
 # ============================================================
 
-def question_topic(q):
-    if not isinstance(q, dict):
-        return "Nezaradené"
-
-    topic = str(q.get("topic", "") or "").strip()
-
-    if not topic:
-        return "Nezaradené"
-
-    # Nikdy nepoužívaj technické rozsahy ako celky.
-    if re.fullmatch(r"\[\d+\s*-\s*\d+\]", topic):
-        return "Nezaradené"
-
-    return topic
-
+# Najprv očisti topic priamo v otázkach.
+for _q in questions:
+    if isinstance(_q, dict):
+        _q["topic"] = normalize_question_topic(_q)
 
 topic_values = sorted(
     {
-        question_topic(q)
+        q.get("topic", "Nezaradené")
         for q in questions
         if isinstance(q, dict)
+        and q.get("topic", "Nezaradené") != "Nezaradené"
+        and not is_range_topic(q.get("topic", ""))
     }
 )
-
-# Ak otázky nemajú reálne topics, nezobrazuj umelé rozsahy.
-topic_values = [
-    topic
-    for topic in topic_values
-    if topic != "Nezaradené"
-]
 
 topic_options = ["Všetky celky"] + topic_values
 
@@ -2635,7 +2623,7 @@ selected_topic_name = st.sidebar.selectbox(
     topic_options,
     index=0,
     disabled=setup_active,
-    key="sidebar_topic_select"
+    key="sidebar_topic_select_clean_final"
 )
 
 if selected_topic_name == "Všetky celky":
@@ -2643,19 +2631,18 @@ if selected_topic_name == "Všetky celky":
 else:
     topic_filtered_questions = [
         q for q in questions
-        if question_topic(q) == selected_topic_name
+        if q.get("topic", "Nezaradené") == selected_topic_name
     ]
-
-st.session_state.selected_topic_name = selected_topic_name
 
 study_mode = st.sidebar.selectbox(
     "Režim",
     ["Smart review", "Len nesprávne"],
     index=0,
     disabled=setup_active,
-    key="sidebar_mode_select"
+    key="sidebar_mode_select_clean_final"
 )
 
+st.session_state.selected_topic_name = selected_topic_name
 st.session_state.study_mode = study_mode
 
 current_data = ensure_subject_state(selected_file, questions)

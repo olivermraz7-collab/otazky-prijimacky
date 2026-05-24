@@ -2346,16 +2346,147 @@ def setup_current_step():
     return st.session_state.setup_step
 
 
+
+def inject_active_setup_css():
+    """
+    Reálne zatmavenie počas prvého setupu.
+    Nepoužíva JavaScript ani body.setup-active, lebo Streamlit <script> v st.markdown()
+    spoľahlivo nespúšťa. CSS sa vloží iba vtedy, keď je setup aktívny.
+    """
+    if not setup_is_active():
+        return
+
+    st.markdown(
+        """
+        <style>
+            /* Všetko v hlavnej aplikácii potlačiť */
+            .main .block-container,
+            header,
+            footer,
+            .top-hero,
+            div[data-testid="stVerticalBlockBorderWrapper"],
+            div[data-testid="stMetric"],
+            .stProgress,
+            .question-text,
+            .question-topline {
+                filter: grayscale(1) brightness(0.08) contrast(0.65) !important;
+                opacity: 0.055 !important;
+                pointer-events: none !important;
+            }
+
+            /* Tmavý film cez aplikáciu */
+            .stApp::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(2, 6, 23, 0.94);
+                backdrop-filter: grayscale(1) blur(8px);
+                z-index: 9990;
+                pointer-events: none;
+            }
+
+            /* Sidebar nech je nad tmavým filmom */
+            section[data-testid="stSidebar"] {
+                position: relative !important;
+                z-index: 10000 !important;
+                filter: grayscale(1) brightness(0.22) !important;
+            }
+
+            /* Väčšinu sidebaru tiež potlačiť */
+            section[data-testid="stSidebar"] .stSelectbox,
+            section[data-testid="stSidebar"] .stDateInput,
+            section[data-testid="stSidebar"] .stButton,
+            section[data-testid="stSidebar"] .stMarkdown,
+            section[data-testid="stSidebar"] .stCaption {
+                opacity: 0.16 !important;
+                filter: grayscale(1) brightness(0.65) !important;
+                pointer-events: none !important;
+            }
+
+            /* Aktuálne zvýraznené okno musí byť plne viditeľné a klikateľné */
+            .setup-focus-card,
+            .setup-focused-widget,
+            .setup-focused-widget *,
+            .setup-plan-widget,
+            .setup-plan-widget *,
+            .setup-sidebar-brand {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+                position: relative !important;
+                z-index: 10005 !important;
+            }
+
+            .setup-focused-widget .stSelectbox,
+            .setup-focused-widget .stDateInput,
+            .setup-focused-widget .stButton,
+            .setup-plan-widget .stDateInput,
+            .setup-plan-widget .stButton {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+            }
+
+            /* Textové vysvetlenie nad overlayom */
+            .setup-main-hint {
+                position: fixed !important;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-35%, -50%) !important;
+                max-width: 420px !important;
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96)) !important;
+                border: 1px solid rgba(255,255,255,0.12) !important;
+                border-radius: 28px !important;
+                padding: 24px 26px !important;
+                box-shadow: 0 24px 90px rgba(0,0,0,0.76) !important;
+                z-index: 10006 !important;
+                pointer-events: none !important;
+                opacity: 1 !important;
+                filter: none !important;
+            }
+
+            .setup-main-hint,
+            .setup-main-hint * {
+                opacity: 1 !important;
+                filter: none !important;
+            }
+
+            .setup-main-hint-step {
+                color: #a78bfa !important;
+                font-size: 12px !important;
+                font-weight: 850 !important;
+                letter-spacing: 0.12em !important;
+                text-transform: uppercase !important;
+                margin-bottom: 9px !important;
+            }
+
+            .setup-main-hint-title {
+                color: #ffffff !important;
+                font-size: 27px !important;
+                line-height: 1.08 !important;
+                font-weight: 900 !important;
+                letter-spacing: -0.055em !important;
+                margin-bottom: 8px !important;
+            }
+
+            .setup-main-hint-text {
+                color: #cbd5e1 !important;
+                font-size: 14px !important;
+                line-height: 1.7 !important;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 def setup_overlay(step, title, text):
     if not setup_is_active():
         return
 
     st.markdown(
-        f"""
-        <script>
-            document.body.classList.add("setup-active");
-        </script>
-        <div class="setup-main-hint">
+        f"""<div class="setup-main-hint">
             <div class="setup-main-hint-step">Krok {step}/3</div>
             <div class="setup-main-hint-title">{escape(title)}</div>
             <div class="setup-main-hint-text">{escape(text)}</div>
@@ -2379,7 +2510,7 @@ def setup_sidebar_note(step, title, text):
 
 
 def begin_focused_widget():
-    st.sidebar.markdown('<div class="setup-focused-widget">', unsafe_allow_html=True)
+    st.sidebar.markdown('<div class="setup-focused-widget setup-visible">', unsafe_allow_html=True)
 
 
 def end_focused_widget():
@@ -2423,6 +2554,8 @@ st.sidebar.markdown(
 
 setup_active = setup_is_active()
 step = setup_current_step()
+
+inject_active_setup_css()
 
 field_list = list(FIELDS.keys())
 f_idx = st.session_state.last_settings.get("field_idx", 0)
@@ -2809,7 +2942,7 @@ with right_col:
                 """,
                 unsafe_allow_html=True
             )
-            st.markdown('<div class="setup-plan-widget">', unsafe_allow_html=True)
+            st.markdown('<div class="setup-plan-widget setup-visible">', unsafe_allow_html=True)
 
         current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
         current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)

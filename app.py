@@ -1039,6 +1039,18 @@ def save_users(data):
     write_json_file(USERS_FILE, data)
 
 
+
+def initial_user_state():
+    return {
+        "subjects_data": {},
+        "exam_dates": {},
+        "setup_completed": False,
+        "last_settings": {
+            "field_idx": 0,
+            "subj_name": None
+        }
+    }
+
 def create_user(username, display_name, password):
     username = normalize_username(username)
 
@@ -1071,7 +1083,7 @@ def create_user(username, display_name, password):
 
             supabase.table("app_users").insert(user_row).execute()
 
-            initial_state = default_user_state()
+            initial_state = initial_user_state()
 
             supabase.table("user_states").insert(
                 {

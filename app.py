@@ -5,9 +5,14 @@ import random
 import os
 import hashlib
 import secrets
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from html import escape
 from streamlit_cookies_manager import EncryptedCookieManager
+
+try:
+    from supabase import create_client
+except Exception:
+    create_client = None
 
 
 # ============================================================
@@ -34,6 +39,17 @@ RECENT_LIMIT = 8
 DATA_DIR = "data"
 PROGRESS_DIR = os.path.join(DATA_DIR, "progress")
 USERS_FILE = os.path.join(DATA_DIR, "users.json")
+
+SUPABASE_URL = st.secrets.get("SUPABASE_URL", "")
+SUPABASE_KEY = st.secrets.get("SUPABASE_KEY", "")
+USE_SUPABASE = bool(SUPABASE_URL and SUPABASE_KEY and create_client is not None)
+
+@st.cache_resource
+def get_supabase_client():
+    if not USE_SUPABASE:
+        return None
+    return create_client(SUPABASE_URL, SUPABASE_KEY)
+
 
 REPORT_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLScVa1VK6mJYX6YRmgcms64AMxaTm5wSDmJF9vnl1M4QzzmCUw/viewform"
 
@@ -973,6 +989,37 @@ def verify_password(password, stored_hash):
 
 
 def load_users():
+    """
+    Načíta používateľov.
+    Ak sú nastavené Supabase secrets, číta z tabuľky app_users.
+    Inak použije pôvodný lokálny data/users.json fallback.
+    """
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+            response = supabase.table("app_users").select("*").execute()
+            rows = response.data or []
+
+            users = {}
+
+            for row in rows:
+                username = row.get("username")
+
+                if not username:
+                    continue
+
+                users[username] = {
+                    "username": username,
+                    "display_name": row.get("display_name", username),
+                    "password_hash": row.get("password_hash", "")
+                }
+
+            return {"users": users}
+
+        except Exception as e:
+            st.error(f"Chyba pri načítaní používateľov zo Supabase: {e}")
+            return {"users": {}}
+
     data = read_json_file(USERS_FILE, default={"users": {}})
 
     if "users" not in data:
@@ -982,6 +1029,13 @@ def load_users():
 
 
 def save_users(data):
+    """
+    Pri Supabase sa používatelia ukladajú priamo v create_user().
+    Táto funkcia ostáva kvôli kompatibilite s pôvodným kódom.
+    """
+    if USE_SUPABASE:
+        return
+
     write_json_file(USERS_FILE, data)
 
 
@@ -993,6 +1047,43 @@ def create_user(username, display_name, password):
 
     if len(password) < 4:
         return False, "Heslo musí mať aspoň 4 znaky."
+
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            existing = (
+                supabase
+                .table("app_users")
+                .select("username")
+                .eq("username", username)
+                .execute()
+            )
+
+            if existing.data:
+                return False, "Tento používateľ už existuje."
+
+            user_row = {
+                "username": username,
+                "display_name": display_name.strip() if display_name.strip() else username,
+                "password_hash": hash_password(password)
+            }
+
+            supabase.table("app_users").insert(user_row).execute()
+
+            initial_state = default_user_state()
+
+            supabase.table("user_states").insert(
+                {
+                    "username": username,
+                    "state_json": initial_state
+                }
+            ).execute()
+
+            return True, "Účet bol vytvorený."
+
+        except Exception as e:
+            return False, f"Nepodarilo sa vytvoriť účet v Supabase: {e}"
 
     users_data = load_users()
 
@@ -1012,6 +1103,40 @@ def create_user(username, display_name, password):
 
 def authenticate_user(username, password):
     username = normalize_username(username)
+
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            response = (
+                supabase
+                .table("app_users")
+                .select("*")
+                .eq("username", username)
+                .limit(1)
+                .execute()
+            )
+
+            rows = response.data or []
+
+            if not rows:
+                return None
+
+            row = rows[0]
+
+            if not verify_password(password, row.get("password_hash", "")):
+                return None
+
+            return {
+                "username": row.get("username"),
+                "display_name": row.get("display_name") or row.get("username"),
+                "password_hash": row.get("password_hash", "")
+            }
+
+        except Exception as e:
+            st.error(f"Chyba pri prihlasovaní cez Supabase: {e}")
+            return None
+
     users_data = load_users()
     user = users_data["users"].get(username)
 
@@ -1233,13 +1358,49 @@ def default_user_state():
 
 
 def load_user_state(username):
-    path = get_user_progress_path(username)
-    user_state = read_json_file(path, default=None)
+    username = normalize_username(username)
 
-    if user_state is None:
-        user_state = default_user_state()
-        save_user_state(username, user_state)
-        return user_state
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            response = (
+                supabase
+                .table("user_states")
+                .select("state_json")
+                .eq("username", username)
+                .limit(1)
+                .execute()
+            )
+
+            rows = response.data or []
+
+            if not rows:
+                user_state = default_user_state()
+
+                supabase.table("user_states").insert(
+                    {
+                        "username": username,
+                        "state_json": user_state
+                    }
+                ).execute()
+
+                return user_state
+
+            user_state = rows[0].get("state_json") or default_user_state()
+
+        except Exception as e:
+            st.error(f"Chyba pri načítaní progresu zo Supabase: {e}")
+            user_state = default_user_state()
+
+    else:
+        path = get_user_progress_path(username)
+        user_state = read_json_file(path, default=None)
+
+        if user_state is None:
+            user_state = default_user_state()
+            save_user_state(username, user_state)
+            return user_state
 
     if "subjects_data" not in user_state:
         user_state["subjects_data"] = {}
@@ -1253,21 +1414,45 @@ def load_user_state(username):
     if "last_settings" not in user_state:
         user_state["last_settings"] = {
             "field_idx": 0,
-            "subj_name": None,
-            "topic_name": "Všetky celky",
-            "study_mode": "Smart review"
+            "subj_name": None
         }
-
-    if "topic_name" not in user_state["last_settings"]:
-        user_state["last_settings"]["topic_name"] = "Všetky celky"
-
-    if "study_mode" not in user_state["last_settings"]:
-        user_state["last_settings"]["study_mode"] = "Smart review"
 
     return user_state
 
 
 def save_user_state(username, user_state):
+    username = normalize_username(username)
+
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            existing = (
+                supabase
+                .table("user_states")
+                .select("username")
+                .eq("username", username)
+                .limit(1)
+                .execute()
+            )
+
+            payload = {
+                "username": username,
+                "state_json": user_state,
+                "updated_at": datetime.utcnow().isoformat()
+            }
+
+            if existing.data:
+                supabase.table("user_states").update(payload).eq("username", username).execute()
+            else:
+                supabase.table("user_states").insert(payload).execute()
+
+            return
+
+        except Exception as e:
+            st.error(f"Chyba pri ukladaní progresu do Supabase: {e}")
+            return
+
     path = get_user_progress_path(username)
     write_json_file(path, user_state)
 

@@ -2448,7 +2448,7 @@ def setup_overlay(step, title, text):
     )
 
 
-def setup_sidebar_note(step, title, text):
+def setup_note_sidebar(step, title, text):
     st.sidebar.markdown(
         f"""
         <div class="setup-focus-card">
@@ -2469,21 +2469,11 @@ def end_focused_widget():
     st.sidebar.markdown('</div>', unsafe_allow_html=True)
 
 
-def complete_setup_if_ready():
-    field_list = list(FIELDS.keys())
-    field_idx = st.session_state.get("selected_field_index", 0)
-
-    if field_idx >= len(field_list):
-        return
-
-    field_name = field_list[field_idx]
-    subject_name = st.session_state.get("selected_subject_name")
-
-    if field_name and subject_name and st.session_state.get("exam_dates", {}).get(field_name):
-        st.session_state.setup_completed = True
-        st.session_state.setup_step = 4
-        save_progress()
-        st.rerun()
+def complete_first_setup():
+    st.session_state.setup_completed = True
+    st.session_state.setup_step = 4
+    save_progress()
+    st.rerun()
 
 
 # ============================================================
@@ -2565,7 +2555,9 @@ if not questions:
 
     render_hero(
         st.session_state.selected_subject_name,
-        selected_field_name
+        selected_field_name,
+        st.session_state.display_name,
+        dynamic_daily_goal
     )
 
     st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
@@ -2577,6 +2569,46 @@ if not questions:
         logout_user()
 
     st.stop()
+
+
+# ============================================================
+# FILTERS: TOPIC + MODE
+# ============================================================
+
+topic_values = sorted(
+    {
+        q.get("topic", "Nezaradené")
+        for q in questions
+        if isinstance(q, dict)
+    }
+)
+
+topic_options = ["Všetky celky"] + topic_values
+
+selected_topic_name = st.sidebar.selectbox(
+    "Celok",
+    topic_options,
+    index=0,
+    disabled=setup_active
+)
+
+if selected_topic_name == "Všetky celky":
+    topic_filtered_questions = questions
+else:
+    topic_filtered_questions = [
+        q for q in questions
+        if q.get("topic", "Nezaradené") == selected_topic_name
+    ]
+
+study_mode = st.sidebar.selectbox(
+    "Režim",
+    ["Smart review", "Len nesprávne"],
+    index=0,
+    disabled=setup_active
+)
+
+st.session_state.selected_topic_name = selected_topic_name
+st.session_state.study_mode = study_mode
 
 current_data = ensure_subject_state(selected_file, questions)
 
@@ -2614,20 +2646,6 @@ st.session_state.selected_topic_name = st.sidebar.selectbox(
     index=t_idx
 )
 
-study_modes = ["Smart review", "Len nesprávne"]
-default_mode = st.session_state.last_settings.get("study_mode", "Smart review")
-mode_idx = study_modes.index(default_mode) if default_mode in study_modes else 0
-
-st.session_state.study_mode = st.sidebar.selectbox(
-    "Režim",
-    study_modes,
-    index=mode_idx
-)
-
-current_exam_date = get_exam_date_for_field(selected_field_name)
-default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12)
-
-
 # Bezpečný alias pre otázky po filtrovaní režimu/celku.
 # Niektoré časti appky používajú kratší názov mode_filtered_q.
 if "mode_filtered_q" not in globals():
@@ -2661,13 +2679,13 @@ if nonce_key not in st.session_state:
     st.session_state[nonce_key] = 0
 
 if question_session_key not in st.session_state:
-    selected_question = choose_next_question(mode_filtered_questions, current_data)
+    selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
     st.session_state[question_session_key] = get_qid(selected_question)
 
 q = get_question_by_id(mode_filtered_questions, st.session_state[question_session_key])
 
 if q is None:
-    selected_question = choose_next_question(mode_filtered_questions, current_data)
+    selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
     st.session_state[question_session_key] = get_qid(selected_question)
     q = selected_question
 

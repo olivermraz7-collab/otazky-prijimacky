@@ -2381,6 +2381,228 @@ def inject_active_setup_css():
 
 
 
+
+def render_native_first_setup_dialogs(field_list, selected_field_name, subj_list, current_exam_date):
+    """
+    Jednotný prvý setup cez natívne Streamlit dialógy.
+    Všetky tri kroky majú rovnaký typ popupu:
+    1. odbor
+    2. termín skúšky
+    3. predmet
+    """
+    if not setup_is_active():
+        return
+
+    step = setup_current_step()
+
+    st.markdown(
+        """
+        <style>
+            div[role="dialog"] {
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96)) !important;
+                border: 1px solid rgba(255,255,255,0.14) !important;
+                border-radius: 30px !important;
+                box-shadow: 0 28px 100px rgba(0,0,0,0.82) !important;
+                color: #f9fafb !important;
+                max-width: 560px !important;
+            }
+
+            div[role="dialog"] > div {
+                background: transparent !important;
+            }
+
+            div[role="dialog"] h1,
+            div[role="dialog"] h2,
+            div[role="dialog"] h3,
+            div[role="dialog"] p,
+            div[role="dialog"] label,
+            div[role="dialog"] span {
+                color: #f9fafb !important;
+            }
+
+            div[role="dialog"] button[aria-label="Close"] {
+                display: none !important;
+            }
+
+            .dialog-step-card {
+                background:
+                    linear-gradient(135deg, rgba(124, 58, 237, 0.20), rgba(37, 99, 235, 0.13)),
+                    rgba(15, 23, 42, 0.70);
+                border: 1px solid rgba(167, 139, 250, 0.26);
+                border-radius: 22px;
+                padding: 18px 18px;
+                margin-bottom: 16px;
+                box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+            }
+
+            .dialog-step-kicker {
+                color: #a78bfa;
+                font-size: 12px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+            }
+
+            .dialog-step-title {
+                color: #ffffff;
+                font-size: 28px;
+                line-height: 1.08;
+                font-weight: 900;
+                letter-spacing: -0.055em;
+                margin-bottom: 8px;
+            }
+
+            .dialog-step-text {
+                color: #cbd5e1;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            div[role="dialog"] div[data-baseweb="select"] > div,
+            div[role="dialog"] div[data-testid="stDateInput"] input {
+                color: #ffffff !important;
+                background: rgba(2, 6, 23, 0.84) !important;
+                border: 1px solid rgba(167,139,250,0.55) !important;
+                border-radius: 16px !important;
+                min-height: 44px !important;
+            }
+
+            div[role="dialog"] div[data-baseweb="select"] span {
+                color: #ffffff !important;
+            }
+
+            div[role="dialog"] div.stButton > button {
+                border-radius: 15px !important;
+                border: 1px solid rgba(167, 139, 250, 0.35) !important;
+                background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
+                color: #ffffff !important;
+                font-weight: 850 !important;
+                padding: 0.72rem 1.1rem !important;
+                box-shadow: 0 14px 32px rgba(124, 58, 237, 0.30) !important;
+            }
+
+            div[data-baseweb="popover"],
+            div[data-baseweb="popover"] *,
+            div[data-baseweb="calendar"],
+            div[data-baseweb="calendar"] * {
+                z-index: 2147483647 !important;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    if not hasattr(st, "dialog"):
+        st.error("Tvoja verzia Streamlitu nepodporuje natívne popup okná. Aktualizuj streamlit v requirements.txt.")
+        st.stop()
+
+    if step == 1:
+        @st.dialog("Vyber odbor")
+        def field_dialog():
+            st.markdown(
+                """
+                <div class="dialog-step-card">
+                    <div class="dialog-step-kicker">Krok 1/3</div>
+                    <div class="dialog-step-title">Vyber si odbor</div>
+                    <div class="dialog-step-text">
+                        Najprv si vyber odbor, na ktorý sa pripravuješ.
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+            default_idx = st.session_state.last_settings.get("field_idx", 0)
+            if default_idx >= len(field_list):
+                default_idx = 0
+
+            chosen_field = st.selectbox(
+                "Odbor",
+                field_list,
+                index=default_idx,
+                key="native_setup_field"
+            )
+
+            if st.button("Pokračovať", use_container_width=True, key="native_setup_confirm_field"):
+                chosen_idx = field_list.index(chosen_field)
+                st.session_state.selected_field_index = chosen_idx
+                st.session_state.last_settings["field_idx"] = chosen_idx
+                st.session_state.setup_step = 2
+                save_progress()
+                st.rerun()
+
+        field_dialog()
+
+    elif step == 2:
+        @st.dialog("Zadaj termín skúšky")
+        def exam_date_dialog():
+            st.markdown(
+                f"""
+                <div class="dialog-step-card">
+                    <div class="dialog-step-kicker">Krok 2/3</div>
+                    <div class="dialog-step-title">Zadaj termín skúšky</div>
+                    <div class="dialog-step-text">
+                        Vyber termín prijímacej skúšky pre odbor <strong>{escape(selected_field_name)}</strong>.
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+            selected_exam_date = st.date_input(
+                "Termín skúšky",
+                value=current_exam_date,
+                format="DD.MM.YYYY",
+                key=f"native_setup_exam_date_{sanitize_key(selected_field_name)}"
+            )
+
+            if st.button("Pokračovať", use_container_width=True, key="native_setup_confirm_exam_date"):
+                st.session_state.exam_dates[selected_field_name] = selected_exam_date.isoformat()
+                st.session_state.setup_step = 3
+                save_progress()
+                st.rerun()
+
+        exam_date_dialog()
+
+    elif step == 3:
+        @st.dialog("Vyber predmet")
+        def subject_dialog():
+            st.markdown(
+                """
+                <div class="dialog-step-card">
+                    <div class="dialog-step-kicker">Krok 3/3</div>
+                    <div class="dialog-step-title">Vyber predmet</div>
+                    <div class="dialog-step-text">
+                        Vyber predmet, ktorým chceš začať. Neskôr ho môžeš meniť v sidebare.
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+            default_subj = st.session_state.last_settings.get("subj_name")
+            subj_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
+
+            chosen_subject = st.selectbox(
+                "Predmet",
+                subj_list,
+                index=subj_idx,
+                key="native_setup_subject"
+            )
+
+            if st.button("Začať testovať", use_container_width=True, key="native_setup_confirm_subject"):
+                st.session_state.selected_subject_name = chosen_subject
+                st.session_state.last_settings["field_idx"] = st.session_state.selected_field_index
+                st.session_state.last_settings["subj_name"] = chosen_subject
+                st.session_state.setup_completed = True
+                st.session_state.setup_step = 4
+                save_progress()
+                st.rerun()
+
+        subject_dialog()
+
 def render_center_date_setup(selected_field_name, current_exam_date):
     """
     Krok 2 cez natívny Streamlit dialog, ale vizuálne zladený s krokmi 1 a 3.
@@ -2634,6 +2856,11 @@ st.sidebar.markdown(
 setup_active = setup_is_active()
 step = setup_current_step()
 
+# Setup používame cez natívne st.dialog okná.
+# Starý custom spotlight v sidebare vypíname, aby sa nemiešali dva systémy naraz.
+setup_active_for_dialog = setup_active
+setup_active = False
+
 
 inject_active_setup_css()
 
@@ -2676,6 +2903,16 @@ s_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
 
 if "exam_dates" not in st.session_state:
     st.session_state.exam_dates = {}
+
+current_exam_raw = st.session_state.exam_dates.get(selected_field_name)
+current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
+
+render_native_first_setup_dialogs(
+    field_list,
+    selected_field_name,
+    subj_list,
+    current_exam_date
+)
 
 current_exam_raw = st.session_state.exam_dates.get(selected_field_name)
 current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)

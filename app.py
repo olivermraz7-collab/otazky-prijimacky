@@ -13,11 +13,13 @@ st.set_page_config(
 )
 
 # ============================================================
-# 1. KONFIGURÁCIA COOKIES
+# 1. COOKIES - MINIMÁLNE POUŽITIE
+#    Cookies sa používajú IBA na zapamätanie prihláseného používateľa.
+#    Progres otázok sa do cookies NEUKLADÁ.
 # ============================================================
 
 cookies = EncryptedCookieManager(
-    prefix="med_prep_v2/",
+    prefix="med_prep_v3/",
     password="Heslo1234"
 )
 
@@ -43,7 +45,7 @@ ensure_data_dirs()
 
 
 # ============================================================
-# 3. POMOCNÉ JSON FUNKCIE
+# 3. JSON FUNKCIE
 # ============================================================
 
 def read_json_file(path, default):
@@ -75,7 +77,6 @@ def normalize_username(username):
     username = username.strip().lower()
     username = re.sub(r"[^a-z0-9_.-]", "_", username)
     username = username.strip("._-")
-
     return username
 
 
@@ -156,6 +157,10 @@ def authenticate_user(username, password):
 
 
 def get_logged_user_from_cookie():
+    """
+    Cookie obsahuje iba username.
+    Žiadny progres otázok sa sem neukladá.
+    """
     username = cookies.get("logged_in_user")
 
     if not username:
@@ -175,6 +180,7 @@ def login_user(user):
     st.session_state.username = user["username"]
     st.session_state.display_name = user["display_name"]
 
+    # Do cookies ide iba krátke username.
     cookies["logged_in_user"] = user["username"]
     cookies.save()
 
@@ -247,6 +253,7 @@ def render_login_screen():
 
                 if success:
                     user = authenticate_user(new_username, new_password)
+
                     if user:
                         login_user(user)
                         st.success(message)
@@ -273,6 +280,7 @@ if not st.session_state.authenticated:
 
 # ============================================================
 # 5. POUŽÍVATEĽSKÝ PROGRES
+#    Progres sa ukladá iba do data/progress/{username}.json
 # ============================================================
 
 def get_user_progress_path(username):
@@ -280,55 +288,33 @@ def get_user_progress_path(username):
     return os.path.join(PROGRESS_DIR, f"{safe_username}.json")
 
 
-def load_user_state(username):
-    path = get_user_progress_path(username)
-
-    user_state = read_json_file(path, default=None)
-
-    if user_state is not None:
-        if "subjects_data" not in user_state:
-            user_state["subjects_data"] = {}
-
-        if "last_settings" not in user_state:
-            user_state["last_settings"] = {
-                "field_idx": 0,
-                "subj_name": None
-            }
-
-        return user_state
-
-    # Migrácia starého progresu z cookies, ak existuje.
-    # Toto pomôže, ak si aplikáciu používal pred login systémom.
-    old_subjects_data = cookies.get("subjects_data")
-    old_last_settings = cookies.get("last_settings")
-
-    migrated_subjects_data = {}
-    migrated_last_settings = {
-        "field_idx": 0,
-        "subj_name": None
-    }
-
-    try:
-        if old_subjects_data:
-            migrated_subjects_data = json.loads(old_subjects_data)
-    except Exception:
-        migrated_subjects_data = {}
-
-    try:
-        if old_last_settings:
-            migrated_last_settings = json.loads(old_last_settings)
-    except Exception:
-        migrated_last_settings = {
+def default_user_state():
+    return {
+        "subjects_data": {},
+        "last_settings": {
             "field_idx": 0,
             "subj_name": None
         }
-
-    user_state = {
-        "subjects_data": migrated_subjects_data,
-        "last_settings": migrated_last_settings
     }
 
-    save_user_state(username, user_state)
+
+def load_user_state(username):
+    path = get_user_progress_path(username)
+    user_state = read_json_file(path, default=None)
+
+    if user_state is None:
+        user_state = default_user_state()
+        save_user_state(username, user_state)
+        return user_state
+
+    if "subjects_data" not in user_state:
+        user_state["subjects_data"] = {}
+
+    if "last_settings" not in user_state:
+        user_state["last_settings"] = {
+            "field_idx": 0,
+            "subj_name": None
+        }
 
     return user_state
 
@@ -339,6 +325,11 @@ def save_user_state(username, user_state):
 
 
 def save_progress():
+    """
+    Dôležité:
+    Progres sa NEUKLADÁ do cookies.
+    Ukladá sa iba do JSON súboru používateľa.
+    """
     username = st.session_state.username
 
     user_state = {
@@ -393,11 +384,6 @@ def load_questions(file_path):
 
 st.sidebar.header("Nastavenia")
 
-st.sidebar.caption(f"Prihlásený: {st.session_state.display_name}")
-
-if st.sidebar.button("Odhlásiť sa", use_container_width=True):
-    logout_user()
-
 FIELDS = {
     "Všeobecné lekárstvo": {
         "Biológia": "biologia.json",
@@ -450,6 +436,13 @@ if selected_file not in st.session_state.subjects_data:
     else:
         st.title(f"Príprava: {st.session_state.selected_subject_name}")
         st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
+
+        st.sidebar.divider()
+        st.sidebar.caption(f"Prihlásený: {st.session_state.display_name}")
+
+        if st.sidebar.button("Odhlásiť sa", use_container_width=True):
+            logout_user()
+
         st.stop()
 
 current_data = st.session_state.subjects_data[selected_file]
@@ -563,16 +556,7 @@ if len(pool) > 0:
         else:
             st.error(f"❌ Nesprávne! Správna odpoveď: {correct_display}")
 
-    # ========================================================
-    # 9. SIDEBAR ŠTATISTIKY A REPORT TLAČIDLO
-    # ========================================================
-
-    st.sidebar.divider()
-    st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
-    st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
-
-    st.sidebar.divider()
-
+    # Tlačidlo na nahlásenie chyby je pod otázkou
     form_url = (
         f"https://docs.google.com/forms/d/e/1FAIpQLScVa1VK6mJYX6YRmgcms64AMxaTm5wSDmJF9vnl1M4QzzmCUw/viewform"
         f"?usp=pp_url"
@@ -580,11 +564,19 @@ if len(pool) > 0:
         f"&entry.1513577736={st.session_state.selected_subject_name}"
     )
 
-    st.sidebar.link_button(
-        "Nahlásiť chybu",
+    st.link_button(
+        "Nahlásiť chybu v otázke",
         form_url,
         use_container_width=True
     )
+
+    # ========================================================
+    # 9. SIDEBAR ŠTATISTIKY
+    # ========================================================
+
+    st.sidebar.divider()
+    st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
+    st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
 
 else:
     st.balloons()
@@ -594,3 +586,14 @@ else:
         del st.session_state.subjects_data[selected_file]
         save_progress()
         st.rerun()
+
+
+# ============================================================
+# 10. ODHLÁSENIE DOLE V SIDEBAR-E
+# ============================================================
+
+st.sidebar.divider()
+st.sidebar.caption(f"Prihlásený: {st.session_state.display_name}")
+
+if st.sidebar.button("Odhlásiť sa", use_container_width=True):
+    logout_user()

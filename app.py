@@ -5,6 +5,7 @@ import random
 import os
 import hashlib
 import secrets
+from datetime import date, timedelta
 from streamlit_cookies_manager import EncryptedCookieManager
 
 st.set_page_config(
@@ -13,13 +14,38 @@ st.set_page_config(
 )
 
 # ============================================================
-# 1. COOKIES - MINIMÁLNE POUŽITIE
-#    Cookies sa používajú IBA na zapamätanie prihláseného používateľa.
-#    Progres otázok sa do cookies NEUKLADÁ.
+# 1. NASTAVENIA
+# ============================================================
+
+DAILY_GOAL = 130
+RECENT_LIMIT = 8
+FINAL_MODE_DATE = date(2026, 6, 10)
+
+DATA_DIR = "data"
+PROGRESS_DIR = os.path.join(DATA_DIR, "progress")
+USERS_FILE = os.path.join(DATA_DIR, "users.json")
+
+FIELDS = {
+    "Všeobecné lekárstvo": {
+        "Biológia": "biologia.json",
+        "Chémia": "chemia.json"
+    },
+    "Urgentná medicína": {
+        "Náuka o spoločnosti": "nos.json",
+        "Fyzika": "fyzika.json",
+        "Biológia": "biologia-urgent.json"
+    }
+}
+
+REPORT_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLScVa1VK6mJYX6YRmgcms64AMxaTm5wSDmJF9vnl1M4QzzmCUw/viewform"
+
+
+# ============================================================
+# 2. COOKIES - IBA LOGIN
 # ============================================================
 
 cookies = EncryptedCookieManager(
-    prefix="med_prep_v3/",
+    prefix="med_prep_v4/",
     password="Heslo1234"
 )
 
@@ -28,13 +54,8 @@ if not cookies.ready():
 
 
 # ============================================================
-# 2. CESTY A SÚBORY
+# 3. PRIEČINKY A JSON FUNKCIE
 # ============================================================
-
-DATA_DIR = "data"
-PROGRESS_DIR = os.path.join(DATA_DIR, "progress")
-USERS_FILE = os.path.join(DATA_DIR, "users.json")
-
 
 def ensure_data_dirs():
     os.makedirs(DATA_DIR, exist_ok=True)
@@ -43,10 +64,6 @@ def ensure_data_dirs():
 
 ensure_data_dirs()
 
-
-# ============================================================
-# 3. JSON FUNKCIE
-# ============================================================
 
 def read_json_file(path, default):
     try:
@@ -157,10 +174,6 @@ def authenticate_user(username, password):
 
 
 def get_logged_user_from_cookie():
-    """
-    Cookie obsahuje iba username.
-    Žiadny progres otázok sa sem neukladá.
-    """
     username = cookies.get("logged_in_user")
 
     if not username:
@@ -180,7 +193,6 @@ def login_user(user):
     st.session_state.username = user["username"]
     st.session_state.display_name = user["display_name"]
 
-    # Do cookies ide iba krátke username.
     cookies["logged_in_user"] = user["username"]
     cookies.save()
 
@@ -197,6 +209,7 @@ def logout_user():
         "last_settings",
         "loaded_user",
         "answered",
+        "current_question_id",
         "selected_field_index",
         "selected_subject_name"
     ]
@@ -262,7 +275,6 @@ def render_login_screen():
                     st.error(message)
 
 
-# Automatické prihlásenie z cookie
 if "authenticated" not in st.session_state:
     cookie_user = get_logged_user_from_cookie()
 
@@ -280,7 +292,6 @@ if not st.session_state.authenticated:
 
 # ============================================================
 # 5. POUŽÍVATEĽSKÝ PROGRES
-#    Progres sa ukladá iba do data/progress/{username}.json
 # ============================================================
 
 def get_user_progress_path(username):
@@ -325,11 +336,6 @@ def save_user_state(username, user_state):
 
 
 def save_progress():
-    """
-    Dôležité:
-    Progres sa NEUKLADÁ do cookies.
-    Ukladá sa iba do JSON súboru používateľa.
-    """
     username = st.session_state.username
 
     user_state = {
@@ -343,7 +349,6 @@ def save_progress():
     save_user_state(username, user_state)
 
 
-# Načítanie progresu konkrétneho používateľa
 if st.session_state.get("loaded_user") != st.session_state.username:
     loaded_state = load_user_state(st.session_state.username)
 
@@ -360,17 +365,28 @@ if st.session_state.get("loaded_user") != st.session_state.username:
 
 
 # ============================================================
-# 6. ZÁKLADNÉ FUNKCIE OTÁZOK
+# 6. OTÁZKY A SMART REVIEW FUNKCIE
 # ============================================================
+
+def today_str():
+    return date.today().isoformat()
+
+
+def parse_date_safe(value):
+    try:
+        if not value:
+            return None
+
+        return date.fromisoformat(value)
+
+    except Exception:
+        return None
+
 
 def load_questions(file_path):
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
-
-            for q in data:
-                if "rep_count" not in q:
-                    q["rep_count"] = 0
 
             return data
 
@@ -378,23 +394,425 @@ def load_questions(file_path):
         return []
 
 
+def get_qid(q):
+    return str(q["id"])
+
+
+def default_question_progress():
+    return {
+        "status": "NEW",
+        "level": 0,
+        "correct_count": 0,
+        "wrong_count": 0,
+        "streak": 0,
+        "first_seen": None,
+        "last_seen": None,
+        "next_review": today_str(),
+        "last_result": None
+    }
+
+
+def default_daily_stats():
+    return {
+        "answered": 0,
+        "correct": 0,
+        "wrong": 0,
+        "new_seen": 0
+    }
+
+
+def ensure_subject_state(selected_file, questions):
+    if selected_file not in st.session_state.subjects_data:
+        st.session_state.subjects_data[selected_file] = {
+            "score": 0,
+            "total_count": len(questions),
+            "progress": {},
+            "daily_stats": {},
+            "recent_question_ids": [],
+            "smart_review_version": 1
+        }
+
+        save_progress()
+
+    subject_state = st.session_state.subjects_data[selected_file]
+
+    # Migrácia zo starého systému s poolom, ak tam ešte existuje.
+    if "progress" not in subject_state:
+        subject_state["progress"] = {}
+
+    if "daily_stats" not in subject_state:
+        subject_state["daily_stats"] = {}
+
+    if "recent_question_ids" not in subject_state:
+        subject_state["recent_question_ids"] = []
+
+    if "total_count" not in subject_state:
+        subject_state["total_count"] = len(questions)
+
+    if "score" not in subject_state:
+        subject_state["score"] = 0
+
+    subject_state["smart_review_version"] = 1
+
+    # Starý pool už nepotrebujeme, aby sa progres zbytočne nezväčšoval.
+    if "pool" in subject_state:
+        del subject_state["pool"]
+
+    return subject_state
+
+
+def get_daily_stats(subject_state):
+    d = today_str()
+
+    if d not in subject_state["daily_stats"]:
+        subject_state["daily_stats"][d] = default_daily_stats()
+
+    return subject_state["daily_stats"][d]
+
+
+def get_question_progress(subject_state, qid):
+    progress = subject_state["progress"]
+
+    if qid not in progress:
+        progress[qid] = default_question_progress()
+
+    p = progress[qid]
+
+    defaults = default_question_progress()
+    for key, value in defaults.items():
+        if key not in p:
+            p[key] = value
+
+    return p
+
+
+def count_statuses(subject_state, questions):
+    counts = {
+        "NEW": 0,
+        "RED": 0,
+        "YELLOW": 0,
+        "GREEN": 0,
+        "MASTERED": 0
+    }
+
+    for q in questions:
+        qid = get_qid(q)
+        p = get_question_progress(subject_state, qid)
+        status = p.get("status", "NEW")
+
+        if status not in counts:
+            status = "NEW"
+
+        counts[status] += 1
+
+    return counts
+
+
+def calculate_streak(subject_state):
+    daily_stats = subject_state.get("daily_stats", {})
+
+    streak = 0
+    current_day = date.today()
+
+    while True:
+        d = current_day.isoformat()
+        stats = daily_stats.get(d, {})
+
+        if stats.get("answered", 0) >= DAILY_GOAL:
+            streak += 1
+            current_day -= timedelta(days=1)
+        else:
+            break
+
+    return streak
+
+
+def dynamic_daily_new_limit(counts):
+    red_count = counts.get("RED", 0)
+
+    if red_count >= 180:
+        return 40
+
+    if red_count >= 100:
+        return 70
+
+    if red_count >= 40:
+        return 100
+
+    return DAILY_GOAL
+
+
+def question_priority(q, subject_state, counts):
+    qid = get_qid(q)
+    p = get_question_progress(subject_state, qid)
+    stats = get_daily_stats(subject_state)
+
+    status = p.get("status", "NEW")
+    score = 0
+    today = date.today()
+    next_review = parse_date_safe(p.get("next_review"))
+    last_seen = parse_date_safe(p.get("last_seen"))
+
+    is_final_mode = today >= FINAL_MODE_DATE
+
+    if status == "RED":
+        score += 140
+
+    elif status == "YELLOW":
+        score += 95
+
+    elif status == "GREEN":
+        score += 45
+
+    elif status == "NEW":
+        score += 35
+
+    elif status == "MASTERED":
+        score -= 120
+
+    score += p.get("wrong_count", 0) * 18
+
+    if p.get("last_result") == "wrong":
+        score += 20
+
+    if next_review is not None and next_review <= today:
+        score += 70
+
+    if last_seen is None:
+        score += 15
+    else:
+        days_ago = (today - last_seen).days
+
+        if days_ago >= 7:
+            score += 35
+        elif days_ago >= 3:
+            score += 20
+        elif days_ago >= 1:
+            score += 8
+
+    # Denný limit nových otázok
+    new_limit = dynamic_daily_new_limit(counts)
+
+    if status == "NEW":
+        if stats.get("new_seen", 0) >= new_limit:
+            score -= 70
+        else:
+            score += 30
+
+    # Finálne dni: viac tlačíme otázky, ktoré nie sú mastered.
+    if is_final_mode:
+        if status != "MASTERED":
+            score += 60
+        else:
+            score += 10
+
+    return score
+
+
+def choose_next_question(questions, subject_state):
+    counts = count_statuses(subject_state, questions)
+    recent_ids = subject_state.get("recent_question_ids", [])
+
+    candidates = []
+
+    for q in questions:
+        qid = get_qid(q)
+        p = get_question_progress(subject_state, qid)
+
+        # MASTERED bežne nevyberáme, iba ak už nie je skoro nič iné.
+        if p.get("status") == "MASTERED" and date.today() < FINAL_MODE_DATE:
+            continue
+
+        priority = question_priority(q, subject_state, counts)
+        candidates.append((priority, q))
+
+    if not candidates:
+        candidates = [(question_priority(q, subject_state, counts), q) for q in questions]
+
+    # Najprv skúsime vyhodiť otázky, ktoré boli posledných pár zobrazení.
+    filtered = [
+        (priority, q)
+        for priority, q in candidates
+        if get_qid(q) not in recent_ids
+    ]
+
+    if len(filtered) >= 5:
+        candidates = filtered
+
+    candidates.sort(key=lambda item: item[0], reverse=True)
+
+    # Náhodný výber z top otázok zabráni tomu, aby systém pôsobil príliš monotónne.
+    top_n = min(12, len(candidates))
+    top_candidates = candidates[:top_n]
+
+    weights = []
+    min_score = min(priority for priority, _ in top_candidates)
+
+    for priority, _ in top_candidates:
+        weights.append(max(1, priority - min_score + 1))
+
+    selected = random.choices(
+        [q for _, q in top_candidates],
+        weights=weights,
+        k=1
+    )[0]
+
+    return selected
+
+
+def get_question_by_id(questions, qid):
+    for q in questions:
+        if get_qid(q) == str(qid):
+            return q
+
+    return None
+
+
+def update_recent_questions(subject_state, qid):
+    recent = subject_state.get("recent_question_ids", [])
+
+    recent.append(str(qid))
+    recent = recent[-RECENT_LIMIT:]
+
+    subject_state["recent_question_ids"] = recent
+
+
+def update_progress_after_answer(subject_state, qid, is_correct):
+    p = get_question_progress(subject_state, qid)
+    stats = get_daily_stats(subject_state)
+
+    old_status = p.get("status", "NEW")
+    today = date.today()
+    today_iso = today.isoformat()
+
+    if p.get("first_seen") is None:
+        p["first_seen"] = today_iso
+
+    if old_status == "NEW":
+        stats["new_seen"] += 1
+
+    stats["answered"] += 1
+
+    p["last_seen"] = today_iso
+
+    if is_correct:
+        stats["correct"] += 1
+
+        p["correct_count"] += 1
+        p["streak"] += 1
+        p["last_result"] = "correct"
+
+        # Ak bola otázka červená, jeden správny pokus ju hneď neposiela do green.
+        # Najprv musí prejsť cez YELLOW.
+        if old_status == "RED":
+            p["level"] = max(1, p.get("level", 0))
+        else:
+            p["level"] = min(4, p.get("level", 0) + 1)
+
+        if p["level"] <= 1:
+            p["status"] = "YELLOW"
+            p["next_review"] = (today + timedelta(days=1)).isoformat()
+
+        elif p["level"] == 2:
+            p["status"] = "GREEN"
+            p["next_review"] = (today + timedelta(days=3)).isoformat()
+
+        elif p["level"] == 3:
+            p["status"] = "GREEN"
+            p["next_review"] = (today + timedelta(days=7)).isoformat()
+
+        else:
+            p["status"] = "MASTERED"
+            p["next_review"] = FINAL_MODE_DATE.isoformat()
+
+        # Score nechávame ako počet prvých čistých správnych odpovedí.
+        if old_status == "NEW":
+            subject_state["score"] = subject_state.get("score", 0) + 1
+
+    else:
+        stats["wrong"] += 1
+
+        p["wrong_count"] += 1
+        p["streak"] = 0
+        p["level"] = 0
+        p["status"] = "RED"
+        p["last_result"] = "wrong"
+
+        # Zlá otázka sa môže vrátiť ešte dnes, ale recent_question_ids zabráni,
+        # aby vyskočila úplne okamžite ako ďalšia.
+        p["next_review"] = today_iso
+
+    update_recent_questions(subject_state, qid)
+
+
+def progress_percent(value, goal):
+    if goal <= 0:
+        return 0.0
+
+    return min(1.0, value / goal)
+
+
+def render_question_stats_under_question(p):
+    status = p.get("status", "NEW")
+
+    status_emoji = {
+        "NEW": "⚪",
+        "RED": "🔴",
+        "YELLOW": "🟡",
+        "GREEN": "🟢",
+        "MASTERED": "🏆"
+    }.get(status, "⚪")
+
+    next_review = p.get("next_review") or "—"
+
+    st.markdown(
+        f"""
+        <div style="
+            font-size: 12px;
+            color: #888;
+            margin-top: -8px;
+            margin-bottom: 14px;
+        ">
+            {status_emoji} {status}
+            &nbsp;·&nbsp; ✅ {p.get("correct_count", 0)}
+            &nbsp;·&nbsp; ❌ {p.get("wrong_count", 0)}
+            &nbsp;·&nbsp; streak otázky: {p.get("streak", 0)}
+            &nbsp;·&nbsp; opakovanie: {next_review}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+def render_small_report_link(q, subject_name):
+    form_url = (
+        f"{REPORT_FORM_BASE_URL}"
+        f"?usp=pp_url"
+        f"&entry.424182118={q['id']}"
+        f"&entry.1513577736={subject_name}"
+    )
+
+    st.markdown(
+        f"""
+        <div style="text-align: right; margin-top: 8px; margin-bottom: 4px;">
+            <a href="{form_url}" target="_blank" style="
+                font-size: 13px;
+                color: #888;
+                text-decoration: none;
+            ">
+                Nahlásiť chybu
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 # ============================================================
 # 7. SIDEBAR A VÝBER PREDMETU
 # ============================================================
 
 st.sidebar.header("Nastavenia")
-
-FIELDS = {
-    "Všeobecné lekárstvo": {
-        "Biológia": "biologia.json",
-        "Chémia": "chemia.json"
-    },
-    "Urgentná medicína": {
-        "Náuka o spoločnosti": "nos.json",
-        "Fyzika": "fyzika.json",
-        "Biológia": "biologia-urgent.json"
-    }
-}
 
 field_list = list(FIELDS.keys())
 f_idx = st.session_state.last_settings.get("field_idx", 0)
@@ -419,186 +837,216 @@ st.session_state.selected_subject_name = st.sidebar.selectbox(
 )
 
 selected_file = available_subjects[st.session_state.selected_subject_name]
+questions = load_questions(selected_file)
 
-if selected_file not in st.session_state.subjects_data:
-    data = load_questions(selected_file)
+if not questions:
+    st.title(f"Príprava: {st.session_state.selected_subject_name}")
+    st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
 
-    if data:
-        random.shuffle(data)
+    st.sidebar.divider()
+    st.sidebar.caption(f"Prihlásený: {st.session_state.display_name}")
 
-        st.session_state.subjects_data[selected_file] = {
-            "pool": data,
-            "score": 0,
-            "total_count": len(data)
-        }
+    if st.sidebar.button("Odhlásiť sa", use_container_width=True):
+        logout_user()
 
-        save_progress()
-    else:
-        st.title(f"Príprava: {st.session_state.selected_subject_name}")
-        st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
+    st.stop()
 
-        st.sidebar.divider()
-        st.sidebar.caption(f"Prihlásený: {st.session_state.display_name}")
-
-        if st.sidebar.button("Odhlásiť sa", use_container_width=True):
-            logout_user()
-
-        st.stop()
-
-current_data = st.session_state.subjects_data[selected_file]
-pool = current_data["pool"]
+current_data = ensure_subject_state(selected_file, questions)
 
 
 # ============================================================
-# 8. TESTOVACIE ROZHRANIE
+# 8. VÝBER AKTUÁLNEJ OTÁZKY
+# ============================================================
+
+question_session_key = f"current_question_id_{selected_file}"
+
+if question_session_key not in st.session_state:
+    selected_question = choose_next_question(questions, current_data)
+    st.session_state[question_session_key] = get_qid(selected_question)
+
+q = get_question_by_id(questions, st.session_state[question_session_key])
+
+if q is None:
+    selected_question = choose_next_question(questions, current_data)
+    st.session_state[question_session_key] = get_qid(selected_question)
+    q = selected_question
+
+qid = get_qid(q)
+q_progress = get_question_progress(current_data, qid)
+
+if "answered" not in st.session_state:
+    st.session_state.answered = False
+
+
+# ============================================================
+# 9. HLAVNÉ TESTOVACIE ROZHRANIE
 # ============================================================
 
 st.title(f"Príprava: {st.session_state.selected_subject_name}")
 
-if len(pool) > 0:
-    q = pool[0]
+st.subheader(f"Otázka č. {q['id']}")
 
-    if "answered" not in st.session_state:
-        st.session_state.answered = False
+# Text otázky + obrázky
+segments = re.split(r"(\S+\.png|\S+\.jpg)", q["text"])
 
-    st.subheader(f"Otázka č. {q['id']}")
+for segment in segments:
+    clean_segment = segment.strip()
 
-    # Zobrazenie textu otázky s podporou obrázkov
-    segments = re.split(r"(\S+\.png|\S+\.jpg)", q["text"])
+    if clean_segment.lower().endswith((".png", ".jpg")):
+        try:
+            st.image(f"images/{clean_segment}", width=300)
+        except Exception:
+            st.error(f"Obrázok {clean_segment} chýba.")
+    else:
+        if clean_segment:
+            st.write(clean_segment)
 
-    for segment in segments:
-        clean_segment = segment.strip()
+# Nenápadné skóre konkrétnej otázky pod otázkou
+render_question_stats_under_question(q_progress)
 
-        if clean_segment.lower().endswith((".png", ".jpg")):
+user_choices = []
+
+with st.form(key=f"form_{selected_file}_{q['id']}"):
+    for opt in q["options"]:
+        match = re.search(r"(\S+\.png|\S+\.jpg)", opt, re.IGNORECASE)
+
+        if match:
+            img_filename = match.group(1)
+            clean_label = opt.replace(img_filename, "").strip()
+
+            if len(clean_label) < 4:
+                clean_label = opt[:3]
+
+            cb = st.checkbox(
+                clean_label,
+                key=f"cb_{selected_file}_{q['id']}_{opt}",
+                disabled=st.session_state.answered
+            )
+
             try:
-                st.image(f"images/{clean_segment}", width=300)
+                st.image(f"images/{img_filename}", width=250)
             except Exception:
-                st.error(f"Obrázok {clean_segment} chýba.")
+                st.warning(f"Súbor {img_filename} chýba.")
         else:
-            if clean_segment:
-                st.write(clean_segment)
+            cb = st.checkbox(
+                opt,
+                key=f"cb_{selected_file}_{q['id']}_{opt}",
+                disabled=st.session_state.answered
+            )
 
-    user_choices = []
+        if cb:
+            user_choices.append(opt[0])
 
-    # FORMULÁR S MOŽNOSŤAMI
-    with st.form(key=f"form_{selected_file}_{q['id']}"):
-        for opt in q["options"]:
-            match = re.search(r"(\S+\.png|\S+\.jpg)", opt, re.IGNORECASE)
+    btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
+    submit = st.form_submit_button(btn_label)
 
-            if match:
-                img_filename = match.group(1)
-                clean_label = opt.replace(img_filename, "").strip()
+if submit:
+    if not st.session_state.answered:
+        st.session_state.answered = True
+        st.rerun()
 
-                if len(clean_label) < 4:
-                    clean_label = opt[:3]
-
-                cb = st.checkbox(
-                    clean_label,
-                    key=f"cb_{q['id']}_{opt}",
-                    disabled=st.session_state.answered
-                )
-
-                try:
-                    st.image(f"images/{img_filename}", width=250)
-                except Exception:
-                    st.warning(f"Súbor {img_filename} chýba.")
-            else:
-                cb = st.checkbox(
-                    opt,
-                    key=f"cb_{q['id']}_{opt}",
-                    disabled=st.session_state.answered
-                )
-
-            if cb:
-                user_choices.append(opt[0])
-
-        btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
-        submit = st.form_submit_button(btn_label)
-
-    # Vyhodnotenie
-    if submit:
-        if not st.session_state.answered:
-            st.session_state.answered = True
-            st.rerun()
-        else:
-            user_str = "".join(sorted(user_choices))
-            correct_str = "".join(sorted(q["answer"]))
-
-            if user_str == correct_str:
-                if q.get("rep_count", 0) == 0:
-                    pool.pop(0)
-                    current_data["score"] += 1
-
-                elif q.get("rep_count") == 1:
-                    q_to_move = pool.pop(0)
-                    q_to_move["rep_count"] = 2
-                    pool.insert(min(14, len(pool)), q_to_move)
-
-                else:
-                    pool.pop(0)
-
-            else:
-                wrong_q = pool.pop(0)
-                wrong_q["rep_count"] = 1
-                pool.insert(min(4, len(pool)), wrong_q)
-
-            st.session_state.answered = False
-            save_progress()
-            st.rerun()
-
-    if st.session_state.answered:
-        correct_display = ", ".join(q["answer"])
+    else:
         user_str = "".join(sorted(user_choices))
         correct_str = "".join(sorted(q["answer"]))
+        is_correct = user_str == correct_str
 
-        if user_str == correct_str:
-            st.success(f"✅ Správne! Odpoveď: {correct_display}")
-        else:
-            st.error(f"❌ Nesprávne! Správna odpoveď: {correct_display}")
+        update_progress_after_answer(current_data, qid, is_correct)
 
-    # Tlačidlo na nahlásenie chyby je pod otázkou
-    form_url = (
-        f"https://docs.google.com/forms/d/e/1FAIpQLScVa1VK6mJYX6YRmgcms64AMxaTm5wSDmJF9vnl1M4QzzmCUw/viewform"
-        f"?usp=pp_url"
-        f"&entry.424182118={q['id']}"
-        f"&entry.1513577736={st.session_state.selected_subject_name}"
-    )
+        # Vyčistenie checkboxov pre túto otázku, aby sa neprenášali.
+        for opt in q["options"]:
+            checkbox_key = f"cb_{selected_file}_{q['id']}_{opt}"
+            if checkbox_key in st.session_state:
+                del st.session_state[checkbox_key]
 
-    st.markdown(
-    f"""
-    <div style="text-align: right; margin-top: 8px; margin-bottom: 4px;">
-        <a href="{form_url}" target="_blank" style="
-            font-size: 13px;
-            color: #888;
-            text-decoration: none;
-        ">
-            Nahlásiť chybu
-        </a>
-    </div>
-    """,
-    unsafe_allow_html=True
-    )
+        if question_session_key in st.session_state:
+            del st.session_state[question_session_key]
 
-    # ========================================================
-    # 9. SIDEBAR ŠTATISTIKY
-    # ========================================================
+        st.session_state.answered = False
 
-    st.sidebar.divider()
-    st.sidebar.write(f"📊 Body: **{current_data['score']}**")
-    st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
+        save_progress()
+        st.rerun()
 
+if st.session_state.answered:
+    correct_display = ", ".join(q["answer"])
+    user_str = "".join(sorted(user_choices))
+    correct_str = "".join(sorted(q["answer"]))
+
+    if user_str == correct_str:
+        st.success(f"✅ Správne! Odpoveď: {correct_display}")
+    else:
+        st.error(f"❌ Nesprávne! Správna odpoveď: {correct_display}")
+
+# Malý link na nahlásenie chyby vpravo dole pod otázkou
+render_small_report_link(q, st.session_state.selected_subject_name)
+
+
+# ============================================================
+# 10. SIDEBAR ŠTATISTIKY A MOTIVÁCIA
+# ============================================================
+
+counts = count_statuses(current_data, questions)
+daily_stats = get_daily_stats(current_data)
+streak = calculate_streak(current_data)
+new_limit = dynamic_daily_new_limit(counts)
+
+answered_today = daily_stats.get("answered", 0)
+new_seen_today = daily_stats.get("new_seen", 0)
+correct_today = daily_stats.get("correct", 0)
+wrong_today = daily_stats.get("wrong", 0)
+
+not_mastered = (
+    counts.get("NEW", 0)
+    + counts.get("RED", 0)
+    + counts.get("YELLOW", 0)
+    + counts.get("GREEN", 0)
+)
+
+st.sidebar.divider()
+st.sidebar.write("🎯 Denný progres")
+st.sidebar.progress(progress_percent(answered_today, DAILY_GOAL))
+st.sidebar.write(f"Otázky dnes: **{answered_today} / {DAILY_GOAL}**")
+
+st.sidebar.progress(progress_percent(new_seen_today, new_limit))
+st.sidebar.write(f"Nové dnes: **{new_seen_today} / {new_limit}**")
+
+if answered_today >= DAILY_GOAL:
+    st.sidebar.success("Denný cieľ splnený ✅")
 else:
+    st.sidebar.caption(f"Zostáva dnes: {max(0, DAILY_GOAL - answered_today)} otázok")
+
+st.sidebar.write(f"🔥 Streak: **{streak} dní**")
+
+st.sidebar.divider()
+st.sidebar.write("📊 Stav otázok")
+st.sidebar.write(f"⚪ Nové: **{counts.get('NEW', 0)}**")
+st.sidebar.write(f"🔴 Problémové: **{counts.get('RED', 0)}**")
+st.sidebar.write(f"🟡 Na opakovanie: **{counts.get('YELLOW', 0)}**")
+st.sidebar.write(f"🟢 Zvládnuté: **{counts.get('GREEN', 0)}**")
+st.sidebar.write(f"🏆 Mastered: **{counts.get('MASTERED', 0)}**")
+st.sidebar.write(f"⏳ Zostáva zvládnuť: **{not_mastered}**")
+
+st.sidebar.divider()
+st.sidebar.write("Dnes")
+st.sidebar.write(f"✅ Správne: **{correct_today}**")
+st.sidebar.write(f"❌ Nesprávne: **{wrong_today}**")
+
+if len(questions) > 0 and counts.get("MASTERED", 0) == len(questions):
     st.balloons()
-    st.success("Hotovo!")
+    st.success("Hotovo! Všetky otázky v tomto predmete sú MASTERED.")
 
     if st.sidebar.button("Reštartovať predmet"):
-        del st.session_state.subjects_data[selected_file]
+        if selected_file in st.session_state.subjects_data:
+            del st.session_state.subjects_data[selected_file]
+
+        if question_session_key in st.session_state:
+            del st.session_state[question_session_key]
+
         save_progress()
         st.rerun()
 
 
 # ============================================================
-# 10. ODHLÁSENIE DOLE V SIDEBAR-E
+# 11. ODHLÁSENIE DOLE V SIDEBAR-E
 # ============================================================
 
 st.sidebar.divider()

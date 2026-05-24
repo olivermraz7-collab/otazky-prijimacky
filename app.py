@@ -575,7 +575,7 @@ if len(pool) > 0:
     # ========================================================
 
     st.sidebar.divider()
-    st.sidebar.write(f"📊 Body (1. pokus): **{current_data['score']}**")
+    st.sidebar.write(f"📊 Body: **{current_data['score']}**")
     st.sidebar.write(f"⏳ Zostáva: **{len(pool)}**")
 
 else:

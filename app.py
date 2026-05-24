@@ -784,6 +784,104 @@ def inject_css():
                     padding: 28px 24px;
                 }
             }
+        /* CLEAN SETUP OVERRIDES */
+
+            body.setup-active .stApp::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(2, 6, 23, 0.965);
+                backdrop-filter: grayscale(1) blur(10px);
+                z-index: 9990;
+                pointer-events: none;
+            }
+
+            body.setup-active .main,
+            body.setup-active header,
+            body.setup-active footer {
+                filter: grayscale(1) brightness(0.12) contrast(0.75) !important;
+                opacity: 0.12 !important;
+            }
+
+            body.setup-active .top-hero,
+            body.setup-active div[data-testid="stVerticalBlockBorderWrapper"],
+            body.setup-active .question-text,
+            body.setup-active .question-topline {
+                filter: grayscale(1) brightness(0.10) !important;
+                opacity: 0.10 !important;
+            }
+
+            body.setup-active section[data-testid="stSidebar"] {
+                z-index: 10000 !important;
+                position: relative !important;
+                filter: grayscale(1) brightness(0.30);
+            }
+
+            body.setup-active .setup-focus-card,
+            body.setup-active .setup-focused-widget,
+            body.setup-active .setup-sidebar-brand,
+            body.setup-active .setup-sidebar-actions {
+                filter: none !important;
+                opacity: 1 !important;
+            }
+
+            body.setup-active section[data-testid="stSidebar"] .stSelectbox,
+            body.setup-active section[data-testid="stSidebar"] .stDateInput,
+            body.setup-active section[data-testid="stSidebar"] .stButton {
+                opacity: 0.18;
+                filter: grayscale(1);
+                pointer-events: none;
+            }
+
+            body.setup-active .setup-focused-widget .stSelectbox,
+            body.setup-active .setup-focused-widget .stDateInput,
+            body.setup-active .setup-focused-widget .stButton,
+            body.setup-active .setup-sidebar-actions .stButton {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+            }
+
+            .setup-focus-card {
+                background:
+                    linear-gradient(135deg, rgba(124, 58, 237, 0.24), rgba(37, 99, 235, 0.16)),
+                    rgba(15, 23, 42, 0.98);
+                border: 1px solid rgba(167, 139, 250, 0.45);
+                border-radius: 20px;
+                padding: 14px 15px;
+                margin: 12px 0;
+                box-shadow: 0 18px 60px rgba(0,0,0,0.60);
+                position: relative;
+                z-index: 10002;
+            }
+
+            .setup-focused-widget {
+                position: relative;
+                z-index: 10003 !important;
+                background: rgba(15, 23, 42, 0.99);
+                border-radius: 18px;
+                padding: 10px;
+                border: 1px solid rgba(167,139,250,0.50);
+                box-shadow: 0 18px 60px rgba(0,0,0,0.60);
+                margin-bottom: 10px;
+            }
+
+            .setup-main-hint {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-35%, -50%);
+                max-width: 420px;
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96));
+                border: 1px solid rgba(255,255,255,0.12);
+                border-radius: 28px;
+                padding: 24px 26px;
+                box-shadow: 0 24px 90px rgba(0,0,0,0.72);
+                z-index: 10001;
+                pointer-events: none;
+            }
+
         </style>
         """,
         unsafe_allow_html=True
@@ -2061,7 +2159,7 @@ def complete_setup_if_ready():
 
 st.sidebar.markdown(
     f"""
-    <div style="padding-bottom: 8px;">
+    <div class="setup-sidebar-brand" style="padding-bottom: 8px;">
         <div style="font-size: 22px; font-weight: 850; letter-spacing: -0.04em; color: #f9fafb;">
             {escape(APP_NAME)}
         </div>
@@ -2463,6 +2561,20 @@ with right_col:
 
 
     with st.expander("Plán do skúšky", expanded=False):
+        current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
+        current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
+        updated_exam_date = st.date_input(
+            "Upraviť termín skúšky",
+            value=current_exam_date,
+            format="DD.MM.YYYY",
+            key=f"exam_date_plan_{selected_field_name}"
+        )
+
+        if updated_exam_date.isoformat() != st.session_state.get("exam_dates", {}).get(selected_field_name):
+            st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
+            save_progress()
+            st.rerun()
+
         if current_exam_date:
             st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
             st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")

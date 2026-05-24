@@ -5,9 +5,14 @@ import random
 import os
 import hashlib
 import secrets
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from html import escape
 from streamlit_cookies_manager import EncryptedCookieManager
+
+try:
+    from supabase import create_client
+except Exception:
+    create_client = None
 
 
 # ============================================================
@@ -34,6 +39,17 @@ RECENT_LIMIT = 8
 DATA_DIR = "data"
 PROGRESS_DIR = os.path.join(DATA_DIR, "progress")
 USERS_FILE = os.path.join(DATA_DIR, "users.json")
+
+SUPABASE_URL = st.secrets.get("SUPABASE_URL", "")
+SUPABASE_KEY = st.secrets.get("SUPABASE_KEY", "")
+USE_SUPABASE = bool(SUPABASE_URL and SUPABASE_KEY and create_client is not None)
+
+@st.cache_resource
+def get_supabase_client():
+    if not USE_SUPABASE:
+        return None
+    return create_client(SUPABASE_URL, SUPABASE_KEY)
+
 
 REPORT_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLScVa1VK6mJYX6YRmgcms64AMxaTm5wSDmJF9vnl1M4QzzmCUw/viewform"
 
@@ -585,6 +601,192 @@ def inject_css():
             }
 
 
+
+            .setup-lock-card {
+                max-width: 760px;
+                margin: 3rem auto 1.5rem auto;
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(30, 41, 59, 0.90));
+                border: 1px solid rgba(255,255,255,0.10);
+                border-radius: 32px;
+                box-shadow: 0 24px 70px rgba(0,0,0,0.42);
+                padding: 34px 36px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .setup-lock-card::before {
+                content: "";
+                position: absolute;
+                inset: -1px;
+                background:
+                    radial-gradient(circle at 10% 0%, rgba(139,92,246,0.22), transparent 24rem),
+                    radial-gradient(circle at 95% 20%, rgba(37,99,235,0.16), transparent 20rem);
+                pointer-events: none;
+            }
+
+            .setup-lock-card > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .setup-lock-step {
+                color: #a78bfa;
+                font-size: 12px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+            .setup-lock-title {
+                font-size: 34px;
+                line-height: 1.06;
+                font-weight: 900;
+                letter-spacing: -0.055em;
+                color: #ffffff;
+                margin-bottom: 10px;
+            }
+
+            .setup-lock-text {
+                color: #cbd5e1;
+                font-size: 15px;
+                line-height: 1.75;
+            }
+
+            .sidebar-setup-note {
+                background: rgba(139, 92, 246, 0.12);
+                border: 1px solid rgba(139, 92, 246, 0.28);
+                border-radius: 18px;
+                padding: 12px 13px;
+                color: #ddd6fe;
+                font-size: 12px;
+                line-height: 1.55;
+                margin: 10px 0 12px 0;
+            }
+
+
+            body.setup-active .stApp::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(2, 6, 23, 0.92);
+                backdrop-filter: blur(8px);
+                z-index: 9990;
+                pointer-events: none;
+            }
+
+            body.setup-active section[data-testid="stSidebar"] {
+                z-index: 10000 !important;
+                position: relative !important;
+            }
+
+            .setup-focus-card {
+                background:
+                    linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(37, 99, 235, 0.16)),
+                    rgba(15, 23, 42, 0.96);
+                border: 1px solid rgba(167, 139, 250, 0.38);
+                border-radius: 20px;
+                padding: 14px 15px;
+                margin: 12px 0;
+                box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+                position: relative;
+                z-index: 10002;
+            }
+
+            .setup-focus-kicker {
+                color: #a78bfa;
+                font-size: 11px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 6px;
+            }
+
+            .setup-focus-title {
+                color: #ffffff;
+                font-size: 17px;
+                font-weight: 900;
+                letter-spacing: -0.035em;
+                margin-bottom: 4px;
+            }
+
+            .setup-focus-text {
+                color: #cbd5e1;
+                font-size: 12px;
+                line-height: 1.55;
+            }
+
+            .setup-main-hint {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-35%, -50%);
+                max-width: 440px;
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(30, 41, 59, 0.94));
+                border: 1px solid rgba(255,255,255,0.12);
+                border-radius: 28px;
+                padding: 24px 26px;
+                box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+                z-index: 10001;
+                pointer-events: none;
+            }
+
+            .setup-main-hint-step {
+                color: #a78bfa;
+                font-size: 12px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 9px;
+            }
+
+            .setup-main-hint-title {
+                color: #ffffff;
+                font-size: 27px;
+                line-height: 1.08;
+                font-weight: 900;
+                letter-spacing: -0.055em;
+                margin-bottom: 8px;
+            }
+
+            .setup-main-hint-text {
+                color: #cbd5e1;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .setup-focused-widget {
+                position: relative;
+                z-index: 10003 !important;
+                background: rgba(15, 23, 42, 0.98);
+                border-radius: 18px;
+                padding: 10px;
+                border: 1px solid rgba(167,139,250,0.38);
+                box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+                margin-bottom: 10px;
+            }
+
+
+            body.setup-active .main,
+            body.setup-active header,
+            body.setup-active footer {
+                filter: brightness(0.25) saturate(0.55);
+            }
+
+            body.setup-active .setup-main-hint {
+                filter: none !important;
+            }
+
+            .setup-hidden-during-flow {
+                display: none !important;
+            }
+
+            body.setup-active .main .block-container {
+                pointer-events: none;
+            }
+
             @media (max-width: 900px) {
                 .hero-title {
                     font-size: 26px;
@@ -598,6 +800,104 @@ def inject_css():
                     padding: 28px 24px;
                 }
             }
+        /* CLEAN SETUP OVERRIDES */
+
+            body.setup-active .stApp::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(2, 6, 23, 0.965);
+                backdrop-filter: grayscale(1) blur(10px);
+                z-index: 9990;
+                pointer-events: none;
+            }
+
+            body.setup-active .main,
+            body.setup-active header,
+            body.setup-active footer {
+                filter: grayscale(1) brightness(0.12) contrast(0.75) !important;
+                opacity: 0.12 !important;
+            }
+
+            body.setup-active .top-hero,
+            body.setup-active div[data-testid="stVerticalBlockBorderWrapper"],
+            body.setup-active .question-text,
+            body.setup-active .question-topline {
+                filter: grayscale(1) brightness(0.10) !important;
+                opacity: 0.10 !important;
+            }
+
+            body.setup-active section[data-testid="stSidebar"] {
+                z-index: 10000 !important;
+                position: relative !important;
+                filter: grayscale(1) brightness(0.30);
+            }
+
+            body.setup-active .setup-focus-card,
+            body.setup-active .setup-focused-widget,
+            body.setup-active .setup-sidebar-brand,
+            body.setup-active .setup-sidebar-actions {
+                filter: none !important;
+                opacity: 1 !important;
+            }
+
+            body.setup-active section[data-testid="stSidebar"] .stSelectbox,
+            body.setup-active section[data-testid="stSidebar"] .stDateInput,
+            body.setup-active section[data-testid="stSidebar"] .stButton {
+                opacity: 0.18;
+                filter: grayscale(1);
+                pointer-events: none;
+            }
+
+            body.setup-active .setup-focused-widget .stSelectbox,
+            body.setup-active .setup-focused-widget .stDateInput,
+            body.setup-active .setup-focused-widget .stButton,
+            body.setup-active .setup-sidebar-actions .stButton {
+                opacity: 1 !important;
+                filter: none !important;
+                pointer-events: auto !important;
+            }
+
+            .setup-focus-card {
+                background:
+                    linear-gradient(135deg, rgba(124, 58, 237, 0.24), rgba(37, 99, 235, 0.16)),
+                    rgba(15, 23, 42, 0.98);
+                border: 1px solid rgba(167, 139, 250, 0.45);
+                border-radius: 20px;
+                padding: 14px 15px;
+                margin: 12px 0;
+                box-shadow: 0 18px 60px rgba(0,0,0,0.60);
+                position: relative;
+                z-index: 10002;
+            }
+
+            .setup-focused-widget {
+                position: relative;
+                z-index: 10003 !important;
+                background: rgba(15, 23, 42, 0.99);
+                border-radius: 18px;
+                padding: 10px;
+                border: 1px solid rgba(167,139,250,0.50);
+                box-shadow: 0 18px 60px rgba(0,0,0,0.60);
+                margin-bottom: 10px;
+            }
+
+            .setup-main-hint {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-35%, -50%);
+                max-width: 420px;
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.99), rgba(30, 41, 59, 0.96));
+                border: 1px solid rgba(255,255,255,0.12);
+                border-radius: 28px;
+                padding: 24px 26px;
+                box-shadow: 0 24px 90px rgba(0,0,0,0.72);
+                z-index: 10001;
+                pointer-events: none;
+            }
+
         </style>
         """,
         unsafe_allow_html=True
@@ -689,6 +989,37 @@ def verify_password(password, stored_hash):
 
 
 def load_users():
+    """
+    Načíta používateľov.
+    Ak sú nastavené Supabase secrets, číta z tabuľky app_users.
+    Inak použije pôvodný lokálny data/users.json fallback.
+    """
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+            response = supabase.table("app_users").select("*").execute()
+            rows = response.data or []
+
+            users = {}
+
+            for row in rows:
+                username = row.get("username")
+
+                if not username:
+                    continue
+
+                users[username] = {
+                    "username": username,
+                    "display_name": row.get("display_name", username),
+                    "password_hash": row.get("password_hash", "")
+                }
+
+            return {"users": users}
+
+        except Exception as e:
+            st.error(f"Chyba pri načítaní používateľov zo Supabase: {e}")
+            return {"users": {}}
+
     data = read_json_file(USERS_FILE, default={"users": {}})
 
     if "users" not in data:
@@ -698,6 +1029,13 @@ def load_users():
 
 
 def save_users(data):
+    """
+    Pri Supabase sa používatelia ukladajú priamo v create_user().
+    Táto funkcia ostáva kvôli kompatibilite s pôvodným kódom.
+    """
+    if USE_SUPABASE:
+        return
+
     write_json_file(USERS_FILE, data)
 
 
@@ -709,6 +1047,43 @@ def create_user(username, display_name, password):
 
     if len(password) < 4:
         return False, "Heslo musí mať aspoň 4 znaky."
+
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            existing = (
+                supabase
+                .table("app_users")
+                .select("username")
+                .eq("username", username)
+                .execute()
+            )
+
+            if existing.data:
+                return False, "Tento používateľ už existuje."
+
+            user_row = {
+                "username": username,
+                "display_name": display_name.strip() if display_name.strip() else username,
+                "password_hash": hash_password(password)
+            }
+
+            supabase.table("app_users").insert(user_row).execute()
+
+            initial_state = default_user_state()
+
+            supabase.table("user_states").insert(
+                {
+                    "username": username,
+                    "state_json": initial_state
+                }
+            ).execute()
+
+            return True, "Účet bol vytvorený."
+
+        except Exception as e:
+            return False, f"Nepodarilo sa vytvoriť účet v Supabase: {e}"
 
     users_data = load_users()
 
@@ -728,6 +1103,40 @@ def create_user(username, display_name, password):
 
 def authenticate_user(username, password):
     username = normalize_username(username)
+
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            response = (
+                supabase
+                .table("app_users")
+                .select("*")
+                .eq("username", username)
+                .limit(1)
+                .execute()
+            )
+
+            rows = response.data or []
+
+            if not rows:
+                return None
+
+            row = rows[0]
+
+            if not verify_password(password, row.get("password_hash", "")):
+                return None
+
+            return {
+                "username": row.get("username"),
+                "display_name": row.get("display_name") or row.get("username"),
+                "password_hash": row.get("password_hash", "")
+            }
+
+        except Exception as e:
+            st.error(f"Chyba pri prihlasovaní cez Supabase: {e}")
+            return None
+
     users_data = load_users()
     user = users_data["users"].get(username)
 
@@ -778,7 +1187,11 @@ def logout_user():
         "loaded_user",
         "answered",
         "selected_field_index",
-        "selected_subject_name"
+        "selected_subject_name",
+        "setup_step",
+        "setup_field_name",
+        "setup_subject_name",
+        "setup_completed"
     ]
 
     for key in keys_to_delete:
@@ -934,6 +1347,7 @@ def default_user_state():
     return {
         "subjects_data": {},
         "exam_dates": {},
+        "setup_completed": False,
         "last_settings": {
             "field_idx": 0,
             "subj_name": None,
@@ -944,13 +1358,49 @@ def default_user_state():
 
 
 def load_user_state(username):
-    path = get_user_progress_path(username)
-    user_state = read_json_file(path, default=None)
+    username = normalize_username(username)
 
-    if user_state is None:
-        user_state = default_user_state()
-        save_user_state(username, user_state)
-        return user_state
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            response = (
+                supabase
+                .table("user_states")
+                .select("state_json")
+                .eq("username", username)
+                .limit(1)
+                .execute()
+            )
+
+            rows = response.data or []
+
+            if not rows:
+                user_state = default_user_state()
+
+                supabase.table("user_states").insert(
+                    {
+                        "username": username,
+                        "state_json": user_state
+                    }
+                ).execute()
+
+                return user_state
+
+            user_state = rows[0].get("state_json") or default_user_state()
+
+        except Exception as e:
+            st.error(f"Chyba pri načítaní progresu zo Supabase: {e}")
+            user_state = default_user_state()
+
+    else:
+        path = get_user_progress_path(username)
+        user_state = read_json_file(path, default=None)
+
+        if user_state is None:
+            user_state = default_user_state()
+            save_user_state(username, user_state)
+            return user_state
 
     if "subjects_data" not in user_state:
         user_state["subjects_data"] = {}
@@ -958,24 +1408,51 @@ def load_user_state(username):
     if "exam_dates" not in user_state:
         user_state["exam_dates"] = {}
 
+    if "setup_completed" not in user_state:
+        user_state["setup_completed"] = False
+
     if "last_settings" not in user_state:
         user_state["last_settings"] = {
             "field_idx": 0,
-            "subj_name": None,
-            "topic_name": "Všetky celky",
-            "study_mode": "Smart review"
+            "subj_name": None
         }
-
-    if "topic_name" not in user_state["last_settings"]:
-        user_state["last_settings"]["topic_name"] = "Všetky celky"
-
-    if "study_mode" not in user_state["last_settings"]:
-        user_state["last_settings"]["study_mode"] = "Smart review"
 
     return user_state
 
 
 def save_user_state(username, user_state):
+    username = normalize_username(username)
+
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            existing = (
+                supabase
+                .table("user_states")
+                .select("username")
+                .eq("username", username)
+                .limit(1)
+                .execute()
+            )
+
+            payload = {
+                "username": username,
+                "state_json": user_state,
+                "updated_at": datetime.utcnow().isoformat()
+            }
+
+            if existing.data:
+                supabase.table("user_states").update(payload).eq("username", username).execute()
+            else:
+                supabase.table("user_states").insert(payload).execute()
+
+            return
+
+        except Exception as e:
+            st.error(f"Chyba pri ukladaní progresu do Supabase: {e}")
+            return
+
     path = get_user_progress_path(username)
     write_json_file(path, user_state)
 
@@ -986,6 +1463,7 @@ def save_progress():
     user_state = {
         "subjects_data": st.session_state.subjects_data,
         "exam_dates": st.session_state.get("exam_dates", {}),
+        "setup_completed": st.session_state.get("setup_completed", False),
         "last_settings": {
             "field_idx": st.session_state.selected_field_index,
             "subj_name": st.session_state.selected_subject_name,
@@ -1002,6 +1480,7 @@ if st.session_state.get("loaded_user") != st.session_state.username:
 
     st.session_state.subjects_data = loaded_state.get("subjects_data", {})
     st.session_state.exam_dates = loaded_state.get("exam_dates", {})
+    st.session_state.setup_completed = loaded_state.get("setup_completed", False)
     st.session_state.last_settings = loaded_state.get(
         "last_settings",
         {
@@ -1784,13 +2263,88 @@ def render_question_text_and_images(q):
                 )
 
 
+
+
+
+
 # ============================================================
-# 10. SIDEBAR SETTINGS
+# 10. SPOTLIGHT SETUP
+# ============================================================
+
+def setup_is_active():
+    return not st.session_state.get("setup_completed", False)
+
+
+def setup_current_step():
+    if "setup_step" not in st.session_state:
+        st.session_state.setup_step = 1
+    return st.session_state.setup_step
+
+
+def setup_overlay(step, title, text):
+    if not setup_is_active():
+        return
+
+    st.markdown(
+        f"""
+        <script>
+            document.body.classList.add("setup-active");
+        </script>
+        <div class="setup-main-hint">
+            <div class="setup-main-hint-step">Krok {step}/3</div>
+            <div class="setup-main-hint-title">{escape(title)}</div>
+            <div class="setup-main-hint-text">{escape(text)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+def setup_sidebar_note(step, title, text):
+    st.sidebar.markdown(
+        f"""
+        <div class="setup-focus-card">
+            <div class="setup-focus-kicker">Krok {step}/3</div>
+            <div class="setup-focus-title">{escape(title)}</div>
+            <div class="setup-focus-text">{escape(text)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+def begin_focused_widget():
+    st.sidebar.markdown('<div class="setup-focused-widget">', unsafe_allow_html=True)
+
+
+def end_focused_widget():
+    st.sidebar.markdown('</div>', unsafe_allow_html=True)
+
+
+def complete_setup_if_ready():
+    field_list = list(FIELDS.keys())
+    field_idx = st.session_state.get("selected_field_index", 0)
+
+    if field_idx >= len(field_list):
+        return
+
+    field_name = field_list[field_idx]
+    subject_name = st.session_state.get("selected_subject_name")
+
+    if field_name and subject_name and st.session_state.get("exam_dates", {}).get(field_name):
+        st.session_state.setup_completed = True
+        st.session_state.setup_step = 4
+        save_progress()
+        st.rerun()
+
+
+# ============================================================
+# 11. SIDEBAR SETTINGS
 # ============================================================
 
 st.sidebar.markdown(
     f"""
-    <div style="padding-bottom: 8px;">
+    <div class="setup-sidebar-brand" style="padding-bottom: 8px;">
         <div style="font-size: 22px; font-weight: 850; letter-spacing: -0.04em; color: #f9fafb;">
             {escape(APP_NAME)}
         </div>
@@ -1802,28 +2356,108 @@ st.sidebar.markdown(
     unsafe_allow_html=True
 )
 
+setup_active = setup_is_active()
+step = setup_current_step()
+
 field_list = list(FIELDS.keys())
 f_idx = st.session_state.last_settings.get("field_idx", 0)
+
+if setup_active and step == 1:
+    setup_sidebar_note(1, "Vyber si odbor", "Najprv vyber odbor. Ostatné nastavenia sa odomknú potom.")
+    begin_focused_widget()
 
 selected_field_name = st.sidebar.selectbox(
     "Odbor",
     field_list,
-    index=f_idx if f_idx < len(field_list) else 0
+    index=f_idx if f_idx < len(field_list) else 0,
+    disabled=setup_active and step != 1
 )
 
+if setup_active and step == 1:
+    end_focused_widget()
+
 st.session_state.selected_field_index = field_list.index(selected_field_name)
+
+if setup_active and step == 1:
+    if st.sidebar.button("Potvrdiť odbor", use_container_width=True):
+        st.session_state.setup_step = 2
+        save_progress()
+        st.rerun()
+
+    setup_overlay(
+        1,
+        "Vyber si odbor",
+        "Vyber si odbor v zvýraznenom okne v sidebare."
+    )
 
 available_subjects = FIELDS[selected_field_name]
 subj_list = list(available_subjects.keys())
 default_subj = st.session_state.last_settings.get("subj_name")
 s_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
 
+if "exam_dates" not in st.session_state:
+    st.session_state.exam_dates = {}
+
+if setup_active and step == 2:
+    setup_sidebar_note(2, "Zadaj termín skúšky", "Termín použijeme na výpočet denného plánu.")
+    begin_focused_widget()
+
+current_exam_raw = st.session_state.exam_dates.get(selected_field_name)
+current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
+
+selected_exam_date = st.sidebar.date_input(
+    "Termín skúšky",
+    value=current_exam_date,
+    disabled=setup_active and step != 2
+)
+
+if setup_active and step == 2:
+    end_focused_widget()
+
+if selected_exam_date:
+    st.session_state.exam_dates[selected_field_name] = selected_exam_date.isoformat()
+
+if setup_active and step == 2:
+    if st.sidebar.button("Potvrdiť termín", use_container_width=True):
+        save_progress()
+        st.session_state.setup_step = 3
+        st.rerun()
+
+    setup_overlay(
+        2,
+        "Zadaj termín skúšky",
+        "Zadaj termín skúšky v zvýraznenom okne v sidebare."
+    )
+
+if setup_active and step == 3:
+    setup_sidebar_note(3, "Vyber predmet", "Vyber predmet, ktorým chceš začať. Neskôr ho môžeš meniť.")
+    begin_focused_widget()
+
 st.session_state.selected_subject_name = st.sidebar.selectbox(
     "Predmet",
     subj_list,
-    index=s_idx
+    index=s_idx,
+    disabled=setup_active and step != 3
 )
 
+if setup_active and step == 3:
+    end_focused_widget()
+
+if setup_active and step == 3:
+    if st.sidebar.button("Začať testovať", use_container_width=True):
+        st.session_state.last_settings["field_idx"] = st.session_state.selected_field_index
+        st.session_state.last_settings["subj_name"] = st.session_state.selected_subject_name
+        st.session_state.setup_completed = True
+        save_progress()
+        st.rerun()
+
+    setup_overlay(
+        3,
+        "Vyber predmet",
+        "Vyber predmet a klikni na Začať testovať."
+    )
+
+# Po dokončení setupu pokračuje normálna navigácia.
 selected_file = available_subjects[st.session_state.selected_subject_name]
 questions = load_questions(selected_file)
 
@@ -1874,55 +2508,27 @@ st.session_state.study_mode = st.sidebar.selectbox(
 
 current_exam_date = get_exam_date_for_field(selected_field_name)
 default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12)
-selected_exam_date = st.sidebar.date_input(
-    "Termín skúšky",
-    value=default_exam_date,
-    format="DD.MM.YYYY"
-)
 
-if current_exam_date != selected_exam_date:
-    set_exam_date_for_field(selected_field_name, selected_exam_date)
-    current_exam_date = selected_exam_date
 
-filtered_questions = filter_questions_by_topic(
-    questions,
-    st.session_state.selected_topic_name
-)
+# Bezpečný alias pre otázky po filtrovaní režimu/celku.
+# Niektoré časti appky používajú kratší názov mode_filtered_q.
+if "mode_filtered_q" not in globals():
+    try:
+        mode_filtered_q = mode_filtered_questions
+    except NameError:
+        try:
+            mode_filtered_q = filtered_questions
+        except NameError:
+            try:
+                mode_filtered_q = topic_filtered_questions
+            except NameError:
+                mode_filtered_q = questions
 
-mode_filtered_questions = filter_questions_for_study_mode(
-    filtered_questions,
-    current_data,
-    st.session_state.study_mode,
-    current_exam_date
-)
 
-if not filtered_questions:
-    st.warning("V tomto celku zatiaľ nie sú žiadne otázky.")
-    st.stop()
-
-if not mode_filtered_questions:
-    if st.session_state.study_mode == "Len nesprávne":
-        st.warning("V tomto výbere zatiaľ nemáš žiadne nesprávne otázky. Prepni režim na Smart review.")
-    else:
-        st.warning("V tomto výbere momentálne nie sú otázky na opakovanie. Prepni celok alebo režim.")
-    st.stop()
-
-active_filter_key = f"{selected_file}::{st.session_state.selected_topic_name}::{st.session_state.study_mode}::{current_exam_date}"
-
-if st.session_state.get("active_filter_key") != active_filter_key:
-    st.session_state.answered = False
-    st.session_state.active_filter_key = active_filter_key
-
-st.sidebar.markdown(
-    f"""
-    <div class="sidebar-mini-note">
-        Výber: <strong>{len(mode_filtered_questions)}</strong> otázok<br>
-        Predmet spolu: {len(questions)} otázok
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
+try:
+    mode_filtered_questions
+except NameError:
+    mode_filtered_questions = mode_filtered_q
 
 # ============================================================
 # 11. CURRENT QUESTION
@@ -2140,6 +2746,20 @@ with right_col:
 
 
     with st.expander("Plán do skúšky", expanded=False):
+        current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
+        current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
+        updated_exam_date = st.date_input(
+            "Upraviť termín skúšky",
+            value=current_exam_date,
+            format="DD.MM.YYYY",
+            key=f"exam_date_plan_{selected_field_name}"
+        )
+
+        if updated_exam_date.isoformat() != st.session_state.get("exam_dates", {}).get(selected_field_name):
+            st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
+            save_progress()
+            st.rerun()
+
         if current_exam_date:
             st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
             st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")

@@ -1806,7 +1806,7 @@ st.sidebar.markdown(
     f"""
     <div class="sidebar-mini-note">
         Výber: <strong>{len(mode_filtered_questions)}</strong> otázok<br>
-        Celok spolu: {len(filtered_questions)} z {len(questions)}
+        Predmet spolu: {len(questions)} otázok
     </div>
     """,
     unsafe_allow_html=True
@@ -2018,16 +2018,16 @@ with right_col:
             st.rerun()
 
 
-with st.expander("Plán do skúšky", expanded=False):
-    if current_exam_date:
-        st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
-        st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")
-        st.divider()
-        render_plan_rows(field_plan)
-        st.divider()
-        st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} otázok/deň")
-    else:
-        st.caption("Nastav termín skúšky v sidebare a appka vypočíta plán podľa predmetov.")
+    with st.expander("Plán do skúšky", expanded=False):
+        if current_exam_date:
+            st.markdown(f"**Termín:** {current_exam_date.strftime('%d.%m.%Y')}")
+            st.caption(f"Zostáva dní: {days_left} · dni na nové otázky: {learning_days}")
+            st.divider()
+            render_plan_rows(field_plan)
+            st.divider()
+            st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} otázok/deň")
+        else:
+            st.caption("Nastav termín skúšky v sidebare a appka vypočíta plán podľa predmetov.")
 
 
 # ============================================================

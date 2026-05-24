@@ -649,6 +649,113 @@ def inject_css():
                 margin: 10px 0 12px 0;
             }
 
+
+            body.setup-active .stApp::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(2, 6, 23, 0.72);
+                backdrop-filter: blur(3px);
+                z-index: 9990;
+                pointer-events: none;
+            }
+
+            body.setup-active section[data-testid="stSidebar"] {
+                z-index: 10000 !important;
+                position: relative !important;
+            }
+
+            .setup-focus-card {
+                background:
+                    linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(37, 99, 235, 0.16)),
+                    rgba(15, 23, 42, 0.96);
+                border: 1px solid rgba(167, 139, 250, 0.38);
+                border-radius: 20px;
+                padding: 14px 15px;
+                margin: 12px 0;
+                box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+                position: relative;
+                z-index: 10002;
+            }
+
+            .setup-focus-kicker {
+                color: #a78bfa;
+                font-size: 11px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 6px;
+            }
+
+            .setup-focus-title {
+                color: #ffffff;
+                font-size: 17px;
+                font-weight: 900;
+                letter-spacing: -0.035em;
+                margin-bottom: 4px;
+            }
+
+            .setup-focus-text {
+                color: #cbd5e1;
+                font-size: 12px;
+                line-height: 1.55;
+            }
+
+            .setup-main-hint {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-35%, -50%);
+                max-width: 440px;
+                background:
+                    linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(30, 41, 59, 0.94));
+                border: 1px solid rgba(255,255,255,0.12);
+                border-radius: 28px;
+                padding: 24px 26px;
+                box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+                z-index: 10001;
+                pointer-events: none;
+            }
+
+            .setup-main-hint-step {
+                color: #a78bfa;
+                font-size: 12px;
+                font-weight: 850;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 9px;
+            }
+
+            .setup-main-hint-title {
+                color: #ffffff;
+                font-size: 27px;
+                line-height: 1.08;
+                font-weight: 900;
+                letter-spacing: -0.055em;
+                margin-bottom: 8px;
+            }
+
+            .setup-main-hint-text {
+                color: #cbd5e1;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .setup-focused-widget {
+                position: relative;
+                z-index: 10003 !important;
+                background: rgba(15, 23, 42, 0.98);
+                border-radius: 18px;
+                padding: 10px;
+                border: 1px solid rgba(167,139,250,0.38);
+                box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+                margin-bottom: 10px;
+            }
+
+            body.setup-active .main .block-container {
+                pointer-events: none;
+            }
+
             @media (max-width: 900px) {
                 .hero-title {
                     font-size: 26px;
@@ -1859,173 +1966,82 @@ def render_question_text_and_images(q):
 
 
 
+
+
+
 # ============================================================
-# 10. FORCED FIRST SETUP
+# 10. SPOTLIGHT SETUP
 # ============================================================
 
-def render_setup_locked_main(step, title, text):
-    st.markdown(
-        f"""
-        <div class="setup-lock-card">
-            <div class="setup-lock-step">Nastavenie · krok {step}/3</div>
-            <div class="setup-lock-title">{escape(title)}</div>
-            <div class="setup-lock-text">{escape(text)}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+def setup_is_active():
+    return not st.session_state.get("setup_completed", False)
 
 
-def render_forced_sidebar_setup():
-    """
-    Prvé nastavenie po registrácii/prvom prihlásení.
-    Používateľ musí postupne:
-    1. vybrať odbor,
-    2. nastaviť termín skúšky,
-    3. vybrať predmet.
-    Až potom sa spustí samotné testovanie.
-    """
-    if st.session_state.get("setup_completed", False):
-        return False
-
+def setup_current_step():
     if "setup_step" not in st.session_state:
         st.session_state.setup_step = 1
+    return st.session_state.setup_step
 
+
+def setup_overlay(step, title, text):
+    if not setup_is_active():
+        return
+
+    st.markdown(
+        f"""
+        <script>
+            document.body.classList.add("setup-active");
+        </script>
+        <div class="setup-main-hint">
+            <div class="setup-main-hint-step">Krok {step}/3</div>
+            <div class="setup-main-hint-title">{escape(title)}</div>
+            <div class="setup-main-hint-text">{escape(text)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+def setup_sidebar_note(step, title, text):
     st.sidebar.markdown(
         f"""
-        <div style="padding-bottom: 8px;">
-            <div style="font-size: 22px; font-weight: 850; letter-spacing: -0.04em; color: #f9fafb;">
-                {escape(APP_NAME)}
-            </div>
-            <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">
-                prvé nastavenie
-            </div>
+        <div class="setup-focus-card">
+            <div class="setup-focus-kicker">Krok {step}/3</div>
+            <div class="setup-focus-title">{escape(title)}</div>
+            <div class="setup-focus-text">{escape(text)}</div>
         </div>
         """,
         unsafe_allow_html=True
     )
 
-    st.sidebar.progress(st.session_state.setup_step / 3)
 
-    st.sidebar.markdown(
-        """
-        <div class="sidebar-setup-note">
-            Dokonči tieto 3 kroky. Testovanie sa spustí až po nastavení odboru, termínu a predmetu.
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+def begin_focused_widget():
+    st.sidebar.markdown('<div class="setup-focused-widget">', unsafe_allow_html=True)
 
+
+def end_focused_widget():
+    st.sidebar.markdown('</div>', unsafe_allow_html=True)
+
+
+def complete_setup_if_ready():
     field_list = list(FIELDS.keys())
+    field_idx = st.session_state.get("selected_field_index", 0)
 
-    if st.session_state.setup_step == 1:
-        selected_field = st.sidebar.selectbox(
-            "1. Odbor",
-            field_list,
-            index=st.session_state.last_settings.get("field_idx", 0)
-            if st.session_state.last_settings.get("field_idx", 0) < len(field_list)
-            else 0
-        )
+    if field_idx >= len(field_list):
+        return
 
-        st.session_state.setup_field_name = selected_field
+    field_name = field_list[field_idx]
+    subject_name = st.session_state.get("selected_subject_name")
 
-        if st.sidebar.button("Pokračovať na termín", use_container_width=True):
-            st.session_state.selected_field_index = field_list.index(selected_field)
-            st.session_state.setup_step = 2
-            save_progress()
-            st.rerun()
-
-        render_setup_locked_main(
-            1,
-            "Vyber odbor v sidebare",
-            "Najprv si vyber odbor, na ktorý sa pripravuješ."
-        )
-
-    elif st.session_state.setup_step == 2:
-        selected_field = st.session_state.get("setup_field_name") or field_list[
-            st.session_state.last_settings.get("field_idx", 0)
-            if st.session_state.last_settings.get("field_idx", 0) < len(field_list)
-            else 0
-        ]
-
-        st.sidebar.markdown(f"**Odbor:** {selected_field}")
-
-        current_raw = st.session_state.get("exam_dates", {}).get(selected_field)
-        current_date = parse_date_safe(current_raw) or date.today() + timedelta(days=21)
-
-        exam_date = st.sidebar.date_input(
-            "2. Termín skúšky",
-            value=current_date
-        )
-
-        col1, col2 = st.sidebar.columns(2)
-
-        with col1:
-            if st.button("Späť", use_container_width=True):
-                st.session_state.setup_step = 1
-                st.rerun()
-
-        with col2:
-            if st.button("Potvrdiť", use_container_width=True):
-                st.session_state.exam_dates[selected_field] = exam_date.isoformat()
-                st.session_state.setup_step = 3
-                save_progress()
-                st.rerun()
-
-        render_setup_locked_main(
-            2,
-            "Zadaj termín skúšky",
-            "Podľa termínu aplikácia vypočíta denný plán. Posledné dni pred skúškou bude uprednostňovať opakovanie."
-        )
-
-    elif st.session_state.setup_step == 3:
-        selected_field = st.session_state.get("setup_field_name") or field_list[0]
-        subjects = list(FIELDS[selected_field].keys())
-
-        st.sidebar.markdown(f"**Odbor:** {selected_field}")
-
-        selected_subject = st.sidebar.selectbox(
-            "3. Predmet",
-            subjects,
-            index=0
-        )
-
-        col1, col2 = st.sidebar.columns(2)
-
-        with col1:
-            if st.button("Späť", use_container_width=True):
-                st.session_state.setup_step = 2
-                st.rerun()
-
-        with col2:
-            if st.button("Začať", use_container_width=True):
-                st.session_state.selected_field_index = field_list.index(selected_field)
-                st.session_state.selected_subject_name = selected_subject
-                st.session_state.last_settings["field_idx"] = field_list.index(selected_field)
-                st.session_state.last_settings["subj_name"] = selected_subject
-                st.session_state.setup_completed = True
-                save_progress()
-                st.rerun()
-
-        render_setup_locked_main(
-            3,
-            "Vyber prvý predmet",
-            "Predmet a celok si budeš môcť neskôr meniť v sidebare. Po kliknutí na Začať sa otvorí testovanie."
-        )
-
-    st.sidebar.divider()
-
-    if st.sidebar.button("Odhlásiť sa", use_container_width=True):
-        logout_user()
-
-    st.stop()
+    if field_name and subject_name and st.session_state.get("exam_dates", {}).get(field_name):
+        st.session_state.setup_completed = True
+        st.session_state.setup_step = 4
+        save_progress()
+        st.rerun()
 
 
 # ============================================================
 # 11. SIDEBAR SETTINGS
-
-render_forced_sidebar_setup()
-
 # ============================================================
 
 st.sidebar.markdown(
@@ -2042,28 +2058,108 @@ st.sidebar.markdown(
     unsafe_allow_html=True
 )
 
+setup_active = setup_is_active()
+step = setup_current_step()
+
 field_list = list(FIELDS.keys())
 f_idx = st.session_state.last_settings.get("field_idx", 0)
+
+if setup_active and step == 1:
+    setup_sidebar_note(1, "Vyber si odbor", "Najprv vyber odbor. Ostatné nastavenia sa odomknú potom.")
+    begin_focused_widget()
 
 selected_field_name = st.sidebar.selectbox(
     "Odbor",
     field_list,
-    index=f_idx if f_idx < len(field_list) else 0
+    index=f_idx if f_idx < len(field_list) else 0,
+    disabled=setup_active and step != 1
 )
 
+if setup_active and step == 1:
+    end_focused_widget()
+
 st.session_state.selected_field_index = field_list.index(selected_field_name)
+
+if setup_active and step == 1:
+    if st.sidebar.button("Potvrdiť odbor", use_container_width=True):
+        st.session_state.setup_step = 2
+        save_progress()
+        st.rerun()
+
+    setup_overlay(
+        1,
+        "Vyber si odbor",
+        "V sidebare je zvýraznený výber odboru. Najprv ho potvrď, potom sa odomkne termín skúšky."
+    )
 
 available_subjects = FIELDS[selected_field_name]
 subj_list = list(available_subjects.keys())
 default_subj = st.session_state.last_settings.get("subj_name")
 s_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
 
+if "exam_dates" not in st.session_state:
+    st.session_state.exam_dates = {}
+
+if setup_active and step == 2:
+    setup_sidebar_note(2, "Zadaj termín skúšky", "Termín použijeme na výpočet denného plánu.")
+    begin_focused_widget()
+
+current_exam_raw = st.session_state.exam_dates.get(selected_field_name)
+current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
+
+selected_exam_date = st.sidebar.date_input(
+    "Termín skúšky",
+    value=current_exam_date,
+    disabled=setup_active and step != 2
+)
+
+if setup_active and step == 2:
+    end_focused_widget()
+
+if selected_exam_date:
+    st.session_state.exam_dates[selected_field_name] = selected_exam_date.isoformat()
+
+if setup_active and step == 2:
+    if st.sidebar.button("Potvrdiť termín", use_container_width=True):
+        save_progress()
+        st.session_state.setup_step = 3
+        st.rerun()
+
+    setup_overlay(
+        2,
+        "Zadaj termín skúšky",
+        "Vyber dátum prijímačiek. Aplikácia podľa neho vypočíta, koľko otázok denne treba prejsť."
+    )
+
+if setup_active and step == 3:
+    setup_sidebar_note(3, "Vyber predmet", "Vyber predmet, ktorým chceš začať. Neskôr ho môžeš meniť.")
+    begin_focused_widget()
+
 st.session_state.selected_subject_name = st.sidebar.selectbox(
     "Predmet",
     subj_list,
-    index=s_idx
+    index=s_idx,
+    disabled=setup_active and step != 3
 )
 
+if setup_active and step == 3:
+    end_focused_widget()
+
+if setup_active and step == 3:
+    if st.sidebar.button("Začať testovať", use_container_width=True):
+        st.session_state.last_settings["field_idx"] = st.session_state.selected_field_index
+        st.session_state.last_settings["subj_name"] = st.session_state.selected_subject_name
+        st.session_state.setup_completed = True
+        save_progress()
+        st.rerun()
+
+    setup_overlay(
+        3,
+        "Vyber predmet",
+        "Po výbere predmetu klikni na Začať testovať. Potom už bude aplikácia fungovať normálne."
+    )
+
+# Po dokončení setupu pokračuje normálna navigácia.
 selected_file = available_subjects[st.session_state.selected_subject_name]
 questions = load_questions(selected_file)
 

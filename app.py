@@ -898,6 +898,71 @@ def inject_css():
                 pointer-events: none;
             }
 
+
+            /* FINAL SPOTLIGHT SETUP PATCH */
+            body.setup-active .stApp::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(2, 6, 23, 0.975) !important;
+                backdrop-filter: grayscale(1) blur(12px) !important;
+                z-index: 9990;
+                pointer-events: none;
+            }
+
+            body.setup-active .main,
+            body.setup-active header,
+            body.setup-active footer {
+                opacity: 1 !important;
+                filter: none !important;
+            }
+
+            body.setup-active .top-hero,
+            body.setup-active div[data-testid="stVerticalBlockBorderWrapper"],
+            body.setup-active .question-text,
+            body.setup-active .question-topline,
+            body.setup-active .stProgress,
+            body.setup-active div[data-testid="stMetric"] {
+                filter: grayscale(1) brightness(0.06) contrast(0.55) !important;
+                opacity: 0.05 !important;
+            }
+
+            body.setup-active section[data-testid="stSidebar"] {
+                z-index: 10000 !important;
+                position: relative !important;
+                filter: grayscale(1) brightness(0.22) !important;
+            }
+
+            body.setup-active .setup-sidebar-brand,
+            body.setup-active .setup-focus-card,
+            body.setup-active .setup-focused-widget,
+            body.setup-active .setup-plan-widget,
+            body.setup-active .setup-plan-widget *,
+            body.setup-active .setup-main-hint {
+                filter: none !important;
+                opacity: 1 !important;
+            }
+
+            body.setup-active .main .block-container {
+                pointer-events: none !important;
+            }
+
+            body.setup-active .setup-plan-widget,
+            body.setup-active .setup-plan-widget * {
+                pointer-events: auto !important;
+            }
+
+            .setup-plan-widget {
+                position: relative;
+                z-index: 10005 !important;
+                background: rgba(15, 23, 42, 0.99);
+                border-radius: 20px;
+                padding: 12px;
+                border: 1px solid rgba(167,139,250,0.55);
+                box-shadow: 0 22px 70px rgba(0,0,0,0.72);
+                margin-bottom: 10px;
+            }
+
         </style>
         """,
         unsafe_allow_html=True
@@ -1039,6 +1104,21 @@ def save_users(data):
     write_json_file(USERS_FILE, data)
 
 
+
+def initial_user_state():
+    return {
+        "subjects_data": {},
+        "exam_dates": {},
+        "setup_completed": False,
+        "last_settings": {
+            "field_idx": 0,
+            "subj_name": None,
+            "topic_name": "Všetky celky",
+            "study_mode": "Smart review"
+        }
+    }
+
+
 def create_user(username, display_name, password):
     username = normalize_username(username)
 
@@ -1071,7 +1151,7 @@ def create_user(username, display_name, password):
 
             supabase.table("app_users").insert(user_row).execute()
 
-            initial_state = default_user_state()
+            initial_state = initial_user_state()
 
             supabase.table("user_states").insert(
                 {
@@ -1258,21 +1338,6 @@ def render_login_screen():
                 st.error("Nesprávne používateľské meno alebo heslo.")
 
     with register_tab:
-        st.markdown(
-            """
-            <div class="tutorial-card">
-                <div class="tutorial-title">Ako aplikácia funguje</div>
-                <div class="tutorial-grid">
-                    <div class="tutorial-step"><strong>Smart review</strong><br>Appka mieša nové, problémové a opakovacie otázky podľa tvojho progresu.</div>
-                    <div class="tutorial-step"><strong>Celky</strong><br>Vieš sa učiť celý predmet alebo iba konkrétny tematický celok.</div>
-                    <div class="tutorial-step"><strong>Termín skúšky</strong><br>Pre každý odbor si nastavíš vlastný dátum a appka vypočíta odporúčané tempo.</div>
-                    <div class="tutorial-step"><strong>Len nesprávne</strong><br>Samostatný tréning otázok, ktoré si už pokazil. Počíta sa do aktivity, nie do nových otázok.</div>
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
         with st.form("register_form"):
             display_name = st.text_input(
                 "Meno",
@@ -2363,14 +2428,15 @@ field_list = list(FIELDS.keys())
 f_idx = st.session_state.last_settings.get("field_idx", 0)
 
 if setup_active and step == 1:
-    setup_sidebar_note(1, "Vyber si odbor", "Najprv vyber odbor. Ostatné nastavenia sa odomknú potom.")
+    setup_sidebar_note(1, "Vyber si odbor", "Vyber odbor, na ktorý sa pripravuješ.")
     begin_focused_widget()
 
 selected_field_name = st.sidebar.selectbox(
     "Odbor",
     field_list,
     index=f_idx if f_idx < len(field_list) else 0,
-    disabled=setup_active and step != 1
+    disabled=setup_active and step != 1,
+    key="sidebar_field_select"
 )
 
 if setup_active and step == 1:
@@ -2398,46 +2464,26 @@ s_idx = subj_list.index(default_subj) if default_subj in subj_list else 0
 if "exam_dates" not in st.session_state:
     st.session_state.exam_dates = {}
 
-if setup_active and step == 2:
-    setup_sidebar_note(2, "Zadaj termín skúšky", "Termín použijeme na výpočet denného plánu.")
-    begin_focused_widget()
-
 current_exam_raw = st.session_state.exam_dates.get(selected_field_name)
 current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
 
-selected_exam_date = st.sidebar.date_input(
-    "Termín skúšky",
-    value=current_exam_date,
-    disabled=setup_active and step != 2
-)
-
 if setup_active and step == 2:
-    end_focused_widget()
-
-if selected_exam_date:
-    st.session_state.exam_dates[selected_field_name] = selected_exam_date.isoformat()
-
-if setup_active and step == 2:
-    if st.sidebar.button("Potvrdiť termín", use_container_width=True):
-        save_progress()
-        st.session_state.setup_step = 3
-        st.rerun()
-
     setup_overlay(
         2,
         "Zadaj termín skúšky",
-        "Zadaj termín skúšky v zvýraznenom okne v sidebare."
+        "Vpravo dole je otvorený Plán do skúšky. Zadaj termín a potvrď ho."
     )
 
 if setup_active and step == 3:
-    setup_sidebar_note(3, "Vyber predmet", "Vyber predmet, ktorým chceš začať. Neskôr ho môžeš meniť.")
+    setup_sidebar_note(3, "Vyber predmet", "Vyber predmet, ktorým chceš začať.")
     begin_focused_widget()
 
 st.session_state.selected_subject_name = st.sidebar.selectbox(
     "Predmet",
     subj_list,
     index=s_idx,
-    disabled=setup_active and step != 3
+    disabled=setup_active and step != 3,
+    key="sidebar_subject_select"
 )
 
 if setup_active and step == 3:
@@ -2466,7 +2512,12 @@ if not questions:
 
     render_hero(
         st.session_state.selected_subject_name,
-        selected_field_name
+        selected_field_name,
+        "Všetky celky",
+        None,
+        None,
+        0,
+        dynamic_daily_goal
     )
 
     st.error(f"Nepodarilo sa načítať súbor: {selected_file}")
@@ -2493,7 +2544,9 @@ t_idx = topic_options.index(default_topic) if default_topic in topic_options els
 st.session_state.selected_topic_name = st.sidebar.selectbox(
     "Celok",
     topic_options,
-    index=t_idx
+    index=t_idx,
+    disabled=setup_active,
+    key="sidebar_topic_select"
 )
 
 study_modes = ["Smart review", "Len nesprávne"]
@@ -2503,32 +2556,31 @@ mode_idx = study_modes.index(default_mode) if default_mode in study_modes else 0
 st.session_state.study_mode = st.sidebar.selectbox(
     "Režim",
     study_modes,
-    index=mode_idx
+    index=mode_idx,
+    disabled=setup_active,
+    key="sidebar_mode_select"
 )
 
 current_exam_date = get_exam_date_for_field(selected_field_name)
 default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12)
 
 
-# Bezpečný alias pre otázky po filtrovaní režimu/celku.
-# Niektoré časti appky používajú kratší názov mode_filtered_q.
-if "mode_filtered_q" not in globals():
-    try:
-        mode_filtered_q = mode_filtered_questions
-    except NameError:
-        try:
-            mode_filtered_q = filtered_questions
-        except NameError:
-            try:
-                mode_filtered_q = topic_filtered_questions
-            except NameError:
-                mode_filtered_q = questions
+# Otázky po filtrovaní celku a režimu.
+topic_filtered_questions = filter_questions_by_topic(
+    questions,
+    st.session_state.selected_topic_name
+)
 
+mode_filtered_questions = filter_questions_for_study_mode(
+    topic_filtered_questions,
+    current_data,
+    st.session_state.study_mode,
+    current_exam_date
+)
 
-try:
-    mode_filtered_questions
-except NameError:
-    mode_filtered_questions = mode_filtered_q
+if not mode_filtered_questions:
+    st.info("V tomto výbere zatiaľ nie sú dostupné otázky. Prepínam na všetky otázky z vybraného celku.")
+    mode_filtered_questions = topic_filtered_questions if topic_filtered_questions else questions
 
 # ============================================================
 # 11. CURRENT QUESTION
@@ -2745,17 +2797,37 @@ with right_col:
             st.rerun()
 
 
-    with st.expander("Plán do skúšky", expanded=False):
+    with st.expander("Plán do skúšky", expanded=(setup_active and step == 2)):
+        if setup_active and step == 2:
+            st.markdown(
+                """
+                <div class="setup-focus-card">
+                    <div class="setup-focus-kicker">Krok 2/3</div>
+                    <div class="setup-focus-title">Zadaj termín skúšky</div>
+                    <div class="setup-focus-text">Termín použijeme na výpočet denného plánu.</div>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+            st.markdown('<div class="setup-plan-widget">', unsafe_allow_html=True)
+
         current_exam_raw = st.session_state.get("exam_dates", {}).get(selected_field_name)
         current_exam_date = parse_date_safe(current_exam_raw) or date.today() + timedelta(days=21)
         updated_exam_date = st.date_input(
-            "Upraviť termín skúšky",
+            "Termín skúšky" if setup_active and step == 2 else "Upraviť termín skúšky",
             value=current_exam_date,
             format="DD.MM.YYYY",
             key=f"exam_date_plan_{selected_field_name}"
         )
 
-        if updated_exam_date.isoformat() != st.session_state.get("exam_dates", {}).get(selected_field_name):
+        if setup_active and step == 2:
+            if st.button("Potvrdiť termín", use_container_width=True, key="confirm_exam_date_setup"):
+                st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
+                save_progress()
+                st.session_state.setup_step = 3
+                st.rerun()
+            st.markdown("</div>", unsafe_allow_html=True)
+        elif updated_exam_date.isoformat() != st.session_state.get("exam_dates", {}).get(selected_field_name):
             st.session_state.exam_dates[selected_field_name] = updated_exam_date.isoformat()
             save_progress()
             st.rerun()

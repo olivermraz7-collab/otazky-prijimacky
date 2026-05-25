@@ -816,15 +816,15 @@ def inject_css():
             }
 
         
-            .question-badge-row {
-                display: flex;
-                gap: 8px;
-                align-items: center;
-                flex-wrap: wrap;
-                margin: 2px 0 12px 0;
+            .question-card-shell {
+                position: relative;
             }
 
-            .question-status-badge {
+            .question-status-badge-new {
+                position: absolute;
+                top: 14px;
+                right: 16px;
+                z-index: 5;
                 display: inline-flex;
                 align-items: center;
                 border-radius: 999px;
@@ -833,20 +833,10 @@ def inject_css():
                 font-weight: 900;
                 letter-spacing: 0.08em;
                 text-transform: uppercase;
-                border: 1px solid rgba(255,255,255,0.10);
-            }
-
-            .question-status-badge-new {
-                background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(37, 99, 235, 0.16));
+                background: linear-gradient(135deg, rgba(139, 92, 246, 0.24), rgba(37, 99, 235, 0.18));
                 color: #ddd6fe;
-                border-color: rgba(167, 139, 250, 0.38);
-                box-shadow: 0 10px 24px rgba(124, 58, 237, 0.16);
-            }
-
-            .question-status-badge-review {
-                background: rgba(148, 163, 184, 0.13);
-                color: #cbd5e1;
-                border-color: rgba(148, 163, 184, 0.22);
+                border: 1px solid rgba(167, 139, 250, 0.42);
+                box-shadow: 0 10px 24px rgba(124, 58, 237, 0.18);
             }
 
         </style>
@@ -2221,27 +2211,15 @@ def render_question_header(q, p):
 
 
 def render_question_badges(p):
-    status = p.get("status", "NEW")
+    if p.get("status", "NEW") != "NEW":
+        return
 
-    if status == "NEW":
-        st.markdown(
-            """
-            <div class="question-badge-row">
-                <span class="question-status-badge question-status-badge-new">NEW</span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-    else:
-        st.markdown(
-            f"""
-            <div class="question-badge-row">
-                <span class="question-status-badge question-status-badge-review">{escape(status_label(status))}</span>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
+    st.markdown(
+        """
+        <span class="question-status-badge-new">NEW</span>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 def render_small_report_link(q, subject_name):
@@ -3225,9 +3203,11 @@ left_col, right_col = st.columns([0.70, 0.30], gap="large")
 
 with left_col:
     with st.container(border=True):
-        render_question_header(q, q_progress)
+        st.markdown('<div class="question-card-shell">', unsafe_allow_html=True)
         render_question_badges(q_progress)
+        render_question_header(q, q_progress)
         render_question_text_and_images(q)
+        st.markdown('</div><!-- question-card-shell-close -->', unsafe_allow_html=True)
 
         user_choices = []
 

@@ -2184,7 +2184,7 @@ def render_hero(
                 </div>
                 <div class="hero-pill-row">
                     <span class="hero-pill">Naučené: {learning_percent}%</span>
-                    <span class="hero-pill">Nové: {display_daily_goal}/deň</span>
+                    <span class="hero-pill">Nové v predmete: {display_daily_goal}/deň</span>
                 </div>
             </div>
         </div>
@@ -3186,13 +3186,17 @@ if "answered" not in st.session_state:
 
 
 subject_learning_percent = calculate_learning_percent(current_data, questions)
-hero_daily_goal, _hero_field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
+dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
+subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
+
+# Header ukazuje cieľ iba pre aktuálne otvorený predmet, nie súčet všetkých predmetov odboru.
+hero_daily_goal = subject_daily_goal
 
 render_hero(
     st.session_state.selected_subject_name,
     selected_field_name,
     st.session_state.selected_topic_name,
-    len(mode_filtered_questions),
+    len(topic_filtered_questions),
     len(questions),
     subject_learning_percent,
     hero_daily_goal

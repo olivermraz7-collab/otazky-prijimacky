@@ -1561,6 +1561,52 @@ def get_question_progress(subject_state, qid):
     return p
 
 
+
+def count_global_subject_progress(subject_state, questions):
+    """
+    Globálny stav predmetu/celku nezávislý od aktuálneho režimu.
+    - Neprejdené = otázka ešte nemá first_seen.
+    - Prejdené = otázka už bola aspoň raz otvorená/odpovedaná.
+    """
+    result = {
+        "total": len(questions),
+        "seen": 0,
+        "unseen": 0,
+        "correct_total": 0,
+        "wrong_total": 0,
+        "red": 0,
+        "yellow": 0,
+        "green": 0,
+        "mastered": 0
+    }
+
+    for q in questions:
+        p = get_question_progress(subject_state, get_qid(q))
+        status = p.get("status", "NEW")
+
+        was_seen = p.get("first_seen") is not None or p.get("correct_count", 0) > 0 or p.get("wrong_count", 0) > 0
+
+        if was_seen:
+            result["seen"] += 1
+        else:
+            result["unseen"] += 1
+
+        result["correct_total"] += p.get("correct_count", 0)
+        result["wrong_total"] += p.get("wrong_count", 0)
+
+        if status == "RED":
+            result["red"] += 1
+        elif status == "YELLOW":
+            result["yellow"] += 1
+        elif status == "GREEN":
+            result["green"] += 1
+        elif status == "MASTERED":
+            result["mastered"] += 1
+
+    return result
+
+
+
 def count_statuses(subject_state, questions):
     counts = {
         "NEW": 0,
@@ -2184,7 +2230,7 @@ def render_hero(
                 </div>
                 <div class="hero-pill-row">
                     <span class="hero-pill">Naučené: {learning_percent}%</span>
-                    <span class="hero-pill">Nové: {display_daily_goal}/deň</span>
+                    <span class="hero-pill">Nové v predmete: {display_daily_goal}/deň</span>
                 </div>
             </div>
         </div>
@@ -3185,7 +3231,7 @@ if "answered" not in st.session_state:
 
 
 
-subject_learning_percent = calculate_learning_percent(current_data, questions)
+subject_learning_percent = calculate_learning_percent(current_data, topic_filtered_questions)
 dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
 subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
 
@@ -3286,7 +3332,7 @@ with left_col:
 
 
 with right_col:
-    counts = count_statuses(current_data, mode_filtered_questions)
+    counts = count_statuses(current_data, topic_filtered_questions)
     daily_stats = get_daily_stats(current_data)
     new_limit = dynamic_daily_new_limit(counts)
     dynamic_new_goal = 0 if final_review_period else subject_daily_goal
@@ -3350,14 +3396,26 @@ with right_col:
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
+        st.caption("Štatistika z celého aktuálneho predmetu/celku, nezávislá od režimu učenia.")
+
+        # Globálny stav celého aktuálneho predmetu/celku, nezávislý od režimu.
+        # Dôležité: počíta sa z topic_filtered_questions, nie z mode_filtered_questions.
+        global_counts = count_statuses(current_data, topic_filtered_questions)
+
+        global_not_mastered = (
+            global_counts.get("NEW", 0)
+            + global_counts.get("RED", 0)
+            + global_counts.get("YELLOW", 0)
+            + global_counts.get("GREEN", 0)
+        )
 
         status_rows = [
-            ("Nové", counts.get("NEW", 0)),
-            ("Problémové", counts.get("RED", 0)),
-            ("Na opakovanie", counts.get("YELLOW", 0)),
-            ("Zvládnuté", counts.get("GREEN", 0)),
-            ("Mastered", counts.get("MASTERED", 0)),
-            ("Zostáva zvládnuť", not_mastered)
+            ("Nové", global_counts.get("NEW", 0)),
+            ("Problémové", global_counts.get("RED", 0)),
+            ("Na opakovanie", global_counts.get("YELLOW", 0)),
+            ("Zvládnuté", global_counts.get("GREEN", 0)),
+            ("Mastered", global_counts.get("MASTERED", 0)),
+            ("Zostáva zvládnuť", global_not_mastered)
         ]
 
         for label, value in status_rows:

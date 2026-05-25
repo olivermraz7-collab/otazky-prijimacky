@@ -1743,7 +1743,7 @@ def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Den
     if p.get("first_seen") is None:
         p["first_seen"] = today_iso
 
-    if old_status == "NEW" and study_mode in ["Denný plán", "Len nové"]:
+    if old_status == "NEW" and study_mode == "Denný plán":
         stats["new_seen"] += 1
 
     stats["answered"] += 1
@@ -2030,7 +2030,7 @@ def get_wrong_questions(questions, subject_state):
     for q in questions:
         p = get_question_progress(subject_state, get_qid(q))
 
-        if p.get("wrong_count", 0) > 0 or p.get("status") in ["RED", "YELLOW"]:
+        if p.get("wrong_count", 0) > p.get("correct_count", 0):
             wrong_questions.append(q)
 
     return wrong_questions
@@ -2051,23 +2051,31 @@ def get_new_questions(questions, subject_state):
 def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_date, daily_new_goal=None):
     """
     Režimy:
-    - Denný plán: prioritne nové otázky do denného cieľa, potom opakovanie/problémové.
-    - Len nové: iba otázky so statusom NEW.
-    - Opakovanie: iba otázky, ktoré majú byť dnes zopakované.
-    - Len nesprávne: otázky, ktoré boli zle alebo sú problémové.
+    - Denný plán: primárne nové otázky do denného cieľa.
+    - Opakovanie: všetky už prejdené otázky, žiadne nové.
+    - Len nesprávne: otázky, kde je viac nesprávnych odpovedí ako správnych.
     """
     stats = get_daily_stats(subject_state)
     daily_new_goal = daily_new_goal or DAILY_GOAL
 
     new_questions = get_new_questions(questions, subject_state)
-    review_questions = get_review_questions(questions, subject_state)
     wrong_questions = get_wrong_questions(questions, subject_state)
 
-    if study_mode == "Len nové":
-        return new_questions
+    seen_questions = []
+    due_review_questions = []
+
+    for q in questions:
+        p = get_question_progress(subject_state, get_qid(q))
+        status = p.get("status", "NEW")
+
+        if status != "NEW":
+            seen_questions.append(q)
+
+        if is_due_for_review(p):
+            due_review_questions.append(q)
 
     if study_mode == "Opakovanie":
-        return review_questions
+        return due_review_questions or seen_questions
 
     if study_mode == "Len nesprávne":
         return wrong_questions
@@ -2075,21 +2083,15 @@ def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_d
     # Denný plán
     new_seen_today = stats.get("new_seen", 0)
 
-    # V posledných dňoch pred skúškou viac opakovať ako otvárať nové.
     if is_final_review_window(exam_date):
-        return review_questions or wrong_questions or questions
+        return due_review_questions or seen_questions or wrong_questions or questions
 
-    # Kým nie je splnený denný cieľ nových otázok, preferujeme nové otázky.
-    # Opakovania úplne nezmiznú z priority, ale pool je najmä nový.
+    # Kým nie je splnený denný cieľ nových otázok, idú nové otázky.
     if new_seen_today < daily_new_goal:
-        if new_questions:
-            return new_questions
+        return new_questions or due_review_questions or seen_questions or wrong_questions or questions
 
-        # Ak už nové v tomto celku/predmete nie sú, prejdi na review.
-        return review_questions or wrong_questions or questions
-
-    # Po splnení nových otázok sa ide na opakovanie a problémové.
-    return review_questions or wrong_questions or questions
+    # Po splnení cieľa sa ide viac na opakovanie/problémové.
+    return due_review_questions or seen_questions or wrong_questions or questions
 
 
 
@@ -3071,7 +3073,7 @@ st.session_state.selected_topic_name = st.sidebar.selectbox(
     key="sidebar_topic_select"
 )
 
-study_modes = ["Denný plán", "Len nové", "Opakovanie", "Len nesprávne"]
+study_modes = ["Denný plán", "Opakovanie", "Len nesprávne"]
 default_mode = st.session_state.last_settings.get("study_mode", "Denný plán")
 mode_idx = study_modes.index(default_mode) if default_mode in study_modes else 0
 
@@ -3256,6 +3258,15 @@ with right_col:
     all_wrong_count = len(get_wrong_questions(topic_filtered_questions, current_data))
     all_new_count = len(get_new_questions(topic_filtered_questions, current_data))
 
+    seen_questions_today_count = 0
+    wrong_review_today_count = 0
+    for _q in topic_filtered_questions:
+        _p = get_question_progress(current_data, get_qid(_q))
+        if _p.get("status", "NEW") != "NEW":
+            seen_questions_today_count += 1
+        if _p.get("wrong_count", 0) > _p.get("correct_count", 0):
+            wrong_review_today_count += 1
+
     dynamic_daily_goal, field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
     days_left = field_plan.get("days_left")
     learning_days = field_plan.get("learning_days")
@@ -3276,24 +3287,30 @@ with right_col:
         st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
 
     with st.container(border=True):
-        st.markdown("### Denný cieľ")
+        if st.session_state.study_mode == "Denný plán":
+            st.markdown("### Denný cieľ")
+            st.progress(progress_percent(new_seen_today, subject_daily_goal))
+            st.markdown(f"**{new_seen_today} / {subject_daily_goal}** nových otázok dnes")
 
-        st.progress(progress_percent(answered_today, subject_daily_goal))
-        st.markdown(f"**{answered_today} / {subject_daily_goal}** otázok dnes")
+            if new_seen_today >= subject_daily_goal:
+                st.success("Denný cieľ nových otázok splnený.")
+                st.caption("Teraz môžeš prejsť na Opakovanie alebo Len nesprávne.")
+            else:
+                st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} nových otázok do dnešného cieľa.")
 
-        if answered_today >= subject_daily_goal:
-            st.success("Denný cieľ splnený.")
-        else:
-            st.caption(f"Zostáva dnes: {max(0, subject_daily_goal - answered_today)} otázok")
+        elif st.session_state.study_mode == "Opakovanie":
+            st.markdown("### Opakovanie")
+            total_review_pool = max(1, all_review_due_count if all_review_due_count > 0 else seen_questions_today_count)
+            st.progress(progress_percent(smart_today, total_review_pool))
+            st.markdown(f"**{smart_today} / {total_review_pool}** opakovacích otázok dnes")
+            st.caption("Tento režim používa už prejdené otázky. Nové otázky sa tu nezobrazujú.")
 
-        st.divider()
-
-        if dynamic_new_goal == 0:
-            st.caption("Nové otázky dnes: vypnuté")
-        else:
-            st.caption(f"Nové otázky dnes: {new_seen_today} / {dynamic_new_goal}")
-        if st.session_state.study_mode == "Len nesprávne":
-            st.caption("Tento režim sa počíta do otázok dnes, ale nie do nových otázok.")
+        elif st.session_state.study_mode == "Len nesprávne":
+            st.markdown("### Len nesprávne")
+            total_wrong_pool = max(1, all_wrong_count)
+            st.progress(progress_percent(wrong_review_today, total_wrong_pool))
+            st.markdown(f"**{wrong_review_today} / {total_wrong_pool}** problémových otázok dnes")
+            st.caption("Tu sú len otázky, kde máš viac nesprávnych odpovedí ako správnych.")
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")

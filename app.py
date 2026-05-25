@@ -3433,7 +3433,6 @@ with right_col:
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
-        st.caption("Štatistika z celého aktuálneho predmetu/celku, nezávislá od režimu učenia.")
 
         # Globálny stav celého aktuálneho predmetu/celku, nezávislý od režimu.
         # Dôležité: počíta sa z topic_filtered_questions, nie z mode_filtered_questions.

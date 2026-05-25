@@ -1802,11 +1802,47 @@ def update_recent_questions(subject_state, qid):
     subject_state["recent_question_ids"] = recent
 
 
+
+def should_count_as_learned_today(old_progress, new_progress, was_correct):
+    """
+    Denný cieľ = koľko otázok sa dnes reálne naučíš.
+
+    Počíta sa, keď:
+    1. otázka bola NEW a prvýkrát ju dáš správne,
+    2. alebo otázka bola problémová a po tejto odpovedi už nemá viac zlých ako správnych odpovedí.
+    """
+    if not was_correct:
+        return False
+
+    old_status = old_progress.get("status", "NEW")
+    old_correct = old_progress.get("correct_count", 0)
+    old_wrong = old_progress.get("wrong_count", 0)
+
+    new_correct = new_progress.get("correct_count", 0)
+    new_wrong = new_progress.get("wrong_count", 0)
+
+    # Nová otázka sa ráta až vtedy, keď ju prvýkrát dáš správne.
+    if old_status == "NEW" and old_correct == 0 and old_wrong == 0:
+        return True
+
+    # Problémová otázka sa ráta vtedy, keď sa práve dostane z bilancie
+    # viac zlých ako správnych do bilancie správnych aspoň toľko ako zlých.
+    was_problematic = old_wrong > old_correct
+    is_now_stabilized = new_correct >= new_wrong
+
+    if was_problematic and is_now_stabilized:
+        return True
+
+    return False
+
+
+
 def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Denný plán"):
     p = get_question_progress(subject_state, qid)
     stats = get_daily_stats(subject_state)
 
     old_status = p.get("status", "NEW")
+    old_progress_snapshot = dict(p)
     today = date.today()
     today_iso = today.isoformat()
 
@@ -2150,7 +2186,7 @@ def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_d
     if study_mode == "Len nesprávne":
         return wrong_questions
 
-    # Denný plán = hlavný režim na plnenie nových otázok.
+    # Denný plán = hlavný režim na plnenie naučených otázok.
     new_seen_today = stats.get("new_seen", 0)
 
     # Pred skúškou môžeš stále opakovať, ale iba keď už nové nie sú dostupné.
@@ -2231,7 +2267,7 @@ def render_hero(
                 </div>
                 <div class="hero-pill-row">
                     <span class="hero-pill">Naučené: {learning_percent}%</span>
-                    <span class="hero-pill">Nové v predmete: {display_daily_goal}/deň</span>
+                    <span class="hero-pill">Cieľ: {display_daily_goal}/deň</span>
                 </div>
             </div>
         </div>
@@ -3375,26 +3411,26 @@ with right_col:
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
-        st.caption(f"Denný cieľ: {new_seen_today} nových · spolu odpovedí dnes: {answered_today}")
+        st.caption(f"Denný cieľ: {new_seen_today} naučených · spolu odpovedí dnes: {answered_today}")
         st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
 
     with st.container(border=True):
         st.markdown("### Denný cieľ")
 
         st.progress(progress_percent(new_seen_today, subject_daily_goal))
-        st.markdown(f"**{new_seen_today} / {subject_daily_goal}** nových otázok dnes")
+        st.markdown(f"**{new_seen_today} / {subject_daily_goal}** naučených otázok dnes")
 
         if new_seen_today >= subject_daily_goal:
-            st.success("Denný cieľ nových otázok splnený.")
+            st.success("Denný cieľ naučených otázok splnený.")
         else:
-            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} nových otázok do dnešného cieľa.")
+            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} naučených otázok do dnešného cieľa.")
 
         if st.session_state.study_mode == "Denný plán":
-            st.caption("Tento cieľ sa plní iba novými otázkami v režime Denný plán.")
+            st.caption("Tento cieľ sa plní otázkami, ktoré sa dnes reálne naučíš.")
         elif st.session_state.study_mode == "Opakovanie":
-            st.caption("Si v režime Opakovanie. Denný cieľ sa nemení, lebo tu neriešiš nové otázky.")
+            st.caption("Si v režime Opakovanie. Cieľ sa zvýši iba vtedy, keď otázku reálne posunieš medzi naučené.")
         elif st.session_state.study_mode == "Len nesprávne":
-            st.caption("Si v režime Len nesprávne. Denný cieľ sa nemení, lebo tu trénuješ problémové otázky.")
+            st.caption("Si v režime Len nesprávne. Cieľ sa zvýši, keď problémovú otázku dostaneš na viac správnych ako nesprávnych.")
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")

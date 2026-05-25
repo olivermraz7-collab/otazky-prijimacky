@@ -966,7 +966,7 @@ def initial_user_state():
             "field_idx": 0,
             "subj_name": None,
             "topic_name": "Všetky celky",
-            "study_mode": "Smart review"
+            "study_mode": "Denný plán"
         }
     }
 
@@ -1269,7 +1269,7 @@ def default_user_state():
             "field_idx": 0,
             "subj_name": None,
             "topic_name": "Všetky celky",
-            "study_mode": "Smart review"
+            "study_mode": "Denný plán"
         }
     }
 
@@ -1385,7 +1385,7 @@ def save_progress():
             "field_idx": st.session_state.selected_field_index,
             "subj_name": st.session_state.selected_subject_name,
             "topic_name": st.session_state.get("selected_topic_name", "Všetky celky"),
-            "study_mode": st.session_state.get("study_mode", "Smart review")
+            "study_mode": st.session_state.get("study_mode", "Denný plán")
         }
     }
 
@@ -1404,7 +1404,7 @@ if st.session_state.get("loaded_user") != st.session_state.username:
             "field_idx": 0,
             "subj_name": None,
             "topic_name": "Všetky celky",
-            "study_mode": "Smart review"
+            "study_mode": "Denný plán"
         }
     )
 
@@ -1732,7 +1732,7 @@ def update_recent_questions(subject_state, qid):
     subject_state["recent_question_ids"] = recent
 
 
-def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Smart review"):
+def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Denný plán"):
     p = get_question_progress(subject_state, qid)
     stats = get_daily_stats(subject_state)
 
@@ -1743,7 +1743,7 @@ def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Sma
     if p.get("first_seen") is None:
         p["first_seen"] = today_iso
 
-    if old_status == "NEW" and study_mode == "Smart review":
+    if old_status == "NEW" and study_mode in ["Denný plán", "Len nové"]:
         stats["new_seen"] += 1
 
     stats["answered"] += 1
@@ -1995,29 +1995,103 @@ def get_dynamic_daily_goal(field_name, exam_date):
     return max(DAILY_GOAL, plan.get("total_daily_needed", 0)), plan
 
 
-def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_date):
+def is_due_for_review(question_progress, exam_date=None):
+    status = question_progress.get("status", "NEW")
+
+    if status == "NEW":
+        return False
+
+    if status == "RED":
+        return True
+
+    next_review = parse_date_safe(question_progress.get("next_review"))
+
+    if next_review is None:
+        return status in ["YELLOW", "GREEN"]
+
+    return next_review <= date.today()
+
+
+def get_review_questions(questions, subject_state):
+    review_questions = []
+
+    for q in questions:
+        p = get_question_progress(subject_state, get_qid(q))
+
+        if is_due_for_review(p):
+            review_questions.append(q)
+
+    return review_questions
+
+
+def get_wrong_questions(questions, subject_state):
+    wrong_questions = []
+
+    for q in questions:
+        p = get_question_progress(subject_state, get_qid(q))
+
+        if p.get("wrong_count", 0) > 0 or p.get("status") in ["RED", "YELLOW"]:
+            wrong_questions.append(q)
+
+    return wrong_questions
+
+
+def get_new_questions(questions, subject_state):
+    new_questions = []
+
+    for q in questions:
+        p = get_question_progress(subject_state, get_qid(q))
+
+        if p.get("status", "NEW") == "NEW":
+            new_questions.append(q)
+
+    return new_questions
+
+
+def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_date, daily_new_goal=None):
+    """
+    Režimy:
+    - Denný plán: prioritne nové otázky do denného cieľa, potom opakovanie/problémové.
+    - Len nové: iba otázky so statusom NEW.
+    - Opakovanie: iba otázky, ktoré majú byť dnes zopakované.
+    - Len nesprávne: otázky, ktoré boli zle alebo sú problémové.
+    """
+    stats = get_daily_stats(subject_state)
+    daily_new_goal = daily_new_goal or DAILY_GOAL
+
+    new_questions = get_new_questions(questions, subject_state)
+    review_questions = get_review_questions(questions, subject_state)
+    wrong_questions = get_wrong_questions(questions, subject_state)
+
+    if study_mode == "Len nové":
+        return new_questions
+
+    if study_mode == "Opakovanie":
+        return review_questions
+
     if study_mode == "Len nesprávne":
-        wrong_questions = []
-
-        for q in questions:
-            p = get_question_progress(subject_state, get_qid(q))
-            if p.get("wrong_count", 0) > 0 or p.get("status") in ["RED", "YELLOW"]:
-                wrong_questions.append(q)
-
         return wrong_questions
 
+    # Denný plán
+    new_seen_today = stats.get("new_seen", 0)
+
+    # V posledných dňoch pred skúškou viac opakovať ako otvárať nové.
     if is_final_review_window(exam_date):
-        review_questions = []
+        return review_questions or wrong_questions or questions
 
-        for q in questions:
-            p = get_question_progress(subject_state, get_qid(q))
-            if p.get("status") != "NEW":
-                review_questions.append(q)
+    # Kým nie je splnený denný cieľ nových otázok, preferujeme nové otázky.
+    # Opakovania úplne nezmiznú z priority, ale pool je najmä nový.
+    if new_seen_today < daily_new_goal:
+        if new_questions:
+            return new_questions
 
-        if review_questions:
-            return review_questions
+        # Ak už nové v tomto celku/predmete nie sú, prejdi na review.
+        return review_questions or wrong_questions or questions
 
-    return questions
+    # Po splnení nových otázok sa ide na opakovanie a problémové.
+    return review_questions or wrong_questions or questions
+
+
 
 
 # ============================================================
@@ -2076,7 +2150,7 @@ def render_hero(
         <div class="top-hero">
             <div class="hero-top-row">
                 <div>
-                    <div class="hero-kicker">Smart review</div>
+                    <div class="hero-kicker">Denný plán</div>
                     <div class="hero-title">{escape(subject_name)}</div>
                     <div style="color:#94a3b8;font-size:13px;margin-top:6px;">
                         {escape(subtitle)} · {escape(count_label)}
@@ -2997,8 +3071,8 @@ st.session_state.selected_topic_name = st.sidebar.selectbox(
     key="sidebar_topic_select"
 )
 
-study_modes = ["Smart review", "Len nesprávne"]
-default_mode = st.session_state.last_settings.get("study_mode", "Smart review")
+study_modes = ["Denný plán", "Len nové", "Opakovanie", "Len nesprávne"]
+default_mode = st.session_state.last_settings.get("study_mode", "Denný plán")
 mode_idx = study_modes.index(default_mode) if default_mode in study_modes else 0
 
 st.session_state.study_mode = st.sidebar.selectbox(
@@ -3019,18 +3093,24 @@ topic_filtered_questions = filter_questions_by_topic(
     st.session_state.selected_topic_name
 )
 
+dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
+subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
+
 mode_filtered_questions = filter_questions_for_study_mode(
     topic_filtered_questions,
     current_data,
     st.session_state.study_mode,
-    current_exam_date
+    current_exam_date,
+    subject_daily_goal
 )
 
 if not mode_filtered_questions:
-    st.info("V tomto výbere zatiaľ nie sú dostupné otázky. Prepínam na všetky otázky z vybraného celku.")
+    st.info("V tomto režime teraz nie sú dostupné otázky. Dočasne prepínam na všetky otázky z vybraného výberu.")
     mode_filtered_questions = topic_filtered_questions if topic_filtered_questions else questions
 
 # ============================================================
+final_review_period = is_final_review_period(selected_field_name)
+
 # 11. CURRENT QUESTION
 # ============================================================
 
@@ -3043,13 +3123,13 @@ if nonce_key not in st.session_state:
     st.session_state[nonce_key] = 0
 
 if question_session_key not in st.session_state:
-    selected_question = choose_next_question(mode_filtered_questions, current_data)
+    selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
     st.session_state[question_session_key] = get_qid(selected_question)
 
 q = get_question_by_id(mode_filtered_questions, st.session_state[question_session_key])
 
 if q is None:
-    selected_question = choose_next_question(mode_filtered_questions, current_data)
+    selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
     st.session_state[question_session_key] = get_qid(selected_question)
     q = selected_question
 
@@ -3172,6 +3252,10 @@ with right_col:
     smart_today = daily_stats.get("smart_answered", 0)
     wrong_review_today = daily_stats.get("wrong_review_answered", 0)
 
+    all_review_due_count = len(get_review_questions(topic_filtered_questions, current_data))
+    all_wrong_count = len(get_wrong_questions(topic_filtered_questions, current_data))
+    all_new_count = len(get_new_questions(topic_filtered_questions, current_data))
+
     dynamic_daily_goal, field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
     days_left = field_plan.get("days_left")
     learning_days = field_plan.get("learning_days")
@@ -3188,7 +3272,8 @@ with right_col:
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
-        st.caption(f"Smart review: {smart_today} · Len nesprávne: {wrong_review_today}")
+        st.caption(f"Nové dnes: {new_seen_today} · spolu odpovedí: {answered_today}")
+        st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
 
     with st.container(border=True):
         st.markdown("### Denný cieľ")

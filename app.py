@@ -2084,7 +2084,7 @@ def render_hero(
                 </div>
                 <div class="hero-pill-row">
                     <span class="hero-pill">Naučené: {learning_percent}%</span>
-                    <span class="hero-pill">Cieľ: {display_daily_goal}/deň</span>
+                    <span class="hero-pill">Nové: {display_daily_goal}/deň</span>
                 </div>
             </div>
         </div>
@@ -2150,7 +2150,7 @@ def render_plan_rows(plan):
             f"""
             <div class="plan-row">
                 <span class="plan-label">{escape(item['subject'])}</span>
-                <span class="plan-value">{item['daily_needed']} / deň</span>
+                <span class="plan-value">{item['daily_needed']} nových/deň</span>
             </div>
             """,
             unsafe_allow_html=True
@@ -3253,7 +3253,7 @@ with right_col:
                 st.divider()
                 render_plan_rows(field_plan)
                 st.divider()
-                st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} otázok/deň")
+                st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} nových otázok/deň")
             else:
                 st.caption("Termín skúšky nastavíš pri prvom spustení alebo neskôr v nastaveniach.")
 

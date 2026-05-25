@@ -2197,6 +2197,7 @@ def status_class(status):
 def render_hero(
     subject_name,
     field_name,
+    mode_name="Denný plán",
     topic_name="Všetky celky",
     question_count=None,
     total_count=None,
@@ -2222,7 +2223,7 @@ def render_hero(
         <div class="top-hero">
             <div class="hero-top-row">
                 <div>
-                    <div class="hero-kicker">Denný plán</div>
+                    <div class="hero-kicker">{escape(mode_name)}</div>
                     <div class="hero-title">{escape(subject_name)}</div>
                     <div style="color:#94a3b8;font-size:13px;margin-top:6px;">
                         {escape(subtitle)} · {escape(count_label)}
@@ -3241,6 +3242,7 @@ hero_daily_goal = subject_daily_goal
 render_hero(
     st.session_state.selected_subject_name,
     selected_field_name,
+    st.session_state.study_mode,
     st.session_state.selected_topic_name,
     len(topic_filtered_questions),
     len(questions),

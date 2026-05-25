@@ -815,6 +815,40 @@ def inject_css():
                 margin-bottom: 10px;
             }
 
+        
+            .question-badge-row {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                flex-wrap: wrap;
+                margin: 2px 0 12px 0;
+            }
+
+            .question-status-badge {
+                display: inline-flex;
+                align-items: center;
+                border-radius: 999px;
+                padding: 6px 10px;
+                font-size: 11px;
+                font-weight: 900;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                border: 1px solid rgba(255,255,255,0.10);
+            }
+
+            .question-status-badge-new {
+                background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(37, 99, 235, 0.16));
+                color: #ddd6fe;
+                border-color: rgba(167, 139, 250, 0.38);
+                box-shadow: 0 10px 24px rgba(124, 58, 237, 0.16);
+            }
+
+            .question-status-badge-review {
+                background: rgba(148, 163, 184, 0.13);
+                color: #cbd5e1;
+                border-color: rgba(148, 163, 184, 0.22);
+            }
+
         </style>
         """,
         unsafe_allow_html=True
@@ -2051,8 +2085,8 @@ def get_new_questions(questions, subject_state):
 def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_date, daily_new_goal=None):
     """
     Režimy:
-    - Denný plán: primárne nové otázky do denného cieľa.
-    - Opakovanie: všetky už prejdené otázky, žiadne nové.
+    - Denný plán: nové otázky do denného cieľa.
+    - Opakovanie: už prejdené otázky, žiadne nové.
     - Len nesprávne: otázky, kde je viac nesprávnych odpovedí ako správnych.
     """
     stats = get_daily_stats(subject_state)
@@ -2080,18 +2114,18 @@ def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_d
     if study_mode == "Len nesprávne":
         return wrong_questions
 
-    # Denný plán
+    # Denný plán = hlavný režim na plnenie nových otázok.
     new_seen_today = stats.get("new_seen", 0)
 
-    if is_final_review_window(exam_date):
+    # Pred skúškou môžeš stále opakovať, ale iba keď už nové nie sú dostupné.
+    if is_final_review_window(exam_date) and not new_questions:
         return due_review_questions or seen_questions or wrong_questions or questions
 
-    # Kým nie je splnený denný cieľ nových otázok, idú nové otázky.
     if new_seen_today < daily_new_goal:
-        return new_questions or due_review_questions or seen_questions or wrong_questions or questions
+        return new_questions or questions
 
-    # Po splnení cieľa sa ide viac na opakovanie/problémové.
-    return due_review_questions or seen_questions or wrong_questions or questions
+    # Po splnení denného cieľa nových otázok už môže ponúknuť aj opakovanie.
+    return due_review_questions or seen_questions or wrong_questions or new_questions or questions
 
 
 
@@ -2183,6 +2217,31 @@ def render_question_header(q, p):
         """,
         unsafe_allow_html=True
     )
+
+
+
+def render_question_badges(p):
+    status = p.get("status", "NEW")
+
+    if status == "NEW":
+        st.markdown(
+            """
+            <div class="question-badge-row">
+                <span class="question-status-badge question-status-badge-new">NEW</span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    else:
+        st.markdown(
+            f"""
+            <div class="question-badge-row">
+                <span class="question-status-badge question-status-badge-review">{escape(status_label(status))}</span>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
 
 
 def render_small_report_link(q, subject_name):
@@ -3167,6 +3226,7 @@ left_col, right_col = st.columns([0.70, 0.30], gap="large")
 with left_col:
     with st.container(border=True):
         render_question_header(q, q_progress)
+        render_question_badges(q_progress)
         render_question_text_and_images(q)
 
         user_choices = []
@@ -3283,34 +3343,26 @@ with right_col:
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
-        st.caption(f"Nové dnes: {new_seen_today} · spolu odpovedí: {answered_today}")
+        st.caption(f"Denný cieľ: {new_seen_today} nových · spolu odpovedí dnes: {answered_today}")
         st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
 
     with st.container(border=True):
+        st.markdown("### Denný cieľ")
+
+        st.progress(progress_percent(new_seen_today, subject_daily_goal))
+        st.markdown(f"**{new_seen_today} / {subject_daily_goal}** nových otázok dnes")
+
+        if new_seen_today >= subject_daily_goal:
+            st.success("Denný cieľ nových otázok splnený.")
+        else:
+            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} nových otázok do dnešného cieľa.")
+
         if st.session_state.study_mode == "Denný plán":
-            st.markdown("### Denný cieľ")
-            st.progress(progress_percent(new_seen_today, subject_daily_goal))
-            st.markdown(f"**{new_seen_today} / {subject_daily_goal}** nových otázok dnes")
-
-            if new_seen_today >= subject_daily_goal:
-                st.success("Denný cieľ nových otázok splnený.")
-                st.caption("Teraz môžeš prejsť na Opakovanie alebo Len nesprávne.")
-            else:
-                st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} nových otázok do dnešného cieľa.")
-
+            st.caption("Tento cieľ sa plní iba novými otázkami v režime Denný plán.")
         elif st.session_state.study_mode == "Opakovanie":
-            st.markdown("### Opakovanie")
-            total_review_pool = max(1, all_review_due_count if all_review_due_count > 0 else seen_questions_today_count)
-            st.progress(progress_percent(smart_today, total_review_pool))
-            st.markdown(f"**{smart_today} / {total_review_pool}** opakovacích otázok dnes")
-            st.caption("Tento režim používa už prejdené otázky. Nové otázky sa tu nezobrazujú.")
-
+            st.caption("Si v režime Opakovanie. Denný cieľ sa nemení, lebo tu neriešiš nové otázky.")
         elif st.session_state.study_mode == "Len nesprávne":
-            st.markdown("### Len nesprávne")
-            total_wrong_pool = max(1, all_wrong_count)
-            st.progress(progress_percent(wrong_review_today, total_wrong_pool))
-            st.markdown(f"**{wrong_review_today} / {total_wrong_pool}** problémových otázok dnes")
-            st.caption("Tu sú len otázky, kde máš viac nesprávnych odpovedí ako správnych.")
+            st.caption("Si v režime Len nesprávne. Denný cieľ sa nemení, lebo tu trénuješ problémové otázky.")
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
@@ -3347,6 +3399,27 @@ with right_col:
             st.rerun()
 
 
+    with st.expander("Termín skúšky", expanded=False):
+        st.caption("Termín sa ukladá zvlášť pre každý odbor.")
+
+        current_saved_exam_date = get_exam_date_for_field(selected_field_name) or date.today() + timedelta(days=21)
+
+        with st.form(f"exam_date_edit_form_{sanitize_key(selected_field_name)}"):
+            edited_exam_date = st.date_input(
+                "Termín skúšky",
+                value=current_saved_exam_date,
+                format="DD.MM.YYYY",
+                key=f"edit_exam_date_{sanitize_key(selected_field_name)}"
+            )
+
+            submitted_exam_date = st.form_submit_button("Uložiť termín", use_container_width=True)
+
+        if submitted_exam_date:
+            set_exam_date_for_field(selected_field_name, edited_exam_date)
+            st.success(f"Termín pre odbor {selected_field_name} bol uložený.")
+            st.rerun()
+
+
     if not (setup_active and step == 2):
         with st.expander("Plán do skúšky", expanded=False):
             if current_exam_date:
@@ -3357,7 +3430,7 @@ with right_col:
                 st.divider()
                 st.caption(f"Minimum podľa termínu: {field_plan.get('total_daily_needed', 0)} nových otázok/deň")
             else:
-                st.caption("Termín skúšky nastavíš pri prvom spustení alebo neskôr v nastaveniach.")
+                st.caption("Termín skúšky nastavíš pri prvom spustení alebo v okne Termín skúšky.")
 
 
 # ============================================================

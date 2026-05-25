@@ -2184,7 +2184,7 @@ def render_hero(
                 </div>
                 <div class="hero-pill-row">
                     <span class="hero-pill">Naučené: {learning_percent}%</span>
-                    <span class="hero-pill">Nové v predmete: {display_daily_goal}/deň</span>
+                    <span class="hero-pill">Nové: {display_daily_goal}/deň</span>
                 </div>
             </div>
         </div>

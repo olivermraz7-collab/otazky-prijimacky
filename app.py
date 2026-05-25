@@ -3411,7 +3411,6 @@ with right_col:
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
-        st.caption(f"Denný cieľ: {new_seen_today} naučených · spolu odpovedí dnes: {answered_today}")
         st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
 
     with st.container(border=True):
@@ -3423,7 +3422,7 @@ with right_col:
         if new_seen_today >= subject_daily_goal:
             st.success("Denný cieľ naučených otázok splnený.")
         else:
-            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} naučených otázok do dnešného cieľa.")
+            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} otázok.")
 
         if st.session_state.study_mode == "Denný plán":
             st.caption("Tento cieľ sa plní otázkami, ktoré sa dnes reálne naučíš.")

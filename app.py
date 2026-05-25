@@ -3411,8 +3411,6 @@ with right_col:
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
-        st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
-
     with st.container(border=True):
         st.markdown("### Denný cieľ")
 

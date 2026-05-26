@@ -1112,6 +1112,36 @@ def get_logged_user_from_cookie():
         return None
 
     username = normalize_username(username)
+
+    if USE_SUPABASE:
+        try:
+            supabase = get_supabase_client()
+
+            response = (
+                supabase
+                .table("app_users")
+                .select("*")
+                .eq("username", username)
+                .limit(1)
+                .execute()
+            )
+
+            rows = response.data or []
+
+            if not rows:
+                return None
+
+            row = rows[0]
+
+            return {
+                "username": row["username"],
+                "display_name": row.get("display_name") or row["username"],
+                "password_hash": row.get("password_hash", "")
+            }
+
+        except Exception:
+            return None
+
     users_data = load_users()
 
     if username in users_data["users"]:
@@ -1123,15 +1153,22 @@ def get_logged_user_from_cookie():
 def login_user(user):
     st.session_state.authenticated = True
     st.session_state.username = user["username"]
-    st.session_state.display_name = user["display_name"]
+    st.session_state.display_name = user.get("display_name") or user["username"]
 
-    cookies["logged_in_user"] = user["username"]
-    cookies.save()
+    try:
+        cookies["logged_in_user"] = user["username"]
+        cookies.save()
+    except Exception:
+        pass
 
 
 def logout_user():
-    cookies["logged_in_user"] = ""
-    cookies.save()
+    try:
+        if "logged_in_user" in cookies:
+            del cookies["logged_in_user"]
+        cookies.save()
+    except Exception:
+        pass
 
     keys_to_delete = [
         "authenticated",
@@ -1266,7 +1303,7 @@ if "authenticated" not in st.session_state:
     if cookie_user:
         st.session_state.authenticated = True
         st.session_state.username = cookie_user["username"]
-        st.session_state.display_name = cookie_user["display_name"]
+        st.session_state.display_name = cookie_user.get("display_name") or cookie_user["username"]
     else:
         st.session_state.authenticated = False
 

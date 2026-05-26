@@ -3481,7 +3481,6 @@ with right_col:
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
-        st.caption(f"Denný cieľ: {new_seen_today} zvládnutých · spolu odpovedí dnes: {answered_today}")
         st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
 
     with st.container(border=True):
@@ -3489,23 +3488,14 @@ with right_col:
 
         st.progress(progress_percent(new_seen_today, subject_daily_goal))
         st.markdown(f"**{new_seen_today} / {subject_daily_goal}** zvládnutých otázok dnes")
-        st.caption("Denný cieľ je rovnaké číslo ako aktuálny predmet v Pláne do skúšky.")
 
         if new_seen_today >= subject_daily_goal:
-            st.success("Denný cieľ zvládnutých otázok splnený.")
+            st.success("Denný cieľ splnený.")
         else:
-            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} zvládnutých otázok do dnešného cieľa.")
-
-        if st.session_state.study_mode == "Denný plán":
-            st.caption("Tento cieľ sa plní novými otázkami, ktoré dnes prejdeš prvýkrát.")
-        elif st.session_state.study_mode == "Opakovanie":
-            st.caption("Si v režime Opakovanie. Denný cieľ sa tu nemení, lebo ide iba o udržiavanie už prejdených otázok.")
-        elif st.session_state.study_mode == "Len nesprávne":
-            st.caption("Si v režime Len nesprávne. Cieľ sa zvýši, keď problémovú otázku dostaneš na aspoň toľko správnych ako nesprávnych.")
+            st.caption(f"Chýba ešte: {max(0, subject_daily_goal - new_seen_today)} otázok")
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
-        st.caption("Štatistika z celého aktuálneho predmetu/celku, nezávislá od režimu učenia.")
 
         # Globálny stav celého aktuálneho predmetu/celku, nezávislý od režimu.
         # Dôležité: počíta sa z topic_filtered_questions, nie z mode_filtered_questions.

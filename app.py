@@ -1691,9 +1691,9 @@ def question_priority(q, subject_state, counts, final_review_period=False):
     if status == "NEW":
         if final_review_period:
             score -= 100
-        elif stats.get("new_seen", 0) >= new_limit:
-            score -= 70
         else:
+            # Denný plán má stále preferovať nové otázky.
+            # Denný cieľ je len informačný cieľ, nie prepínač priority.
             score += 30
 
     if final_review_period:
@@ -1849,9 +1849,6 @@ def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Den
     if p.get("first_seen") is None:
         p["first_seen"] = today_iso
 
-    if old_status == "NEW" and study_mode == "Denný plán":
-        stats["new_seen"] += 1
-
     stats["answered"] += 1
     if study_mode == "Len nesprávne":
         stats["wrong_review_answered"] += 1
@@ -1883,7 +1880,7 @@ def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Den
             p["next_review"] = (today + timedelta(days=7)).isoformat()
         else:
             p["status"] = "MASTERED"
-            p["next_review"] = (today + timedelta(days=REVIEW_DAYS_BEFORE_EXAM)).isoformat()
+            p["next_review"] = None
 
         if old_status == "NEW":
             subject_state["score"] = subject_state.get("score", 0) + 1
@@ -1897,6 +1894,9 @@ def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Den
         p["status"] = "RED"
         p["last_result"] = "wrong"
         p["next_review"] = today_iso
+
+    if should_count_as_learned_today(old_progress_snapshot, p, is_correct):
+        stats["new_seen"] = stats.get("new_seen", 0) + 1
 
     update_recent_questions(subject_state, qid)
 
@@ -1932,7 +1932,7 @@ def calculate_recommended_daily_goal(field_name):
     Berie do úvahy:
     - termín skúšky používateľa,
     - posledné 3 dni ako rezervu na opakovanie,
-    - počet otázok, ktoré ešte nie sú MASTERED vo všetkých predmetoch odboru.
+    - počet otázok, ktoré ešte nie sú prakticky naučené vo všetkých predmetoch odboru.
     """
     exam_dates = st.session_state.get("exam_dates", {})
     exam_date_raw = exam_dates.get(field_name)
@@ -2040,14 +2040,54 @@ def is_final_review_window(exam_date):
     return days_left is not None and 0 <= days_left <= REVIEW_DAYS_BEFORE_EXAM
 
 
+
+def is_question_learned_for_plan(p):
+    """
+    Otázka je pre plán do skúšky považovaná za naučenú vtedy,
+    keď ju používateľ prakticky ovláda.
+
+    MASTERED je až dlhodobý spaced-repetition stav, preto plán nesmie čakať iba na MASTERED.
+    """
+    status = p.get("status", "NEW")
+    correct_count = p.get("correct_count", 0)
+    wrong_count = p.get("wrong_count", 0)
+
+    if status == "MASTERED":
+        return True
+
+    # Nikdy nevidená otázka nie je naučená.
+    if status == "NEW" and correct_count == 0 and wrong_count == 0:
+        return False
+
+    # Ak má viac zlých ako správnych, ešte nie je pod kontrolou.
+    if wrong_count > correct_count:
+        return False
+
+    # Ak ju aspoň raz dal správne a nemá viac zlých ako správnych, pre plán je naučená.
+    if correct_count > 0 and correct_count >= wrong_count:
+        return True
+
+    return False
+
+
+
 def get_unmastered_count(subject_state, questions):
-    counts = count_statuses(subject_state, questions)
-    return (
-        counts.get("NEW", 0)
-        + counts.get("RED", 0)
-        + counts.get("YELLOW", 0)
-        + counts.get("GREEN", 0)
-    )
+    """
+    Koľko otázok ešte zostáva naučiť pre plán do skúšky.
+
+    Pôvodne sa rátalo všetko okrem MASTERED.
+    To bolo príliš prísne, lebo MASTERED je dlhodobý stav.
+    """
+    remaining = 0
+
+    for q in questions:
+        p = get_question_progress(subject_state, get_qid(q))
+
+        if not is_question_learned_for_plan(p):
+            remaining += 1
+
+    return remaining
+
 
 
 def calculate_field_plan(field_name, exam_date):
@@ -2157,13 +2197,10 @@ def get_new_questions(questions, subject_state):
 def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_date, daily_new_goal=None):
     """
     Režimy:
-    - Denný plán: nové otázky do denného cieľa.
+    - Denný plán: stále prioritne nové/naučené otázky. Denný cieľ nie je strop.
     - Opakovanie: už prejdené otázky, žiadne nové.
     - Len nesprávne: otázky, kde je viac nesprávnych odpovedí ako správnych.
     """
-    stats = get_daily_stats(subject_state)
-    daily_new_goal = daily_new_goal or DAILY_GOAL
-
     new_questions = get_new_questions(questions, subject_state)
     wrong_questions = get_wrong_questions(questions, subject_state)
 
@@ -2186,18 +2223,13 @@ def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_d
     if study_mode == "Len nesprávne":
         return wrong_questions
 
-    # Denný plán = hlavný režim na plnenie naučených otázok.
-    new_seen_today = stats.get("new_seen", 0)
-
-    # Pred skúškou môžeš stále opakovať, ale iba keď už nové nie sú dostupné.
+    # Denný plán:
+    # V tomto režime majú nové otázky prioritu stále, aj keď je denný cieľ už splnený.
+    # Na opakovanie a nesprávne sú samostatné režimy.
     if is_final_review_window(exam_date) and not new_questions:
         return due_review_questions or seen_questions or wrong_questions or questions
 
-    if new_seen_today < daily_new_goal:
-        return new_questions or questions
-
-    # Po splnení denného cieľa nových otázok už môže ponúknuť aj opakovanie.
-    return due_review_questions or seen_questions or wrong_questions or new_questions or questions
+    return new_questions or due_review_questions or seen_questions or wrong_questions or questions
 
 
 
@@ -3411,6 +3443,9 @@ with right_col:
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
+        st.caption(f"Denný cieľ: {new_seen_today} naučených · spolu odpovedí dnes: {answered_today}")
+        st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
+
     with st.container(border=True):
         st.markdown("### Denný cieľ")
 
@@ -3420,7 +3455,7 @@ with right_col:
         if new_seen_today >= subject_daily_goal:
             st.success("Denný cieľ naučených otázok splnený.")
         else:
-            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} otázok.")
+            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} naučených otázok do dnešného cieľa.")
 
         if st.session_state.study_mode == "Denný plán":
             st.caption("Tento cieľ sa plní otázkami, ktoré sa dnes reálne naučíš.")
@@ -3431,6 +3466,7 @@ with right_col:
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
+        st.caption("Štatistika z celého aktuálneho predmetu/celku, nezávislá od režimu učenia.")
 
         # Globálny stav celého aktuálneho predmetu/celku, nezávislý od režimu.
         # Dôležité: počíta sa z topic_filtered_questions, nie z mode_filtered_questions.

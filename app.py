@@ -2482,6 +2482,9 @@ def render_hero(
     field_done_today=None,
     field_goal_today=None
 ):
+    daily_goal = display_daily_goal
+    learning_percent = learned_percent
+
     if topic_name == "Všetky celky":
         subtitle = f"{field_name} · všetky celky"
     else:

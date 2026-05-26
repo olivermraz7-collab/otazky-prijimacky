@@ -839,6 +839,21 @@ def inject_css():
                 box-shadow: 0 10px 24px rgba(124, 58, 237, 0.18);
             }
 
+        
+            .hero-stat-soft {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                border-radius: 999px;
+                padding: 7px 11px;
+                background: rgba(255,255,255,0.055);
+                border: 1px solid rgba(255,255,255,0.08);
+                color: #dbeafe;
+                font-size: 12px;
+                font-weight: 800;
+                white-space: nowrap;
+            }
+
         </style>
         """,
         unsafe_allow_html=True
@@ -985,6 +1000,7 @@ def initial_user_state():
     return {
         "subjects_data": {},
         "exam_dates": {},
+        "field_streaks": {},
         "setup_completed": False,
         "last_settings": {
             "field_idx": 0,
@@ -1325,6 +1341,7 @@ def default_user_state():
     return {
         "subjects_data": {},
         "exam_dates": {},
+        "field_streaks": {},
         "setup_completed": False,
         "last_settings": {
             "field_idx": 0,
@@ -1441,6 +1458,7 @@ def save_progress():
     user_state = {
         "subjects_data": st.session_state.subjects_data,
         "exam_dates": st.session_state.get("exam_dates", {}),
+        "field_streaks": st.session_state.get("field_streaks", {}),
         "setup_completed": st.session_state.get("setup_completed", False),
         "last_settings": {
             "field_idx": st.session_state.selected_field_index,
@@ -2196,6 +2214,128 @@ def get_subject_daily_goal_from_plan(field_plan, subject_name):
 
 
 
+
+def default_field_streak():
+    return {
+        "current": 0,
+        "best": 0,
+        "last_completed_date": None,
+        "history": {}
+    }
+
+
+def ensure_field_streaks_state():
+    if "field_streaks" not in st.session_state:
+        st.session_state.field_streaks = {}
+
+    for field_name in FIELDS.keys():
+        if field_name not in st.session_state.field_streaks:
+            st.session_state.field_streaks[field_name] = default_field_streak()
+
+
+def get_subject_daily_stats_for_file(file_name, subject_questions):
+    subject_state = ensure_subject_state(file_name, subject_questions)
+    return get_daily_stats(subject_state), subject_state
+
+
+def get_field_daily_overview(field_name, exam_date):
+    """
+    Prehľad denného cieľa za celý odbor.
+    Streak sa počíta až vtedy, keď sú splnené denné ciele všetkých predmetov odboru.
+    """
+    _field_goal, field_plan = get_dynamic_daily_goal(field_name, exam_date)
+
+    overview = {
+        "field_name": field_name,
+        "total_done": 0,
+        "total_goal": 0,
+        "completed": False,
+        "subjects": [],
+        "days_left": field_plan.get("days_left"),
+        "learning_days": field_plan.get("learning_days")
+    }
+
+    subjects = FIELDS.get(field_name, {})
+
+    for item in field_plan.get("subjects", []):
+        subject_name = item.get("subject")
+        file_name = item.get("file") or subjects.get(subject_name)
+        daily_goal = int(item.get("daily_needed", 0) or 0)
+
+        if not file_name:
+            continue
+
+        subject_questions = load_questions(file_name)
+        if not subject_questions:
+            continue
+
+        daily_stats, _subject_state = get_subject_daily_stats_for_file(file_name, subject_questions)
+        done_today = int(daily_stats.get("new_seen", 0) or 0)
+
+        overview["subjects"].append({
+            "subject": subject_name,
+            "done": done_today,
+            "goal": daily_goal,
+            "completed": done_today >= daily_goal if daily_goal > 0 else True
+        })
+
+        overview["total_done"] += done_today
+        overview["total_goal"] += daily_goal
+
+    if overview["subjects"]:
+        overview["completed"] = all(s["completed"] for s in overview["subjects"])
+    else:
+        overview["completed"] = False
+
+    return overview
+
+
+def update_field_streak_if_needed(field_name, exam_date):
+    """
+    Zapíše streak pre odbor, ak sú dnes splnené všetky denné ciele predmetov v odbore.
+    """
+    ensure_field_streaks_state()
+
+    today_iso = date.today().isoformat()
+    yesterday_iso = (date.today() - timedelta(days=1)).isoformat()
+
+    overview = get_field_daily_overview(field_name, exam_date)
+    streak = st.session_state.field_streaks.setdefault(field_name, default_field_streak())
+
+    streak["history"][today_iso] = {
+        "done": overview["total_done"],
+        "goal": overview["total_goal"],
+        "completed": overview["completed"],
+        "subjects": overview["subjects"]
+    }
+
+    if overview["completed"] and overview["total_goal"] > 0:
+        if streak.get("last_completed_date") != today_iso:
+            if streak.get("last_completed_date") == yesterday_iso:
+                streak["current"] = int(streak.get("current", 0) or 0) + 1
+            else:
+                streak["current"] = 1
+
+            streak["last_completed_date"] = today_iso
+            streak["best"] = max(int(streak.get("best", 0) or 0), int(streak.get("current", 0) or 0))
+            save_progress()
+
+    return overview, streak
+
+
+def get_visible_field_streak(field_name):
+    ensure_field_streaks_state()
+
+    streak = st.session_state.field_streaks.get(field_name, default_field_streak())
+    last_completed = streak.get("last_completed_date")
+
+    if last_completed in [date.today().isoformat(), (date.today() - timedelta(days=1)).isoformat()]:
+        return int(streak.get("current", 0) or 0), int(streak.get("best", 0) or 0)
+
+    return 0, int(streak.get("best", 0) or 0)
+
+
+
 def get_dynamic_daily_goal(field_name, exam_date):
     plan = calculate_field_plan(field_name, exam_date)
     return max(DAILY_GOAL, plan.get("total_daily_needed", 0)), plan
@@ -2223,6 +2363,11 @@ def get_review_questions(questions, subject_state):
 
     for q in questions:
         p = get_question_progress(subject_state, get_qid(q))
+
+        # Otázky, kde máš viac zlých ako správnych, patria do režimu Len nesprávne,
+        # nie do Opakovania.
+        if p.get("wrong_count", 0) > p.get("correct_count", 0):
+            continue
 
         if is_due_for_review(p):
             review_questions.append(q)
@@ -2257,8 +2402,8 @@ def get_new_questions(questions, subject_state):
 def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_date, daily_new_goal=None):
     """
     Režimy:
-    - Denný plán: stále prioritne nové/naučené otázky. Denný cieľ nie je strop.
-    - Opakovanie: už prejdené otázky, žiadne nové.
+    - Denný plán: nové otázky.
+    - Opakovanie: už prejdené otázky, ktoré nie sú problémové.
     - Len nesprávne: otázky, kde je viac nesprávnych odpovedí ako správnych.
     """
     new_questions = get_new_questions(questions, subject_state)
@@ -2271,10 +2416,12 @@ def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_d
         p = get_question_progress(subject_state, get_qid(q))
         status = p.get("status", "NEW")
 
-        if status != "NEW":
+        is_problematic = p.get("wrong_count", 0) > p.get("correct_count", 0)
+
+        if status != "NEW" and not is_problematic:
             seen_questions.append(q)
 
-        if is_due_for_review(p):
+        if not is_problematic and is_due_for_review(p):
             due_review_questions.append(q)
 
     if study_mode == "Opakovanie":
@@ -2284,8 +2431,7 @@ def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_d
         return wrong_questions
 
     # Denný plán:
-    # V tomto režime majú nové otázky prioritu stále, aj keď je denný cieľ už splnený.
-    # Na opakovanie a nesprávne sú samostatné režimy.
+    # Nové otázky majú prioritu. Na opakovanie a nesprávne sú samostatné režimy.
     if is_final_review_window(exam_date) and not new_questions:
         return due_review_questions or seen_questions or wrong_questions or questions
 
@@ -2359,7 +2505,7 @@ def render_hero(
                 </div>
                 <div class="hero-pill-row">
                     <span class="hero-pill">Naučené: {learning_percent}%</span>
-                    <span class="hero-pill">Cieľ: {display_daily_goal}/deň</span>
+                    <span class="hero-pill">Cieľ: {display_daily_goal}/deň</span>\n                    <span class="hero-stat-soft">🔥 {streak_current} dní</span>
                 </div>
             </div>
         </div>
@@ -3385,6 +3531,10 @@ subject_learning_percent = calculate_learning_percent(current_data, topic_filter
 # Header ukazuje rovnaký denný cieľ ako Plán do skúšky pre aktuálny predmet.
 hero_daily_goal = subject_daily_goal
 
+
+field_overview, field_streak = update_field_streak_if_needed(selected_field_name, current_exam_date)
+field_streak_current, field_streak_best = get_visible_field_streak(selected_field_name)
+
 render_hero(
     st.session_state.selected_subject_name,
     selected_field_name,
@@ -3393,7 +3543,11 @@ render_hero(
     len(topic_filtered_questions),
     len(questions),
     subject_learning_percent,
-    hero_daily_goal
+    hero_daily_goal,
+    streak_current=field_streak_current,
+    streak_best=field_streak_best,
+    field_done_today=field_overview.get("total_done"),
+    field_goal_today=field_overview.get("total_goal")
 )
 
 left_col, right_col = st.columns([0.70, 0.30], gap="large")
@@ -3512,6 +3666,8 @@ with right_col:
         + counts.get("RED", 0)
         + counts.get("YELLOW", 0)
     )
+
+
 
     with st.container(border=True):
         st.markdown("### Dnes")

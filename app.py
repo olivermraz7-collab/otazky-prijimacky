@@ -2475,8 +2475,12 @@ def render_hero(
     topic_name="Všetky celky",
     question_count=None,
     total_count=None,
-    learning_percent=0,
-    daily_goal=None
+    learned_percent=None,
+    display_daily_goal=None,
+    streak_current=0,
+    streak_best=0,
+    field_done_today=None,
+    field_goal_today=None
 ):
     if topic_name == "Všetky celky":
         subtitle = f"{field_name} · všetky celky"

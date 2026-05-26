@@ -1803,13 +1803,19 @@ def update_recent_questions(subject_state, qid):
 
 
 
-def should_count_as_learned_today(old_progress, new_progress, was_correct):
-    """
-    Denný cieľ = koľko otázok sa dnes reálne naučíš.
 
-    Počíta sa, keď:
-    1. otázka bola NEW a prvýkrát ju dáš správne,
-    2. alebo otázka bola problémová a po tejto odpovedi už nemá viac zlých ako správnych odpovedí.
+def should_count_as_daily_goal_progress(old_progress, new_progress, was_correct, study_mode):
+    """
+    Denný cieľ sa plní iba otázkami, ktoré sa dnes reálne dostali do zvládnutého stavu.
+
+    Počíta sa:
+    - Denný plán: otázka bola NEW a prvýkrát bola zodpovedaná správne.
+    - Len nesprávne: otázka mala viac zlých ako správnych a po tejto odpovedi
+      už má aspoň toľko správnych ako nesprávnych.
+
+    Nepočíta sa:
+    - Opakovanie, lebo tam sú otázky určené na udržiavanie/opakovanie.
+    - nesprávna odpoveď.
     """
     if not was_correct:
         return False
@@ -1821,17 +1827,13 @@ def should_count_as_learned_today(old_progress, new_progress, was_correct):
     new_correct = new_progress.get("correct_count", 0)
     new_wrong = new_progress.get("wrong_count", 0)
 
-    # Nová otázka sa ráta až vtedy, keď ju prvýkrát dáš správne.
-    if old_status == "NEW" and old_correct == 0 and old_wrong == 0:
-        return True
+    if study_mode == "Denný plán":
+        return old_status == "NEW" and old_correct == 0 and old_wrong == 0
 
-    # Problémová otázka sa ráta vtedy, keď sa práve dostane z bilancie
-    # viac zlých ako správnych do bilancie správnych aspoň toľko ako zlých.
-    was_problematic = old_wrong > old_correct
-    is_now_stabilized = new_correct >= new_wrong
-
-    if was_problematic and is_now_stabilized:
-        return True
+    if study_mode == "Len nesprávne":
+        was_problematic = old_wrong > old_correct
+        is_now_stabilized = new_correct >= new_wrong
+        return was_problematic and is_now_stabilized
 
     return False
 
@@ -1895,7 +1897,7 @@ def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Den
         p["last_result"] = "wrong"
         p["next_review"] = today_iso
 
-    if should_count_as_learned_today(old_progress_snapshot, p, is_correct):
+    if should_count_as_daily_goal_progress(old_progress_snapshot, p, is_correct, study_mode):
         stats["new_seen"] = stats.get("new_seen", 0) + 1
 
     update_recent_questions(subject_state, qid)
@@ -1932,7 +1934,7 @@ def calculate_recommended_daily_goal(field_name):
     Berie do úvahy:
     - termín skúšky používateľa,
     - posledné 3 dni ako rezervu na opakovanie,
-    - počet otázok, ktoré ešte nie sú prakticky naučené vo všetkých predmetoch odboru.
+    - počet otázok, ktoré ešte neboli vôbec prejdené vo všetkých predmetoch odboru.
     """
     exam_dates = st.session_state.get("exam_dates", {})
     exam_date_raw = exam_dates.get(field_name)
@@ -2073,17 +2075,24 @@ def is_question_learned_for_plan(p):
 
 def get_unmastered_count(subject_state, questions):
     """
-    Koľko otázok ešte zostáva naučiť pre plán do skúšky.
+    Pre Plán do skúšky počítame iba otázky, ktoré ešte neboli vôbec prejdené.
 
-    Pôvodne sa rátalo všetko okrem MASTERED.
-    To bolo príliš prísne, lebo MASTERED je dlhodobý stav.
+    Otázky, ktoré sú RED/YELLOW/GREEN/MASTERED, už boli prejdené a patria skôr
+    do opakovania alebo režimu Len nesprávne, nie do denného plánu nových otázok.
     """
     remaining = 0
 
     for q in questions:
         p = get_question_progress(subject_state, get_qid(q))
 
-        if not is_question_learned_for_plan(p):
+        was_seen = (
+            p.get("first_seen") is not None
+            or p.get("correct_count", 0) > 0
+            or p.get("wrong_count", 0) > 0
+            or p.get("status", "NEW") != "NEW"
+        )
+
+        if not was_seen:
             remaining += 1
 
     return remaining
@@ -2134,6 +2143,20 @@ def calculate_field_plan(field_name, exam_date):
         result["total_daily_needed"] += daily_needed
 
     return result
+
+
+
+def get_subject_daily_goal_from_plan(field_plan, subject_name):
+    """
+    Denný cieľ pre aktuálny predmet musí byť presne ten istý údaj,
+    ktorý sa zobrazuje v Pláne do skúšky pri danom predmete.
+    """
+    for item in field_plan.get("subjects", []):
+        if item.get("subject") == subject_name:
+            return max(1, int(item.get("daily_needed", DAILY_GOAL)))
+
+    return DAILY_GOAL
+
 
 
 def get_dynamic_daily_goal(field_name, exam_date):
@@ -3208,10 +3231,6 @@ if not questions:
 
 current_data = ensure_subject_state(selected_file, questions)
 
-dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
-subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
-final_review_period = is_final_review_period(selected_field_name)
-dynamic_new_goal = 0 if final_review_period else subject_daily_goal
 
 topic_options = get_available_topics(questions)
 default_topic = st.session_state.last_settings.get("topic_name", "Všetky celky")
@@ -3240,6 +3259,16 @@ st.session_state.study_mode = st.sidebar.selectbox(
 current_exam_date = get_exam_date_for_field(selected_field_name)
 default_exam_date = current_exam_date if current_exam_date else date(2026, 6, 12)
 
+# Jeden zdroj pravdy:
+# - Plán do skúšky
+# - Denný cieľ
+# - Header
+# používajú rovnaké číslo pre aktuálny predmet.
+dynamic_daily_goal, field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
+subject_daily_goal = get_subject_daily_goal_from_plan(field_plan, st.session_state.selected_subject_name)
+final_review_period = is_final_review_period(selected_field_name)
+dynamic_new_goal = 0 if final_review_period else subject_daily_goal
+
 
 # Otázky po filtrovaní celku a režimu.
 topic_filtered_questions = filter_questions_by_topic(
@@ -3247,8 +3276,22 @@ topic_filtered_questions = filter_questions_by_topic(
     st.session_state.selected_topic_name
 )
 
-dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
-subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
+# Jeden spoločný zdroj pravdy pre plán aj denný cieľ.
+# Plán do skúšky aj Denný cieľ musia používať rovnaké číslo pre aktuálny predmet.
+_field_daily_goal, _field_plan_for_goal = get_dynamic_daily_goal(selected_field_name, current_exam_date)
+_subject_plan_for_goal = next(
+    (
+        item
+        for item in _field_plan_for_goal.get("subjects", [])
+        if item.get("subject") == st.session_state.selected_subject_name
+    ),
+    None
+)
+
+subject_daily_goal = max(
+    1,
+    _subject_plan_for_goal.get("daily_needed", DAILY_GOAL) if _subject_plan_for_goal else DAILY_GOAL
+)
 
 mode_filtered_questions = filter_questions_for_study_mode(
     topic_filtered_questions,
@@ -3301,10 +3344,8 @@ if "answered" not in st.session_state:
 
 
 subject_learning_percent = calculate_learning_percent(current_data, topic_filtered_questions)
-dynamic_daily_goal, recommended_by_subject = calculate_recommended_daily_goal(selected_field_name)
-subject_daily_goal = max(1, recommended_by_subject.get(st.session_state.selected_subject_name, dynamic_daily_goal))
 
-# Header ukazuje cieľ iba pre aktuálne otvorený predmet, nie súčet všetkých predmetov odboru.
+# Header ukazuje rovnaký denný cieľ ako Plán do skúšky pre aktuálny predmet.
 hero_daily_goal = subject_daily_goal
 
 render_hero(
@@ -3426,8 +3467,6 @@ with right_col:
             seen_questions_today_count += 1
         if _p.get("wrong_count", 0) > _p.get("correct_count", 0):
             wrong_review_today_count += 1
-
-    dynamic_daily_goal, field_plan = get_dynamic_daily_goal(selected_field_name, current_exam_date)
     days_left = field_plan.get("days_left")
     learning_days = field_plan.get("learning_days")
 
@@ -3435,7 +3474,6 @@ with right_col:
         counts.get("NEW", 0)
         + counts.get("RED", 0)
         + counts.get("YELLOW", 0)
-        + counts.get("GREEN", 0)
     )
 
     with st.container(border=True):
@@ -3443,26 +3481,27 @@ with right_col:
         metric_col_1, metric_col_2 = st.columns(2)
         metric_col_1.metric("Správne", correct_today)
         metric_col_2.metric("Nesprávne", wrong_today)
-        st.caption(f"Denný cieľ: {new_seen_today} naučených · spolu odpovedí dnes: {answered_today}")
+        st.caption(f"Denný cieľ: {new_seen_today} zvládnutých · spolu odpovedí dnes: {answered_today}")
         st.caption(f"Čaká na opakovanie: {all_review_due_count} · problémové: {all_wrong_count}")
 
     with st.container(border=True):
         st.markdown("### Denný cieľ")
 
         st.progress(progress_percent(new_seen_today, subject_daily_goal))
-        st.markdown(f"**{new_seen_today} / {subject_daily_goal}** naučených otázok dnes")
+        st.markdown(f"**{new_seen_today} / {subject_daily_goal}** zvládnutých otázok dnes")
+        st.caption("Denný cieľ je rovnaké číslo ako aktuálny predmet v Pláne do skúšky.")
 
         if new_seen_today >= subject_daily_goal:
-            st.success("Denný cieľ naučených otázok splnený.")
+            st.success("Denný cieľ zvládnutých otázok splnený.")
         else:
-            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} naučených otázok do dnešného cieľa.")
+            st.caption(f"Ešte {max(0, subject_daily_goal - new_seen_today)} zvládnutých otázok do dnešného cieľa.")
 
         if st.session_state.study_mode == "Denný plán":
-            st.caption("Tento cieľ sa plní otázkami, ktoré sa dnes reálne naučíš.")
+            st.caption("Tento cieľ sa plní novými otázkami, ktoré dnes prejdeš prvýkrát.")
         elif st.session_state.study_mode == "Opakovanie":
-            st.caption("Si v režime Opakovanie. Cieľ sa zvýši iba vtedy, keď otázku reálne posunieš medzi naučené.")
+            st.caption("Si v režime Opakovanie. Denný cieľ sa tu nemení, lebo ide iba o udržiavanie už prejdených otázok.")
         elif st.session_state.study_mode == "Len nesprávne":
-            st.caption("Si v režime Len nesprávne. Cieľ sa zvýši, keď problémovú otázku dostaneš na viac správnych ako nesprávnych.")
+            st.caption("Si v režime Len nesprávne. Cieľ sa zvýši, keď problémovú otázku dostaneš na aspoň toľko správnych ako nesprávnych.")
 
     with st.container(border=True):
         st.markdown("### Stav celku" if st.session_state.selected_topic_name != "Všetky celky" else "### Stav predmetu")
@@ -3476,15 +3515,13 @@ with right_col:
             global_counts.get("NEW", 0)
             + global_counts.get("RED", 0)
             + global_counts.get("YELLOW", 0)
-            + global_counts.get("GREEN", 0)
         )
 
         status_rows = [
             ("Nové", global_counts.get("NEW", 0)),
             ("Problémové", global_counts.get("RED", 0)),
             ("Na opakovanie", global_counts.get("YELLOW", 0)),
-            ("Zvládnuté", global_counts.get("GREEN", 0)),
-            ("Mastered", global_counts.get("MASTERED", 0)),
+            ("Zvládnuté", global_counts.get("GREEN", 0) + global_counts.get("MASTERED", 0)),
             ("Zostáva zvládnuť", global_not_mastered)
         ]
 
@@ -3493,12 +3530,12 @@ with right_col:
             col1.caption(label)
             col2.markdown(f"**{value}**")
 
-    if len(mode_filtered_questions) > 0 and counts.get("MASTERED", 0) == len(mode_filtered_questions):
+    if len(topic_filtered_questions) > 0 and (counts.get("NEW", 0) + counts.get("RED", 0) + counts.get("YELLOW", 0)) == 0:
         st.balloons()
         if st.session_state.selected_topic_name == "Všetky celky":
-            st.success("Všetky otázky v tomto predmete sú zvládnuté.")
+            st.success("Všetky otázky v tomto predmete sú prejdené/zvládnuté.")
         else:
-            st.success("Všetky otázky v tomto celku sú zvládnuté.")
+            st.success("Všetky otázky v tomto celku sú prejdené/zvládnuté.")
 
         if st.button("Reštartovať predmet", use_container_width=True):
             if selected_file in st.session_state.subjects_data:

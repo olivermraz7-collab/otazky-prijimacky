@@ -12,7 +12,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 2,
@@ -160,7 +160,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 12,
@@ -176,7 +176,7 @@
       "B",
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 13,
@@ -205,7 +205,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 15,
@@ -220,7 +220,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 16,
@@ -355,7 +355,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 25,
@@ -475,7 +475,7 @@
       "C",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 33,
@@ -506,7 +506,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 35,
@@ -536,7 +536,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Výpočty"
   },
   {
     "id": 37,
@@ -565,7 +565,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 39,
@@ -579,7 +579,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 40,
@@ -593,7 +593,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 41,
@@ -607,7 +607,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 42,
@@ -621,7 +621,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 43,
@@ -637,7 +637,7 @@
       "C",
       "D"
     ],
-    "topic": "Všeobecná chémia"
+    "topic": "Výpočty"
   },
   {
     "id": 44,
@@ -666,7 +666,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 46,
@@ -739,7 +739,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 51,
@@ -810,7 +810,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 56,
@@ -824,7 +824,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 57,
@@ -839,7 +839,7 @@
       "B",
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 58,
@@ -855,7 +855,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 59,
@@ -870,7 +870,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 60,
@@ -886,7 +886,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 61,
@@ -900,7 +900,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 62,
@@ -943,7 +943,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 65,
@@ -958,7 +958,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 66,
@@ -973,7 +973,7 @@
       "A",
       "B"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 67,
@@ -988,7 +988,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 68,
@@ -1003,7 +1003,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 69,
@@ -1017,7 +1017,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 70,
@@ -1046,7 +1046,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 72,
@@ -1061,7 +1061,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 73,
@@ -1076,7 +1076,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 74,
@@ -1092,7 +1092,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 75,
@@ -1137,7 +1137,7 @@
       "B",
       "D"
     ],
-    "topic": "Všeobecná chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 78,
@@ -1166,7 +1166,7 @@
       "A",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 80,
@@ -1257,7 +1257,7 @@
       "A",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 86,
@@ -1288,7 +1288,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 88,
@@ -1304,7 +1304,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 89,
@@ -1320,7 +1320,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 90,
@@ -1334,7 +1334,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 91,
@@ -1350,7 +1350,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 92,
@@ -1364,7 +1364,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 93,
@@ -1394,7 +1394,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 95,
@@ -1426,7 +1426,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 97,
@@ -1441,7 +1441,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 98,
@@ -1457,7 +1457,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 99,
@@ -1549,7 +1549,7 @@
       "A",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 105,
@@ -1579,7 +1579,7 @@
       "B",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 107,
@@ -1595,7 +1595,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 108,
@@ -1610,7 +1610,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 109,
@@ -1730,7 +1730,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 117,
@@ -1777,7 +1777,7 @@
       "A",
       "B"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 120,
@@ -1792,7 +1792,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 121,
@@ -1807,7 +1807,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 122,
@@ -1823,7 +1823,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 123,
@@ -1852,7 +1852,7 @@
       "B",
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 125,
@@ -1867,7 +1867,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 126,
@@ -1882,7 +1882,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 127,
@@ -1912,7 +1912,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 129,
@@ -1927,7 +1927,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 130,
@@ -1988,7 +1988,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 134,
@@ -2003,7 +2003,7 @@
       "A",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 135,
@@ -2017,7 +2017,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 136,
@@ -2077,7 +2077,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 140,
@@ -2107,7 +2107,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 142,
@@ -2166,7 +2166,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 146,
@@ -2224,7 +2224,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 150,
@@ -2271,7 +2271,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 153,
@@ -2301,7 +2301,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 155,
@@ -2421,7 +2421,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 163,
@@ -2466,7 +2466,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 166,
@@ -2481,7 +2481,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 167,
@@ -2511,7 +2511,7 @@
       "A",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 169,
@@ -2525,7 +2525,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 170,
@@ -2541,7 +2541,7 @@
       "B",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 171,
@@ -2556,7 +2556,7 @@
       "A",
       "B"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 172,
@@ -2585,7 +2585,7 @@
       "B",
       "D"
     ],
-    "topic": "Všeobecná chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 174,
@@ -2646,7 +2646,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 178,
@@ -2692,7 +2692,7 @@
       "C",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 181,
@@ -2723,7 +2723,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 183,
@@ -2931,7 +2931,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 197,
@@ -2973,7 +2973,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 200,
@@ -3359,7 +3359,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Výpočty"
   },
   {
     "id": 226,
@@ -3665,7 +3665,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 247,
@@ -3857,7 +3857,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 260,
@@ -3871,7 +3871,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 261,
@@ -3900,7 +3900,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 263,
@@ -3915,7 +3915,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 264,
@@ -3944,7 +3944,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 266,
@@ -4035,7 +4035,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 272,
@@ -4126,7 +4126,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 278,
@@ -4169,7 +4169,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 281,
@@ -4184,7 +4184,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 282,
@@ -4304,7 +4304,7 @@
       "A",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 290,
@@ -4334,7 +4334,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 292,
@@ -4350,7 +4350,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 293,
@@ -4366,7 +4366,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 294,
@@ -4396,7 +4396,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 296,
@@ -4427,7 +4427,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 298,
@@ -4456,7 +4456,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 300,
@@ -4500,7 +4500,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 303,
@@ -4560,7 +4560,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 307,
@@ -4603,7 +4603,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Výpočty"
   },
   {
     "id": 310,
@@ -4732,7 +4732,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 319,
@@ -4821,7 +4821,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 325,
@@ -4883,7 +4883,7 @@
       "A",
       "B"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 329,
@@ -4911,7 +4911,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 331,
@@ -4925,7 +4925,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 332,
@@ -4940,7 +4940,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 333,
@@ -4983,7 +4983,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 336,
@@ -5014,7 +5014,7 @@
       "A",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 338,
@@ -5030,7 +5030,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 339,
@@ -5045,7 +5045,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 340,
@@ -5060,7 +5060,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 341,
@@ -5341,7 +5341,7 @@
       "B",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 360,
@@ -5355,7 +5355,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 361,
@@ -5415,7 +5415,7 @@
       "B",
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 365,
@@ -5477,7 +5477,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 369,
@@ -5492,7 +5492,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 370,
@@ -5536,7 +5536,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 373,
@@ -5565,7 +5565,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 375,
@@ -5627,7 +5627,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 379,
@@ -5657,7 +5657,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 381,
@@ -5672,7 +5672,7 @@
       "A",
       "C"
     ],
-    "topic": "Všeobecná chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 382,
@@ -5686,7 +5686,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 383,
@@ -5716,7 +5716,7 @@
       "A",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 385,
@@ -5747,7 +5747,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 387,
@@ -5854,7 +5854,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 394,
@@ -5868,7 +5868,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 395,
@@ -5913,7 +5913,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 398,
@@ -5929,7 +5929,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 399,
@@ -5959,7 +5959,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 401,
@@ -6020,7 +6020,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 405,
@@ -6108,7 +6108,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 411,
@@ -6212,7 +6212,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 418,
@@ -6256,7 +6256,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 421,
@@ -6315,7 +6315,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 425,
@@ -6360,7 +6360,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 428,
@@ -6668,7 +6668,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 449,
@@ -6907,7 +6907,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 465,
@@ -7044,7 +7044,7 @@
       "C",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 474,
@@ -7089,7 +7089,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 477,
@@ -7176,7 +7176,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 483,
@@ -7263,7 +7263,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 489,
@@ -7325,7 +7325,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 493,
@@ -7618,7 +7618,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 513,
@@ -7738,7 +7738,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 521,
@@ -7844,7 +7844,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 528,
@@ -7859,7 +7859,7 @@
       "B",
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 529,
@@ -7890,7 +7890,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 531,
@@ -8307,7 +8307,7 @@
       "C",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 559,
@@ -8338,7 +8338,7 @@
       "B",
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 561,
@@ -8381,7 +8381,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 564,
@@ -8410,7 +8410,7 @@
       "C",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 566,
@@ -8453,7 +8453,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 569,
@@ -8542,7 +8542,7 @@
       "A",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 575,
@@ -8616,7 +8616,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 580,
@@ -8784,7 +8784,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 591,
@@ -8890,7 +8890,7 @@
       "C",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 598,
@@ -8966,7 +8966,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 603,
@@ -9158,7 +9158,7 @@
       "C",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 616,
@@ -9233,7 +9233,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 621,
@@ -9414,7 +9414,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 633,
@@ -9504,7 +9504,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 639,
@@ -9566,7 +9566,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 643,
@@ -9821,7 +9821,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 660,
@@ -9958,7 +9958,7 @@
       "B",
       "C"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 669,
@@ -10121,7 +10121,7 @@
       "B",
       "C"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 680,
@@ -10137,7 +10137,7 @@
       "C",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 681,
@@ -10167,7 +10167,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 683,
@@ -10196,7 +10196,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 685,
@@ -10478,7 +10478,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 704,
@@ -10554,7 +10554,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 709,
@@ -10716,7 +10716,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 720,
@@ -10805,7 +10805,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 726,
@@ -10863,7 +10863,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 730,
@@ -10970,7 +10970,7 @@
       "A",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 737,
@@ -11014,7 +11014,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 740,
@@ -11030,7 +11030,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 741,
@@ -11105,7 +11105,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 746,
@@ -11151,7 +11151,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 749,
@@ -11182,7 +11182,7 @@
       "B",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 751,
@@ -11257,7 +11257,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 756,
@@ -11271,7 +11271,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 757,
@@ -11316,7 +11316,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 760,
@@ -11331,7 +11331,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 761,
@@ -11406,7 +11406,7 @@
       "B",
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 766,
@@ -11468,7 +11468,7 @@
       "B",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 770,
@@ -11483,7 +11483,7 @@
       "A",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 771,
@@ -11514,7 +11514,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 773,
@@ -11542,7 +11542,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 775,
@@ -11661,7 +11661,7 @@
       "A",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 783,
@@ -11692,7 +11692,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 785,
@@ -11778,7 +11778,7 @@
       "B",
       "D"
     ],
-    "topic": "Anorganická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 791,
@@ -11824,7 +11824,7 @@
       "A",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 794,
@@ -11869,7 +11869,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Anorganická chémia"
   },
   {
     "id": 797,
@@ -12018,7 +12018,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 807,
@@ -12033,7 +12033,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 808,
@@ -12125,7 +12125,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 814,
@@ -12139,7 +12139,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 815,
@@ -12154,7 +12154,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 816,
@@ -12229,7 +12229,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 821,
@@ -12259,7 +12259,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Organická chémia"
   },
   {
     "id": 823,
@@ -12349,7 +12349,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 829,
@@ -12406,7 +12406,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 833,
@@ -12436,7 +12436,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 835,
@@ -12570,7 +12570,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 844,
@@ -12599,7 +12599,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 846,
@@ -12673,7 +12673,7 @@
       "A",
       "B"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 851,
@@ -12688,7 +12688,7 @@
       "C",
       "D"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 852,
@@ -12777,7 +12777,7 @@
       "A",
       "C"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 858,
@@ -12824,7 +12824,7 @@
       "B",
       "D"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 861,
@@ -12839,7 +12839,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 862,
@@ -12853,7 +12853,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 863,
@@ -12868,7 +12868,7 @@
       "A",
       "C"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 864,
@@ -13096,7 +13096,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 879,
@@ -13111,7 +13111,7 @@
       "A",
       "B"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 880,
@@ -13155,7 +13155,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 883,
@@ -13201,7 +13201,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 886,
@@ -13217,7 +13217,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 887,
@@ -13323,7 +13323,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 894,
@@ -13338,7 +13338,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 895,
@@ -13353,7 +13353,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 896,
@@ -13368,7 +13368,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 897,
@@ -13413,7 +13413,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 900,
@@ -13428,7 +13428,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 901,
@@ -13442,7 +13442,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 902,
@@ -13456,7 +13456,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 903,
@@ -13486,7 +13486,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 905,
@@ -13502,7 +13502,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 906,
@@ -13517,7 +13517,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 907,
@@ -13533,7 +13533,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 908,
@@ -13563,7 +13563,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 910,
@@ -13593,7 +13593,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 912,
@@ -13609,7 +13609,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 913,
@@ -13668,7 +13668,7 @@
     "answer": [
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 917,
@@ -13699,7 +13699,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 919,
@@ -13714,7 +13714,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 920,
@@ -13729,7 +13729,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 921,
@@ -13760,7 +13760,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 923,
@@ -13775,7 +13775,7 @@
       "A",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 924,
@@ -13790,7 +13790,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 925,
@@ -13805,7 +13805,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 926,
@@ -13819,7 +13819,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 927,
@@ -13835,7 +13835,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 928,
@@ -13866,7 +13866,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 930,
@@ -13882,7 +13882,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 931,
@@ -13897,7 +13897,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 932,
@@ -13912,7 +13912,7 @@
       "A",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 933,
@@ -13926,7 +13926,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 934,
@@ -13941,7 +13941,7 @@
       "C",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 935,
@@ -13971,7 +13971,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 937,
@@ -14029,7 +14029,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 941,
@@ -14059,7 +14059,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 943,
@@ -14118,7 +14118,7 @@
       "B",
       "D"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Všeobecná chémia"
   },
   {
     "id": 947,
@@ -14178,7 +14178,7 @@
       "A",
       "D"
     ],
-    "topic": "Biochémia"
+    "topic": "Organická chémia"
   },
   {
     "id": 951,
@@ -14537,7 +14537,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 975,
@@ -14867,7 +14867,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 997,
@@ -14882,7 +14882,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 998,
@@ -14912,7 +14912,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1000,
@@ -14927,7 +14927,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1001,
@@ -15002,7 +15002,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1006,
@@ -15017,7 +15017,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1007,
@@ -15032,7 +15032,7 @@
       "A",
       "B"
     ],
-    "topic": "Fyzikálna chémia a roztoky"
+    "topic": "Biochémia"
   },
   {
     "id": 1008,
@@ -15079,7 +15079,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1011,
@@ -15094,7 +15094,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1012,
@@ -15124,7 +15124,7 @@
       "B",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1014,
@@ -15228,7 +15228,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1021,
@@ -15257,7 +15257,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1023,
@@ -15420,7 +15420,7 @@
     "answer": [
       "C"
     ],
-    "topic": "Biochémia"
+    "topic": "Fyzikálna chémia a roztoky"
   },
   {
     "id": 1034,
@@ -15597,7 +15597,7 @@
       "A",
       "C"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1046,
@@ -15687,7 +15687,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1052,
@@ -15716,7 +15716,7 @@
     "answer": [
       "A"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1054,
@@ -15791,7 +15791,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1059,
@@ -15821,7 +15821,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1061,
@@ -15835,7 +15835,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1062,
@@ -15864,7 +15864,7 @@
     "answer": [
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1064,
@@ -15879,7 +15879,7 @@
       "A",
       "B"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1065,
@@ -15910,7 +15910,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1067,
@@ -15926,7 +15926,7 @@
       "B",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1068,
@@ -16002,7 +16002,7 @@
       "C",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1073,
@@ -16210,7 +16210,7 @@
       "A",
       "D"
     ],
-    "topic": "Organická chémia"
+    "topic": "Biochémia"
   },
   {
     "id": 1087,
@@ -16285,7 +16285,7 @@
       "B",
       "D"
     ],
-    "topic": "Biochémia"
+    "topic": "Výpočty"
   },
   {
     "id": 1092,
@@ -16300,7 +16300,7 @@
       "A",
       "B"
     ],
-    "topic": "Biochémia"
+    "topic": "Výpočty"
   },
   {
     "id": 1093,

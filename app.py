@@ -1571,6 +1571,18 @@ def ensure_subject_state(selected_file, questions):
     if "recent_question_ids" not in subject_state:
         subject_state["recent_question_ids"] = []
 
+    if "wrong_mode_cooldowns" not in subject_state:
+        subject_state["wrong_mode_cooldowns"] = {}
+
+    if "wrong_mode_retry_queue" not in subject_state:
+        subject_state["wrong_mode_retry_queue"] = []
+
+    if "wrong_mode_active_retry_type" not in subject_state:
+        subject_state["wrong_mode_active_retry_type"] = None
+
+    if "wrong_mode_active_retry_qid" not in subject_state:
+        subject_state["wrong_mode_active_retry_qid"] = None
+
     if "total_count" not in subject_state:
         subject_state["total_count"] = len(questions)
 
@@ -1859,6 +1871,242 @@ def update_recent_questions(subject_state, qid):
 
 
 
+
+def normalize_wrong_mode_cooldowns(subject_state):
+    cooldowns = subject_state.get("wrong_mode_cooldowns", {})
+
+    if not isinstance(cooldowns, dict):
+        cooldowns = {}
+
+    cleaned = {}
+
+    for qid, value in cooldowns.items():
+        try:
+            remaining = int(value)
+        except Exception:
+            remaining = 0
+
+        if remaining > 0:
+            cleaned[str(qid)] = remaining
+
+    subject_state["wrong_mode_cooldowns"] = cleaned
+    return cleaned
+
+
+def age_wrong_mode_cooldowns(subject_state, current_qid=None):
+    """
+    V režime Len nesprávne počítame cooldown podľa počtu ďalších zodpovedaných otázok.
+    Ak otázku zodpovieš zle, nastaví sa jej cooldown 5.
+    Po každej ďalšej odpovedi sa ostatným cooldown zníži o 1.
+    """
+    cooldowns = normalize_wrong_mode_cooldowns(subject_state)
+    current_qid = str(current_qid) if current_qid is not None else None
+    aged = {}
+
+    for qid, remaining in cooldowns.items():
+        if qid == current_qid:
+            aged[qid] = remaining
+        else:
+            new_remaining = remaining - 1
+            if new_remaining > 0:
+                aged[qid] = new_remaining
+
+    subject_state["wrong_mode_cooldowns"] = aged
+    return aged
+
+
+def set_wrong_mode_cooldown(subject_state, qid, steps=5):
+    cooldowns = normalize_wrong_mode_cooldowns(subject_state)
+    cooldowns[str(qid)] = int(steps)
+    subject_state["wrong_mode_cooldowns"] = cooldowns
+
+
+def clear_wrong_mode_cooldown(subject_state, qid):
+    cooldowns = normalize_wrong_mode_cooldowns(subject_state)
+    cooldowns.pop(str(qid), None)
+    subject_state["wrong_mode_cooldowns"] = cooldowns
+
+
+def apply_wrong_mode_cooldown_filter(wrong_questions, subject_state):
+    """
+    Ak je otázka v režime Len nesprávne zodpovedaná zle, dočasne ju skryjeme,
+    aby sa najbližšie zobrazila až po približne 5 ďalších otázkach.
+
+    Ak sú všetky dostupné nesprávne otázky v cooldowne, vrátime celý zoznam,
+    aby používateľ nezostal bez otázok.
+    """
+    cooldowns = normalize_wrong_mode_cooldowns(subject_state)
+
+    if not cooldowns:
+        return wrong_questions
+
+    available = [
+        q for q in wrong_questions
+        if cooldowns.get(get_qid(q), 0) <= 0
+    ]
+
+    return available or wrong_questions
+
+
+
+
+def normalize_wrong_mode_retry_queue(subject_state):
+    queue = subject_state.get("wrong_mode_retry_queue", [])
+
+    if not isinstance(queue, list):
+        queue = []
+
+    cleaned = []
+
+    for item in queue:
+        if not isinstance(item, dict):
+            continue
+
+        qid = item.get("qid")
+        remaining = item.get("remaining", 0)
+        retry_type = item.get("type", "wrong_retry")
+
+        try:
+            remaining = int(remaining)
+        except Exception:
+            remaining = 0
+
+        if qid is not None:
+            cleaned.append({
+                "qid": str(qid),
+                "remaining": max(0, remaining),
+                "type": str(retry_type)
+            })
+
+    subject_state["wrong_mode_retry_queue"] = cleaned
+    return cleaned
+
+
+def age_wrong_mode_retry_queue(subject_state, current_qid=None):
+    """
+    Presné poradie v režime Len nesprávne:
+    - keď otázku dáš zle, zaradí sa s remaining = 4,
+    - po 4 iných otázkach sa ukáže ako 5. ďalšia,
+    - ak túto naplánovanú otázku dáš správne, zaradí sa ešte raz s remaining = 14,
+      teda ako 15. ďalšia.
+    """
+    queue = normalize_wrong_mode_retry_queue(subject_state)
+    current_qid = str(current_qid) if current_qid is not None else None
+    aged = []
+
+    for item in queue:
+        qid = item["qid"]
+        remaining = int(item.get("remaining", 0))
+
+        if qid == current_qid:
+            aged.append(item)
+        else:
+            aged.append({
+                "qid": qid,
+                "remaining": max(0, remaining - 1),
+                "type": item.get("type", "wrong_retry")
+            })
+
+    subject_state["wrong_mode_retry_queue"] = aged
+    return aged
+
+
+def schedule_wrong_mode_exact_retry(subject_state, qid, after_other_questions=4, retry_type="wrong_retry"):
+    """
+    Zaradí otázku na presnú pozíciu.
+    - wrong_retry: zle -> 4 iné otázky -> táto otázka ako 5.
+    - confirm_retry: po správnej odpovedi na 5. opakovanie -> 14 iných otázok -> táto otázka ako 15.
+    """
+    qid = str(qid)
+    retry_type = str(retry_type)
+    queue = normalize_wrong_mode_retry_queue(subject_state)
+
+    # Pre tú istú otázku a rovnaký typ ponecháme vždy iba najnovší termín.
+    queue = [
+        item for item in queue
+        if not (item.get("qid") == qid and item.get("type", "wrong_retry") == retry_type)
+    ]
+
+    queue.append({
+        "qid": qid,
+        "remaining": int(after_other_questions),
+        "type": retry_type
+    })
+
+    subject_state["wrong_mode_retry_queue"] = queue
+
+
+def clear_wrong_mode_exact_retry(subject_state, qid):
+    qid = str(qid)
+    queue = normalize_wrong_mode_retry_queue(subject_state)
+    subject_state["wrong_mode_retry_queue"] = [
+        item for item in queue
+        if item.get("qid") != qid
+    ]
+
+def get_due_wrong_mode_retry_type(subject_state, qid):
+    qid = str(qid)
+    queue = normalize_wrong_mode_retry_queue(subject_state)
+
+    for item in queue:
+        if item.get("qid") == qid and int(item.get("remaining", 0)) <= 0:
+            return item.get("type", "wrong_retry")
+
+    return None
+
+
+
+def pop_due_wrong_mode_retry_question(available_questions, subject_state):
+    """
+    Ak je v Len nesprávne naplánovaná otázka s remaining <= 0,
+    vráti ju natvrdo ako ďalšiu otázku a odstráni ju z queue.
+    """
+    queue = normalize_wrong_mode_retry_queue(subject_state)
+
+    if not queue:
+        return None
+
+    available_by_id = {get_qid(q): q for q in available_questions}
+
+    for index, item in enumerate(queue):
+        qid = str(item.get("qid"))
+        remaining = int(item.get("remaining", 0))
+
+        if remaining <= 0 and qid in available_by_id:
+            selected = available_by_id[qid]
+            subject_state["wrong_mode_active_retry_type"] = item.get("type", "wrong_retry")
+            subject_state["wrong_mode_active_retry_qid"] = qid
+            del queue[index]
+            subject_state["wrong_mode_retry_queue"] = queue
+            return selected
+
+    subject_state["wrong_mode_retry_queue"] = queue
+    return None
+
+
+def hide_scheduled_wrong_mode_questions(questions, subject_state):
+    """
+    Kým otázka čaká na svoju presnú piatu pozíciu, nesmie sa ukázať náhodne skôr.
+    Ak by po skrytí nezostala žiadna otázka, vrátime pôvodný zoznam.
+    """
+    queue = normalize_wrong_mode_retry_queue(subject_state)
+    scheduled_ids = {
+        str(item.get("qid"))
+        for item in queue
+        if int(item.get("remaining", 0)) > 0
+    }
+
+    if not scheduled_ids:
+        return questions
+
+    filtered = [
+        q for q in questions
+        if get_qid(q) not in scheduled_ids
+    ]
+
+    return filtered or questions
+
+
 def should_count_as_daily_goal_progress(old_progress, new_progress, was_correct, study_mode):
     """
     Denný cieľ sa plní iba otázkami, ktoré sa dnes reálne dostali do zvládnutého stavu.
@@ -1951,6 +2199,43 @@ def update_progress_after_answer(subject_state, qid, is_correct, study_mode="Den
         p["status"] = "RED"
         p["last_result"] = "wrong"
         p["next_review"] = today_iso
+
+    if study_mode == "Len nesprávne":
+        active_retry_type = subject_state.get("wrong_mode_active_retry_type")
+        active_retry_qid = subject_state.get("wrong_mode_active_retry_qid")
+
+        age_wrong_mode_retry_queue(subject_state, qid)
+
+        if is_correct:
+            clear_wrong_mode_cooldown(subject_state, qid)
+
+            # Ak toto bola otázka, ktorá sa vrátila ako 5. po zlej odpovedi,
+            # a teraz ju dáš správne, naplánujeme ešte kontrolné opakovanie ako 15. ďalšiu.
+            if str(active_retry_qid) == str(qid) and active_retry_type == "wrong_retry":
+                schedule_wrong_mode_exact_retry(
+                    subject_state,
+                    qid,
+                    after_other_questions=14,
+                    retry_type="confirm_retry"
+                )
+                set_wrong_mode_cooldown(subject_state, qid, steps=14)
+            else:
+                clear_wrong_mode_exact_retry(subject_state, qid)
+
+        else:
+            # Každá zlá odpoveď resetuje krátke opakovanie: otázka sa vráti ako 5. ďalšia.
+            clear_wrong_mode_exact_retry(subject_state, qid)
+            schedule_wrong_mode_exact_retry(
+                subject_state,
+                qid,
+                after_other_questions=4,
+                retry_type="wrong_retry"
+            )
+            set_wrong_mode_cooldown(subject_state, qid, steps=4)
+
+        if str(active_retry_qid) == str(qid):
+            subject_state["wrong_mode_active_retry_type"] = None
+            subject_state["wrong_mode_active_retry_qid"] = None
 
     if should_count_as_daily_goal_progress(old_progress_snapshot, p, is_correct, study_mode):
         stats["new_seen"] = stats.get("new_seen", 0) + 1
@@ -2428,7 +2713,10 @@ def filter_questions_for_study_mode(questions, subject_state, study_mode, exam_d
         return due_review_questions or seen_questions
 
     if study_mode == "Len nesprávne":
-        return wrong_questions
+        return hide_scheduled_wrong_mode_questions(
+            apply_wrong_mode_cooldown_filter(wrong_questions, subject_state),
+            subject_state
+        )
 
     # Denný plán:
     # Nové otázky majú prioritu. Na opakovanie a nesprávne sú samostatné režimy.
@@ -3510,13 +3798,30 @@ if nonce_key not in st.session_state:
     st.session_state[nonce_key] = 0
 
 if question_session_key not in st.session_state:
-    selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
+    selected_question = None
+
+    if st.session_state.study_mode == "Len nesprávne":
+        selected_question = pop_due_wrong_mode_retry_question(topic_filtered_questions, current_data)
+
+    if selected_question is None:
+        selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
+
     st.session_state[question_session_key] = get_qid(selected_question)
 
 q = get_question_by_id(mode_filtered_questions, st.session_state[question_session_key])
 
+if q is None and st.session_state.study_mode == "Len nesprávne":
+    q = get_question_by_id(topic_filtered_questions, st.session_state[question_session_key])
+
 if q is None:
-    selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
+    selected_question = None
+
+    if st.session_state.study_mode == "Len nesprávne":
+        selected_question = pop_due_wrong_mode_retry_question(topic_filtered_questions, current_data)
+
+    if selected_question is None:
+        selected_question = choose_next_question(mode_filtered_questions, current_data, final_review_period)
+
     st.session_state[question_session_key] = get_qid(selected_question)
     q = selected_question
 

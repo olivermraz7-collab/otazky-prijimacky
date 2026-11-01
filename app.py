@@ -7,7 +7,7 @@ import hashlib
 import secrets
 from datetime import date, timedelta, datetime
 from html import escape
-from streamlit_cookies_manager import EncryptedCookieManager
+from streamlit_cookies_manager_ext import EncryptedCookieManager
 
 try:
     from supabase import create_client

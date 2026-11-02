@@ -3911,17 +3911,24 @@ with left_col:
             btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
             submit = st.form_submit_button(btn_label)
 
+        answer_state_key = f"submitted_choices_{selected_file}_{q['id']}_{st.session_state[nonce_key]}"
+
         if submit:
             if not st.session_state.answered:
+                # Výber uložíme TERAZ, kým checkboxy ešte nie sú disabled
+                st.session_state[answer_state_key] = list(user_choices)
                 st.session_state.answered = True
                 st.rerun()
 
             else:
-                user_str = "".join(sorted(user_choices))
+                saved_choices = st.session_state.get(answer_state_key, [])
+                user_str = "".join(sorted(saved_choices))
                 correct_str = "".join(sorted(q["answer"]))
                 is_correct = user_str == correct_str
 
                 update_progress_after_answer(current_data, qid, is_correct, st.session_state.study_mode)
+
+                st.session_state.pop(answer_state_key, None)
 
                 if question_session_key in st.session_state:
                     del st.session_state[question_session_key]
@@ -3933,8 +3940,9 @@ with left_col:
                 st.rerun()
 
         if st.session_state.answered:
+            saved_choices = st.session_state.get(answer_state_key, [])
             correct_display = ", ".join(q["answer"])
-            user_str = "".join(sorted(user_choices))
+            user_str = "".join(sorted(saved_choices))
             correct_str = "".join(sorted(q["answer"]))
 
             if user_str == correct_str:

@@ -869,7 +869,7 @@ inject_css()
 
 cookies = EncryptedCookieManager(
     prefix="prep_app_dark_v3/",
-    password="Heslo1234"
+    password=st.secrets.get("COOKIE_PASSWORD", "Heslo1234")
 )
 
 if not cookies.ready():
@@ -3865,6 +3865,60 @@ render_hero(
 left_col, right_col = st.columns([0.70, 0.30], gap="large")
 
 
+def option_letter(opt):
+    return re.sub(r"[^A-Za-z0-9]", "", str(opt).strip())[:1].upper()
+
+
+def normalize_answer(ans):
+    if isinstance(ans, (list, tuple, set)):
+        ans = "".join(str(a) for a in ans)
+    return "".join(sorted({c.upper() for c in re.sub(r"[^A-Za-z0-9]", "", str(ans))}))
+
+
+def get_shuffled_options(q, seed_text):
+    """
+    Vrati (display_options, correct_letters) s premiesanymi moznostami
+    a prepisanymi pismenami. Ak format nesedi alebo moznosti odkazuju
+    na seba ("vsetky uvedene", "A aj B"...), necha povodne poradie.
+    """
+    original_correct = list(normalize_answer(q["answer"]))
+    parsed = []
+
+    joined = " ".join(str(o) for o in q["options"]).lower()
+    keep_order_patterns = [
+        r"všetky", r"žiadn", r"obe\b", r"oboje", r"uveden", r"vyššie", r"nižšie",
+        r"\b[a-d]\s+(aj|a|i)\s+[a-d]\b", r"\b[a-d]\s*,\s*[a-d]\b",
+        r"správne (sú|je)\s+[a-d]\b"
+    ]
+    if any(re.search(p, joined) for p in keep_order_patterns):
+        return q["options"], original_correct
+
+    for opt in q["options"]:
+        m = re.match(r"^\s*([A-Za-z])\s*([\.\)\:])\s*(.*)$", str(opt), re.DOTALL)
+        if not m:
+            return q["options"], original_correct
+        parsed.append((m.group(1).upper(), m.group(2), m.group(3).strip()))
+
+    rng = random.Random(seed_text)
+    shuffled = parsed[:]
+    rng.shuffle(shuffled)
+
+    new_letters = [chr(ord("A") + i) for i in range(len(shuffled))]
+    sep = parsed[0][1]
+
+    display_options = []
+    correct_letters = []
+
+    for new_letter, (old_letter, _sep, body) in zip(new_letters, shuffled):
+        display_options.append(f"{new_letter}{sep} {body}")
+        if old_letter in original_correct:
+            correct_letters.append(new_letter)
+
+    return display_options, sorted(correct_letters)
+
+
+
+
 with left_col:
     with st.container(border=True):
         st.markdown('<div class="question-card-shell">', unsafe_allow_html=True)
@@ -3877,8 +3931,16 @@ with left_col:
 
         st.divider()
 
+        if "shuffle_salt" not in st.session_state:
+            st.session_state.shuffle_salt = secrets.token_hex(4)
+
+        display_options, display_correct = get_shuffled_options(
+            q,
+            f"{st.session_state.shuffle_salt}_{selected_file}_{q['id']}_{st.session_state[nonce_key]}"
+        )
+
         with st.form(key=f"form_{selected_file}_{q['id']}_{st.session_state[nonce_key]}"):
-            for opt in q["options"]:
+            for opt in display_options:
                 match = re.search(r"(\S+\.png|\S+\.jpg)", opt, re.IGNORECASE)
 
                 if match:
@@ -3906,7 +3968,7 @@ with left_col:
                     )
 
                 if cb:
-                    user_choices.append(opt[0])
+                    user_choices.append(option_letter(opt))
 
             btn_label = "Pokračovať" if st.session_state.answered else "Skontrolovať"
             submit = st.form_submit_button(btn_label)
@@ -3915,15 +3977,15 @@ with left_col:
 
         if submit:
             if not st.session_state.answered:
-                # Výber uložíme TERAZ, kým checkboxy ešte nie sú disabled
+                # Vyber ulozime TERAZ, kym checkboxy este nie su disabled
                 st.session_state[answer_state_key] = list(user_choices)
                 st.session_state.answered = True
                 st.rerun()
 
             else:
                 saved_choices = st.session_state.get(answer_state_key, [])
-                user_str = "".join(sorted(saved_choices))
-                correct_str = "".join(sorted(q["answer"]))
+                user_str = normalize_answer(saved_choices)
+                correct_str = normalize_answer(display_correct)
                 is_correct = user_str == correct_str
 
                 update_progress_after_answer(current_data, qid, is_correct, st.session_state.study_mode)
@@ -3941,9 +4003,9 @@ with left_col:
 
         if st.session_state.answered:
             saved_choices = st.session_state.get(answer_state_key, [])
-            correct_display = ", ".join(q["answer"])
-            user_str = "".join(sorted(saved_choices))
-            correct_str = "".join(sorted(q["answer"]))
+            correct_display = ", ".join(display_correct)
+            user_str = normalize_answer(saved_choices)
+            correct_str = normalize_answer(display_correct)
 
             if user_str == correct_str:
                 st.success(f"Správne. Odpoveď: {correct_display}")
